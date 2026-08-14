@@ -32,5 +32,8 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
 
+      - name: Audit Composer dependencies
+        run: composer security-audit
+
       - name: Run project quality gates
         run: composer quality
