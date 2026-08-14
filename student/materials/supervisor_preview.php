@@ -2,7 +2,7 @@
 /**
  * Supervisor Materials Preview Page - Teachers & Supervisors Portal
  * Dedicated Preview & Audit System for Educational Materials
- * Delta Modern Language Schools
+ * EduCore
  */
 
 // Connect to database
@@ -139,7 +139,7 @@ function getGradeColorClass($gradeName) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($pageTitle); ?> - DMLS Audit</title>
+    <title><?php echo htmlspecialchars($pageTitle); ?> - EduCore Audit</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
@@ -264,7 +264,7 @@ function getGradeColorClass($gradeName) {
         <!-- Header with Logo -->
         <header class="materials-header">
             <a href="../../admin/materials_center.php">
-                <img src="../../assets/img/logo.png" alt="DMLS Logo" class="materials-logo" loading="lazy">
+                <img src="../../assets/img/logo.png" alt="EduCore Logo" class="materials-logo" loading="lazy">
             </a>
             <h1 class="materials-title"><?php echo htmlspecialchars($gradeName); ?></h1>
             <p class="materials-subtitle"><?php echo htmlspecialchars($termName); ?></p>
@@ -406,7 +406,7 @@ function getGradeColorClass($gradeName) {
 
         <!-- Footer -->
         <footer class="materials-footer">
-            <p>جميع الحقوق محفوظة © <?php echo date('Y'); ?><br> Delta Modern Language Schools<br>
+            <p>جميع الحقوق محفوظة © <?php echo date('Y'); ?><br> EduCore<br>
                 Computer Department</p>
         </footer>
     </div>

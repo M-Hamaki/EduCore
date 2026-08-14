@@ -232,7 +232,7 @@ if ($detailsVisible) {
         <div class="published-report-card grades-container published-grades">
             <div class="print-header">
                 <div class="print-logo"><img src="../../assets/img/logo.png" alt="Logo"></div>
-                <h3 class="print-school-name">Delta Modern Language Schools</h3>
+                <h3 class="print-school-name">EduCore</h3>
                 <h4 class="print-report-title"><?php echo spr_escape($reportTitle); ?></h4>
             </div>
             <div class="report-header text-center">

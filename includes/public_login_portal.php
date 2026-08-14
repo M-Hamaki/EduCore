@@ -20,6 +20,7 @@ $appendTeamsContext = static function (?string $url) use ($teamsContext): ?strin
 };
 $materialsUrl = $appendTeamsContext($materialsUrl);
 $microsoftLoginUrl = 'auth/microsoft_login.php' . ($teamsContext ? '?from_teams=1' : '');
+$supportEmail = trim((string) env('SUPPORT_EMAIL', 'admin@example.com'));
 ?>
 <section class="portal-login-shell" aria-labelledby="portal-login-title">
     <div class="portal-login-card">
@@ -88,11 +89,11 @@ $microsoftLoginUrl = 'auth/microsoft_login.php' . ($teamsContext ? '?from_teams=
 
         <div class="portal-support-card">
             <p class="portal-support-card__text">
-                للاستفسارات يمكنكم التواصل مع الدعم الفني عبر رسائل الواتساب على الرقم التالي
+                للاستفسارات يمكنكم التواصل مع مشغل النشر عبر البريد المخصص في إعدادات البيئة.
             </p>
-            <a href="https://wa.me/201289999818" target="_blank" rel="noopener noreferrer" class="portal-support-card__btn">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                <span dir="ltr">01289999818</span>
+            <a href="mailto:<?= htmlspecialchars($supportEmail, ENT_QUOTES, 'UTF-8') ?>" class="portal-support-card__btn">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <span dir="ltr"><?= htmlspecialchars($supportEmail, ENT_QUOTES, 'UTF-8') ?></span>
             </a>
         </div>
     </div>

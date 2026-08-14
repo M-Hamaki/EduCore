@@ -706,7 +706,7 @@ echo FinanceLegacyAdapter::bridgeNotice(__FILE__);
 
                 $enEnrollmentBody = $photoHtml .
                     $editorBlankLine .
-                    '<div class="doc-text-line mb-3">Delta Modern Language Schools certifies that student <strong>' . $stNameEn . '</strong></div>' .
+                    '<div class="doc-text-line mb-3">EduCore certifies that student <strong>' . $stNameEn . '</strong></div>' .
                     '<div class="doc-text-line mb-3">is enrolled in Grade <strong>' . $stGradeEn . '</strong> for the academic year <strong>' . $ayName . '</strong>.</div>' .
                     '<div class="doc-text-line mb-3">This certificate has been issued to ' . $pronounEnTo . ' upon ' . $pronounEnHis . ' request to be presented to /&nbsp;<strong><span class="entity-name-display" style="cursor: pointer; border-bottom: 1px dashed #999; padding: 0 2px;" title="Click to type entity name">[ Click here to type entity name ]</span></strong></div>' .
                     '<div class="doc-text-line mb-3">This certificate is issued upon request without any liability on the school.</div>' .

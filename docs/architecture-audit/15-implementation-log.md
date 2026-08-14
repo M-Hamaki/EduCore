@@ -148,9 +148,9 @@
 | `git status --short --branch` | baseline dirty مسجل |
 | `git branch --show-current` | `main` |
 | `git log -5 --oneline` | تمت مراجعته؛ آخر commit `379150c3` |
-| `C:\xampp\php\php.exe -v` | PHP 8.2.12 |
-| `C:\xampp\php\php.exe tools\php_lint.php` | 396 ملف، 0 failures |
-| `C:\xampp\php\php.exe tools\audit_admin_ui.php` | 117 admin PHP، 0 issues |
+| `php -v` | PHP 8.2.12 |
+| `php tools/php_lint.php` | 396 ملف، 0 failures |
+| `php tools/audit_admin_ui.php` | 117 admin PHP، 0 issues |
 | `composer validate --no-check-publish` | صالح |
 | `composer audit --no-interaction` | لم يكتمل: timeout إلى Packagist؛ لا حكم أمني |
 | `tests/assessment_engine_unit_test.php` | PASS لكل الحالات المطبوعة |
@@ -269,7 +269,7 @@
 
 - `php -l` للأداة والاختبار: ناجح.
 - `tests/architecture_audit_test.php`: نجحت 12 بوابة، ومنها اكتشاف regression جديد ورفض baseline المفقودة والتالفة.
-- `composer validate --no-check-publish`: ناجح عبر `C:\xampp\php\php.exe composer.phar` لأن `composer` ليس في `PATH` لهذه الجلسة.
+- `composer validate --no-check-publish`: ناجح عبر Composer؛ لم يكن الأمر متاحًا مباشرة في `PATH` لتلك الجلسة.
 - `composer architecture-audit`: ناجح، وصفر regressions.
 - `tools/php_lint.php`: 399 ملفًا، صفر failures.
 - `tools/audit_admin_ui.php`: `ADMIN_PHP_FILES=117` و`UI_AUDIT_ISSUES=0`.
@@ -312,7 +312,7 @@
 
 - الدستور لا يحتوي placeholders، وإصداره `1.0.0` بتاريخ اعتماد وتعديل `2026-07-12`.
 - `composer documentation-audit`: 21/21 PASS، ومذكور ضمن أوامر README والمعمارية؛ يغطي أيضًا عقد التواصل بين الوحدات وحدود الفاحص وشرط PSR-4.
-- `composer validate --no-check-publish`: ناجح عبر `C:\xampp\php\php.exe composer.phar`.
+- `composer validate --no-check-publish`: ناجح عبر Composer.
 - `composer lint`: 400 ملف PHP، صفر failures.
 - `composer architecture-audit`: 275 ملفًا تطبيقيًا، صفر regressions، وصفر ملفات غير مقروءة.
 - `tests/architecture_audit_test.php`: 12/12 PASS.

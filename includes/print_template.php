@@ -128,7 +128,7 @@ function translate_setting_to_en($key, $value)
         'مديرة التربية والتعليم بالدقهلية' => 'Dakahlia Directorate of Education',
         'مديرية التربية والتعليم بالدقهلية' => 'Dakahlia Directorate of Education',
         'إدارة طلخا التعليمية' => 'Talkha Educational Administration',
-        'مدرسة الدلتا الحديثة للغات' => 'Delta Modern Language School',
+        'EduCore' => 'EduCore',
         'د. حسن قمح' => 'Dr. Hassan Qamh',
         'أ. منال محمد' => 'Mrs. Manal Mohamed',
         'أ. نيرفين أحمد' => 'Mrs. Nervin Ahmed',

@@ -352,4 +352,4 @@ enabled: false  >  downloadable: false
 
 **آخر تحديث:** 14 أكتوبر 2025
 **الإصدار:** 2.0
-**النظام:** Delta Modern Language Schools - Materials System
+**النظام:** EduCore - Materials System

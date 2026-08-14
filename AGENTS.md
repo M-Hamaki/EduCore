@@ -97,8 +97,8 @@ Rules for future documentation updates:
 
 ## Platform & Stack
 - PHP 8.0+ (per `composer.json`) / MySQL (MariaDB), XAMPP, PDO
-- Path: `c:\xampp\htdocs\EduCore\`
-- PHP exe: `C:\xampp\php\php.exe`
+- Path: `<project-root>`
+- PHP executable: `php`
 - Bootstrap 5.3.2 RTL, Font Awesome 6, DataTables
 - Database: `educore`, localhost
 
@@ -490,10 +490,10 @@ Always use **Bootstrap 5 modals** for confirmation dialogs (delete, toggle statu
 
 ### مسار التنفيذ
 1. أضف/استخدم كلاسات `admin-*` في الصفحة المستهدفة.
-2. شغّل `C:\xampp\php\php.exe -l path\to\page.php`.
+2. شغّل `php -l path\to\page.php`.
 3. اختبر الفلاتر وDataTables وأزرار الإضافة/التعديل/الحذف.
 4. لا تنقل صفحة جديدة للنظام الموحد قبل التأكد من الصفحة السابقة.
-5. قبل إغلاق أي دفعة توحيد، شغّل `C:\xampp\php\php.exe tools\audit_admin_ui.php` ويجب أن تكون النتيجة `UI_AUDIT_ISSUES=0`.
+5. قبل إغلاق أي دفعة توحيد، شغّل `php tools\audit_admin_ui.php` ويجب أن تكون النتيجة `UI_AUDIT_ISSUES=0`.
 
 ---
 

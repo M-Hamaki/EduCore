@@ -238,9 +238,9 @@ if (isset($_GET['export']) && $_GET['export'] == 'pdf') {
 - [ ] **3.** `includes/admin_header.php`: تعديل رابط Tajawal في السطر 100-101 (إزالة 300، إضافة 600).
 - [ ] **التحقق النحوي:**
       ```
-      C:\xampp\php\php.exe -l admin\attendance.php
-      C:\xampp\php\php.exe -l admin\evaluation_reports.php
-      C:\xampp\php\php.exe -l includes\admin_header.php
+      php -l admin/attendance.php
+      php -l admin/evaluation_reports.php
+      php -l includes/admin_header.php
       ```
       كلها يجب أن تُرجع `No syntax errors detected`.
 - [ ] **اختبار يدوي:**

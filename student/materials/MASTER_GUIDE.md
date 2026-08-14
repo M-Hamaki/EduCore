@@ -66,7 +66,7 @@ http://localhost/rewards1/student/materials/view.php?grade=prim4&term=term1
 
 ### خطوة 3️⃣: أرشف الملفات القديمة (دقيقة واحدة)
 ```powershell
-cd c:\xampp\htdocs\rewards1\student\materials
+cd <project-root>\student\materials
 .\archive_old_files.ps1
 ```
 
@@ -219,7 +219,7 @@ Replace: 2027
 
 #### الطريقة التلقائية (موصى بها):
 ```powershell
-cd c:\xampp\htdocs\rewards1\student\materials
+cd <project-root>\student\materials
 .\archive_old_files.ps1
 ```
 
@@ -475,7 +475,7 @@ http://localhost/.../view.php?grade=prep1&term=term1
 
 ---
 
-**🎓 Delta Modern Language Schools**  
+**🎓 EduCore**
 **Computer Department**
 
 **📅 التاريخ:** 14 أكتوبر 2025  

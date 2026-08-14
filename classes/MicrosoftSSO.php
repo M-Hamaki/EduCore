@@ -259,7 +259,6 @@ class MicrosoftSSO {
             $validAudiences = [
                 $this->clientId,
                 'api://' . $this->clientId,
-                'api://portal.dmls.edu.eg/' . $this->clientId,
                 defined('TEAMS_APP_ID_URI') ? TEAMS_APP_ID_URI : null,
             ];
             $validAudiences = array_values(array_unique(array_filter($validAudiences)));

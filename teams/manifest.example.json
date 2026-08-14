@@ -1,0 +1,61 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.17",
+    "version": "1.0.0",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "packageName": "org.educore.portal",
+    "developer": {
+        "name": "EduCore",
+        "websiteUrl": "https://school.example.com/",
+        "privacyUrl": "https://school.example.com/privacy.php",
+        "termsOfUseUrl": "https://school.example.com/terms.php"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "EduCore",
+        "full": "EduCore School Management Platform"
+    },
+    "description": {
+        "short": "EduCore school portal with SSO",
+        "full": "Access an EduCore school deployment through Microsoft Teams with Single Sign-On (SSO)."
+    },
+    "accentColor": "#2563eb",
+    "staticTabs": [
+        {
+            "entityId": "portal",
+            "name": "Portal",
+            "contentUrl": "https://school.example.com/teams/app.html",
+            "websiteUrl": "https://school.example.com/",
+            "scopes": ["personal"]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "school.example.com",
+        "login.microsoftonline.com",
+        "*.microsoft.com"
+    ],
+    "webApplicationInfo": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "resource": "api://school.example.com/00000000-0000-0000-0000-000000000000"
+    },
+    "authorization": {
+        "permissions": {
+            "resourceSpecific": [
+                {
+                    "name": "User.Read",
+                    "type": "Delegated"
+                }
+            ]
+        }
+    },
+    "showLoadingIndicator": true,
+    "isFullScreen": false,
+    "defaultBlockUntilAdminAction": false
+}

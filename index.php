@@ -94,7 +94,7 @@ $portalView = (new GetPublicPortalView())->execute();
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>بوابة التعلم الرقمي - DMLS</title>
+    <title>بوابة EduCore التعليمية</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -120,11 +120,9 @@ $portalView = (new GetPublicPortalView())->execute();
 
     <footer class="portal-footer">
         <p><strong>جميع الحقوق محفوظة © <?= date('Y') ?></strong></p>
-        <p>Delta Modern Language Schools<br>Computer Department</p>
+        <p>EduCore<br>Open Source School Platform</p>
         <div class="portal-social-links" aria-label="روابط التواصل الاجتماعي">
-            <a href="https://www.facebook.com/DELTA.MLS" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://wa.me/201289999818" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/delta.mls" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="إنستجرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/M-Hamaki/EduCore" target="_blank" rel="noopener noreferrer" class="github" aria-label="مستودع المشروع"><i class="fab fa-github"></i></a>
         </div>
     </footer>
 

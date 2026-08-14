@@ -237,7 +237,7 @@ student/materials/
 
 ## 📞 معلومات الاتصال
 
-**Delta Modern Language Schools**  
+**EduCore**
 Computer Department
 
 ---

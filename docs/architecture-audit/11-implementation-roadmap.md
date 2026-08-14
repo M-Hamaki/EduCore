@@ -34,15 +34,15 @@
 
 ```powershell
 git status --short --branch
-C:\xampp\php\php.exe -l <كل-ملف-PHP-معدل>
-C:\xampp\php\php.exe tools\php_lint.php
-C:\xampp\php\php.exe tools\audit_admin_ui.php
+php -l <كل-ملف-PHP-معدل>
+php tools/php_lint.php
+php tools/audit_admin_ui.php
 git diff --check
 git diff --stat
 git diff
 ```
 
-للمرحلة التي تضيف أو تعدل اختبارات، يُشغّل ملف الاختبار المحدد بـ`C:\xampp\php\php.exe`. لا يُشغّل integration test قبل نجاح guard الذي يثبت أن اسم قاعدة الاختبار ليس `educore` وأن البيئة ليست production.
+للمرحلة التي تضيف أو تعدل اختبارات، يُشغّل ملف الاختبار المحدد بـ`php`. لا يُشغّل integration test قبل نجاح guard الذي يثبت أن اسم قاعدة الاختبار ليس `educore` وأن البيئة ليست production.
 
 ## المرحلة 0 — خط الأساس ووثائق التدقيق
 

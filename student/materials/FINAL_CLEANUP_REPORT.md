@@ -345,4 +345,4 @@ Copy-Item "materials_data.json" "archive\backups\materials_data_$(Get-Date -Form
 **آخر تحديث:** 14 أكتوبر 2025
 **الإصدار:** 3.0 Final
 **الحالة:** ✅ مكتمل ومستقر ومُحسَّن
-**النظام:** Delta Modern Language Schools - Materials System
+**النظام:** EduCore - Materials System

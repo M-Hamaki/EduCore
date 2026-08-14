@@ -576,7 +576,7 @@ foreach ($allowed_services as $key) {
     <!-- Footer -->
     <footer class="portal-footer">
         <div class="container text-center">
-            <p>جميع الحقوق محفوظة &copy; <?php echo date('Y'); ?><br>Delta Modern Language Schools<br>Computer Department</p>
+            <p>جميع الحقوق محفوظة &copy; <?php echo date('Y'); ?><br>EduCore<br>Open Source School Platform</p>
         </div>
     </footer>
 

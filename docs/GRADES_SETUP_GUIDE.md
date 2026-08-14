@@ -18,8 +18,8 @@
 #### طريقة 2: من خلال Terminal
 ```bash
 # في PowerShell أو CMD
-cd C:\xampp\mysql\bin
-.\mysql.exe -u root -p rewards_db < C:\xampp\htdocs\rewards\add_grades_system.sql
+cd <mysql-bin>
+mysql -u root -p rewards_db < path/to/add_grades_system.sql
 ```
 
 ---
@@ -179,8 +179,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 إذا واجهت مشكلة لم يتم تغطيتها هنا:
 - راجع ملف `GRADES_SYSTEM_README.md` للتفاصيل الكاملة
-- تحقق من سجل أخطاء Apache: `C:\xampp\apache\logs\error.log`
-- تحقق من سجل أخطاء MySQL: `C:\xampp\mysql\data\*.err`
+- تحقق من سجل أخطاء Apache في مسار سجلات خادم الويب لديك.
+- تحقق من سجل أخطاء MySQL في مسار سجلات قاعدة البيانات لديك.
 
 ---
 
@@ -188,8 +188,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 ```bash
 # نسخة احتياطية
-cd C:\xampp\mysql\bin
-.\mysqldump.exe -u root -p rewards_db > backup_before_grades_system.sql
+cd <mysql-bin>
+mysqldump -u root -p rewards_db > backup_before_grades_system.sql
 ```
 
 ---

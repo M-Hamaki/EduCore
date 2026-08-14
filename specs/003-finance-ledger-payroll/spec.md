@@ -1,6 +1,6 @@
 # Feature Specification: Finance Ledger & Payroll
 
-**Feature Branch**: `feature/003-finance-ledger-payroll` (worktree at `C:\xampp\worktrees\EduCore-finance` — NOT clean: `.specify/feature.json` is modified and `specs/003-finance-ledger-payroll/` is untracked; isolated from the in-progress dirty `main` worktree)
+**Feature Branch**: `feature/003-finance-ledger-payroll` (historical isolated feature worktree; its baseline was intentionally separate from the main checkout)
 
 **Created**: 2026-07-22
 
@@ -307,7 +307,7 @@ As a finance administrator, I want student/staff balances computed EXCLUSIVELY f
 - **FR-067**: Budget `actual_amount` MUST NOT be stored as an independent source; it MUST be computed from posted GL journal entries via a view/query OR a derived cache with a documented refresh/reconciliation mechanism reconcilable to GL on demand.
 - **FR-068**: Every import workflow MUST read `docs/file-upload-standard.md` first; every uploaded file MUST be validated through `FileUploadGuard` (real MIME, dangerous double extension, byte limit, random storage name); the path MUST be classified in `tools/upload_policy_manifest.json` and pass `php tools/audit_upload_policy.php --strict` and `composer upload-policy-audit`. Tests MUST cover invalid MIME, dangerous names, size/upload errors, collision-resistant names, authorization, and file/DB rollback.
 - **FR-069**: Every new data-entry admin page MUST use the shared `admin_footer`/role footer, `assets/js/form-safety.js`, and `assets/js/undo-toast.js`; a role-coverage contract test MUST exist for it; NO page-local toast/draft/keyboard-shortcut/logger or competing storage-key behavior is permitted.
-- **FR-070**: Before implementation code: commit the approved spec-only package; inventory the exact current dirty state of `C:\xampp\htdocs\EduCore`; create a manifest; adopt the current tracked diff plus required untracked source/docs/tests/migrations into this isolated feature worktree as a separate reviewed `baseline: adopt current local main state` commit; exclude `.env`, secrets, private storage/backups, caches/logs, generated outputs, and `scratch/`; leave `main` untouched; then run a full overlap/dependency review and all safe baseline checks. `origin/main` MUST NOT substitute for local state. No `stash`/`reset`/`clean`/`force`. Stop only on an actual patch conflict, unsafe file, secret, or unresolvable dependency—not merely because `main` is dirty.
+- **FR-070**: Before implementation code: commit the approved spec-only package; inventory the exact current dirty state of the source checkout; create a manifest; adopt the current tracked diff plus required untracked source/docs/tests/migrations into this isolated feature worktree as a separate reviewed `baseline: adopt current local main state` commit; exclude `.env`, secrets, private storage/backups, caches/logs, generated outputs, and `scratch/`; leave `main` untouched; then run a full overlap/dependency review and all safe baseline checks. `origin/main` MUST NOT substitute for local state. No `stash`/`reset`/`clean`/`force`. Stop only on an actual patch conflict, unsafe file, secret, or unresolvable dependency—not merely because `main` is dirty.
 
 ### Functional Requirements — Unified Sub-ledger, Staff Ledger, Vouchers (added 2026-07-23)
 

@@ -1,7 +1,7 @@
 {
     "name": "educore/system",
-    "description": "نظام EduCore التعليمي",
-    "license": "proprietary",
+    "description": "Arabic-first open-source school management platform",
+    "license": "AGPL-3.0-only",
     "type": "project",
     "require": {
         "php": ">=8.0",
@@ -64,8 +64,7 @@
     },
     "authors": [
         {
-            "name": "ClassDojo-like System",
-            "email": "admin@example.com"
+            "name": "Mohamed Hamaki"
         }
     ],
     "minimum-stability": "stable",

@@ -75,7 +75,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="<?php echo csrfToken(); ?>">
-    <title>أداة تحضير الدروس - DMLS</title>
+    <title>أداة تحضير الدروس - EduCore</title>
 
     <!-- Prevent caching issues -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">

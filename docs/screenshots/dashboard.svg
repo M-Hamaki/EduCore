@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">EduCore synthetic dashboard</title>
+  <desc id="desc">A synthetic Arabic-first school dashboard with demo counts and no real data.</desc>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <rect width="1280" height="76" fill="#172554"/>
+  <text x="1180" y="48" text-anchor="end" fill="#fff" font-family="Arial" font-size="28" font-weight="700">EduCore</text>
+  <text x="1050" y="44" text-anchor="end" fill="#bfdbfe" font-family="Arial" font-size="18">لوحة التحكم التجريبية</text>
+  <rect x="56" y="116" width="1168" height="88" rx="18" fill="#fff" stroke="#dbeafe"/>
+  <text x="1174" y="153" text-anchor="end" fill="#0f172a" font-family="Arial" font-size="24" font-weight="700">مرحبًا بك في EduCore</text>
+  <text x="1174" y="181" text-anchor="end" fill="#64748b" font-family="Arial" font-size="16">بيانات العرض توضيحية ومولدة للتوثيق فقط</text>
+  <g font-family="Arial">
+    <rect x="56" y="236" width="268" height="132" rx="18" fill="#dbeafe"/><text x="296" y="274" text-anchor="end" fill="#1e3a8a" font-size="17">الطلاب</text><text x="296" y="332" text-anchor="end" fill="#1d4ed8" font-size="42" font-weight="700">248</text>
+    <rect x="344" y="236" width="268" height="132" rx="18" fill="#dcfce7"/><text x="584" y="274" text-anchor="end" fill="#14532d" font-size="17">العاملون</text><text x="584" y="332" text-anchor="end" fill="#15803d" font-size="42" font-weight="700">42</text>
+    <rect x="632" y="236" width="268" height="132" rx="18" fill="#fef3c7"/><text x="872" y="274" text-anchor="end" fill="#78350f" font-size="17">الحضور اليوم</text><text x="872" y="332" text-anchor="end" fill="#b45309" font-size="42" font-weight="700">93%</text>
+    <rect x="920" y="236" width="304" height="132" rx="18" fill="#ede9fe"/><text x="1196" y="274" text-anchor="end" fill="#4c1d95" font-size="17">التقييمات هذا الأسبوع</text><text x="1196" y="332" text-anchor="end" fill="#7c3aed" font-size="42" font-weight="700">1,284</text>
+  </g>
+  <rect x="56" y="410" width="1168" height="236" rx="18" fill="#fff" stroke="#e2e8f0"/>
+  <text x="1170" y="454" text-anchor="end" fill="#0f172a" font-family="Arial" font-size="21" font-weight="700">ملخص النشاط</text>
+  <line x1="100" y1="590" x2="1170" y2="590" stroke="#e2e8f0"/>
+  <polyline points="120,560 260,520 400,540 540,480 680,505 820,450 960,470 1100,430" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+</svg>

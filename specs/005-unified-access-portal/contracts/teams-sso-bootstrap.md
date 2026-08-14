@@ -29,7 +29,7 @@ initializing
 ```http
 Content-Type: application/json
 Accept: application/json
-Origin: https://portal.dmls.edu.eg
+Origin: https://school.example.com
 
 {"token":"<opaque Teams SSO token>"}
 ```
@@ -107,6 +107,6 @@ Origin: https://portal.dmls.edu.eg
 | البيئة | origin المتوقع |
 |---|---|
 | local browser test | `http://localhost` مع base path `/EduCore` |
-| production Teams | `https://portal.dmls.edu.eg` |
+| production Teams | `https://school.example.com` |
 
 اختبار Teams SDK الحقيقي قد يتطلب HTTPS/domain معتمداً؛ الاختبارات المحلية تفصل منطق الغلاف والتحقق عن الاعتماد الخارجي، ثم يكتمل اختبار end-to-end في مستأجر تجريبي.

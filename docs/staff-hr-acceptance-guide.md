@@ -59,7 +59,7 @@
 $env:APP_ENV = 'test'
 $env:STAFF_HR_TEST_MARKER = 'integrated-staff-hr'
 $env:STAFF_HR_ACCEPTANCE_PASSWORD = '<تُستلم من القناة الآمنة>'
-C:\xampp\php\php.exe tools\staff_hr_acceptance_seed.php --database=<acceptance_name_test> --json
+php tools/staff_hr_acceptance_seed.php --database=<acceptance_name_test> --json
 ```
 
 احفظ من الإيصال فقط: `dataset_id` و`version` و`batch_id` و`checksum` والأعداد ومعرف baseline. لا تحفظ كلمة المرور ولا مفتاح الحزمة في تقرير عام. إعادة الأمر بالإصدار نفسه تتحقق من الصفوف المملوكة ولا تنشئ نسخًا مكررة.
@@ -90,7 +90,7 @@ C:\xampp\php\php.exe tools\staff_hr_acceptance_seed.php --database=<acceptance_n
 ```powershell
 $env:APP_ENV = 'test'
 $env:STAFF_HR_TEST_MARKER = 'integrated-staff-hr'
-C:\xampp\php\php.exe tools\staff_hr_acceptance_restore.php --database=<acceptance_name_test> --target-database=<fresh_baseline_name_test> --actor-id=<baseline_admin_id> --json
+php tools/staff_hr_acceptance_restore.php --database=<acceptance_name_test> --target-database=<fresh_baseline_name_test> --actor-id=<baseline_admin_id> --json
 ```
 
 تحقق من الإيصال ومن عدم وجود حسابات `demo.staffhr.*` في قاعدة baseline الجديدة قبل توجيه بيئة القبول إليها. إعادة الأمر بالهدف نفسه مقبولة فقط إذا بقيت بصمة القاعدة مطابقة تمامًا؛ أي تغيير يجعل العملية تفشل مغلقة ويستلزم اسم هدف جديدًا. إذا ظهر تعارض ملكية أو بصمة فتوقف ولا تنفذ حذفًا يدويًا.

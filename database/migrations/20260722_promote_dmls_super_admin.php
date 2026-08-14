@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+require_once dirname(__DIR__, 2) . '/config/env_loader.php';
 require_once dirname(__DIR__, 2) . '/classes/ActivityLog.php';
 
 /**
@@ -11,7 +12,10 @@ require_once dirname(__DIR__, 2) . '/classes/ActivityLog.php';
  * does not exist, and it refuses ambiguous, inactive, or non-admin matches.
  */
 return static function (PDO $db): void {
-    $targetUsername = 'dmls@dmls.edu.eg';
+    $targetUsername = trim((string) env('INITIAL_SUPER_ADMIN_USERNAME', ''));
+    if ($targetUsername === '') {
+        return;
+    }
     $ownsTransaction = !$db->inTransaction();
     if ($ownsTransaction) {
         $db->beginTransaction();
@@ -61,7 +65,7 @@ return static function (PDO $db): void {
             ['role' => 'admin'],
             ['role' => 'super_admin'],
             [
-                'actor_name' => 'Migration 20260722_promote_dmls_super_admin',
+                'actor_name' => 'Migration 20260722_super_admin_bootstrap',
                 'actor_role' => 'system_migration',
             ]
         );

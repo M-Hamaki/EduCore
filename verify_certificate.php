@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cert'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>التحقق من الشهادات - Delta Modern Language Schools</title>
+    <title>التحقق من الشهادات - EduCore</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -349,8 +349,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cert'])) {
                                 <!-- Header Logo & Institution -->
                                 <div class="d-flex justify-content-between align-items-center mb-4 cert-header-row">
                                     <div class="text-start">
-                                        <h6 class="fw-bold mb-0 text-primary">مدارس الدلتا الحديثة للغات</h6>
-                                        <small class="text-muted">Delta Modern Language Schools</small>
+                                        <h6 class="fw-bold mb-0 text-primary">EduCore</h6>
+                                        <small class="text-muted">Open Source School Platform</small>
                                     </div>
                                     <img src="<?php echo get_school_logo(''); ?>" alt="Logo" class="cert-logo" style="max-height: 65px;">
                                     <div class="text-end">
@@ -409,7 +409,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cert'])) {
                                     <div class="col-4 text-end">
                                         <div class="cert-signature">
                                             <small class="text-muted d-block small">إدارة التطوير المهني</small>
-                                            <div class="fw-bold text-dark small mt-2">Delta MLS Training Dept</div>
+                                            <div class="fw-bold text-dark small mt-2">EduCore Training</div>
                                         </div>
                                     </div>
                                 </div>
@@ -440,20 +440,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['cert'])) {
                 <strong>جميع الحقوق محفوظة © <?php echo date('Y'); ?></strong>
             </p>
             <p style="margin: 0.5rem 0; line-height: 1.6;">
-                Delta Modern Language Schools<br>
-                Computer Department
+                EduCore<br>
+                Open Source School Platform
             </p>
             
             <!-- Social Media Icons in Footer -->
             <div class="social-media-footer">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram" title="حسابنا على انستجرام">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" class="social-footer-icon github" title="مستودع المشروع">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>

@@ -70,7 +70,7 @@ $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTE
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $escape($pageTitle) ?> - DMLS</title>
+    <title><?= $escape($pageTitle) ?> - EduCore</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -83,7 +83,7 @@ $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTE
     <div class="main-container">
         <header class="materials-header">
             <a href="<?= $escape($portalHomeUrl) ?>">
-                <img src="../../assets/img/logo.png" alt="DMLS Logo" class="materials-logo" loading="lazy">
+                <img src="../../assets/img/logo.png" alt="EduCore Logo" class="materials-logo" loading="lazy">
             </a>
             <h1 class="materials-title"><?= $escape($gradeName) ?></h1>
             <p class="materials-subtitle"><?= $escape($termName) ?></p>
@@ -158,11 +158,9 @@ $escape = static fn(string $value): string => htmlspecialchars($value, ENT_QUOTE
         </div>
 
         <footer class="materials-footer">
-            <p>جميع الحقوق محفوظة © <?= date('Y') ?><br>Delta Modern Language Schools<br>Computer Department</p>
+            <p>جميع الحقوق محفوظة © <?= date('Y') ?><br>EduCore<br>Open Source School Platform</p>
             <div class="social-media-footer">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" rel="noopener noreferrer" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/201289999818" target="_blank" rel="noopener noreferrer" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" rel="noopener noreferrer" class="social-footer-icon instagram" title="حسابنا على انستجرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" rel="noopener noreferrer" class="social-footer-icon github" title="مستودع المشروع"><i class="fab fa-github"></i></a>
             </div>
         </footer>
     </div>

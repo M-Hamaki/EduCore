@@ -1834,20 +1834,14 @@ $currentMonth = date('Y-m');
                 <strong>جميع الحقوق محفوظة © <?php echo date('Y'); ?></strong>
             </p>
             <p class="mb-0" style="font-size: 0.95rem;">
-                Delta Modern Language Schools<br>
-                Computer Department
+                EduCore<br>
+                Open Source School Platform
             </p>
             
             <!-- Social Media Icons in Footer -->
             <div class="social-media-footer" style="display: flex; justify-content: center; gap: 15px; margin-top: 1.5rem; margin-bottom: 0.5rem;">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #1877f2 0%, #0c63d4 100%);">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram" title="حسابنا على انستجرام" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #e1306c 0%, #c13584 50%, #833ab4 100%);">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" class="social-footer-icon github" title="مستودع المشروع" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.3rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #1877f2 0%, #0c63d4 100%);">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>

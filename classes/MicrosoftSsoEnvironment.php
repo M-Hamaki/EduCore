@@ -67,7 +67,7 @@ final class MicrosoftSsoEnvironment
         $configured = $this->credential('TEAMS_APP_ID_URI', 'AZURE_LOCAL_TEAMS_APP_ID_URI');
         return $configured !== ''
             ? rtrim($configured, '/')
-            : 'api://portal.dmls.edu.eg/' . $clientId;
+            : 'api://' . $clientId;
     }
 
     private function env(string $key): string

@@ -2,7 +2,7 @@
 
 **تاريخ خط الأساس:** 2026-07-12
 **تاريخ إغلاق الدفعات الآمنة:** 2026-07-13
-**النطاق:** الشجرة الحالية في `C:\xampp\htdocs\EduCore`
+**النطاق:** شجرة المستودع الحالية في `<project-root>`
 **الحالة الحالية (2026-07-15):** نُفذت خارطة الترحيل ذات الأولوية وأصبحت البنية Modular Monolith تدريجية مع adapters متوافقة وحواجز آلية؛ تبقى أعمال تشغيلية بعد النشر ومخاطر legacy مصرح بها، لا كوارث معمارية مخفية في الملفات المستهدفة.
 
 ## الحكم العام
@@ -76,8 +76,8 @@
 
 | الفحص | النتيجة |
 |---|---|
-| `C:\xampp\php\php.exe tools\php_lint.php` | 396 ملف PHP، دون أخطاء صياغة |
-| `C:\xampp\php\php.exe tools\audit_admin_ui.php` | `ADMIN_PHP_FILES=117`, `UI_AUDIT_ISSUES=0` |
+| `php tools/php_lint.php` | 396 ملف PHP، دون أخطاء صياغة |
+| `php tools/audit_admin_ui.php` | `ADMIN_PHP_FILES=117`, `UI_AUDIT_ISSUES=0` |
 | `composer.json` | صالح عبر `composer validate` |
 | اختبار `AssessmentEngine` | جميع الحالات المطبوعة PASS |
 | اختبار التشفير الوحدوي | جميع الحالات المطبوعة PASS؛ لا يثبت أن `User::login()` يستخدم الـhash |

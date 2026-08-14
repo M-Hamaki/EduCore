@@ -1,6 +1,24 @@
-# نظام EduCore — إدارة التعليم والتقييم
+# EduCore
 
-نظام ويب متكامل لإدارة النظام التعليمي، يشمل: التقييم الصفي (مشابه لـ ClassDojo)، إدارة المستخدمين (أدمن، معلم، مشرف، أخصائي، طالب)، الجداول الدراسية، الحضور والانصراف، نظام المكافآت، التقارير، ودعم SSO عبر Microsoft Azure AD و Teams. مع دعم كامل للغة العربية (RTL) وتصميم متجاوب.
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+
+EduCore is an open-source, Arabic-first school management platform built for real-world educational workflows.
+
+It provides student and staff management, attendance, assessments, reporting, transportation, role-based portals, Microsoft SSO/Teams integration, and privacy-conscious AI capabilities.
+
+## Why EduCore?
+
+- Arabic-first with full RTL support
+- Self-hosted and deployment-configurable
+- Designed from real school workflows
+- Modular architecture with compatibility-focused entrypoints
+- Privacy-conscious handling of school and student data
+- Microsoft 365 / Teams integration
+- AI-ready without requiring a hosted vendor
+
+## نبذة عن EduCore
+
+منصة مفتوحة المصدر لإدارة المدارس، مصممة أولاً للعربية وواجهات RTL، وتجمع بين إدارة الطلاب والعاملين والحضور والتقييمات والتقارير والبوابات المتخصصة والتكاملات القابلة للتهيئة.
 
 ## المميزات الرئيسية
 
@@ -22,6 +40,16 @@
 - نظام نسخ احتياطي لقاعدة البيانات
 - نظام إشعارات داخلية
 - بوابات منفصلة: أدمن، معلم، مشرف، أخصائي، طالب، معلم خارجي
+
+## Screenshots
+
+These screenshots are synthetic mockups and contain no real school or student data.
+
+![EduCore dashboard](docs/screenshots/dashboard.svg)
+
+![EduCore attendance](docs/screenshots/attendance.svg)
+
+![EduCore assessments](docs/screenshots/assessments.svg)
 
 ## متطلبات النظام
 
@@ -60,7 +88,7 @@ cp .env.example .env
 
 عدّل `.env` ليتضمن:
 - **إعدادات قاعدة البيانات:** `DB_HOST`, `DB_NAME`, `DB_USERNAME`, `DB_PASSWORD`
-- **رابط الموقع:** `SITE_URL`
+- **رابط التطبيق:** `APP_URL` (و`SITE_URL` للتوافق القديم فقط)
 - **بيئة التطبيق:** `APP_ENV` (`production` للإنتاج، `development` للتطوير المحلي)
 - **مفتاح التشفير:** `ENCRYPTION_KEY_HEX` — مطلوب لتشفير كلمات المرور
 - **API Keys** اختيارية: Gemini AI، صور، YouTube، Microsoft SSO
@@ -140,8 +168,7 @@ EduCore/
 ├── teacher/           # لوحة تحكم المعلم
 ├── teams/             # دعم Microsoft Teams
 ├── uploads/           # ملفات مُحمّلة (صور، Excel، PDFs)
-├── vendor/            # مكتبات Composer
-├── archive/           # أرشيف (ملفات قديمة، محمية بـ .htaccess)
+├── vendor/            # مكتبات Composer (تُنشأ محليًا ولا تُرفع إلى Git)
 ├── .env               # إعدادات البيئة (غير مُلتزم في Git)
 ├── .env.example       # قالب الإعدادات
 ├── composer.json      # إعدادات Composer
@@ -184,7 +211,7 @@ EduCore/
 
 قبل إغلاق أي تغيير، شغّل ما ينطبق من الأوامر التالية من جذر المشروع:
 
-```powershell
+```bash
 composer validate --no-interaction
 composer lint
 composer architecture-audit
@@ -192,8 +219,8 @@ composer documentation-audit
 composer audit-write-coverage
 composer admin-ui-audit
 composer quality
-C:\xampp\php\php.exe tests\architecture_audit_test.php
-C:\xampp\php\php.exe tests\internal_web_boundary_test.php
+php tests/architecture_audit_test.php
+php tests/internal_web_boundary_test.php
 ```
 
 أضف الاختبارات الخاصة بالوحدة أو مسار العمل المتأثر. لا تشغّل اختبارًا يكتب في قاعدة `educore` أو بيانات الإنتاج؛ اختبارات التكامل تحتاج قاعدة اختبار صريحة وguard يمنع الإنتاج. يتطلب `composer security-audit` اتصالًا بالشبكة، وفشل الاتصال بمصدر الحزم ليس حكمًا على وجود ثغرات أو عدمها.
@@ -204,6 +231,8 @@ C:\xampp\php\php.exe tests\internal_web_boundary_test.php
 - تطبيق موبايل متوافق مع النظام
 - فصل نظام الدرجات عن الجدول المنفصل وتوحيده مع النظام الرئيسي
 
-## الترخيص
+## License
 
-هذا المشروع مرخص تحت [رخصة MIT](LICENSE).
+EduCore is open-source software licensed under the GNU Affero General Public License v3.0 (AGPL-3.0-only).
+
+See [LICENSE](LICENSE) for details.

@@ -293,14 +293,14 @@ composer validate --no-interaction
 composer lint
 composer architecture-audit
 composer documentation-audit
-C:\xampp\php\php.exe tests\architecture_audit_test.php
-C:\xampp\php\php.exe tests\internal_web_boundary_test.php
+php tests/architecture_audit_test.php
+php tests/internal_web_boundary_test.php
 ```
 
 Admin UI changes additionally require:
 
 ```powershell
-C:\xampp\php\php.exe tools\audit_admin_ui.php
+php tools/audit_admin_ui.php
 ```
 
 Run relevant unit/characterization/HTTP tests for the affected workflow as well.

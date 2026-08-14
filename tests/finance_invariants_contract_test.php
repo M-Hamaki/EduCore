@@ -11,7 +11,7 @@ declare(strict_types=1);
  * - Money + SignedMoneyDelta: original + reversal = 0.
  * - Bucket balance equations are consistent.
  *
- * Run: C:\xampp\php\php.exe tests/finance_invariants_contract_test.php
+ * Run: php tests/finance_invariants_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

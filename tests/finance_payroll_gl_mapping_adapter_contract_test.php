@@ -3,7 +3,7 @@ declare(strict_types=1);
 /**
  * T063: payroll GL entry test + T076: account-mapping resolution test + T087: adapter compatibility test.
  * Combined to reduce file count.
- * Run: C:\xampp\php\php.exe tests/finance_payroll_gl_mapping_adapter_contract_test.php
+ * Run: php tests/finance_payroll_gl_mapping_adapter_contract_test.php
  */
 require_once __DIR__ . '/bootstrap_finance.php';
 require_once __DIR__ . '/../classes/FinanceAuthorization.php';

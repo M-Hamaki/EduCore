@@ -1,6 +1,6 @@
 # Implementation Plan: Finance Ledger & Payroll
 
-**Branch**: `feature/003-finance-ledger-payroll` (implementation worktree at `C:\tmp\EduCore-finance`; Finance-only delta installed locally after explicit authorization; no push; authenticated browser smoke test pending) | **Date**: 2026-07-26 | **Spec**: [spec.md](spec.md)
+**Branch**: `feature/003-finance-ledger-payroll` (implementation worktree at `<feature-worktree>`; Finance-only delta installed locally after explicit authorization; no push; authenticated browser smoke test pending) | **Date**: 2026-07-26 | **Spec**: [spec.md](spec.md)
 
 ## Summary
 

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">EduCore synthetic assessments page</title>
+  <desc id="desc">Synthetic assessment cards with demo values only.</desc>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <rect width="1280" height="76" fill="#581c87"/>
+  <text x="1180" y="48" text-anchor="end" fill="#fff" font-family="Arial" font-size="28" font-weight="700">EduCore</text>
+  <text x="1170" y="132" text-anchor="end" fill="#0f172a" font-family="Arial" font-size="26" font-weight="700">التقييمات — نموذج عرض</text>
+  <text x="1170" y="164" text-anchor="end" fill="#64748b" font-family="Arial" font-size="16">القيم والأسماء أدناه اصطناعية بالكامل</text>
+  <g font-family="Arial">
+    <rect x="56" y="208" width="350" height="190" rx="18" fill="#fff" stroke="#e9d5ff"/><text x="370" y="252" text-anchor="end" fill="#4c1d95" font-size="18" font-weight="700">المشاركة الفعالة</text><text x="370" y="306" text-anchor="end" fill="#7e22ce" font-size="44" font-weight="700">+10</text><text x="370" y="350" text-anchor="end" fill="#64748b" font-size="16">Demo Student 01 · تجريبي</text>
+    <rect x="465" y="208" width="350" height="190" rx="18" fill="#fff" stroke="#bae6fd"/><text x="779" y="252" text-anchor="end" fill="#0c4a6e" font-size="18" font-weight="700">التعاون</text><text x="779" y="306" text-anchor="end" fill="#0284c7" font-size="44" font-weight="700">+8</text><text x="779" y="350" text-anchor="end" fill="#64748b" font-size="16">Demo Student 02 · تجريبي</text>
+    <rect x="874" y="208" width="350" height="190" rx="18" fill="#fff" stroke="#bbf7d0"/><text x="1188" y="252" text-anchor="end" fill="#14532d" font-size="18" font-weight="700">إنجاز المهمة</text><text x="1188" y="306" text-anchor="end" fill="#16a34a" font-size="44" font-weight="700">+12</text><text x="1188" y="350" text-anchor="end" fill="#64748b" font-size="16">Demo Student 03 · تجريبي</text>
+  </g>
+  <rect x="56" y="446" width="1168" height="150" rx="18" fill="#fff" stroke="#e2e8f0"/>
+  <text x="1170" y="490" text-anchor="end" fill="#0f172a" font-family="Arial" font-size="20" font-weight="700">مؤشر الصف التجريبي</text>
+  <rect x="100" y="530" width="1000" height="18" rx="9" fill="#e2e8f0"/><rect x="100" y="530" width="760" height="18" rx="9" fill="#8b5cf6"/><text x="1140" y="548" fill="#64748b" font-family="Arial" font-size="16">76%</text>
+</svg>

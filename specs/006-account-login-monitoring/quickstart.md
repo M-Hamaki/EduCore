@@ -4,7 +4,7 @@
 
 ## 1. Prerequisites
 
-- PHP: `C:\xampp\php\php.exe`.
+- PHP 8.0+ متاح عبر الأمر `php`.
 - قاعدة اختبار معزولة ينتهي اسمها حرفياً بـ`_test`، ولا تكون نسخة production-like مستخدمة من المستخدمين.
 - علامة اختبار صريحة خاصة بالميزة، تقترح الخطة `AUTH_MONITORING_TEST_MARKER=authentication-monitoring`.
 - schema baseline مستعاد إلى قاعدة جديدة، ثم migrations الجديدة مطبقة عليها فقط.

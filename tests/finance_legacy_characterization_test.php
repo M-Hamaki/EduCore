@@ -10,7 +10,7 @@ declare(strict_types=1);
  * adapter conversion. They are NOT behavioral tests — they capture the
  * current contract surface so adapter conversion can prove compatibility.
  *
- * Run: C:\xampp\php\php.exe tests/finance_legacy_characterization_test.php
+ * Run: php tests/finance_legacy_characterization_test.php
  */
 
 $root = dirname(__DIR__);

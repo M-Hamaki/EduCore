@@ -586,16 +586,10 @@ $supervisor_services = [
     <!-- Footer -->
     <footer class="portal-footer">
         <div class="container text-center">
-            <p>جميع الحقوق محفوظة © <?php echo date('Y'); ?><br>Delta Modern Language Schools<br>Computer Department</p>
+            <p>جميع الحقوق محفوظة © <?php echo date('Y'); ?><br>EduCore<br>Open Source School Platform</p>
             <div class="social-media-footer">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" rel="noopener noreferrer" class="social-footer-icon facebook" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/201289999818" target="_blank" rel="noopener noreferrer" class="social-footer-icon whatsapp" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" rel="noopener noreferrer" class="social-footer-icon instagram" title="Instagram">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" rel="noopener noreferrer" class="social-footer-icon github" title="Project repository">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>

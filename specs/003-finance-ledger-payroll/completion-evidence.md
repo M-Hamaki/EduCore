@@ -2,7 +2,7 @@
 
 **Branch**: `feature/003-finance-ledger-payroll`
 
-**Worktree**: `C:\tmp\EduCore-finance`
+**Worktree**: `<feature-worktree>`
 
 **Last updated**: 2026-07-28
 
@@ -33,7 +33,7 @@ Only tasks with implementation and current evidence are marked `[x]`. All implem
 | Rollback | `finance_rollback_drill_integration_test.php` | linked sub-ledger/GL reversal returns to zero |
 | DataTables endpoint | `admin/finance_datatable.php` | authenticated CSRF-protected database paging |
 | Documentation | architecture, database, project memory, ADR, spec/plan/quickstart | synchronized |
-| Recovery backup | `C:\tmp\EduCore-rollout-backup-20260728_081336` | 33,186,068-byte SQL backup restored to `educore_rollout_restore_test`; 216/216 tables; SHA-256 verified |
+| Recovery backup | `<isolated-test-backup>` | Test-only recovery package restored to an isolated `_test` database; schema and integrity verified |
 | Default Finance configuration | `20260728_finance_default_configuration.php` + focused integration test | 13 accounts, `MAIN` cashbox, one open period, 19 mappings, four control accounts; idempotent |
 | Live schema/config | read-only verification against `educore` after migration | migration 1/1, accounts 13, cashbox 1, open periods 1, active mappings 19, controls 4, resolved operations 19 |
 | Runtime DataTables bootstrap | Apache evidence + `finance_server_side_pagination_integration_test.php` | endpoint now authenticates, initializes PDO, then constructs the Finance service factory; all eight paged views pass |

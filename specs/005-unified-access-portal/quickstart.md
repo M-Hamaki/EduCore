@@ -14,7 +14,7 @@
 
 ## 2. جرد وحماية شجرة العمل
 
-شغّل في PowerShell من `C:\xampp\htdocs\EduCore`:
+شغّل في PowerShell من `<project-root>`:
 
 ```powershell
 git status --short
@@ -57,7 +57,7 @@ git diff --check
 
 ```text
 http://localhost/EduCore/auth/microsoft_callback.php
-https://portal.dmls.edu.eg/auth/microsoft_callback.php
+https://school.example.com/auth/microsoft_callback.php
 ```
 
 ثم طابق أي Teams redirect ما زال مستخدماً مع:

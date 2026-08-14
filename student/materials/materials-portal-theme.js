@@ -1,6 +1,6 @@
 /**
  * Materials Portal - Theme System
- * Delta Modern Language Schools
+ * EduCore
  * نظام Dark Mode موحد مع البوابة
  */
 
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // CONSOLE MESSAGE
     // ====================================
 
-    console.log('%c🎓 Delta Modern Language Schools', 'color: #667eea; font-size: 20px; font-weight: bold;');
+    console.log('%c🎓 EduCore', 'color: #667eea; font-size: 20px; font-weight: bold;');
     console.log('%c📚 Materials Download System v2.0', 'color: #764ba2; font-size: 14px;');
     console.log('%cKeyboard Shortcuts:', 'font-weight: bold; margin-top: 10px;');
     console.log('  Ctrl/Cmd + D = Toggle Dark Mode');

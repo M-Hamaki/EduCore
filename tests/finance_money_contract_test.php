@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Verifies: integer piaster minor units, half-up rounding at presentation,
  * no float drift, immutability, add/subtract/multiply, signed deltas.
  *
- * Run: C:\xampp\php\php.exe tests/finance_money_contract_test.php
+ * Run: php tests/finance_money_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

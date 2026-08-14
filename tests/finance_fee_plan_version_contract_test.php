@@ -13,7 +13,7 @@ declare(strict_types=1);
  * Note: Full integration tests requiring DB are in tests/finance_student_contract_integration_test.php
  * (requires *_test database). This contract test verifies pure domain logic without DB.
  *
- * Run: C:\xampp\php\php.exe tests/finance_fee_plan_version_contract_test.php
+ * Run: php tests/finance_fee_plan_version_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

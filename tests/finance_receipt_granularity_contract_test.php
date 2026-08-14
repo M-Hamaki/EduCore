@@ -13,7 +13,7 @@ declare(strict_types=1);
  * - refund_unapplied_credit shrinks credit (−amount on unapplied_credit)
  * - original + reversal = 0
  *
- * Run: C:\xampp\php\php.exe tests/finance_receipt_granularity_contract_test.php
+ * Run: php tests/finance_receipt_granularity_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

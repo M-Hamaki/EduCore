@@ -65,10 +65,12 @@ $checks = [
         "ura.role_key = 'super_admin' AND ura.status = 'active'"
     ) !== false
         && strpos($service, 'لا يمكن تخفيض أو تعطيل آخر مدير نظام أعلى نشط.') !== false,
-    'bootstrap_targets_exact_requested_account' => strpos(
+    'bootstrap_uses_configurable_account' => strpos(
         $migration,
-        "\$targetUsername = 'dmls@dmls.edu.eg';"
+        "\$targetUsername = trim((string) env('INITIAL_SUPER_ADMIN_USERNAME', ''));"
     ) !== false
+        && strpos($migration, "if (\$targetUsername === '')") !== false
+        && strpos($migration, 'dmls@dmls.edu.eg') === false
         && strpos($migration, 'LOWER(username) = LOWER(?)') !== false
         && strpos($migration, 'count($matches) !== 1') !== false,
     'bootstrap_is_guarded_transactional_and_audited' => strpos($migration, "role'] !== 'admin'") !== false

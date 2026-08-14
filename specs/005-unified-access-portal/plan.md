@@ -241,7 +241,7 @@ admin/public_portal_settings.php
 يجب قبل الاختبار الحقيقي تسجيل كل Redirect URI مطابق حرفياً لما يرسله النظام، على الأقل:
 
 - `http://localhost/EduCore/auth/microsoft_callback.php`
-- `https://portal.dmls.edu.eg/auth/microsoft_callback.php`
+- `https://school.example.com/auth/microsoft_callback.php`
 - أي Teams redirect فعلي ما زالت تستخدمه إعدادات `AZURE_LOCAL_TEAMS_REDIRECT_URI` و`AZURE_TEAMS_REDIRECT_URI` بعد مراجعة التدفق النهائي.
 
 هذه خطوة في Entra Portal وليست migration أو تعديل كود. فشلها ينتج `AADSTS50011` حتى لو كان اختيار البيئة في PHP صحيحاً.

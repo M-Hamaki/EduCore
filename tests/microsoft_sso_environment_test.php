@@ -7,9 +7,9 @@ require_once __DIR__ . '/../classes/MicrosoftSsoEnvironment.php';
 $values = [
     'AZURE_CLIENT_ID' => 'production-client',
     'AZURE_LOCAL_CLIENT_ID' => 'local-client',
-    'AZURE_REDIRECT_URI' => 'https://portal.dmls.edu.eg/auth/microsoft_callback.php',
-    'AZURE_TEAMS_REDIRECT_URI' => 'https://portal.dmls.edu.eg/auth/teams_sso.php',
-    'TEAMS_APP_ID_URI' => 'api://portal.dmls.edu.eg/production-client',
+    'AZURE_REDIRECT_URI' => 'https://school.example.com/auth/microsoft_callback.php',
+    'AZURE_TEAMS_REDIRECT_URI' => 'https://school.example.com/auth/teams_sso.php',
+    'TEAMS_APP_ID_URI' => 'api://school.example.com/production-client',
     'AZURE_LOCAL_TEAMS_APP_ID_URI' => 'api://localhost/local-client',
 ];
 $reader = static fn(string $key, string $default = ''): string => $values[$key] ?? $default;
@@ -33,16 +33,16 @@ assert($localWithPort->isLocal());
 assert($localWithPort->redirectUri(false) === 'http://127.0.0.1:8080/School/auth/microsoft_callback.php');
 
 $production = new MicrosoftSsoEnvironment([
-    'HTTP_HOST' => 'portal.dmls.edu.eg',
+    'HTTP_HOST' => 'school.example.com',
     'SCRIPT_NAME' => '/auth/microsoft_login.php',
     'HTTPS' => 'on',
 ], $reader);
 assert(!$production->isLocal());
 assert($production->name() === 'production');
 assert($production->credential('AZURE_CLIENT_ID', 'AZURE_LOCAL_CLIENT_ID') === 'production-client');
-assert($production->redirectUri(false) === 'https://portal.dmls.edu.eg/auth/microsoft_callback.php');
-assert($production->redirectUri(true) === 'https://portal.dmls.edu.eg/auth/teams_sso.php');
-assert($production->teamsAppIdUri('production-client') === 'api://portal.dmls.edu.eg/production-client');
+assert($production->redirectUri(false) === 'https://school.example.com/auth/microsoft_callback.php');
+assert($production->redirectUri(true) === 'https://school.example.com/auth/teams_sso.php');
+assert($production->teamsAppIdUri('production-client') === 'api://school.example.com/production-client');
 
 $forcedProductionValues = $values;
 $forcedProductionValues['MICROSOFT_SSO_ENV'] = 'production';
@@ -51,7 +51,7 @@ $forcedProduction = new MicrosoftSsoEnvironment([
     'SCRIPT_NAME' => '/EduCore/auth/microsoft_login.php',
 ], static fn(string $key, string $default = ''): string => $forcedProductionValues[$key] ?? $default);
 assert(!$forcedProduction->isLocal());
-assert($forcedProduction->redirectUri(false) === 'https://portal.dmls.edu.eg/auth/microsoft_callback.php');
+assert($forcedProduction->redirectUri(false) === 'https://school.example.com/auth/microsoft_callback.php');
 
 $forcedLocalValues = $values;
 $forcedLocalValues['MICROSOFT_SSO_ENV'] = 'local';
@@ -79,12 +79,12 @@ $untrustedHost = new MicrosoftSsoEnvironment([
     'SCRIPT_NAME' => '/EduCore/auth/microsoft_login.php',
 ], $reader);
 assert(!$untrustedHost->isLocal());
-assert($untrustedHost->redirectUri(false) === 'https://portal.dmls.edu.eg/auth/microsoft_callback.php');
+assert($untrustedHost->redirectUri(false) === 'https://school.example.com/auth/microsoft_callback.php');
 
 $ssoSource = file_get_contents(__DIR__ . '/../classes/MicrosoftSSO.php');
 $teamsHandlerSource = file_get_contents(__DIR__ . '/../auth/teams_token_handler.php');
 assert(is_string($ssoSource) && str_contains($ssoSource, "defined('TEAMS_APP_ID_URI') ? TEAMS_APP_ID_URI : null"));
 assert(is_string($teamsHandlerSource) && str_contains($teamsHandlerSource, '$applicationPath'));
-assert(!str_contains((string) $teamsHandlerSource, "'https://portal.dmls.edu.eg' . \$basePath"));
+assert(!str_contains((string) $teamsHandlerSource, 'portal.dmls.edu.eg'));
 
 echo "MICROSOFT_SSO_ENVIRONMENT_TEST_PASSED\n";

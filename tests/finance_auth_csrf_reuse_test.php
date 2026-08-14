@@ -10,7 +10,7 @@ declare(strict_types=1);
  * - Does not call session_start() directly (uses session_config.php)
  * - Finance pages with POST handlers use requireCsrfPost() or hash_equals
  *
- * Run: C:\xampp\php\php.exe tests/finance_auth_csrf_reuse_test.php
+ * Run: php tests/finance_auth_csrf_reuse_test.php
  */
 
 $root = dirname(__DIR__);

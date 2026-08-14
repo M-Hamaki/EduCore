@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Guarded legacy-finance migration into the unified domain/sub-ledger/GL model.
  *
  * Example:
- * C:\xampp\php\php.exe tools/finance_data_migration.php
+ * php tools/finance_data_migration.php
  *   --database=educore_finance_test --charge-type-id=1 --cashbox-id=1 --actor-id=1
  */
 

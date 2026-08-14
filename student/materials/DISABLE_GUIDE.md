@@ -328,7 +328,7 @@ http://localhost/rewards1/student/materials/test_system.php
 
 ---
 
-**🎓 Delta Modern Language Schools**  
+**🎓 EduCore**
 **Computer Department**
 
 **📅 أكتوبر 2025**  

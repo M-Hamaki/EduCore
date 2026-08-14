@@ -735,20 +735,14 @@ $enrollment = $training->getEnrollment($teacherId, $courseId);
                 <strong>جميع الحقوق محفوظة © <?php echo date('Y'); ?></strong>
             </p>
             <p style="margin: 0.5rem 0; line-height: 1.6;">
-                Delta Modern Language Schools<br>
+                EduCore<br>
                 Computer Department
             </p>
             
             <!-- Social Media Icons in Footer -->
             <div class="social-media-footer">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram" title="حسابنا على انستجرام">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" class="social-footer-icon github" title="مستودع المشروع">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>

@@ -225,4 +225,4 @@ body.dark-mode button.download-btn:disabled {
 
 **آخر تحديث:** 14 أكتوبر 2025
 **المطور:** AI Assistant
-**النظام:** Delta Modern Language Schools - Materials System
+**النظام:** EduCore - Materials System

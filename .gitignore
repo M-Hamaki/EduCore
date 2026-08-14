@@ -38,8 +38,11 @@ php_errors.log
 # Local maintenance artifacts
 /backups/
 /archive/
-/scratch/
-/tmp/
+/docs/archive/
+/scratch/*
+!/scratch/.htaccess
+/tmp/*
+!/tmp/.htaccess
 /.agents/
 /storage/backups/
 /storage/exports/*
@@ -50,6 +53,8 @@ php_errors.log
 !/storage/ppt_templates/.gitkeep
 /storage/private/*
 !/storage/private/.gitignore
+/teams/manifest.json
+docs/project-memory.local.md
 *.bak
 
 # =========================

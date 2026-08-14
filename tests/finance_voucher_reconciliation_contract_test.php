@@ -10,7 +10,7 @@ declare(strict_types=1);
  * - ReconciliationService decimal arithmetic (no float)
  * - net_account_position = outstanding_due - unapplied_credit
  *
- * Run: C:\xampp\php\php.exe tests/finance_voucher_reconciliation_contract_test.php
+ * Run: php tests/finance_voucher_reconciliation_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

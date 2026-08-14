@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Contract test for US2: discount policies — sibling ordering, employee-child eligibility, combination.
  *
- * Run: C:\xampp\php\php.exe tests/finance_discount_policies_contract_test.php
+ * Run: php tests/finance_discount_policies_contract_test.php
  */
 
 require_once __DIR__ . '/../src/Modules/Finance/Domain/Money.php';

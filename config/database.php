@@ -25,7 +25,7 @@ if ($_app_timezone !== '' && @date_default_timezone_set($_app_timezone)) {
 unset($_app_timezone);
 
 // عنوان التطبيق للروابط المطلقة التي تُرسل خارج النظام.
-$appUrl = rtrim((string)env('APP_URL', env('SITE_URL', 'https://portal.dmls.edu.eg')), '/');
+$appUrl = rtrim((string)env('APP_URL', env('SITE_URL', 'http://localhost/EduCore')), '/');
 if (!defined('APP_URL')) define('APP_URL', $appUrl);
 if (!defined('SITE_URL')) define('SITE_URL', APP_URL); // Backward-compatible alias.
 unset($appUrl);

@@ -4,7 +4,7 @@
  * للتحقق من صحة التوليد بصرياً وتقنياً قبل الإغلاق.
  *
  * الاستخدام:
- *   C:\xampp\php\php.exe tools/ppt_smoke_test.php [theme]
+ *   php tools/ppt_smoke_test.php [theme]
  *
  * حيث theme أحد: modern|colorful|formal|gradient|nature|tech|creative|minimal|islamic|scientific
  * (افتراضي: modern)

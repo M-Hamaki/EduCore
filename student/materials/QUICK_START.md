@@ -26,7 +26,7 @@ http://localhost/rewards1/student/materials/view.php?grade=prim1&term=term1
 ### 2️⃣ أرشف الملفات القديمة
 في PowerShell:
 ```powershell
-cd c:\xampp\htdocs\rewards1\student\materials
+cd <project-root>\student\materials
 .\archive_old_files.ps1
 ```
 

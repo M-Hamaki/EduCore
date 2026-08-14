@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">EduCore synthetic attendance page</title>
+  <desc id="desc">Synthetic attendance table using demo names only.</desc>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <rect width="1280" height="76" fill="#0f766e"/>
+  <text x="1180" y="48" text-anchor="end" fill="#fff" font-family="Arial" font-size="28" font-weight="700">EduCore</text>
+  <text x="1160" y="130" text-anchor="end" fill="#0f172a" font-family="Arial" font-size="26" font-weight="700">سجل الحضور — بيانات تجريبية</text>
+  <rect x="56" y="162" width="1168" height="72" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="1150" y="207" text-anchor="end" fill="#64748b" font-family="Arial" font-size="18">الفصل: Demo Class A</text>
+  <rect x="56" y="260" width="1168" height="370" rx="16" fill="#fff" stroke="#cbd5e1"/>
+  <g font-family="Arial" font-size="18">
+    <rect x="56" y="260" width="1168" height="54" rx="16" fill="#ecfeff"/><text x="1160" y="295" text-anchor="end" fill="#164e63" font-weight="700">الطالب</text><text x="820" y="295" text-anchor="end" fill="#164e63" font-weight="700">التاريخ</text><text x="510" y="295" text-anchor="end" fill="#164e63" font-weight="700">الحالة</text><text x="210" y="295" text-anchor="end" fill="#164e63" font-weight="700">ملاحظات</text>
+    <line x1="80" y1="370" x2="1200" y2="370" stroke="#e2e8f0"/><line x1="80" y1="440" x2="1200" y2="440" stroke="#e2e8f0"/><line x1="80" y1="510" x2="1200" y2="510" stroke="#e2e8f0"/><line x1="80" y1="580" x2="1200" y2="580" stroke="#e2e8f0"/>
+    <text x="1160" y="350" text-anchor="end" fill="#0f172a">Demo Student 01</text><text x="820" y="350" text-anchor="end" fill="#475569">2026-09-01</text><text x="510" y="350" text-anchor="end" fill="#15803d">حاضر</text><text x="210" y="350" text-anchor="end" fill="#64748b">—</text>
+    <text x="1160" y="420" text-anchor="end" fill="#0f172a">Demo Student 02</text><text x="820" y="420" text-anchor="end" fill="#475569">2026-09-01</text><text x="510" y="420" text-anchor="end" fill="#b45309">متأخر</text><text x="210" y="420" text-anchor="end" fill="#64748b">حصة أولى</text>
+    <text x="1160" y="490" text-anchor="end" fill="#0f172a">Demo Student 03</text><text x="820" y="490" text-anchor="end" fill="#475569">2026-09-01</text><text x="510" y="490" text-anchor="end" fill="#dc2626">غائب</text><text x="210" y="490" text-anchor="end" fill="#64748b">—</text>
+    <text x="1160" y="560" text-anchor="end" fill="#0f172a">Demo Student 04</text><text x="820" y="560" text-anchor="end" fill="#475569">2026-09-01</text><text x="510" y="560" text-anchor="end" fill="#15803d">حاضر</text><text x="210" y="560" text-anchor="end" fill="#64748b">—</text>
+  </g>
+</svg>

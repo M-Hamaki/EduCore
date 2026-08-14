@@ -7,7 +7,7 @@
 الأمر:
 
 ```powershell
-C:\xampp\php\php.exe tools\audit_write_coverage.php --summary
+php tools/audit_write_coverage.php --summary
 ```
 
 النتيجة الحالية:
@@ -60,7 +60,7 @@ C:\xampp\php\php.exe tools\audit_write_coverage.php --summary
 الأمر:
 
 ```powershell
-C:\xampp\php\php.exe tools\audit_write_coverage.php
+php tools/audit_write_coverage.php
 ```
 
 | المساحة | مرشحة | تدقيق معلن | تفويض موثق | false positive موثق | مراجعة متبقية |

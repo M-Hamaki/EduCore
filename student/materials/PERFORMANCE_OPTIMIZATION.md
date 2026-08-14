@@ -231,9 +231,9 @@ const particleSpeed = 1; // سرعة أبطأ
 ## 📞 الدعم الفني
 
 **إذا واجهت أي مشاكل:**
-- 📱 WhatsApp: +201289999818
+- 📱 Support: configured per deployment
 - 💻 Computer Department
-- 🏫 Delta Modern Language Schools
+- 🏫 EduCore deployment
 
 ---
 

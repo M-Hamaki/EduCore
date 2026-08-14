@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Verifies: maker-checker enforcement (creator ≠ approver), permission checks,
  * and FinancePeriodGuard construction (without DB writes).
  *
- * Run: C:\xampp\php\php.exe tests/finance_period_close_contract_test.php
+ * Run: php tests/finance_period_close_contract_test.php
  */
 
 require_once __DIR__ . '/../classes/FinanceAuthorization.php';

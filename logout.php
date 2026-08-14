@@ -35,7 +35,7 @@ if ($dir === '/' || $dir === '\\') {
     $dir = '';
 }
 $dir = str_replace('\\', '/', $dir);
-$baseUrl = $protocol . ($_SERVER['HTTP_HOST'] ?? 'portal.dmls.edu.eg') . $dir;
+$baseUrl = $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost') . $dir;
 
 if ($isExternal) {
     header("Location: " . $baseUrl . "/external_login.php");

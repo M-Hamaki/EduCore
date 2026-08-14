@@ -5,6 +5,9 @@ require_once '../classes/utilities.php';
 require_once '../config/database.php';
 require_once '../includes/notifications_helper.php';
 
+$organizationName = trim((string) env('ORGANIZATION_NAME', 'EduCore Deployment'));
+$resultsPortalUrl = trim((string) env('RESULTS_PORTAL_URL', ''));
+
 Utilities::validateSession('student');
 
 // الحصول على اسم الطالب
@@ -89,7 +92,7 @@ if ($user_service_override && $user_service_override['override_stage']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البوابة الرئيسية - DMLS</title>
+    <title>البوابة الرئيسية - <?php echo htmlspecialchars($organizationName, ENT_QUOTES, 'UTF-8'); ?></title>
 
     <!-- Prevent caching issues -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -975,8 +978,8 @@ if ($user_service_override && $user_service_override['override_stage']) {
             </a>
             <?php endif; ?>
 
-            <?php if (in_array('results', $available_services)): ?>
-            <a href="https://dmls.edu.eg/results" class="nav-button" target="_blank"<?php if (in_array('results', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+            <?php if (in_array('results', $available_services) && $resultsPortalUrl !== ''): ?>
+            <a href="<?php echo htmlspecialchars($resultsPortalUrl, ENT_QUOTES, 'UTF-8'); ?>" class="nav-button" target="_blank"<?php if (in_array('results', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
                 <?php if (in_array('results', $student_new_badges)): ?>
                 <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
                 <?php endif; ?>
@@ -1006,20 +1009,14 @@ if ($user_service_override && $user_service_override['override_stage']) {
                 <strong>جميع الحقوق محفوظة © <?php echo date('Y'); ?></strong>
             </p>
             <p style="margin: 0.5rem 0; line-height: 1.6;">
-                Delta Modern Language Schools<br>
-                Computer Department
+                <?php echo htmlspecialchars($organizationName, ENT_QUOTES, 'UTF-8'); ?><br>
+                EduCore Deployment
             </p>
             
             <!-- Social Media Icons in Footer -->
             <div class="social-media-footer">
-                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram" title="حسابنا على انستجرام">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://github.com/M-Hamaki/EduCore" target="_blank" class="social-footer-icon github" title="مستودع المشروع">
+                    <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>

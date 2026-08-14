@@ -11,7 +11,7 @@ declare(strict_types=1);
  * - Does NOT use page-local confirm(), alert(), or SweetAlert
  * - Does NOT define page-local button/stat-card CSS in <style> blocks
  *
- * Run: C:\xampp\php\php.exe tests/finance_role_footer_coverage_contract_test.php
+ * Run: php tests/finance_role_footer_coverage_contract_test.php
  */
 
 $root = dirname(__DIR__);
