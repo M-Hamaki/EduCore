@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student's Evaluation Form - DMLS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9M7QMDNQK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N9M7QMDNQK');
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+
+<body class="light-mode">
+    <div id="particles-js"></div>
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="../../assets/img/logo.png" alt="Logo">
+        </a>
+    </div>
+    <h2 class="title">Primary Stage <br> Student's Evaluation Form</h2>
+
+    <div class="container">
+        <form action="student_grades_new.php" method="post">
+            <select name="stage" required>
+                <option value="">اختر الصف</option>
+                <option value="prim1">الصف الأول الإبتدائي</option>
+                <option value="prim2">الصف الثاني الإبتدائي</option>
+                <option value="prim3">الصف الثالث الإبتدائي</option>
+                <option value="prim4">الصف الرابع الإبتدائي</option>
+                <option value="prim5">الصف الخامس الإبتدائي</option>
+                <option value="prim6">الصف السادس الإبتدائي</option>
+            </select>
+            <button type="submit" class="stage-btn"><i class="fa-solid fa-paper-plane"></i> الانتقال</button><br>
+            <a href="../portal.php" class="text-decoration-none"
+                style="font-size: 1rem; font-weight: 500; color: #0d6efd;">
+                <i class="fas fa-chevron-left ms-1"></i> العودة للبوابة الرئيسية
+            </a>
+        </form>
+    </div>
+
+    <footer>
+        <p class="mb-3">جميع الحقوق محفوظة ©
+            <?php echo date('Y'); ?><br> Delta Modern Language Schools<br>
+            Computer Department
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

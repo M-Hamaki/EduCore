@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "exemptions": [
+    {
+      "path": "auth/teams_token_handler.php",
+      "category": "verified_bearer_token_exchange",
+      "reason": "The request exchanges a Microsoft-issued bearer token for an application session; cookie CSRF tokens cannot precede the identity exchange.",
+      "protection": "MicrosoftSSO::verifyTeamsToken validates signature and token claims before any user session is created.",
+      "owner": "identity-security",
+      "review_by": "2027-01-01"
+    },
+    {
+      "path": "includes/admin_header.php",
+      "category": "read_only_post",
+      "reason": "The shared header reads an optional POST action name for presentation compatibility and does not process that action or persist it.",
+      "protection": "Authenticated admin session; mutations remain owned and protected by the including entrypoint.",
+      "owner": "architecture-security",
+      "review_by": "2027-01-01"
+    },
+    {
+      "path": "shared_lesson_export.php",
+      "category": "read_only_post",
+      "reason": "The anonymous bearer-link export transforms already-shared lesson markup into a download and performs no business-data mutation; a cookie CSRF token is unavailable before login.",
+      "protection": "A valid active 256-bit lesson bearer token is rechecked against a completed shared lesson; format and content size are allow-listed, remote PDF loading is disabled, and requests are rate-limited.",
+      "owner": "learning-content-security",
+      "review_by": "2027-01-01"
+    }
+  ]
+}

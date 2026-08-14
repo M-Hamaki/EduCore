@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "reviewed_paths": {
+    "admin/ajax/upload_attachment.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "storeUploadedFile(", "$storage->delete("]
+    },
+    "admin/lesson_ppt_templates.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "$db->rollBack();", "ppt_template_delete_stored_path("]
+    },
+    "admin/materials_center.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "@unlink($target_path);", "$supervisorPreviewBaseUrl = APP_URL"]
+    },
+    "admin/school_profile.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "@unlink($newLogoPath);", "@unlink($oldLogoPath);"]
+    },
+    "admin/timetable.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "@unlink($dest_path);"]
+    },
+    "classes/ProfileAttachmentStorage.php": {
+      "classification": "storage_adapter",
+      "required_markers": ["move_uploaded_file(", "safeFileName(", "storage", "private:"]
+    },
+    "src/Modules/Finance/Infrastructure/LocalFinanceImportStorage.php": {
+      "classification": "storage_adapter",
+      "required_markers": ["FileUploadGuard::validate", "move_uploaded_file(", "private:finance_imports/", "delete("]
+    },
+    "src/Modules/Staff/Infrastructure/LocalLeaveAttachmentStorage.php": {
+      "classification": "storage_adapter",
+      "required_markers": ["FileUploadGuard::validate", "move_uploaded_file(", "private:leave_attachments/", "delete("]
+    },
+    "src/Modules/Staff/Infrastructure/LocalDisciplineEvidenceStorage.php": {
+      "classification": "storage_adapter",
+      "required_markers": ["FileUploadGuard::validate", "move_uploaded_file(", "private:discipline_evidence/", "delete("]
+    },
+    "src/Modules/Staff/Infrastructure/LocalErtaqAttachmentStorage.php": {
+      "classification": "storage_adapter",
+      "required_markers": ["FileUploadGuard::validate", "move_uploaded_file(", "private:ertaq_attachments/", "delete("]
+    },
+    "src/Modules/Staff/StaffProfileCommandService.php": {
+      "classification": "database_backed",
+      "required_markers": ["FileUploadGuard::validate", "FileUploadGuard::randomFileName", "finalizeImageChange("]
+    },
+    "teacher/ajax/generate_exam_only.php": {
+      "classification": "transient_processing",
+      "required_markers": ["FileUploadGuard::assertSafeOriginalName", "FILEINFO_MIME_TYPE"]
+    },
+    "teacher/ajax/generate_lesson.php": {
+      "classification": "transient_processing",
+      "required_markers": ["FileUploadGuard::assertSafeOriginalName", "detectMimeType("]
+    },
+    "teacher/ajax/generate_powerpoint_only.php": {
+      "classification": "transient_processing",
+      "required_markers": ["FileUploadGuard::assertSafeOriginalName", "detectMimeType("]
+    },
+    "teacher/ajax/generate_qbank_only.php": {
+      "classification": "transient_processing",
+      "required_markers": ["FileUploadGuard::assertSafeOriginalName", "FILEINFO_MIME_TYPE"]
+    }
+  }
+}

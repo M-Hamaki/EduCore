@@ -1,0 +1,60 @@
+# =========================
+# Uploads & user data
+# =========================
+/uploads/*
+!/uploads/.gitkeep
+!/uploads/.htaccess
+
+# =========================
+# IDE & Editor
+# =========================
+.vscode/
+.idea/
+.zcode/plans/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# =========================
+# PHP & Server
+# =========================
+*.log
+error_log
+php_errors.log
+/vendor/
+/phpmyadmin/
+/nul
+
+# Local maintenance artifacts
+/backups/
+/archive/
+/scratch/
+/tmp/
+/.agents/
+/storage/backups/
+/storage/exports/*
+!/storage/exports/.gitkeep
+/storage/framework/
+/storage/test-runtime/
+/storage/ppt_templates/*
+!/storage/ppt_templates/.gitkeep
+/storage/private/*
+!/storage/private/.gitignore
+*.bak
+
+# =========================
+# Environment
+# =========================
+.env
+.env.local
+.env.production

@@ -1,0 +1,285 @@
+{
+    "_comment": "ملف تخصيص حقول اكتمال بيانات الطلاب — يمكن تعديله من واجهة الإدارة",
+    "_version": "1.0",
+    "fields": [
+        {
+            "key": "national_id",
+            "label": "الرقم القومي",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "national_id",
+            "priority": "required",
+            "weight": 10
+        },
+        {
+            "key": "birth_date",
+            "label": "تاريخ الميلاد",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "birth_date",
+            "priority": "required",
+            "weight": 10
+        },
+        {
+            "key": "gender",
+            "label": "النوع",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "gender",
+            "priority": "required",
+            "weight": 8
+        },
+        {
+            "key": "religion",
+            "label": "الديانة",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "religion",
+            "priority": "important",
+            "weight": 6
+        },
+        {
+            "key": "nationality",
+            "label": "الجنسية",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "nationality",
+            "priority": "important",
+            "weight": 6
+        },
+        {
+            "key": "birth_place",
+            "label": "محل الميلاد",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "birth_place",
+            "priority": "important",
+            "weight": 5
+        },
+        {
+            "key": "passport_number",
+            "label": "جواز السفر",
+            "section": "البيانات الشخصية",
+            "db_table": "student_profiles",
+            "db_column": "passport_number",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "city_area",
+            "label": "المدينة\/المنطقة",
+            "section": "العناوين والتواصل",
+            "db_table": "student_profiles",
+            "db_column": "city_area",
+            "priority": "important",
+            "weight": 6
+        },
+        {
+            "key": "address_current",
+            "label": "العنوان التفصيلي",
+            "section": "العناوين والتواصل",
+            "db_table": "student_profiles",
+            "db_column": "address_current",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "phone_mobile",
+            "label": "موبايل الطالب",
+            "section": "العناوين والتواصل",
+            "db_table": "student_profiles",
+            "db_column": "phone_mobile",
+            "priority": "ignored",
+            "weight": 3
+        },
+        {
+            "key": "phone_home",
+            "label": "الهاتف الأرضي",
+            "section": "العناوين والتواصل",
+            "db_table": "student_profiles",
+            "db_column": "phone_home",
+            "priority": "ignored",
+            "weight": 3
+        },
+        {
+            "key": "phone_emergency",
+            "label": "تليفون الطوارئ",
+            "section": "العناوين والتواصل",
+            "db_table": "student_profiles",
+            "db_column": "phone_emergency",
+            "priority": "important",
+            "weight": 10
+        },
+        {
+            "key": "father_name",
+            "label": "اسم الأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "guardian_name",
+            "priority": "required",
+            "weight": 10
+        },
+        {
+            "key": "father_mobile",
+            "label": "موبايل الأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "phone_primary",
+            "priority": "required",
+            "weight": 10
+        },
+        {
+            "key": "father_national_id",
+            "label": "الرقم القومي للأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "national_id",
+            "priority": "important",
+            "weight": 7
+        },
+        {
+            "key": "father_job",
+            "label": "المسمى الوظيفي للأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "job_title",
+            "priority": "important",
+            "weight": 5
+        },
+        {
+            "key": "father_qualification",
+            "label": "المؤهل الدراسي للأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "qualification",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "father_email",
+            "label": "البريد الإلكتروني للأب",
+            "section": "بيانات الأب",
+            "db_table": "student_guardians_father",
+            "db_column": "email",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "mother_name",
+            "label": "اسم الأم",
+            "section": "بيانات الأم",
+            "db_table": "student_guardians_mother",
+            "db_column": "guardian_name",
+            "priority": "required",
+            "weight": 10
+        },
+        {
+            "key": "mother_mobile",
+            "label": "موبايل الأم",
+            "section": "بيانات الأم",
+            "db_table": "student_guardians_mother",
+            "db_column": "phone_primary",
+            "priority": "important",
+            "weight": 8
+        },
+        {
+            "key": "mother_national_id",
+            "label": "الرقم القومي للأم",
+            "section": "بيانات الأم",
+            "db_table": "student_guardians_mother",
+            "db_column": "national_id",
+            "priority": "important",
+            "weight": 6
+        },
+        {
+            "key": "mother_job",
+            "label": "المسمى الوظيفي للأم",
+            "section": "بيانات الأم",
+            "db_table": "student_guardians_mother",
+            "db_column": "job_title",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "mother_email",
+            "label": "البريد الإلكتروني للأم",
+            "section": "بيانات الأم",
+            "db_table": "student_guardians_mother",
+            "db_column": "email",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "blood_type",
+            "label": "فصيلة الدم",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "blood_type",
+            "priority": "important",
+            "weight": 7
+        },
+        {
+            "key": "health_status",
+            "label": "الحالة الصحية",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "health_status",
+            "priority": "important",
+            "weight": 6
+        },
+        {
+            "key": "chronic_diseases",
+            "label": "الأمراض المزمنة",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "chronic_diseases",
+            "priority": "optional",
+            "weight": 4
+        },
+        {
+            "key": "allergies",
+            "label": "الحساسية",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "allergies",
+            "priority": "optional",
+            "weight": 4
+        },
+        {
+            "key": "disabilities",
+            "label": "الإعاقات",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "disabilities",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "insurance_number",
+            "label": "رقم التأمين",
+            "section": "البيانات الصحية",
+            "db_table": "student_profiles",
+            "db_column": "insurance_number",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "psychological_notes",
+            "label": "ملاحظات نفسية",
+            "section": "البيانات النفسية",
+            "db_table": "student_profiles",
+            "db_column": "psychological_notes",
+            "priority": "optional",
+            "weight": 3
+        },
+        {
+            "key": "profile_image",
+            "label": "الصورة الشخصية",
+            "section": "الصورة الشخصية",
+            "db_table": "student_attachments",
+            "db_column": "profile_image_id",
+            "priority": "optional",
+            "weight": 4
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.17",
+    "version": "2.0.0",
+    "id": "1e8980e7-c235-4bc8-81dd-e75faf01199a",
+    "packageName": "eg.edu.dmls.portal",
+    "developer": {
+        "name": "DMLS School",
+        "websiteUrl": "https://portal.dmls.edu.eg/",
+        "privacyUrl": "https://portal.dmls.edu.eg/privacy",
+        "termsOfUseUrl": "https://portal.dmls.edu.eg/terms"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "DMLS",
+        "full": "DMLS School Portal"
+    },
+    "description": {
+        "short": "DMLS Online Portal with SSO",
+        "full": "Direct access to the DMLS School Portal via Microsoft Teams with Single Sign-On (SSO). Students can access the portal without entering username and password again."
+    },
+    "accentColor": "#1e90ff",
+    "staticTabs": [
+        {
+            "entityId": "portal",
+            "name": "البوابة",
+            "contentUrl": "https://portal.dmls.edu.eg/teams/app.html",
+            "websiteUrl": "https://portal.dmls.edu.eg/",
+            "scopes": ["personal"]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "portal.dmls.edu.eg",
+        "login.microsoftonline.com",
+        "*.microsoft.com"
+    ],
+    "webApplicationInfo": {
+        "id": "3328f82e-1290-456f-aece-96f2623c1385",
+        "resource": "api://portal.dmls.edu.eg/3328f82e-1290-456f-aece-96f2623c1385"
+    },
+    "authorization": {
+        "permissions": {
+            "resourceSpecific": [
+                {
+                    "name": "User.Read",
+                    "type": "Delegated"
+                }
+            ]
+        }
+    },
+    "showLoadingIndicator": true,
+    "isFullScreen": false,
+    "defaultBlockUntilAdminAction": false
+}

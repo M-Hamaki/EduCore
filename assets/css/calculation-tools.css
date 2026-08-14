@@ -1,0 +1,87 @@
+.calculation-tools-page {
+    line-height: 1.7;
+}
+
+.calculation-tools-page .card-body,
+.calculation-tools-page .list-group-item,
+.calculation-tools-page p,
+.calculation-tools-page label {
+    color: #334155;
+}
+
+.calculation-tools-page .form-label,
+.calculation-tools-page h5,
+.calculation-tools-page h6 {
+    font-weight: 700;
+}
+
+.bg-soft-primary { background-color: rgba(78, 115, 223, 0.1); }
+.alert-soft-info { background-color: rgba(54, 185, 204, 0.1); color: #2c9faf; }
+.alert-soft-primary { background-color: rgba(37, 99, 235, 0.06); border-color: rgba(37, 99, 235, 0.15) !important; color: #1d4ed8; }
+.card-header h5 i { width: 20px; }
+.result-area {
+    border-style: dashed !important;
+    border-width: 2px !important;
+    border-color: #cbd5e0 !important;
+}
+.animate__animated { animation-duration: 0.5s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate__fadeIn { animation-name: fadeIn; }
+
+html body #calcTabsContent .card-body {
+    padding: 1.25rem !important;
+}
+
+#calcTabsContent .list-group-item {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+    border-radius: 0 !important;
+    padding: 14px 4px !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    font-size: 0.96rem !important;
+    color: #1e293b !important;
+    line-height: 1.8 !important;
+    box-shadow: none !important;
+    text-align: right !important;
+    justify-content: flex-start !important;
+}
+
+#calcTabsContent .list-group-item > div {
+    text-align: right !important;
+    width: 100% !important;
+}
+
+#calcTabsContent .list-group-item > div > strong {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+
+#calcTabsContent .list-group-item:last-child {
+    border-bottom: none !important;
+}
+
+#calcTabsContent .list-group-item:hover {
+    background-color: transparent !important;
+    border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+#calcTabsContent .list-group-item i.text-success {
+    margin-top: 5px !important;
+    color: #2563eb !important;
+    font-size: 1.05rem !important;
+}
+
+.air-datepicker {
+    /* القواعد المركزية لحامل التاريخ Air Datepicker انتقلت إلى premium-dashboard.css
+       (المحمّل في كل الصفحات) لضمان توحيد المظهر على مستوى النظام. */
+}
+
+#calcTabsContent p.text-muted strong,
+#calcTabsContent p.text-muted b {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}

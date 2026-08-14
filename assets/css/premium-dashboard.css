@@ -1,0 +1,1497 @@
+/* 
+ * EduCore Premium Dashboard Design System
+ * Unified Glassmorphism & Modern UI Styles
+ */
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --premium-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --card-radius: 18px;
+
+    /* Premium Gradients */
+    --primary-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+    --success-gradient: linear-gradient(135deg, #10b981, #059669);
+    --warning-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+    --danger-gradient: linear-gradient(135deg, #ef4444, #dc2626);
+    --info-gradient: linear-gradient(135deg, #0ea5e9, #0284c7);
+    --purple-gradient: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+/* Global Transitions & Layout */
+body {
+    background-color: #f8fafc;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Entrance Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+}
+
+/* --- Unified Stat Cards (KPIs) --- */
+.stat-card {
+    /* Soft Pastel Background using the light theme color of the card */
+    background: var(--card-color-bg, #f1f5f9) !important;
+    border-radius: 18px !important;
+    padding: 0.8rem 1.15rem !important;
+    /* Compact padding */
+    color: #1e293b !important;
+    /* Slate-800 text */
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03) !important;
+    /* Soft border matching the theme color */
+    border: 1px solid color-mix(in srgb, var(--card-color, #1d4ed8) 12%, transparent) !important;
+    height: 100% !important;
+    display: block !important;
+    min-height: 112px !important;
+    /* Reduced card height */
+}
+
+/* Hide the micro bottom accent line in pastel layout */
+.stat-card::after {
+    display: none !important;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px) !important;
+    /* Soft themed shadow glow */
+    box-shadow: 0 12px 24px -8px color-mix(in srgb, var(--card-color, #1d4ed8) 20%, transparent) !important;
+    background: color-mix(in srgb, var(--card-color, #1d4ed8) 6%, var(--card-color-bg, #f1f5f9)) !important;
+    /* Slightly enrich background on hover */
+    border-color: color-mix(in srgb, var(--card-color, #1d4ed8) 30%, transparent) !important;
+}
+
+/* Clean White Floating Icon Holder (Positioned Bottom-Left in RTL) */
+.stat-card-icon {
+    position: absolute !important;
+    bottom: 0.8rem !important;
+    /* Adjusted for compact padding */
+    left: 1.15rem !important;
+    /* Adjusted for compact padding */
+    right: auto !important;
+    top: auto !important;
+    width: 40px !important;
+    /* Slightly smaller for compact layout */
+    height: 40px !important;
+    background: #ffffff !important;
+    /* Clean pure white contrast background */
+    color: var(--card-color, #1d4ed8) !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.1rem !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05) !important;
+    border: 1px solid rgba(15, 23, 42, 0.03) !important;
+}
+
+/* Ensure internal icon centers perfectly */
+.stat-card-icon i {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+.stat-card:hover .stat-card-icon {
+    transform: scale(1.08) rotate(5deg) !important;
+    background: var(--card-color, #1d4ed8) !important;
+    color: #ffffff !important;
+    /* Invert colors on hover */
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-color, #1d4ed8) 25%, transparent) !important;
+}
+
+/* Info block spacing */
+.stat-card-info {
+    z-index: 3 !important;
+    position: relative;
+    margin-top: 0.6rem !important;
+    /* Balanced layout spacing starting from top */
+}
+
+/* Colored thematic numbers (Reverted back to original size/styling) */
+.stat-card-number {
+    font-size: 1.8rem !important;
+    /* Reverted to original */
+    font-weight: 800 !important;
+    color: var(--card-color, #1d4ed8) !important;
+    /* Reverted to themed color */
+    line-height: 1.1 !important;
+    margin-bottom: 4px !important;
+    letter-spacing: -0.5px !important;
+}
+
+.stat-card-label {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    /* Slate-700 label */
+    letter-spacing: 0.1px !important;
+}
+
+.stat-card-sub {
+    font-size: 0.725rem !important;
+    color: #64748b !important;
+    /* Slate-500 subtext */
+    margin-top: 6px !important;
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.stat-card-sub i {
+    color: var(--card-color, #1d4ed8) !important;
+    opacity: 0.7;
+}
+
+/* Solid Themed Top-Left Badge (Positioned Left to balance card) */
+.stat-card-badge {
+    position: absolute !important;
+    top: 0.8rem !important;
+    /* Adjusted for compact padding */
+    left: 1.15rem !important;
+    /* Adjusted for compact padding */
+    right: auto !important;
+    background: var(--card-color, #1d4ed8) !important;
+    /* Solid color theme */
+    color: #ffffff !important;
+    /* White text */
+    border-radius: 30px !important;
+    padding: 2px 8px !important;
+    /* Slightly more compact */
+    font-size: 0.675rem !important;
+    font-weight: 700 !important;
+    z-index: 3 !important;
+    border: 1px solid var(--card-color, #1d4ed8) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 6px color-mix(in srgb, var(--card-color, #1d4ed8) 20%, transparent) !important;
+}
+
+.stat-card:hover .stat-card-badge {
+    background: #ffffff !important;
+    color: var(--card-color, #1d4ed8) !important;
+    border-color: #ffffff !important;
+    transform: scale(1.03) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Semantic stat-card color tokens for migrated pages. */
+.stat-card--primary { --card-color: #2563eb; --card-color-bg: #eff6ff; }
+.stat-card--success { --card-color: #059669; --card-color-bg: #ecfdf5; }
+.stat-card--warning { --card-color: #d97706; --card-color-bg: #fff7ed; }
+.stat-card--danger { --card-color: #dc2626; --card-color-bg: #fef2f2; }
+.stat-card--info { --card-color: #0284c7; --card-color-bg: #e0f2fe; }
+.stat-card--purple { --card-color: #7c3aed; --card-color-bg: #f5f3ff; }
+
+/* --- Premium Bootstrap Cards --- */
+.premium-card {
+    border: 1px solid #edf2f7 !important;
+    border-radius: var(--card-radius) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+    background: #fff;
+    overflow: hidden !important;
+}
+
+.premium-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    transform: translateY(-2px) !important;
+}
+
+.premium-card .card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid #edf2f7 !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+.premium-card .card-header h5 {
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    margin-bottom: 0 !important;
+}
+
+/* Print Overrides */
+@media print {
+    .stat-card {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #eee !important;
+        box-shadow: none !important;
+    }
+
+    .stat-card-icon {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+    }
+
+    .stat-card-badge {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* --- HR Center Custom Styles --- */
+.hr-hub-card {
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #f8fafc, #eef6ff);
+}
+
+.hr-hub-hero {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hr-hub-hero::after {
+    content: '';
+    position: absolute;
+    inset: auto -40px -60px auto;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+.hr-quick-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.25rem;
+    height: 100%;
+    min-height: 130px;
+    border: 1px solid #e5e7eb;
+    transition: all .3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.hr-quick-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, .08);
+    border-color: #3b82f6;
+}
+
+.hr-quick-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.hr-tab-nav {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.hr-tab-button {
+    border: 0;
+    border-radius: 999px;
+    padding: .7rem 1rem;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    color: #0f172a;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, .35);
+}
+
+.hr-tab-button.active {
+    background: linear-gradient(135deg, #1d4ed8, #0f766e);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(29, 78, 216, .22);
+}
+
+/* Floating Action Button (FAB) */
+.btn-gear-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px !important;
+    /* Force left alignment in RTL */
+    right: auto !important;
+    /* Prevent any automatic RTL mirroring to right */
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
+    /* Force circular shape overriding .btn */
+    background: var(--primary-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    border: none;
+    z-index: 1050;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0;
+    /* Remove default button padding */
+}
+
+.btn-gear-float:hover {
+    transform: scale(1.1) rotate(90deg);
+    /* Modern 90-deg spin */
+    color: white;
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+}
+
+.btn-gear-float:active {
+    transform: scale(0.95);
+}
+
+/* Pulsing effect to guide the user initially */
+.btn-gear-float.pulse-effect::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.6;
+    z-index: -1;
+    animation: gear-pulse 2s infinite;
+}
+
+@keyframes gear-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Customizer Badge styling */
+.btn-gear-float-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    /* Bright Red */
+    color: white !important;
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Transition classes for smooth hiding/showing of dashboard widgets */
+.card-fade-transition {
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card-fade-hidden {
+    opacity: 0 !important;
+    transform: scale(0.8) !important;
+}
+
+/* --- Sticky Table Headers fix --- */
+.table-responsive thead.sticky-top th,
+.table-responsive .sticky-top th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background-color: #ffffff;
+    /* Default background fallback */
+    box-shadow: inset 0 -1px 0 #dee2e6;
+    /* maintains header bottom border */
+}
+
+/* Light table headers sticky fix */
+.table-responsive thead.table-light.sticky-top th {
+    background-color: #f8f9fa !important;
+    box-shadow: inset 0 -1px 0 #dee2e6;
+}
+
+/* Dark table headers sticky fix if any */
+.table-responsive thead.table-dark.sticky-top th {
+    background-color: #212529 !important;
+    box-shadow: inset 0 -1px 0 #373b3e;
+}
+
+/* --- Table horizontal padding inside premium-card and standard card --- */
+.premium-card .table th:first-child,
+.premium-card .table td:first-child,
+.card .table th:first-child,
+.card .table td:first-child {
+    padding-right: 1.25rem !important;
+}
+
+.premium-card .table th:last-child,
+.premium-card .table td:last-child,
+.card .table th:last-child,
+.card .table td:last-child {
+    padding-left: 1.25rem !important;
+}
+
+/* ==========================================================================
+   Global Table Design & Sorting Style Overrides (نظام الجداول والترتيب الموحد)
+   ========================================================================== */
+
+/* 1. نظام تلوين الصفوف المخططة والبديلة لجميع جداول النظام */
+html body .table {
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.015) !important;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.03) !important;
+    --bs-table-bg: #ffffff !important;
+}
+
+/* تطبيق اللون الرمادي الفاتح جداً على الصفوف الفردية والأبيض على الزوجية لجداول النظام وجداول DataTables */
+html body .table-striped>tbody>tr:nth-of-type(odd)>td,
+html body .table-striped>tbody>tr:nth-of-type(odd)>th,
+html body table.dataTable.table-striped>tbody>tr:nth-of-type(odd)>td,
+html body table.dataTable.table-striped>tbody>tr:nth-of-type(odd)>th,
+html body table.dataTable tbody tr.odd>td,
+html body table.dataTable tbody tr.odd>th {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.015) !important;
+    background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+html body .table-striped>tbody>tr:nth-of-type(even)>td,
+html body .table-striped>tbody>tr:nth-of-type(even)>th,
+html body table.dataTable.table-striped>tbody>tr:nth-of-type(even)>td,
+html body table.dataTable.table-striped>tbody>tr:nth-of-type(even)>th,
+html body table.dataTable tbody tr.even>td,
+html body table.dataTable tbody tr.even>th {
+    box-shadow: inset 0 0 0 9999px #ffffff !important;
+    background-color: #ffffff !important;
+}
+
+/* تلوين الصفوف عند تمرير الماوس */
+html body .table-hover>tbody>tr:hover>td,
+html body .table-hover>tbody>tr:hover>th,
+html body table.dataTable.table-hover tbody tr:hover>td,
+html body table.dataTable.table-hover tbody tr:hover>th {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.03) !important;
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    transition: background-color 0.15s ease-in-out !important;
+}
+
+@keyframes educore-datatable-return-highlight {
+    0%, 30% {
+        outline-color: rgba(2, 132, 199, 0.55);
+    }
+    100% {
+        outline-color: rgba(2, 132, 199, 0);
+    }
+}
+
+html body table.dataTable tbody tr.datatable-return-row-highlight {
+    outline: 3px solid rgba(2, 132, 199, 0.55);
+    outline-offset: -3px;
+    animation: educore-datatable-return-highlight 3.8s ease-out both;
+}
+
+html body table.dataTable tbody tr.datatable-return-row-highlight>td,
+html body table.dataTable tbody tr.datatable-return-row-highlight>th {
+    background-color: #e0f2fe !important;
+    box-shadow: inset 0 0 0 9999px rgba(14, 165, 233, 0.07) !important;
+}
+
+html body table.dataTable tbody tr.datatable-return-row-highlight>:first-child {
+    box-shadow: inset 4px 0 0 #0284c7, inset 0 0 0 9999px rgba(14, 165, 233, 0.07) !important;
+}
+
+html[dir="rtl"] body table.dataTable tbody tr.datatable-return-row-highlight>:first-child {
+    box-shadow: inset -4px 0 0 #0284c7, inset 0 0 0 9999px rgba(14, 165, 233, 0.07) !important;
+}
+
+html body table.dataTable tbody tr.datatable-return-row-highlight:focus {
+    outline: 3px solid rgba(2, 132, 199, 0.4);
+    outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html body table.dataTable tbody tr.datatable-return-row-highlight {
+        animation: none;
+    }
+}
+
+/* 2. توحيد شكل وتنسيق أسهم الترتيب في جداول النظام (مستوحى من FontAwesome) */
+
+/* إلغاء أي صور خلفية افتراضية قد تضعها مكتبة DataTables */
+html body table.dataTable thead>tr>th.sorting,
+html body table.dataTable thead>tr>th.sorting_asc,
+html body table.dataTable thead>tr>th.sorting_desc,
+html body table.dataTable thead>tr>td.sorting,
+html body table.dataTable thead>tr>td.sorting_asc,
+html body table.dataTable thead>tr>td.sorting_desc {
+    background-image: none !important;
+    position: relative !important;
+    padding-left: 1.8rem !important;
+    /* مساحة للأيقونة جهة اليسار */
+}
+
+/* إخفاء سهم الترتيب الافتراضي الثاني لمنع التكرار */
+html body table.dataTable thead>tr>th.sorting::after,
+html body table.dataTable thead>tr>th.sorting_asc::after,
+html body table.dataTable thead>tr>th.sorting_desc::after,
+html body table.dataTable thead>tr>td.sorting::after,
+html body table.dataTable thead>tr>td.sorting_asc::after,
+html body table.dataTable thead>tr>td.sorting_desc::after {
+    display: none !important;
+    content: "" !important;
+}
+
+/* تهيئة السهم الرئيسي على جهة اليسار (في التنسيق العربي RTL) */
+html body table.dataTable thead>tr>th.sorting::before,
+html body table.dataTable thead>tr>th.sorting_asc::before,
+html body table.dataTable thead>tr>th.sorting_desc::before,
+html body table.dataTable thead>tr>td.sorting::before,
+html body table.dataTable thead>tr>td.sorting_asc::before,
+html body table.dataTable thead>tr>td.sorting_desc::before {
+    position: absolute !important;
+    top: 50% !important;
+    left: 10px !important;
+    right: auto !important;
+    transform: translateY(-50%) !important;
+    display: block !important;
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-size: 0.8rem !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* حالة العمود غير المُرتب */
+html body table.dataTable thead>tr>th.sorting::before,
+html body table.dataTable thead>tr>td.sorting::before {
+    content: "\f0dc" !important;
+    /* رمز الترتيب المزدوج */
+    opacity: 0.25 !important;
+    color: #94a3b8 !important;
+}
+
+/* حالة الترتيب التصاعدي */
+html body table.dataTable thead>tr>th.sorting_asc::before,
+html body table.dataTable thead>tr>td.sorting_asc::before {
+    content: "\f0de" !important;
+    /* رمز سهم لأعلى */
+    opacity: 1 !important;
+    color: #0284c7 !important;
+}
+
+/* حالة الترتيب التنازلي */
+html body table.dataTable thead>tr>th.sorting_desc::before,
+html body table.dataTable thead>tr>td.sorting_desc::before {
+    content: "\f0dd" !important;
+    /* رمز سهم لأسفل */
+    opacity: 1 !important;
+    color: #0284c7 !important;
+}
+
+/* 3. محاذاة جميع عناوين الأعمدة في كل جداول النظام إلى اليمين */
+html body table thead th,
+html body table thead td,
+html body table.dataTable thead th,
+html body table.dataTable thead td,
+html body table.dataTable thead>tr>th,
+html body table.dataTable thead>tr>td {
+    text-align: right !important;
+}
+
+/* 6. أزرار شريط الأدوات العلوي الفاخرة (Premium Toolbar Buttons) */
+html body .btn-toolbar .btn-header-premium {
+    padding: 5px 12px !important;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    border-radius: 6px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    border: 1px solid transparent !important;
+}
+
+/* زر الإضافة الفاخر (Gradient Success) */
+html body .btn-toolbar .btn-header-premium.btn-add-primary {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-add-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* زر الاستيراد الفاخر (Soft Cyan) */
+html body .btn-toolbar .btn-header-premium.btn-import-soft {
+    background-color: rgba(14, 165, 233, 0.07) !important;
+    color: #0284c7 !important;
+    border: 1px solid rgba(14, 165, 233, 0.12) !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-import-soft:hover {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.25) !important;
+}
+
+/* زر التصدير الفاخر (Soft Green) */
+html body .btn-toolbar .btn-header-premium.btn-export-soft {
+    background-color: rgba(16, 185, 129, 0.07) !important;
+    color: #059669 !important;
+    border: 1px solid rgba(16, 185, 129, 0.12) !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-export-soft:hover {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* 7. تحسينات شكل الجدول العام لتبدو عصرية وفخمة (Global Modern Table Enhancements) */
+html body .table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+/* تنسيق رأس الجدول (Table Headers) */
+html body .table thead th,
+html body table.dataTable thead th {
+    background-color: #f1f5f9 !important;
+    /* رمادي فاتح متميز للتباين */
+    color: #0f172a !important;
+    /* رمادي داكن غامق جداً للوضوح */
+    font-weight: 700 !important;
+    font-size: 0.96rem !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    border-bottom: 2px solid #cbd5e1 !important;
+    border-top: none !important;
+}
+
+/* تنسيق خلايا الجدول (Table Body Cells) */
+html body .table tbody td,
+html body .table tbody th {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    vertical-align: middle !important;
+    /* محاذاة رأسية متوسطة لكافة العناصر */
+    font-size: 0.96rem !important;
+    color: #1e293b !important;
+    /* لون رمادي داكن مشبع وحاد لتباين ممتاز للعين */
+    border-bottom: 1px solid #e2e8f0 !important;
+    /* خط أفقي متميز للحدود */
+    font-weight: 500 !important;
+}
+
+/* ترسيخ الهرم البصري بتمييز الأعمدة الهامة مثل الاسم والروابط (Vibrant Royal Blue Accent) */
+html body .table tbody td a,
+html body .table tbody td .fw-bold,
+html body .table tbody td.fw-semibold {
+    color: #1d4ed8 !important;
+    /* أزرق ملكي قوي ومشبع لمنع المظهر الباهت */
+    font-weight: 700 !important;
+}
+
+html body .table tbody td a:hover {
+    color: #1e40af !important;
+    text-decoration: underline !important;
+}
+
+/* إضفاء تأثير تفاعلي ناعم عند تمرير الماوس على الصفوف (SaaS Card Hover) */
+html body .table-hover>tbody>tr {
+    transition: all 0.15s ease-in-out !important;
+}
+
+html body .table-hover>tbody>tr:hover {
+    background-color: rgba(37, 99, 235, 0.05) !important;
+    /* توهج أزرق واضح ومميز عند التمرير */
+}
+
+html body .table-hover>tbody>tr:hover td {
+    color: #0f172a !important;
+    /* إضاءة كافة نصوص الصف وتغميقها تلقائياً عند الوقوف عليه */
+}
+
+/* ترقية بطاقات لوحة التحكم والجداول (Premium Dashboard Card Wrapper) */
+html body .card.shadow {
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 0 8px 10px -6px rgba(0, 0, 0, 0.01) !important;
+    overflow: hidden !important;
+    /* لمنع تداخل زوايا الجدول مع زوايا البطاقة */
+}
+
+/* 8. تنسيق عناصر DataTables والتحكم المحيطة بالجدول (Modern DataTables Wrapper Styling) */
+
+/* مربع البحث الخاص بـ DataTables */
+html body .dataTables_filter {
+    margin-top: 15px !important;
+    /* إضافة مسافة علوية لمنع الالتصاق بالفلاتر */
+    margin-bottom: 15px !important;
+    padding-left: 20px !important;
+    /* مسافة أمان جانبية من الحافة اليسرى */
+    padding-right: 20px !important;
+    /* مسافة أمان جانبية من الحافة اليمنى */
+    text-align: left !important;
+    /* محاذاة لليسار في RTL ليكون في الجهة المقابلة */
+}
+
+html body .dataTables_filter label {
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    /* لون داكن وأوضح (Slate 800) */
+    font-size: 0.9rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+html body .dataTables_filter input {
+    border: 1px solid #cbd5e1 !important;
+    /* حد واضح ومحدد (Slate 300) بدلاً من الباهت */
+    border-radius: 6px !important;
+    padding: 5px 12px !important;
+    font-size: 0.88rem !important;
+    outline: none !important;
+    transition: all 0.15s ease-in-out !important;
+    background-color: #ffffff !important;
+    /* خلفية بيضاء نقية للتباين */
+    color: #1e293b !important;
+    /* لون نص داكن وواضح */
+}
+
+html body .dataTables_filter input:focus {
+    border-color: #1d4ed8 !important;
+    /* لون إطار أزرق نشط */
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18) !important;
+    /* توهج أزرق ملكي */
+    background-color: #ffffff !important;
+}
+
+/* قائمة تحديد عدد الصفوف المعروضة */
+html body .admin-list-surface .dataTables_length {
+    margin-top: 15px !important;
+    /* إضافة مسافة علوية لمنع الالتصاق بالفلاتر */
+    margin-bottom: 15px !important;
+    padding-left: 20px !important;
+    /* مسافة أمان جانبية */
+    padding-right: 20px !important;
+    /* مسافة أمان جانبية */
+    text-align: right !important;
+}
+
+html body .admin-list-surface .dataTables_length label {
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    /* لون داكن وأوضح */
+    font-size: 0.9rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+html body .admin-list-surface .dataTables_length select {
+    border: 1px solid #cbd5e1 !important;
+    /* حد واضح ومحدد (Slate 300) */
+    border-radius: 6px !important;
+    padding: 5px 15px 5px 28px !important;
+    /* حشوة داخلية متناسبة لـ RTL (أكبر من اليسار لوجود السهم) */
+    font-size: 0.88rem !important;
+    outline: none !important;
+    background-color: #ffffff !important;
+    /* خلفية بيضاء نقية */
+    color: #1e293b !important;
+    /* لون نص داكن وواضح */
+}
+
+/* معلومات الجدول أسفل الصفحة (Info) */
+html body .admin-list-surface .dataTables_info {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+    padding-top: 15px !important;
+    padding-bottom: 20px !important;
+    /* مسافة أمان سفلية */
+    padding-left: 20px !important;
+    /* مسافة أمان جانبية */
+    padding-right: 20px !important;
+    /* مسافة أمان جانبية */
+}
+
+/* أزرار تنقل الصفحات الخاصة بـ DataTables (Pagination) */
+html body .admin-list-surface .dataTables_paginate {
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    /* مسافة أمان سفلية */
+    padding-left: 20px !important;
+    /* مسافة أمان جانبية */
+    padding-right: 20px !important;
+    /* مسافة أمان جانبية */
+    text-align: left !important;
+}
+
+html body .admin-list-surface .dataTables_paginate .paginate_button {
+    padding: 5px 12px !important;
+    margin-left: 4px !important;
+    border-radius: 6px !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+html body .admin-list-surface .dataTables_paginate .paginate_button:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+html body .admin-list-surface .dataTables_paginate .paginate_button.current,
+html body .admin-list-surface .dataTables_paginate .paginate_button.current:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2) !important;
+}
+
+html body .admin-list-surface .dataTables_paginate .paginate_button.disabled,
+html body .admin-list-surface .dataTables_paginate .paginate_button.disabled:hover {
+    background: #f8fafc !important;
+    color: #cbd5e1 !important;
+    border-color: #e2e8f0 !important;
+    cursor: not-allowed !important;
+}
+
+/* أزرار تنقل الصفحات الخاصة بـ Bootstrap (Bootstrap Pagination) */
+html body .admin-list-surface .pagination .page-link {
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    margin: 0 2px !important;
+    transition: all 0.2s !important;
+}
+
+html body .admin-list-surface .pagination .page-link:hover {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+html body .admin-list-surface .pagination .page-item.active .page-link {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2) !important;
+}
+
+html body .admin-list-surface .pagination .page-item.disabled .page-link {
+    background-color: #f8fafc !important;
+    color: #cbd5e1 !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* توحيد شريط أسفل الجدول (info + pagination) ليشبه ترقيم الصفحات الخادمي
+   في صفحات مثل students.php: نص الإحصاء يميناً، أزرار الترقيم يساراً على نفس السطر. */
+html body .admin-list-surface .dt-footer-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    padding: 12px 4px 18px 4px !important;
+    margin-top: 8px !important;
+    border-top: 1px solid #e2e8f0 !important;
+}
+
+/* في RTL: info يميناً (start)، paginate يساراً (end) — مطابقاً لـ d-flex justify-content-between */
+html body[dir="rtl"] .admin-list-surface .dt-footer-bar .dataTables_info {
+    order: 1 !important;
+    text-align: right !important;
+    padding: 0 !important;
+}
+
+html body[dir="rtl"] .admin-list-surface .dt-footer-bar .dataTables_paginate {
+    order: 2 !important;
+    text-align: left !important;
+    padding: 0 !important;
+}
+
+html body .admin-list-surface .dt-footer-bar .dataTables_info {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+}
+
+/* 9. تحسين عناصر التصفية والتحكم داخل ترويسة بطاقة الجدول (Premium White Card Header & Slate Filters) */
+
+/* تحويل الترويسة الزرقاء التقليدية إلى ترويسة بيضاء عصرية متناسقة مع شريط النظام العلوي */
+html body .admin-card-surface .card-header.bg-primary {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
+
+/* تنسيق عنوان الترويسة والأيقونة */
+html body .admin-card-surface .card-header.bg-primary h5 {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+}
+
+html body .admin-card-surface .card-header.bg-primary h5 i {
+    color: #1d4ed8 !important;
+    /* لون أزرق ملكي للأيقونة */
+}
+
+/* فلاتر التصفية الرمادية الأنيقة بدلاً من الشفافة */
+html body .admin-card-surface .card-header select.form-select-sm,
+html body .admin-card-surface .card-header input.form-control-sm {
+    background-color: #ffffff !important;
+    /* خلفية بيضاء نقية للتباين */
+    color: #1e293b !important;
+    /* لون نص داكن وواضح جداً (Slate 800) */
+    border: 1px solid #cbd5e1 !important;
+    /* حد واضح ومحدد (Slate 300) بدلاً من الباهت */
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    /* خط أعرض قليلاً لمقروئية أفضل */
+    transition: all 0.2s !important;
+}
+
+/* تأثير التمرير التفاعلي على الفلاتر */
+html body .admin-card-surface .card-header select.form-select-sm:hover,
+html body .admin-card-surface .card-header input.form-control-sm:hover {
+    background-color: #f8fafc !important;
+    border-color: #94a3b8 !important;
+    /* حد أغمق عند التمرير */
+    cursor: pointer !important;
+}
+
+/* تأثير التوهج عند التركيز على الفلاتر */
+html body .admin-card-surface .card-header select.form-select-sm:focus,
+html body .admin-card-surface .card-header input.form-control-sm:focus {
+    background-color: #ffffff !important;
+    border-color: #1d4ed8 !important;
+    /* لون إطار أزرق نشط */
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18) !important;
+    /* توهج أزرق ملكي */
+}
+
+/* خيارات الفلتر بالخلفية البيضاء */
+html body .admin-card-surface .card-header select.form-select-sm option {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+}
+
+/* أزرار الترويسة (Reset & Settings) الرمادية الناعمة بدلاً من البيضاء الصلبة */
+html body .admin-card-surface .card-header .btn-light {
+    background-color: #ffffff !important;
+    /* خلفية بيضاء متناسقة مع الفلاتر */
+    color: #1e293b !important;
+    /* نص داكن وواضح جداً */
+    border: 1px solid #cbd5e1 !important;
+    /* حد واضح ومحدد متطابق مع الفلاتر */
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    padding: 5px 12px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html body .admin-card-surface .card-header .btn-light:hover {
+    background-color: #1e40af !important;
+    /* خلفية زرقاء ملكية داكنة عند المرور */
+    color: #ffffff !important;
+    /* نص أبيض ناصع عند المرور */
+    border-color: #1e40af !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.15) !important;
+}
+
+/* 10. تصميم ألسنة تبويب الصفحة الرئيسية الفاخرة (Soft Active Pill Style) */
+/* 10. تصميم ألسنة تبويب الصفحة الرئيسية الفاخرة (Soft Active Pill Style) */
+html body .nav-tabs {
+    border-bottom: none !important;
+    /* إزالة الخط الفاصل السفلي بالكامل لمظهر أكثر بساطة ونقاء */
+    background-color: transparent !important;
+    padding: 0 0 8px 0 !important;
+    /* مسافة أمان سفلية */
+    border-radius: 0 !important;
+    display: flex !important;
+    gap: 8px !important;
+    /* مسافة مريحة بين الأزرار */
+    margin-bottom: 20px !important;
+    position: relative !important;
+}
+
+html body .nav-tabs .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .nav-tabs .nav-item .nav-link {
+    border: 1px solid transparent !important;
+    /* إطار شفاف لمنع التحول البصري */
+    border-radius: 30px !important;
+    /* زوايا دائرية كاملة (كبسولة طائرة) */
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    color: #64748b !important;
+    /* لون رمادي للتبويبات غير النشطة */
+    padding: 8px 18px !important;
+    transition: all 0.2s ease-in-out !important;
+    background-color: transparent !important;
+    position: relative !important;
+}
+
+/* إخفاء الخط السفلي النشط القديم */
+html body .nav-tabs .nav-item .nav-link::after {
+    display: none !important;
+    content: "" !important;
+}
+
+/* التبويب النشط (خلفية زرقاء ناعمة جداً، إطار ناعم، ونص أزرق ملكي) */
+html body .nav-tabs .nav-item .nav-link.active {
+    color: #1d4ed8 !important;
+    /* لون نص أزرق ملكي */
+    background-color: #eff6ff !important;
+    /* خلفية زرقاء ناعمة باستيل (Blue 50) */
+    border-color: rgba(29, 78, 216, 0.15) !important;
+    /* إطار أزرق ناعم جداً */
+    box-shadow: none !important;
+    font-weight: 700 !important;
+}
+
+/* تأثير التمرير للتبويبات غير النشطة */
+html body .nav-tabs .nav-item .nav-link:hover:not(.active) {
+    color: #1e293b !important;
+    background-color: #f1f5f9 !important;
+    /* خلفية رمادية ناعمة */
+}
+
+/* ترقية شارات التبويب الرئيسي (Page Tabs Badges) */
+html body .nav-tabs .nav-link .badge {
+    padding: 3px 8px !important;
+    font-size: 0.78rem !important;
+    border-radius: 30px !important;
+    /* شارات دائرية كاملة متناسقة مع الكبسولة */
+    font-weight: 600 !important;
+}
+
+html body .nav-tabs .nav-link.active .badge {
+    background-color: rgba(29, 78, 216, 0.15) !important;
+    color: #1d4ed8 !important;
+}
+
+html body .nav-tabs .nav-link:not(.active) .badge {
+    background-color: #e2e8f0 !important;
+    color: #475569 !important;
+    border: none !important;
+}
+
+/* 11. ترقية الشارات والشعارات لتبدو بنمط باستيل ناعم (Modern Soft Pastel Badges in Tables) */
+html body .table .badge {
+    padding: 5px 10px !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+}
+
+/* شارة النجاح / النشط / المقيد (Soft Green Badge) */
+html body .table .badge.bg-success {
+    background-color: rgba(16, 185, 129, 0.08) !important;
+    color: #10b981 !important;
+    border-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+/* شارة الخريج / الأساسي (Vibrant Royal Blue Badge) */
+html body .table .badge.bg-primary {
+    background-color: rgba(29, 78, 216, 0.08) !important;
+    color: #1d4ed8 !important;
+    border-color: rgba(29, 78, 216, 0.15) !important;
+}
+
+/* شارة المنقول / المعلق (Soft Warning Badge) */
+html body .table .badge.bg-warning {
+    background-color: rgba(217, 119, 6, 0.08) !important;
+    color: #d97706 !important;
+    border-color: rgba(217, 119, 6, 0.15) !important;
+}
+
+/* شارة المعطل / الحظر (Soft Danger Badge) */
+html body .table .badge.bg-danger {
+    background-color: rgba(239, 68, 68, 0.08) !important;
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ====== ثيم البسيط المندمج (Minimalist Borderless Page Theme - Notion Style) ====== */
+
+/* 12. إلغاء إطار وظل بطاقة الجدول لدمجه بالكامل مع خلفية الصفحة لكلا التبويبين */
+html body #tab-students .card,
+html body #tab-activity-log .card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+/* إزالة حشوة بطاقة الجدول فقط لجعل الجدول يمتد للحواف */
+html body #tab-students .card-body,
+html body #tab-activity-log .card:not(.mb-3) .card-body,
+html body .card:has(.table-responsive) .card-body {
+    padding: 0 !important;
+}
+
+/* جعل ترويسة بطاقة الجدول (الفلاتر) شفافة ومحاذية للجدول لكلا التبويبين وتعميمها على الكروت ذات الفلاتر */
+html body #tab-students .card-header.bg-primary,
+html body #tab-activity-log .card-header.bg-primary,
+html body .card-header.bg-primary:has(form),
+html body .card-header.bg-primary:has(.d-flex) {
+    background: transparent !important;
+    color: #1e293b !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 8px !important;
+    padding-bottom: 12px !important;
+}
+
+html body .card-header.bg-primary:has(form) h5,
+html body .card-header.bg-primary:has(.d-flex) h5 {
+    color: #1e293b !important;
+}
+
+html body .card-header.bg-primary:has(form) h5 i,
+html body .card-header.bg-primary:has(.d-flex) h5 i {
+    color: #1d4ed8 !important;
+}
+
+/* جعل صف العناوين (Headers) بلون رمادي مزرق ناعم وواضح لكافة الجداول في الصفحة */
+html body .table thead th,
+html body table.dataTable thead th {
+    background-color: #cbd5e1 !important;
+    /* لون رمادي مزرق ناعم وواضح (Slate 300) */
+    color: #1e293b !important;
+    /* نص داكن وواضح جداً (Slate 800) للتباين الممتاز */
+    border-bottom: 2px solid #94a3b8 !important;
+    /* حد سفلي رمادي أغمق قليلاً (Slate 400) */
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* إزالة الإطار الخارجي فقط؛ حدود الأعمدة أصبحت مركزية في admin-unified.css */
+html body .table,
+html body table.dataTable,
+html body .table-responsive {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* إزالة أي إطارات أو خلفيات زائدة حول منطقة معلومات وصفحات الجدول */
+html body .dataTables_wrapper {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+html body .dataTables_info,
+html body .dataTables_paginate {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* ضبط ألوان أيقونات الترتيب في DataTables لتناسب الخلفية الفاتحة الجديدة */
+html body table.dataTable thead>tr>th.sorting::before,
+html body table.dataTable thead>tr>td.sorting::before {
+    color: #64748b !important;
+    /* لون رمادي داكن ناعم */
+    opacity: 0.45 !important;
+}
+
+html body table.dataTable thead>tr>th.sorting_asc::before,
+html body table.dataTable thead>tr>td.sorting_asc::before,
+html body table.dataTable thead>tr>th.sorting_desc::before,
+html body table.dataTable thead>tr>td.sorting_desc::before {
+    color: #1d4ed8 !important;
+    /* لون أزرق ملكي نشط للعمود المُرتب */
+    opacity: 1 !important;
+}
+
+/* تنسيق بطاقات الجدول الموحد (Unified Table Card Styling) */
+html body .table-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+html body .table-card .table-card-header {
+    background: transparent !important;
+    color: #1e293b !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 8px !important;
+    padding-bottom: 12px !important;
+}
+
+html body .table-card .table-card-header h5 {
+    color: #1e293b !important;
+}
+
+html body .table-card .table-card-header h5 i {
+    color: #1d4ed8 !important;
+}
+
+html body .table-card .table-card-body {
+    padding: 0 !important;
+}
+
+/* إزالة الإطار الخارجي فقط؛ فواصل الأعمدة تدار مركزياً من admin-unified.css */
+html body .table-card .table,
+html body .table-card table.dataTable,
+html body .table-card .table-responsive {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+/* إلغاء التنسيق المزدوج (الطبقات المتعددة) لأزرار تنقل الصفحات */
+html body .dataTables_paginate .paginate_button.page-item {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+html body .dataTables_paginate .paginate_button.page-item .page-link {
+    padding: 6px 14px !important;
+    margin: 0 3px !important;
+    border-radius: 6px !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    box-shadow: none !important;
+}
+
+html body .dataTables_paginate .paginate_button.page-item .page-link:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+html body .dataTables_paginate .paginate_button.page-item.active .page-link,
+html body .dataTables_paginate .paginate_button.page-item.active .page-link:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2) !important;
+}
+
+html body .dataTables_paginate .paginate_button.page-item.disabled .page-link,
+html body .dataTables_paginate .paginate_button.page-item.disabled .page-link:hover {
+    background: #f8fafc !important;
+    color: #cbd5e1 !important;
+    border-color: #e2e8f0 !important;
+    cursor: not-allowed !important;
+}
+
+/* استهداف مباشر بالـ ID لحل مشكلة التخزين المؤقت (Cache) للإطارات الخارجية فقط */
+html body #newStudentsTable_wrapper,
+html body #graduatesTable_wrapper,
+html body #newStudentsTable,
+html body #graduatesTable,
+html body .table-card-body .table-responsive {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* إزالة أي إطارات أو خلفيات حول منطقة أزرار التنقل بالـ ID */
+html body #newStudentsTable_paginate,
+html body #graduatesTable_paginate,
+html body #newStudentsTable_paginate .paging_simple_numbers,
+html body #graduatesTable_paginate .paging_simple_numbers {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    .admin-page .animate-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .admin-page .card,
+    .admin-page .stat-card,
+    .admin-page .btn,
+    .admin-page .nav-link,
+    .admin-page .color-option {
+        transition: none !important;
+    }
+
+    .admin-page .card:hover,
+    .admin-page .stat-card:hover,
+    .admin-page .btn:hover,
+    .admin-page .btn:active {
+        transform: none !important;
+    }
+}
+
+/* إلغاء تأثيرات الحركة والتحرك عند مرور المؤشر على البطاقات داخل المودال */
+.modal .card {
+    transition: none !important;
+}
+.modal .card:hover {
+    transform: none !important;
+    box-shadow: var(--bs-box-shadow-sm, 0 .125rem .25rem rgba(0,0,0,.075)) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* تسريع وتعجيل الانتقالات والحركات داخل النماذج (Modals) لتكون فائقة السرعة والاستجابة */
+
+/* 1. تسريع فتح وإغلاق النموذج وتأثير الخلفية */
+.modal.fade .modal-dialog {
+    transition: transform 0.08s ease-out !important;
+}
+.modal-backdrop.fade {
+    transition: opacity 0.08s linear !important;
+}
+
+/* 2. إلغاء تأثير الضبابية (Backdrop Blur) لتجنب بطء المعالجة في المتصفح (GPU Lag) */
+.modal-backdrop.show {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(15, 23, 42, 0.4) !important;
+}
+
+/* 3. تسريع حركة وتفاعل الأزرار وعناصر التحكم بداخل النموذج وإلغاء حركات الارتفاع (translateY) */
+.modal .btn,
+.modal .form-check-input,
+.modal .form-control,
+.modal .form-select,
+.modal .col-toggle-checkbox {
+    transition: all 0.08s ease-in-out !important;
+}
+
+.modal .btn:hover,
+.modal .btn:active,
+.modal .form-check-input:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* 4. تسريع حركة مفاتيح التبديل (Switches) لتكون فورية */
+.modal .form-switch .form-check-input {
+    transition: background-position 0.08s ease-in-out, background-color 0.08s ease-in-out !important;
+}
+
+/* ============================================================
+   Air Datepicker — تنسيق مركزي موحد لحامل التاريخ
+   يُستخدم في كامل النظام. المرجع: admin/calculation_tools.php
+   ============================================================ */
+.air-datepicker {
+    --adp-font-family: 'Cairo', 'Inter', sans-serif !important;
+    --adp-border-radius: 12px !important;
+    --adp-cell-border-radius: 8px !important;
+    --adp-color-active: #2563eb !important;
+    --adp-background-color-active: #2563eb !important;
+    --adp-background-color-active-hover: #1d4ed8 !important;
+    --adp-color-current-date: #2563eb !important;
+    --adp-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    /* رفع z-index فوق مودالات Bootstrap (1055) وخلفياتها (1050) وأي override لها (1070)،
+       مع الإبقاء على SweetAlert2 (2000) فوقه. ضروري ليظهر المنتقي داخل المودالات. */
+    --adp-z-index: 1090 !important;
+    z-index: 1090 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+.air-datepicker-cell.-current- {
+    color: #2563eb !important;
+    font-weight: 700 !important;
+}
+
+.air-datepicker-cell.-selected- {
+    background: #2563eb !important;
+    color: #fff !important;
+}

@@ -1,0 +1,1177 @@
+/**
+ * EduVisual v3.0 - أنماط محرك الرسوم التفاعلية المتقدم
+ * Advanced SVG Visualization Styles
+ */
+
+/* ==========================================
+   الحاوية الرئيسية (Main Wrapper)
+   ========================================== */
+.eduvisual-wrapper {
+    direction: rtl;
+}
+
+.eduvisual-section {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition: box-shadow 0.3s ease;
+}
+
+.eduvisual-section:hover {
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   عناوين الأقسام (Section Headers)
+   ========================================== */
+.eduvisual-section-header {
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #4338ca, #6366f1);
+    color: #ffffff;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.eduvisual-section-header.concept {
+    background: linear-gradient(135deg, #0369a1, #0ea5e9);
+}
+
+.eduvisual-section-header.summary {
+    background: linear-gradient(135deg, #b45309, #f59e0b);
+}
+
+.eduvisual-section-header.fishbone {
+    background: linear-gradient(135deg, #dc2626, #f87171);
+}
+
+.eduvisual-section-header.hierarchy {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.eduvisual-section-header.flowchart {
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
+}
+
+.eduvisual-section-header.multiflow {
+    background: linear-gradient(135deg, #059669, #34d399);
+}
+
+.eduvisual-section-header.pyramid {
+    background: linear-gradient(135deg, #c026d3, #e879f9);
+}
+
+.eduvisual-section-header.circlemap {
+    background: linear-gradient(135deg, #0369a1, #38bdf8);
+}
+
+.eduvisual-section-header.venn {
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+}
+
+.eduvisual-section-header.timeline {
+    background: linear-gradient(135deg, #0d9488, #2dd4bf);
+}
+
+.eduvisual-section-header h4 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eduvisual-section-header p {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* ==========================================
+   لوحة الرسم (Canvas)
+   ========================================== */
+.eduvisual-canvas {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+.eduvisual-canvas.short {
+    height: 500px;
+}
+
+.eduvisual-canvas.auto-height {
+    height: auto;
+    min-height: 300px;
+}
+
+.eduvisual-canvas svg {
+    display: block;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.eduvisual-canvas.auto-height svg {
+    height: auto;
+    flex: none;
+}
+
+/* ==========================================
+   شريط الأدوات (Toolbar)
+   ========================================== */
+.eduvisual-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+    direction: rtl;
+    flex-shrink: 0;
+}
+
+.ev-toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ev-toolbar-hint {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+/* Theme Selector */
+.ev-theme-selector {
+    display: flex;
+    gap: 5px;
+    padding: 3px;
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.ev-theme-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.ev-theme-btn:hover {
+    transform: scale(1.1);
+    border-color: #cbd5e1;
+}
+
+.ev-theme-btn.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.ev-theme-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Export Buttons */
+.ev-export-btn {
+    padding: 5px 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.ev-export-btn:hover {
+    background: #f1f5f9;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.ev-export-btn i {
+    font-size: 0.75rem;
+}
+
+/* ==========================================
+   التلميحات (Tooltips)
+   ========================================== */
+.eduvisual-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: #f1f5f9;
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+}
+
+.ev-tooltip-icon {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.ev-tooltip-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.ev-tooltip-details {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   رسوم SVG المتحركة (SVG Animations)
+   ========================================== */
+
+/* Node pop-in animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    60% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-pop {
+    opacity: 0;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Connection draw animation */
+@keyframes drawLine {
+    0% {
+        stroke-dashoffset: 1500;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.animate-draw {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    opacity: 0;
+    animation: drawLine 1.2s ease-out forwards;
+}
+
+/* Slide-in animation for summary cards */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* ==========================================
+   تفاعلات العقد (Node Interactions)
+   ========================================== */
+.node.interactive {
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.node.interactive:hover {
+    filter: brightness(1.05) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.node.interactive:hover .branch-bg,
+.node.interactive:hover .sub-bg {
+    stroke-width: 3;
+}
+
+.node.interactive:hover .center-bg {
+    filter: brightness(1.1);
+}
+
+/* Node center glow pulse */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.center-glow {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Node selection highlight */
+@keyframes selectedPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.8));
+    }
+}
+
+.node-selected {
+    animation: selectedPulse 1s ease-in-out infinite;
+}
+
+/* Concept map nodes */
+.concept-node {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.concept-node:hover {
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.18));
+}
+
+/* Venn diagram items */
+.venn-item-a,
+.venn-item-b,
+.venn-item-shared {
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.venn-item-a:hover,
+.venn-item-b:hover,
+.venn-item-shared:hover {
+    filter: drop-shadow(0 4px 15px rgba(99, 102, 241, 0.3));
+}
+
+/* Timeline events */
+.timeline-event {
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.timeline-event:hover {
+    filter: drop-shadow(0 4px 15px rgba(13, 148, 136, 0.3));
+}
+
+/* ==========================================
+   الوضع الداكن (Dark Mode)
+   ========================================== */
+body.dark-mode .eduvisual-section {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .eduvisual-canvas {
+    background: #0f172a;
+}
+
+body.dark-mode .eduvisual-toolbar {
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+    border-color: #334155;
+}
+
+body.dark-mode .ev-toolbar-hint {
+    background: #334155;
+    color: #94a3b8;
+}
+
+body.dark-mode .ev-toolbar-edit-hint {
+    background: #312e81 !important;
+    color: #c7d2fe !important;
+}
+
+body.dark-mode .ev-theme-selector {
+    background: #334155;
+}
+
+body.dark-mode .ev-theme-btn {
+    background: #1e293b;
+}
+
+body.dark-mode .ev-theme-btn.active {
+    border-color: #60a5fa;
+}
+
+body.dark-mode .ev-export-btn {
+    background: #1e293b;
+    border-color: #475569;
+    color: #94a3b8;
+}
+
+body.dark-mode .ev-export-btn:hover {
+    background: #334155;
+    border-color: #60a5fa;
+    color: #60a5fa;
+}
+
+body.dark-mode .eduvisual-section-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   استجابة الشاشة (Responsive)
+   ========================================== */
+@media (max-width: 768px) {
+    .eduvisual-canvas {
+        height: 450px;
+    }
+
+    .eduvisual-canvas.short {
+        height: 380px;
+    }
+
+    .eduvisual-toolbar {
+        padding: 8px 12px;
+    }
+
+    .ev-toolbar-hint {
+        display: none;
+    }
+
+    .ev-export-btn {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .ev-theme-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ev-theme-dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .eduvisual-section-header {
+        padding: 15px 18px;
+    }
+
+    .eduvisual-section-header h4 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .eduvisual-canvas {
+        height: 350px;
+    }
+
+    .eduvisual-canvas.short {
+        height: 300px;
+    }
+
+    .ev-theme-selector {
+        display: none;
+    }
+}
+
+/* ==========================================
+   لوحة التحرير (Edit Panel)
+   ========================================== */
+.ev-edit-panel {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    width: 320px;
+    max-height: calc(100% - 80px);
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    z-index: 200;
+    direction: rtl;
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.ev-edit-panel.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: all;
+}
+
+.ev-edit-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #4338ca, #6366f1);
+    color: #ffffff;
+    border-radius: 16px 16px 0 0;
+}
+
+.ev-edit-header h5 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ev-edit-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.ev-edit-close:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.ev-edit-body {
+    padding: 16px 18px;
+}
+
+.ev-edit-field {
+    margin-bottom: 14px;
+}
+
+.ev-edit-field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.ev-edit-field label i {
+    margin-left: 5px;
+    color: #6366f1;
+}
+
+.ev-edit-text,
+.ev-edit-details {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: 'Cairo', sans-serif;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.ev-edit-text:focus,
+.ev-edit-details:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Icon area */
+.ev-edit-icon-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ev-edit-icon-input {
+    width: 60px;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 6px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+}
+
+.ev-edit-icon-input:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+.ev-edit-emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+}
+
+.ev-emoji-btn {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    background: #f1f5f9;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ev-emoji-btn:hover {
+    background: #e2e8f0;
+    transform: scale(1.15);
+}
+
+.ev-emoji-btn.active {
+    border-color: #6366f1;
+    background: #eef2ff;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+/* Color grid */
+.ev-edit-color-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+}
+
+.ev-color-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    padding: 0;
+}
+
+.ev-color-btn:hover {
+    transform: scale(1.15);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.ev-color-btn.active {
+    border-color: #1e293b;
+    box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.15);
+    transform: scale(1.1);
+}
+
+/* Shape grid */
+.ev-edit-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.ev-shape-btn {
+    padding: 8px 6px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+}
+
+.ev-shape-btn:hover {
+    background: #eef2ff;
+    border-color: #a5b4fc;
+}
+
+.ev-shape-btn.active {
+    border-color: #6366f1;
+    background: #eef2ff;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+/* Actions section */
+.ev-edit-actions-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.ev-action-btn {
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.15s;
+}
+
+.ev-action-btn:hover {
+    background: #eef2ff;
+    border-color: #a5b4fc;
+    color: #4338ca;
+}
+
+.ev-add-branch-btn:hover,
+.ev-add-sub-btn:hover {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #166534;
+}
+
+.ev-delete-btn {
+    color: #ef4444;
+    border-color: #fecaca;
+}
+
+.ev-delete-btn:hover {
+    background: #fef2f2;
+    border-color: #f87171;
+    color: #dc2626;
+}
+
+/* Footer buttons */
+.ev-edit-footer {
+    display: flex;
+    gap: 8px;
+    padding: 12px 18px;
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 0 0 16px 16px;
+}
+
+.ev-edit-save {
+    flex: 1;
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #4338ca, #6366f1);
+    color: white;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.2s;
+}
+
+.ev-edit-save:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.ev-edit-cancel {
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.2s;
+}
+
+.ev-edit-cancel:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Edit hint in toolbar */
+.ev-edit-hint {
+    color: #6366f1;
+    background: #eef2ff;
+}
+
+/* Dark mode for edit panel */
+body.dark-mode .ev-edit-panel {
+    background: #1e293b;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .ev-edit-body {
+    color: #e2e8f0;
+}
+
+body.dark-mode .ev-edit-field label {
+    color: #94a3b8;
+}
+
+body.dark-mode .ev-edit-text,
+body.dark-mode .ev-edit-details,
+body.dark-mode .ev-edit-icon-input {
+    background: #0f172a;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .ev-emoji-btn {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .ev-emoji-btn:hover {
+    background: #475569;
+}
+
+body.dark-mode .ev-shape-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+body.dark-mode .ev-shape-btn:hover {
+    background: #475569;
+}
+
+body.dark-mode .ev-edit-footer {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+body.dark-mode .ev-edit-cancel {
+    background: #334155;
+    border-color: #475569;
+    color: #94a3b8;
+}
+
+body.dark-mode .ev-action-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #94a3b8;
+}
+
+body.dark-mode .ev-edit-actions-section {
+    border-color: #334155;
+}
+
+/* SVG shape styles */
+.node polygon,
+.node ellipse,
+.node path,
+.concept-node polygon,
+.concept-node ellipse {
+    transition: filter 0.2s ease;
+}
+
+.node.interactive:hover polygon,
+.node.interactive:hover ellipse,
+.node.interactive:hover path {
+    filter: brightness(1.05);
+}
+
+/* ===== Print Styles ===== */
+@media print {
+
+    .ev-toolbar,
+    .ev-edit-panel,
+    .ev-edit-panel-overlay,
+    .ev-theme-btn,
+    .ev-export-btn,
+    .ev-zoom-control,
+    .ev-action-btn {
+        display: none !important;
+    }
+
+    .eduvisual-wrapper {
+        background: #fff !important;
+        padding: 0 !important;
+    }
+
+    .eduvisual-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 12pt;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .eduvisual-canvas {
+        min-height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: #fff !important;
+    }
+
+    .eduvisual-canvas svg {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+    }
+
+    .eduvisual-section-header {
+        background: #f8f9fa !important;
+        color: #1e293b !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .eduvisual-section-header h4 {
+        color: #1e293b !important;
+    }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .eduvisual-wrapper *,
+    .eduvisual-wrapper *::before,
+    .eduvisual-wrapper *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .node polygon,
+    .node ellipse,
+    .node path,
+    .concept-node polygon,
+    .concept-node ellipse {
+        transition: none !important;
+    }
+}
+
+/* ===== Keyboard Focus (Accessibility) ===== */
+.ev-theme-btn:focus-visible,
+.ev-export-btn:focus-visible,
+.ev-action-btn:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
+}
+
+body.dark-mode .ev-theme-btn:focus-visible,
+body.dark-mode .ev-export-btn:focus-visible,
+body.dark-mode .ev-action-btn:focus-visible {
+    outline-color: #60a5fa;
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
+}
+
+.eduvisual-canvas svg:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+}
+
+/* Interactive SVG elements — keyboard focus */
+.node.interactive:focus-visible,
+.concept-node:focus-visible,
+.fishbone-category:focus-visible,
+.hierarchy-node:focus-visible,
+.flowchart-node:focus-visible,
+.multiflow-cause:focus-visible,
+.multiflow-effect:focus-visible,
+.pyramid-level:focus-visible,
+.circlemap-item:focus-visible,
+.venn-item-a:focus-visible,
+.venn-item-b:focus-visible,
+.venn-item-shared:focus-visible,
+.timeline-event:focus-visible,
+.summary-card:focus-visible {
+    outline: 2px dashed #3b82f6;
+    outline-offset: 2px;
+}
+
+/* ===== Toast Notifications ===== */
+.ev-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    direction: rtl;
+}
+
+.ev-toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.ev-toast-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+}
+
+.ev-toast-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #ffffff;
+}
+
+.ev-toast i {
+    margin-left: 8px;
+}
+
+/* ===== Lazy Loading Placeholder ===== */
+.ev-lazy-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ev-lazy-loading {
+    padding: 60px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 1.5rem;
+}
+
+body.dark-mode .ev-lazy-loading {
+    color: #475569;
+}
+
+/* ===== Copy Button Style ===== */
+.ev-copy-btn {
+    border: 1px dashed #94a3b8 !important;
+}
+
+.ev-copy-btn:hover {
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+}
+
+/* ===== Mobile Bottom Sheet ===== */
+@media (max-width: 640px) {
+    .ev-edit-panel {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-height: 70vh !important;
+        border-radius: 20px 20px 0 0 !important;
+        transform: translateY(100%) !important;
+        z-index: 1000 !important;
+        box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .ev-edit-panel.visible {
+        transform: translateY(0) !important;
+    }
+
+    .ev-edit-panel::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: #cbd5e1;
+        border-radius: 2px;
+        margin: 8px auto;
+    }
+
+    body.dark-mode .ev-edit-panel::before {
+        background: #475569;
+    }
+
+    .ev-edit-header {
+        border-radius: 0 !important;
+    }
+
+    .ev-edit-body {
+        max-height: 50vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ev-edit-footer {
+        position: sticky;
+        bottom: 0;
+        background: inherit;
+        padding-bottom: env(safe-area-inset-bottom, 10px);
+    }
+
+    .eduvisual-toolbar {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .ev-toolbar-hint {
+        display: none !important;
+    }
+
+    .ev-toolbar-group {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+}

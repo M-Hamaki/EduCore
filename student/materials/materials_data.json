@@ -1,0 +1,996 @@
+{
+    "grades": {
+        "kg1": {
+            "name": "KG 1",
+            "folder": "kg1",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic KG1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover KG1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English KG1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math KG1 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic KG1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art KG1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English KG1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math KG1 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "kg2": {
+            "name": "KG 2",
+            "folder": "kg2",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic KG2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover KG2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English KG2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math KG2 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic KG2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art KG2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English KG2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math KG2 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prim1": {
+            "name": "Prim 1",
+            "folder": "g1",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G1 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G1 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G1 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G1 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prim2": {
+            "name": "Prim 2",
+            "folder": "g2",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G2 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G2 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G2 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G2 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prim3": {
+            "name": "Prim 3",
+            "folder": "g3",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G3 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G3 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G3 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G3 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G3 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G3 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Discover",
+                        "file": "Discover G3 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English AL G3 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G3 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G3 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G3 - T2 - 2026.pdf"
+                    },                    
+                	{
+                        "name": "German",
+                        "file": "German G3 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prim4": {
+            "name": "Prim 4",
+            "folder": "g4",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English al G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English OL",
+                        "file": "English ol G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Oxford Assessment",
+                        "file": "Oxford assessment G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G4 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G4 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English AL G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G4 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G4 - T2 - 2026.pdf",
+                        "enabled": false 
+
+                    }
+                ]
+            }
+        },
+        "prim5": {
+            "name": "Prim 5",
+            "folder": "g5",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English al G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English OL",
+                        "file": "English ol G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Oxford Assessment",
+                        "file": "Oxford assessment G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G5 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G5 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English AL G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G5 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G5 - T2 - 2026.pdf",
+                        "enabled": false 
+                    }
+                ]
+            }
+        },
+        "prim6": {
+            "name": "Prim 6",
+            "folder": "g6",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English al G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English OL",
+                        "file": "English ol G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Oxford Assessment",
+                        "file": "Oxford assessment G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G6 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G6 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English AL",
+                        "file": "English AL G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Religion",
+                        "file": "Religion G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G6 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G6 - T2 - 2026.pdf",
+                        "enabled": false 
+                    }
+                ]
+            }
+        },
+        "prep1": {
+            "name": "Prep 1",
+            "folder": "g7",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G7 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G7 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G7 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G7 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G7 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prep2": {
+            "name": "Prep 2",
+            "folder": "g8",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G8 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G8 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G8 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G8 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "English",
+                        "file": "Oxford G8 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G8 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G8 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G8 - T2 - 2026.pdf",
+                        "enabled": false 
+
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G8 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G8 - T2 - 2026.pdf",
+                        "enabled": false 
+
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G8 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "prep3": {
+            "name": "Prep 3",
+            "folder": "g9",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G9 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G9 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "Oxford G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G9 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Computer",
+                        "file": "Computer G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Science",
+                        "file": "Science G9 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Social",
+                        "file": "Social G9 - T2 - 2026.pdf"
+                    }
+                ]
+            }
+        },
+        "sec1": {
+            "name": "Sec 1",
+            "folder": "g10",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Biology",
+                        "file": "Biology G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Chemistry",
+                        "file": "Chemistry G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Geography",
+                        "file": "Geography G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "History",
+                        "file": "History G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G10 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Physics",
+                        "file": "Physics G10 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G10 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Biology",
+                        "file": "Biology G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Chemistry",
+                        "file": "Chemistry G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "English",
+                        "file": "Oxford G10 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G10 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Geography",
+                        "file": "Geography G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "History",
+                        "file": "History G10 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G10 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Physics",
+                        "file": "Physics G10 - T2 - 2026.pdf",
+                        "enabled": false 
+                    }
+                ]
+            }
+        },
+        "sec2": {
+            "name": "Sec 2",
+            "folder": "g11",
+            "terms": {
+                "term1": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Biology",
+                        "file": "Biology G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Chemistry",
+                        "file": "Chemistry G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "English G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Geography",
+                        "file": "Geography G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "History",
+                        "file": "History G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Math",
+                        "file": "Math G11 - T1 - 2026.pdf"
+                    },
+                    {
+                        "name": "Physics",
+                        "file": "Physics G11 - T1 - 2026.pdf"
+                    }
+                ],
+                "term2": [
+                    {
+                        "name": "Arabic",
+                        "file": "Arabic G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Art",
+                        "file": "Art G11 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Biology",
+                        "file": "Biology G11 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Chemistry",
+                        "file": "Chemistry G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "English",
+                        "file": "Oxford G11 - T2 - 2026.pdf",
+                        "enabled": false
+                    },
+                    {
+                        "name": "French",
+                        "file": "French G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Geography",
+                        "file": "Geography G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "German",
+                        "file": "German G11 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "History",
+                        "file": "History G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "ICT",
+                        "file": "ICT G11 - T2 - 2026.pdf",
+                        "enabled": false 
+                    },
+                    {
+                        "name": "Math - Application",
+                        "file": "Application G11 - T2 - 2026.pdf"
+                    },                   
+                	{
+                        "name": "Math - Pure",
+                        "file": "Pure G11 - T2 - 2026.pdf"
+                    },
+                    {
+                        "name": "Physics",
+                        "file": "Physics G11 - T2 - 2026.pdf",
+                        "enabled": false 
+
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,2597 @@
+/* ===== Global Styles ===== */
+:root {
+    --navbar-height: 60px;
+    --navbar-bg: #0d6efd;
+    --navbar-text: #ffffff;
+    --navbar-hover-bg: rgba(255, 255, 255, 0.15);
+    --navbar-active-bg: rgba(255, 255, 255, 0.25);
+    --transition-speed: 0.3s;
+    --border-radius: 0.375rem;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+body.modal-open {
+    overflow: hidden;
+    padding-right: 0;
+}
+
+/* تقليل padding في الناڤبار للشاشات الضيقة جداً */
+.navbar>.container,
+.navbar>.container-fluid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* Fix for logo positioning - Student page specific */
+body {
+    padding-top: 80px !important;
+    /* Account for fixed navbar height */
+}
+
+/* Reset body padding for login page */
+body.login-page {
+    padding-top: 0 !important;
+}
+
+/* Reset body padding for admin/teacher pages if needed */
+.admin-page body,
+.teacher-page body {
+    padding-top: 76px !important;
+}
+
+/* Student page logo section - add proper margin from navbar */
+.container .row .col-md-6.text-center.my-3 {
+    margin-top: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-top: 1rem !important;
+}
+
+/* Target the specific logo section after navbar */
+.navbar.fixed-top+.container {
+    margin-top: 20px !important;
+    padding-top: 20px !important;
+}
+
+/* Main content spacing from fixed navbar */
+.container.mt-4 {
+    margin-top: 3rem !important;
+    padding-top: 1rem !important;
+}
+
+/* Logo styling - Responsive and consistent across all pages */
+.logo-img,
+.navbar-brand img {
+    height: 32px !important;
+    width: auto !important;
+    max-height: 32px !important;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* Navbar logo spacing and alignment */
+.navbar-brand .logo-img,
+.navbar-brand img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Ensure consistent navbar-brand layout */
+.navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+}
+
+/* Responsive logo sizes for different screen sizes */
+@media (min-width: 992px) {
+
+    /* Large screens - 32px */
+    .logo-img,
+    .navbar-brand img {
+        height: 32px !important;
+    }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+
+    /* Medium screens (tablets) - 30px */
+    .logo-img,
+    .navbar-brand img {
+        height: 30px !important;
+    }
+}
+
+@media (max-width: 767.98px) and (min-width: 576px) {
+
+    /* Small screens - 28px */
+    .logo-img,
+    .navbar-brand img {
+        height: 28px !important;
+    }
+}
+
+@media (max-width: 575.98px) and (min-width: 400px) {
+
+    /* Extra small screens - 26px */
+    .logo-img,
+    .navbar-brand img {
+        height: 26px !important;
+    }
+}
+
+@media (max-width: 399.98px) {
+
+    /* Very small screens - 24px */
+    .logo-img,
+    .navbar-brand img {
+        height: 24px !important;
+    }
+}
+
+/* Special handling for login page logo */
+.login-page .logo-img {
+    height: auto !important;
+    max-height: 120px !important;
+    width: auto !important;
+}
+
+@media (max-width: 768px) {
+    .login-page .logo-img {
+        max-height: 100px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-page .logo-img {
+        max-height: 80px !important;
+    }
+}
+
+/* Student page content spacing from fixed navbar */
+.container.mt-4 {
+    margin-top: 80px !important;
+}
+
+/* Student page logo section - remove extra margin */
+.container .row .col-md-6.text-center.my-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* ===== Components ===== */
+.btn,
+.card,
+.alert,
+.modal-content,
+.form-control,
+.form-select,
+.badge,
+.dropdown-menu {
+    border-radius: 0.25rem;
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 1rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 500;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: right !important;
+}
+
+.table td {
+    text-align: right !important;
+}
+
+/* توحيد لون التظليل عند المرور على صفوف الجداول */
+.table-hover tbody tr:hover,
+.table tbody tr:hover {
+    background-color: #cce5ff !important;
+}
+
+.table-hover tbody tr:hover td,
+.table tbody tr:hover td {
+    background-color: #cce5ff !important;
+}
+
+.table th.text-center,
+.table td.text-center {
+    text-align: center !important;
+}
+
+/* DataTables RTL Support - Force right alignment for all table elements */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    text-align: right !important;
+}
+
+/* DataTables toolbar placement in RTL: search right, length left */
+.dataTables_wrapper .dataTables_filter {
+    float: right !important;
+}
+
+.dataTables_wrapper .dataTables_length {
+    float: left !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    text-align: right !important;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    color: #000 !important;
+    font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+.dataTables_wrapper .row:first-child {
+    display: flex;
+    flex-flow: row nowrap !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.dataTables_wrapper .row:first-child>[class*="col-"] {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dataTables_wrapper .row:first-child>[class*="col-"]:first-child {
+    order: 2 !important;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.dataTables_wrapper .row:first-child>[class*="col-"]:last-child {
+    order: 1 !important;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+
+    .dataTables_wrapper .row:first-child>[class*="col-"]:first-child,
+    .dataTables_wrapper .row:first-child>[class*="col-"]:last-child {
+        order: initial;
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.dataTables_wrapper table.dataTable thead th,
+.dataTables_wrapper table.dataTable thead td,
+.dataTables_wrapper table.dataTable tbody th,
+.dataTables_wrapper table.dataTable tbody td,
+.dataTables_wrapper table.dataTable tfoot th,
+.dataTables_wrapper table.dataTable tfoot td {
+    text-align: right !important;
+}
+
+/* Only center align specific columns when explicitly requested */
+.text-center,
+.dataTables_wrapper .text-center {
+    text-align: center !important;
+}
+
+.dropdown-menu {
+    z-index: 1100;
+    position: absolute;
+}
+
+.modal {
+    z-index: 1055;
+}
+
+.modal-backdrop {
+    z-index: 1050;
+}
+
+.modal-dialog {
+    z-index: auto;
+}
+
+/* ===== Navbar ===== */
+/* Ensure all navbar brands have white text, except system name which is green */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand span,
+.bg-primary .navbar-brand,
+.bg-primary .navbar-brand span {
+    color: #ffffff !important;
+}
+
+/* System name in WhatsApp green for all navbar types */
+.navbar-dark .navbar-brand .full-title,
+.bg-primary .navbar-brand .full-title {
+    color: #25D366 !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar-admin {
+    min-height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    background: var(--navbar-bg);
+    gap: .25rem;
+    padding: 0 .75rem;
+    overflow: visible;
+    z-index: 1020;
+}
+
+.navbar-admin .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .25rem;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow: visible;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.navbar-admin .navbar-brand img {
+    height: 32px;
+    width: auto;
+}
+
+/* Ensure navbar-brand text is always white */
+.navbar-admin .navbar-brand,
+.navbar-admin .navbar-brand span {
+    color: var(--navbar-text) !important;
+}
+
+/* Special styling for system name - WhatsApp green color */
+.navbar-admin .navbar-brand .full-title,
+.navbar-dark .navbar-brand .full-title,
+.bg-primary .navbar-brand .full-title {
+    color: #25D366 !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar-admin .navbar-collapse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: static;
+    transform: none;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.navbar-admin .nav-item {
+    position: relative;
+}
+
+.navbar-admin .nav-link {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    color: var(--navbar-text);
+    padding: 0.45rem .70rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: background .25s ease, color .25s ease;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+.navbar-admin .nav-link:hover {
+    background: var(--navbar-hover-bg);
+    color: #fff;
+}
+
+.navbar-admin .nav-link.active {
+    background: var(--navbar-active-bg);
+    color: #fff;
+}
+
+.navbar-admin .dropdown-menu {
+    min-width: 210px;
+    background: #ffffff;
+    color: #212529;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: .5rem;
+    padding: .35rem 0;
+    z-index: 1030;
+    position: absolute;
+}
+
+.navbar-admin .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .55rem 1rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+.navbar-admin .dropdown-item:hover {
+    background: #f8f9fa;
+    color: #212529;
+}
+
+.navbar-admin .nav-item.dropdown {
+    position: relative;
+    z-index: 1100;
+}
+
+.navbar-admin .nav-item.dropdown>.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    transform: none;
+    margin-top: 0.125rem;
+    z-index: 1100;
+    min-width: 180px;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.navbar-admin .nav-item.dropdown .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    color: #fff;
+}
+
+.navbar-admin.fixed-top {
+    top: 0;
+    margin-top: 0;
+}
+
+/* ===== Login Page ===== */
+.login-page {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.login-outer.top-aligned {
+    min-height: 100vh;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* تحسين ظهور البطاقة */
+.login-outer .card {
+    position: relative;
+    z-index: 15;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-footer {
+    margin-top: 1rem;
+    color: #555;
+    line-height: 1.4;
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: .85rem;
+}
+
+/* ===== Admin/Teacher/Specialist Pages ===== */
+body.admin-page,
+body.teacher-page,
+body.specialist-page {
+    padding-top: 60px;
+    margin-top: 0;
+}
+
+/* ===== Particles Background ===== */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+/* تأكد من أن particles تظهر خلف المحتوى */
+.login-outer {
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== Teacher Student Selection Styles ===== */
+.student-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.evaluation-checkbox {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.evaluation-checkbox:hover .student-card {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Multi-select student cards styles */
+.student-checkbox:checked+.student-card,
+.student-card.selected {
+    border-color: #0d6efd !important;
+    background-color: rgba(13, 110, 253, 0.1) !important;
+    transform: scale(1.02);
+    box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.student-checkbox:checked+.student-card .card-body,
+.student-card.selected .card-body {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.student-mobile-item.selected {
+    background-color: rgba(13, 110, 253, 0.1);
+    border-color: #ffffff;
+    border-radius: 0.375rem;
+}
+
+.selection-controls {
+    background-color: rgba(13, 110, 253, 0.05);
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.selection-counter {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* تنسيق الأزرار → يُدار بالكامل في assets/css/buttons.css */
+
+/* ===== Media Queries ===== */
+@media (max-width: 991.98px) {
+    .navbar-admin .navbar-toggler {
+        position: absolute;
+        top: .55rem;
+        left: .75rem;
+        z-index: 1400;
+    }
+
+    html[dir="rtl"] .navbar-admin .navbar-toggler {
+        left: .75rem;
+        right: auto;
+    }
+
+    .navbar-admin .navbar-brand {
+        margin: 0 0 0 auto;
+        padding: .45rem 0;
+        font-size: 1rem;
+    }
+
+    html[dir="ltr"] .navbar-admin .navbar-brand {
+        margin: 0 auto 0 0;
+    }
+
+    .navbar-admin .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: linear-gradient(165deg, var(--navbar-bg) 0%, #0b5297 100%);
+        transform: translateY(-100%);
+        padding: 4rem 1.15rem 2.1rem;
+        overflow-y: auto;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, .35);
+        z-index: 1300;
+    }
+
+    .navbar-admin .navbar-collapse.show {
+        transform: translateY(0);
+    }
+
+    .navbar-admin .navbar-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .55rem;
+        width: 100%;
+    }
+
+    .navbar-admin .nav-item,
+    .navbar-admin .nav-link {
+        width: 100%;
+    }
+
+    .navbar-admin .nav-item.dropdown>.nav-link {
+        width: auto;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .navbar-admin .nav-link {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: .8rem .85rem;
+        border-radius: .55rem;
+        margin: 0;
+        justify-content: flex-start;
+    }
+
+    .navbar-admin .dropdown-menu {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        margin: .35rem 0 .85rem;
+        background: rgba(0, 0, 0, 0.30);
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        box-shadow: inset 0 0.125rem 0.35rem rgba(0, 0, 0, 0.35);
+    }
+
+    .navbar-admin .dropdown-item {
+        color: var(--navbar-text);
+        padding: .65rem .85rem;
+    }
+
+    .navbar-admin .dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Right-align table headers */
+    table.table thead th {
+        text-align: right !important;
+    }
+}
+
+/* تحسين عرض اسم النظام على الشاشات المختلفة */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1rem;
+    overflow: visible;
+    /* تغيير من hidden إلى visible */
+    white-space: nowrap;
+    max-width: calc(100vw - 200px);
+    /* ترك مساحة للقوائم */
+    line-height: 1.3;
+    /* تحسين المسافة بين الأسطر */
+}
+
+/* إظهار العنوان الكامل في جميع الشاشات */
+.navbar-brand .full-title {
+    display: inline !important;
+}
+
+.navbar-brand .medium-title,
+.navbar-brand .short-title {
+    display: none !important;
+}
+
+/* للشاشات الكبيرة */
+@media (min-width: 768px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+        max-width: none;
+    }
+}
+
+/* للشاشات المتوسطة */
+@media (max-width: 767px) and (min-width: 577px) {
+    .navbar-brand {
+        font-size: 0.95rem;
+        max-width: calc(100vw - 150px);
+    }
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 0.85rem !important;
+        line-height: 1.2 !important;
+        max-width: calc(100vw - 120px);
+    }
+
+    .navbar-brand img {
+        height: 28px !important;
+        width: auto !important;
+    }
+}
+
+/* للشاشات الصغيرة جداً */
+@media (max-width: 400px) {
+    .navbar-brand {
+        font-size: 0.8rem !important;
+    }
+
+    .navbar-brand img {
+        height: 24px !important;
+    }
+}
+
+/* للشاشات الصغيرة جداً - تحسينات إضافية */
+@media (max-width: 340px) {
+    .navbar-brand {
+        font-size: 0.75rem !important;
+        max-width: calc(100vw - 100px);
+        /* مساحة أكبر للنص */
+    }
+
+    .navbar-brand img {
+        height: 22px !important;
+        margin-left: 0.3rem !important;
+        /* تقليل المسافة */
+    }
+
+    /* تقليل padding في النافبار للشاشات الضيقة جداً */
+    .navbar>.container,
+    .navbar>.container-fluid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* ===== SweetAlert2 Modal Fix ===== */
+/* Ensure SweetAlert dialogs appear above Bootstrap modals */
+.swal2-container {
+    z-index: 2000 !important;
+}
+
+.swal2-popup {
+    z-index: 2001 !important;
+}
+
+.swal2-backdrop-show {
+    z-index: 1999 !important;
+}
+
+/* Custom class for SweetAlert above modals */
+.swal2-above-modal {
+    z-index: 2000 !important;
+}
+
+.swal2-above-modal .swal2-popup {
+    z-index: 2001 !important;
+}
+
+/* ===== Responsive Navigation Improvements ===== */
+/* تحسين تجاوب شريط التنقل */
+
+/* عام - تقليل المسافات في الـ navbar */
+.navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.95rem !important;
+    white-space: nowrap !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-nav .nav-link i {
+    margin-left: 0.5rem !important;
+    font-size: 0.9rem !important;
+}
+
+/* تحسين العنوان الجانبي */
+.navbar-brand .full-title {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    margin-right: 0.5rem !important;
+}
+
+/* شاشات متوسطة إلى كبيرة */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .navbar-nav .nav-link {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 0.6rem !important;
+    }
+
+    .navbar-nav .nav-link span {
+        display: inline !important;
+    }
+
+    .navbar-brand .full-title {
+        font-size: 1rem !important;
+    }
+}
+
+/* شاشات متوسطة */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-nav .nav-link {
+        font-size: 0.85rem !important;
+        padding: 0.4rem 0.5rem !important;
+    }
+
+    .navbar-nav .nav-link span {
+        display: inline !important;
+    }
+
+    .navbar-brand .full-title {
+        font-size: 0.95rem !important;
+    }
+}
+
+/* شاشات صغيرة - إخفاء النص وإظهار الأيقونات فقط */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.4rem !important;
+    }
+
+    .navbar-nav .nav-link span {
+        display: none !important;
+    }
+
+    .navbar-nav .nav-link i {
+        margin-left: 0 !important;
+        font-size: 1.1rem !important;
+    }
+
+    .navbar-brand .full-title {
+        font-size: 0.9rem !important;
+    }
+
+    /* تحسين القائمة المنسدلة في الشاشات المتوسطة */
+    .navbar-collapse {
+        background-color: rgba(13, 110, 253, 0.95) !important;
+        margin-top: 0.5rem !important;
+        border-radius: 0.5rem !important;
+        padding: 1rem !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+    }
+
+    .navbar-nav .nav-item {
+        flex: 0 0 auto !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem !important;
+        border-radius: 0.5rem !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        margin: 0.25rem !important;
+        min-width: 50px !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* إصلاح dropdown القائمة الجانبية */
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+        border: none !important;
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 0.5rem !important;
+    }
+}
+
+/* شاشات صغيرة جداً - قائمة منسدلة */
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        background-color: rgba(13, 110, 253, 0.95) !important;
+        margin-top: 0.5rem !important;
+        border-radius: 0.5rem !important;
+        padding: 0.5rem !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+        border-radius: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .navbar-nav .nav-link span {
+        display: inline !important;
+        margin-right: 0.5rem !important;
+    }
+
+    .navbar-brand .full-title {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* إضافة tooltips للأيقونات في الشاشات المتوسطة */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* إظهار النصوص في الأزرار */
+    .navbar-nav .nav-link {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0.5rem 0.75rem !important;
+        min-width: auto !important;
+        white-space: nowrap !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    /* التأكد من ظهور النص والأيقونة */
+    .navbar-nav .nav-link i {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.125rem !important;
+        display: block !important;
+        color: inherit !important;
+    }
+
+    /* إظهار النص بوضوح - تحديث محسن */
+    .navbar-nav .nav-link {
+        font-size: 0.8rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* التأكد من ظهور النصوص */
+    .navbar-nav .nav-item:not(.dropdown) .nav-link {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .navbar-nav .nav-item:not(.dropdown) .nav-link:hover {
+        color: white !important;
+        text-decoration: none !important;
+    }
+
+    /* إخفاء النص في dropdown user menu للحفاظ على المساحة */
+    .navbar-nav .dropdown-toggle span.d-none.d-md-inline {
+        display: none !important;
+    }
+
+    /* تحسين tooltips للتصميم الجديد */
+    .navbar-nav .nav-link:hover::after {
+        content: attr(data-bs-original-title) !important;
+        position: absolute !important;
+        bottom: -35px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: white !important;
+        padding: 0.4rem 0.6rem !important;
+        border-radius: 0.375rem !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap !important;
+        z-index: 1050 !important;
+        pointer-events: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* إضافة مثلث صغير للtooltip */
+    .navbar-nav .nav-link:hover::before {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -25px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 0 !important;
+        height: 0 !important;
+        border-left: 5px solid transparent !important;
+        border-right: 5px solid transparent !important;
+        border-bottom: 5px solid rgba(0, 0, 0, 0.9) !important;
+        z-index: 1051 !important;
+    }
+
+    /* تحسينات إضافية للاستجابة */
+    .navbar-nav .nav-link {
+        transition: all 0.3s ease !important;
+        border-radius: 0.375rem !important;
+        margin: 0 0.1rem !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* تحسين dropdown menu للشاشات المتوسطة */
+    .navbar-nav .dropdown-menu {
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 0.5rem !important;
+        padding: 0.5rem 0 !important;
+        margin-top: 0.25rem !important;
+    }
+
+    .navbar-nav .dropdown-item {
+        padding: 0.5rem 1rem !important;
+        transition: all 0.2s ease !important;
+        border-radius: 0.375rem !important;
+        margin: 0 0.25rem !important;
+        width: calc(100% - 0.5rem) !important;
+    }
+
+    .navbar-nav .dropdown-item:hover {
+        background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05)) !important;
+        color: var(--bs-primary) !important;
+        transform: translateX(2px) !important;
+    }
+
+    /* تحسين المساحات والتوزيع */
+    .navbar-collapse {
+        padding-top: 0.5rem !important;
+    }
+
+    .navbar-nav {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 0.25rem !important;
+    }
+
+    /* ضمان ظهور النصوص في جميع nav-links */
+    .navbar-nav .nav-item .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: white !important;
+    }
+
+    .navbar-nav .nav-item .nav-link.active {
+        color: white !important;
+        font-weight: 600 !important;
+    }
+
+    /* إخفاء tooltips عند فتح dropdown */
+    .navbar-nav .dropdown.show .nav-link:hover::after,
+    .navbar-nav .dropdown.show .nav-link:hover::before {
+        display: none !important;
+    }
+
+    /* إضافات لضمان عرض النصوص */
+    .navbar-nav .nav-link * {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* تأكيد عرض النص بجانب الأيقونة */
+    .navbar-nav .nav-link {
+        font-family: inherit !important;
+        font-size: 0.8rem !important;
+        letter-spacing: normal !important;
+        word-spacing: normal !important;
+    }
+
+    /* منع أي إخفاء للنصوص */
+    .navbar-nav .nav-link:not(.dropdown-toggle) {
+        text-indent: 0 !important;
+        overflow: visible !important;
+        text-overflow: visible !important;
+    }
+
+    /* قواعد خاصة لنصوص nav-links */
+    .navbar-nav .nav-item .nav-link {
+        font-family: inherit !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        letter-spacing: normal !important;
+        word-spacing: normal !important;
+        text-shadow: none !important;
+        -webkit-text-fill-color: initial !important;
+        -webkit-text-stroke: initial !important;
+    }
+
+    /* ضمان عدم تداخل الأنماط */
+    .navbar-nav .nav-item .nav-link span,
+    .navbar-nav .nav-item .nav-link:not(.dropdown-toggle):after {
+        display: inline !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* إصلاح مشكلة navbar-toggler في جميع أحجام الشاشات */
+.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0.25rem 0.5rem !important;
+    background: transparent !important;
+    position: relative !important;
+    z-index: 1055 !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.navbar-toggler:not(.collapsed) {
+    background: transparent !important;
+}
+
+.navbar-toggler.collapsed::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: transparent !important;
+    z-index: -1 !important;
+}
+
+/* تحسين أيقونة الـ toggler */
+.navbar-toggler .fas.fa-bars {
+    font-size: 1.2rem !important;
+    transition: transform 0.2s ease !important;
+}
+
+.navbar-toggler:not(.collapsed) .fas.fa-bars {
+    transform: rotate(90deg) !important;
+}
+
+/* تحسين أداء collapse */
+.navbar-collapse {
+    transition: height 0.35s ease !important;
+}
+
+.navbar-collapse.collapsing {
+    height: auto !important;
+    transition: height 0.35s ease !important;
+}
+
+/* ضمان عمل toggle بشكل صحيح */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        clear: both !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin-top: 0.5rem !important;
+        padding-top: 0.5rem !important;
+    }
+
+    .navbar-nav {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem !important;
+        text-align: right !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none !important;
+    }
+
+    /* إصلاح dropdown في الشاشات الصغيرة */
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        background-color: rgba(0, 0, 0, 0.1) !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    .navbar-nav .dropdown-item {
+        color: rgba(255, 255, 255, 0.8) !important;
+        padding: 0.5rem 1.5rem !important;
+    }
+
+    .navbar-nav .dropdown-item:hover,
+    .navbar-nav .dropdown-item:focus {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+}
+
+/* إصلاحات عامة للdropdown في جميع الشاشات */
+.dropdown-menu {
+    z-index: 1050 !important;
+    min-width: 160px !important;
+}
+
+.dropdown-toggle::after {
+    margin-right: 0.255em !important;
+}
+
+/* ضمان عمل dropdown بشكل صحيح عند تمرير المؤشر - فقط للشاشات الكبيرة */
+@media (min-width: 992px) {
+    .navbar-admin .nav-item.dropdown:hover>.dropdown-menu {
+        display: block !important;
+    }
+}
+
+
+.navbar .dropdown-menu {
+    margin-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* تحسين مظهر dropdown للمستخدم */
+.navbar-nav .dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175) !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+        background-color: white !important;
+    }
+
+    .navbar-nav .dropdown-item {
+        color: #333 !important;
+    }
+
+    .navbar-nav .dropdown-item:hover {
+        background-color: #f8f9fa !important;
+        color: #333 !important;
+    }
+}
+
+/* ===== Modal Headers Color Styles ===== */
+/* رأس أحمر للحذف */
+.modal-header-delete {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+    color: white !important;
+    border-bottom: 3px solid #bd2130 !important;
+}
+
+.modal-header-delete .modal-title {
+    color: white !important;
+    font-weight: 600;
+}
+
+.modal-header-delete .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* رأس أصفر للتعطيل */
+.modal-header-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%) !important;
+    color: #000 !important;
+    border-bottom: 3px solid #ff8f00 !important;
+}
+
+.modal-header-warning .modal-title {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.modal-header-warning .btn-close {
+    filter: brightness(0);
+}
+
+/* رأس أخضر للتنشيط */
+.modal-header-success {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%) !important;
+    color: white !important;
+    border-bottom: 3px solid #1e7e34 !important;
+}
+
+.modal-header-success .modal-title {
+    color: white !important;
+    font-weight: 600;
+}
+
+.modal-header-success .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* رأس أحمر للأخطاء والحذف */
+.modal-header-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+    color: white !important;
+    border-bottom: 3px solid #bd2130 !important;
+}
+
+.modal-header-danger .modal-title {
+    color: white !important;
+    font-weight: 600;
+}
+
+.modal-header-danger .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* ===== Professional Days Selector ===== */
+.days-selector-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.75rem;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* إخفاء الـ checkbox الأصلي */
+.day-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* تصميم الكارت */
+.day-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.75rem;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.day-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--day-color) 0%, var(--day-color) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.day-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* حالة الـ Hover */
+.day-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--day-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.day-card:hover::before {
+    opacity: 0.08;
+}
+
+/* حالة Active (عند الضغط) */
+.day-card:active {
+    transform: translateY(-2px) scale(1);
+    transition-duration: 0.1s;
+}
+
+/* الأيقونة */
+.day-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(13, 110, 253, 0.05) 100%);
+    transition: all 0.35s ease;
+}
+
+.day-icon-wrapper i {
+    font-size: 1.25rem;
+    color: #6b7280;
+    transition: all 0.35s ease;
+}
+
+/* اسم اليوم */
+.day-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+    transition: all 0.35s ease;
+}
+
+/* علامة الصح */
+.check-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.check-indicator i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* ===== حالة التحديد (Selected) ===== */
+.day-input:checked+.day-card {
+    border-color: var(--day-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.day-input:checked+.day-card::before {
+    opacity: 1;
+}
+
+.day-input:checked+.day-card .day-icon-wrapper {
+    background: white;
+    transform: scale(1.1);
+}
+
+.day-input:checked+.day-card .day-icon-wrapper i {
+    color: var(--day-color);
+    transform: rotate(360deg);
+}
+
+.day-input:checked+.day-card .day-name {
+    color: white;
+    font-weight: 700;
+}
+
+.day-input:checked+.day-card .check-indicator {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* عند التحديد مع Hover */
+.day-input:checked+.day-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== شريط المعلومات ===== */
+.days-info-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.selected-count {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+.selected-count i {
+    font-size: 1.1rem;
+}
+
+.selected-count span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 0.5rem;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== تجاوب الموبايل ===== */
+@media (max-width: 768px) {
+    .days-selector-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .day-card {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .day-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+    }
+
+    .day-icon-wrapper i {
+        font-size: 1.25rem;
+    }
+
+    .day-name {
+        font-size: 0.85rem;
+    }
+
+    .days-info-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .days-selector-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== Student Info Bar Adjustments ===== */
+/* تعديل padding للـ body عند وجود student-info-bar */
+body.student-page {
+    padding-top: 60px !important;
+    /* فقط للـ navbar */
+}
+
+/* تعديل المسافة بين navbar وباقي المحتوى */
+.student-info-bar+.container,
+.student-info-bar~.container {
+    margin-top: 0 !important;
+}
+
+/* تعديل ارتفاع navbar في صفحات الطالب */
+.student-page .navbar {
+    height: 60px;
+}
+
+/* إزالة المسافة الزائدة من profile-header */
+.student-page .profile-header {
+    margin-top: 0;
+}
+
+/* Custom badge colors */
+.bg-purple {
+    background-color: #6f42c1 !important;
+    color: #fff;
+}
+
+
+/* =========================================
+   Admin Sidebar Navigation Styles (M365 Theme)
+   ========================================= */
+
+/* Global Typography Standard */
+html {
+    font-size: 14px !important;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #faf9f8 !important;
+}
+
+body.admin-page {
+    padding-top: 0 !important;
+}
+
+:root {
+    --ms-bg: #f3f2f1;
+    --ms-hover: #edebe9;
+    --ms-white: #ffffff;
+    --ms-text: #242424;
+    --ms-icon: #605e5c;
+    --ms-active-bg: #ffffff;
+    --ms-primary: #0078d4;
+    --top-header-height: 60px;
+    --sidebar-collapsed-width: 65px;
+    --sidebar-width: 215px;
+}
+
+/* Base Top Header */
+.admin-top-header {
+    height: var(--top-header-height);
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.065) !important;
+    z-index: 1040;
+    padding-right: 12px !important;
+    padding-left: 16px !important;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Sidebar Container */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--top-header-height));
+    position: fixed;
+    top: var(--top-header-height);
+    right: 0;
+    background: #ffffff !important;
+    border-left: 1.5px solid rgba(0, 0, 0, 0.065) !important;
+    z-index: 1030;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: width 0.3s cubic-bezier(0.2, 0, 0, 1), transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Scrollbar adjustment */
+.admin-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: #c8c6c4 !important;
+    border-radius: 10px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a19f9d !important;
+}
+
+/* Overlay for Mobile */
+.sidebar-overlay {
+    position: fixed;
+    top: var(--top-header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1025;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main Content Area */
+.main-content {
+    min-height: calc(100vh - var(--top-header-height));
+    margin-top: var(--top-header-height);
+    transition: margin-right 0.3s cubic-bezier(0.2, 0, 0, 1);
+    background-color: transparent;
+    padding: 1rem;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        margin-right: var(--sidebar-width);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .main-content {
+        margin-right: 0 !important;
+    }
+
+    .admin-sidebar {
+        transform: translateX(100%);
+    }
+
+    .admin-sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+/* Sidebar Links */
+.sidebar-nav {
+    padding: 4px 0 16px 0;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.sidebar-nav .nav-item {
+    padding: 0;
+    margin-bottom: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.sidebar-nav .collapse {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+body:not(.sidebar-collapsed) .sidebar-nav > .nav-item > .collapse {
+    margin-bottom: 6px !important;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #475569 !important;
+    padding: 0.7rem 1rem 0.7rem 1.35rem !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-radius: 8px !important;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 5px 12px !important;
+    border: none !important;
+    white-space: normal !important;
+    line-height: 1.3;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: #f1f5f9 !important;
+    color: var(--ms-primary) !important;
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 700;
+}
+
+/* Sidebar Icons */
+.sidebar-nav .nav-link .nav-icon {
+    font-size: 1.15rem;
+    min-width: 24px;
+    text-align: center;
+    margin-left: 0.75rem;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav .nav-link:hover .nav-icon:not([class*="text-"]) {
+    color: var(--ms-primary) !important;
+    transform: scale(1.08);
+}
+
+.sidebar-nav .nav-link.active .nav-icon:not([class*="text-"]) {
+    color: var(--ms-primary) !important;
+}
+
+.sidebar-nav .nav-link .arrow-icon {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: transform 0.25s ease;
+}
+
+.sidebar-nav .nav-link:not(.collapsed) .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Submenus */
+.sub-menu {
+    background-color: var(--ms-active-bg) !important;
+    padding: 0.35rem 0 0.6rem 0 !important;
+}
+
+body:not(.sidebar-collapsed) .sidebar-nav .sub-menu {
+    border-right: 1.5px solid #cbd5e1 !important;
+    margin-right: 16px !important;
+    padding-right: 4px !important;
+    margin-top: 4px !important;
+}
+
+.sub-menu .nav-link {
+    padding: 0.5rem 0.75rem 0.5rem 1.35rem !important;
+    color: var(--ms-text) !important;
+    font-size: 0.83rem !important;
+    border-radius: 6px;
+    margin: 2px 8px 2px 28px !important;
+    transition: all 0.2s ease;
+}
+
+.sub-menu .nav-link:hover {
+    background-color: var(--ms-hover) !important;
+    color: var(--ms-primary) !important;
+}
+
+.sub-menu .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.05) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 600;
+}
+
+/* Sub-menu chevron styling for visual hierarchy */
+.sub-menu .nav-link .arrow-icon {
+    font-size: 0.62rem !important;
+    color: #94a3b8 !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sub-menu .nav-link:hover .arrow-icon,
+.sub-menu .nav-link.active .arrow-icon {
+    color: var(--ms-primary) !important;
+}
+
+.sub-sub-menu {
+    border-right: 1.5px solid #cbd5e1 !important;
+    margin-right: 1.5rem !important;
+    padding-right: 0.25rem;
+    list-style: none;
+    margin-bottom: 8px !important;
+    margin-top: 4px !important;
+}
+
+.sub-sub-menu .nav-link {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.82rem;
+    color: #64748b !important;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.sub-sub-menu .nav-link::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    margin-left: 8px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.sub-sub-menu .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    color: var(--ms-primary) !important;
+    padding-right: 0.95rem !important;
+}
+
+.sub-sub-menu .nav-link:hover::before {
+    background-color: var(--ms-primary);
+    transform: scale(1.3);
+}
+
+.sub-sub-menu .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.06) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 600;
+}
+
+.sub-sub-menu .nav-link.active::before {
+    background-color: var(--ms-primary);
+    width: 6px;
+    height: 6px;
+}
+
+/* Desktop Icon-Only Collapsed State */
+@media (min-width: 992px) {
+    body.sidebar-collapsed .admin-sidebar {
+        width: var(--sidebar-collapsed-width) !important;
+        transform: translateX(0) !important;
+    }
+
+    body.sidebar-collapsed .main-content {
+        margin-right: var(--sidebar-collapsed-width) !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-link.active {
+        border-right: none !important;
+        border-left: none !important;
+        background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-link.active .nav-icon {
+        font-size: 1.3rem !important;
+        color: var(--ms-primary) !important;
+    }
+
+    /* Base Collapsed Styles */
+    body.sidebar-collapsed .sidebar-nav .nav-link span,
+    body.sidebar-collapsed .sidebar-nav .nav-link .arrow-icon {
+        display: none !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-link {
+        height: 46px !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, color 0.2s;
+        margin: 4px 8px !important;
+        border-radius: 8px !important;
+        border-right: none !important;
+        border-left: none !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.nav-link {
+        background-color: #f1f5f9 !important;
+        color: var(--ms-primary) !important;
+        z-index: 1061;
+        /* Sit above sidebar border to touch popover */
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-link .nav-icon {
+        margin-left: 0 !important;
+    }
+
+    /* Prevent vertical expansion from Bootstrap JS when sidebar is collapsed */
+    body.sidebar-collapsed .sidebar-nav .collapse.show {
+        display: none !important;
+    }
+
+    body.sidebar-collapsed .collapse {
+        display: none !important;
+    }
+
+    /* Floating Labels & Submenus on Hover in Collapsed Mode */
+    body.sidebar-collapsed .admin-sidebar {
+        overflow: visible !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:not(.toggle-nav-item) {
+        position: relative;
+    }
+
+    /* Hover Bridge to prevent popover from closing when moving mouse */
+    body.sidebar-collapsed .sidebar-nav .nav-item:not(.toggle-nav-item)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        z-index: 1040;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:not(.toggle-nav-item):hover::after {
+        width: calc(var(--sidebar-collapsed-width) + 15px);
+    }
+
+    /* Floating Header/Title */
+    body.sidebar-collapsed .sidebar-nav .nav-item:not(.toggle-nav-item):hover>.nav-link span {
+        display: block !important;
+        position: absolute;
+        right: calc(var(--sidebar-collapsed-width) - 10px);
+        /* Subtract the 8px margin-right of .nav-link to align perfectly with the submenu */
+        top: 0;
+        width: 200px !important;
+        background-color: #fff;
+        color: var(--ms-primary) !important;
+        padding: 0 1.25rem;
+        height: 46px;
+        line-height: 46px;
+        font-weight: 700;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1060;
+        white-space: nowrap;
+        border-radius: 4px 0 0 0;
+        border-top: 1px solid #e1dfdd;
+        border-left: 1px solid #e1dfdd;
+        border-right: 1px solid #e1dfdd;
+        border-bottom: 2px solid var(--ms-primary);
+        box-sizing: border-box !important;
+        pointer-events: auto;
+        /* Allow interaction */
+    }
+
+    /* Floating Sub-menu Container */
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse {
+        display: block !important;
+        position: absolute;
+        right: calc(var(--sidebar-collapsed-width) - 2px);
+        /* Slight overlap */
+        top: 46px;
+        /* Exactly where header ends */
+        width: 200px !important;
+        max-width: 200px !important;
+        overflow: visible !important;
+        background-color: #fff;
+        border: 1px solid #e1dfdd;
+        border-top: none;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1050;
+        border-radius: 0 0 0 4px;
+        padding: 0;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .sub-menu {
+        background-color: #fff !important;
+        padding: 0 !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .nav-link {
+        padding: 0.6rem 1.25rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: right;
+        border-left: none !important;
+        color: var(--ms-text) !important;
+        font-size: 0.85rem;
+        white-space: nowrap !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .nav-link i {
+        display: inline-block !important;
+        margin-left: 0.5rem !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .nav-link:hover {
+        background-color: var(--ms-hover) !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .nav-link.active {
+        background-color: var(--ms-primary) !important;
+        color: #fff !important;
+        font-weight: 600;
+    }
+
+    /* Ensure icon is also white on active link */
+    body.sidebar-collapsed .sidebar-nav .nav-item:hover>.collapse .nav-link.active i {
+        color: #fff !important;
+    }
+
+    /* --- Nested Sub-sub-menu Flyouts (Side-opening) --- */
+    body.sidebar-collapsed .sidebar-nav .sub-menu .nav-item {
+        position: relative;
+    }
+
+    /* Hide nested collapse by default in collapsed mode, show as flyout on hover */
+    body.sidebar-collapsed .sidebar-nav .sub-menu .nav-item .collapse {
+        display: none !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .sub-menu .nav-item:hover>.collapse {
+        display: block !important;
+        position: absolute;
+        right: 100%;
+        /* Fly out to the left in RTL */
+        top: 0;
+        width: 190px !important;
+        max-width: 190px !important;
+        overflow: visible !important;
+        background-color: #fff;
+        border: 1px solid #e1dfdd;
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1070;
+        border-radius: 4px;
+        padding: 0;
+    }
+
+    /* Hover Bridge for sub-sub-menu to prevent closing when moving mouse across gap */
+    body.sidebar-collapsed .sidebar-nav .sub-menu .nav-item:hover::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -15px;
+        width: 15px;
+        height: 100%;
+        z-index: 1065;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .sub-sub-menu {
+        background-color: #fff !important;
+        padding: 0 !important;
+        border-right: none !important;
+        margin-right: 0 !important;
+    }
+
+    body.sidebar-collapsed .sidebar-nav .sub-sub-menu .nav-link {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem;
+        border-left: none !important;
+    }
+    body.sidebar-collapsed .sidebar-nav .sub-sub-menu .nav-link::before {
+        display: none !important;
+    }
+}
+
+
+
+/* Search Bar focus effect */
+.search-bar-ms:focus-within {
+    border-color: var(--ms-primary) !important;
+    box-shadow: 0 0 0 1px var(--ms-primary) !important;
+    background-color: var(--ms-white) !important;
+}
+
+.search-bar-ms:focus-within i.fa-search {
+    color: var(--ms-primary) !important;
+}
+
+/* Placeholder centering fix */
+.search-bar-ms input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.search-bar-ms input:-moz-placeholder {
+    text-align: center;
+}
+
+.search-bar-ms input::-moz-placeholder {
+    text-align: center;
+}
+
+.search-bar-ms input:-ms-input-placeholder {
+    text-align: center;
+}
+
+.search-bar-ms input::placeholder {
+    text-align: center;
+}
+
+/* =========================================
+   Global Spacing Fixes for Legacy Pages
+   ========================================= */
+/* Remove redundant top padding from main wrapper */
+.main-content>.container-fluid>.row>main.py-3 {
+    padding-top: 0.5rem !important;
+    /* Reduce from 1rem to 0.5rem */
+}
+
+/* Forcefully remove huge legacy top margins (like mt-5, mt-4) on the very first element of any page */
+.main-content main> :first-child {
+    margin-top: 0 !important;
+}
+
+/* If the first element is a container itself with padding, reduce it */
+.main-content main>.container:first-child,
+.main-content main>.container-fluid:first-child {
+    padding-top: 0 !important;
+}
+
+/* Fix any cards that have a massive top margin */
+.main-content main .card.mt-5,
+.main-content main .container.mt-5 {
+    margin-top: 1rem !important;
+}
+
+/* Enhance Sub-menu visibility */
+.sub-menu .nav-link {
+    position: relative;
+    color: #484644 !important;
+    /* Slightly darker to pop from bg */
+}
+
+/* Students page: keep server-side footer only, hide DataTables duplicate footer */
+#studentsTable_wrapper .row:last-child {
+    display: none !important;
+}
+
+/* Premium Header Custom Enhancements */
+
+#academicYearDropdown {
+    border-radius: 8px !important;
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.88rem !important;
+    transition: all 0.22s ease;
+}
+#academicYearDropdown.ay-active, .ay-badge-active {
+    background-color: #ecfdf5 !important;
+    border: 1.5px solid #10b981 !important;
+    color: #059669 !important;
+}
+#academicYearDropdown.ay-active:hover {
+    background-color: #d1fae5 !important;
+    color: #047857 !important;
+}
+#academicYearDropdown.ay-review, .ay-badge-review {
+    background-color: #fffbeb !important;
+    border: 1.5px solid #f59e0b !important;
+    color: #d97706 !important;
+}
+#academicYearDropdown.ay-review:hover {
+    background-color: #fef3c7 !important;
+    color: #b45309 !important;
+}
+
+.search-bar-ms {
+    border-radius: 8px !important;
+    background-color: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.22s ease !important;
+}
+.search-bar-ms:focus-within {
+    border-color: var(--ms-primary) !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12) !important;
+}
+
+/* Simplified Flat Sidebar Style (No cards, no borders, no accent bars) */
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item)::before {
+    display: none !important; /* Hide vertical accent bar */
+}
+
+/* Highlight parent link inside expanded container */
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) > .nav-link {
+    margin: 3px 12px !important;
+    color: var(--ms-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Sub-menu container styling */
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu {
+    background-color: transparent !important;
+    margin: 0 !important;
+    margin-right: 24px !important;
+    padding: 0.25rem 0 !important;
+    padding-right: 4px !important;
+    border-right: 1.5px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Indented sub-menu links for hierarchy */
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu .nav-link {
+    /* margin-left/right متناظر مع القائمة الرئيسية (12px) حتى لا يبرز سهم القائمة الفرعية للخارج؛
+       الإزاحة الهرمية تأتي من margin-right لحاوية .sub-menu (24px) وليس من كل رابط. */
+    margin: 2px 12px !important;
+    padding: 0.55rem 0.65rem !important;
+    font-size: 0.78rem;
+    color: #475569 !important;
+    border-radius: 8px !important;
+    border-left: none !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu .nav-link:hover {
+    background-color: #f1f5f9 !important;
+    color: var(--ms-primary) !important;
+}
+
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.08) !important; /* Soft blue pill */
+    color: var(--ms-primary) !important;
+    box-shadow: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    font-weight: 700;
+}
+
+/* Parent categories should have a soft slate-gray background pill when active or expanded */
+.sidebar-nav .nav-link[data-bs-toggle="collapse"].active,
+.sidebar-nav .nav-link[data-bs-toggle="collapse"]:not(.collapsed) {
+    background-color: #f1f5f9 !important;
+    color: var(--ms-primary) !important;
+    font-weight: 700;
+}
+
+/* Academic Year Dropdown Menu Premium Styling */
+.admin-top-header .dropdown-menu[aria-labelledby="academicYearDropdown"] {
+    border-radius: 10px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 6px !important;
+}
+
+.admin-top-header .dropdown-menu[aria-labelledby="academicYearDropdown"] .dropdown-item {
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    margin: 2px 0 !important;
+    color: #475569 !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    transition: all 0.15s ease !important;
+}
+
+/* Hover state */
+.admin-top-header .dropdown-menu[aria-labelledby="academicYearDropdown"] .dropdown-item:hover {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+/* Active state (soft blue tint instead of solid blue) */
+.admin-top-header .dropdown-menu[aria-labelledby="academicYearDropdown"] .dropdown-item.active {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 600 !important;
+}
+
+.admin-top-header .dropdown-menu[aria-labelledby="academicYearDropdown"] .dropdown-divider {
+    margin: 6px 0 !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* ===== جدول فروقات سجل العمليات (الحقل/قبل/بعد) ===== */
+.diff-table {
+    font-size: 0.82rem;
+    margin-bottom: 0 !important;
+    background: #fff;
+}
+
+.diff-table thead th {
+    font-weight: 600;
+    color: #475569;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    padding: 4px 8px;
+    text-align: right;
+}
+
+.diff-table tbody td {
+    padding: 4px 8px;
+    vertical-align: top;
+    border-color: #eef2f7;
+}
+
+.diff-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.diff-table del {
+    text-decoration: line-through;
+    opacity: 0.85;
+}
+
+.diff-table .text-success.fw-semibold {
+    background: rgba(16, 185, 129, 0.08);
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.diff-table .text-danger del {
+    background: rgba(239, 68, 68, 0.06);
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+/* ===================================================================
+   Sidebar Menu — Visual Consistency Layer
+   توحيد الأيقونات والخطوط والزوايا وحالات hover/active عبر كل المستويات.
+   توضع في النهاية لتتجاوز أي قواعد سابقة متناقضة.
+   =================================================================== */
+
+/* (1) محاذاة أيقونات القائمة الفرعية: حجم أصغر قليلاً + min-width ثابت
+      لمحاذاة النص عمودياً مثل القائمة الرئيسية.
+      الأيقونات الفرعية في HTML تستخدم class "me-2" فقط (بدون nav-icon)
+      فنستهدفها عبر بنية .sub-menu i / .sub-sub-menu i.
+      ملاحظة: نستثني السهم (.arrow-icon) لأن له قاعدة حجم خاصة به (أصغر). */
+.sub-menu .nav-link > i.fa:not(.arrow-icon),
+.sub-menu .nav-link > i.fas:not(.arrow-icon),
+.sub-menu .nav-link > i.far:not(.arrow-icon),
+.sub-menu .nav-link > i.fab:not(.arrow-icon) {
+    font-size: 0.95rem !important;
+    min-width: 20px !important;
+    text-align: center !important;
+    margin-left: 0.5rem !important;
+    flex-shrink: 0 !important;
+}
+
+/* (2) توحيد أحجام الخطوط هرمياً: الرئيسي > الفرعي > الفرعي الفرعي */
+/* الرئيسي: 0.85rem (مُطبَّق أصلاً في القاعدة الأساسية) */
+/* الفرعي: 0.8rem — أصغر من الرئيسي مباشرة.
+      نضيف بنية :has(.collapse.show) لمواجهة specificity القاعدة 2312 الفاعلة. */
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu .nav-link,
+.sub-menu > .nav-item > .nav-link,
+.sub-menu .nav-link {
+    font-size: 0.8rem !important;
+}
+/* الفرعي الفرعي: 0.76rem — الأصغر للحفاظ على التدرج */
+.sub-sub-menu .nav-link {
+    font-size: 0.76rem !important;
+}
+
+/* (3) توحيد الزوايا (border-radius) بتدرج هرمي منطقي
+      نرفع specificity لقاعدة .sub-menu لتتجاوز القاعدة 2312 (التي تضع 8px). */
+.sidebar-nav > .nav-item > .nav-link {
+    border-radius: 8px !important;
+}
+body:not(.sidebar-collapsed) .sidebar-nav .nav-item:has(> .collapse.show):not(.toggle-nav-item) .sub-menu .nav-link,
+.sub-menu .nav-link {
+    border-radius: 6px !important;
+}
+.sub-sub-menu .nav-link {
+    border-radius: 4px !important;
+}
+
+/* (4) توحيد حالات hover/active عبر المستويات
+      - hover: خلفية فاتحة موحَّدة + لون أساسي
+      - active: خلفية زرقاء خفيفة + خط عريض + لون أساسي */
+.sub-menu .nav-link:hover,
+.sub-sub-menu .nav-link:hover {
+    background-color: #f1f5f9 !important;
+    color: var(--ms-primary) !important;
+}
+.sub-menu .nav-link.active,
+.sub-sub-menu .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* ===================================================================
+   Sidebar — Colored Accent Bar (بدون سهم)
+   استبدال السهم التقليدي بشريط عمودي ملون على يمين العناصر الرئيسية
+   القابلة للطي. الشريط خفيف عند الإغلاق، ويصبح بارزاً عند الفتح/التفعيل.
+   التطبيق عبر [data-bs-toggle="collapse"] لاستهداف القوائم الرئيسية فقط.
+   =================================================================== */
+
+/* (1) إخفاء السهم تماماً من كل القوائم */
+.sidebar-nav .nav-link .arrow-icon {
+    display: none !important;
+}
+
+/* (2) إضافة الشريط العمودي (::before) للقوائم الرئيسية القابلة للطي فقط.
+      position:relative على الرابط ضروري لاحتضان الشريط. */
+.sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"] {
+    position: relative !important;
+}
+
+.sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"]::before {
+    content: '';
+    position: absolute;
+    right: 2px;                /* جهة اليمين في RTL */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 55%;               /* أقصر من العنصر ليبدو كشريط متوسط */
+    background-color: #cbd5e1; /* رمادي خفيف — الحالة الافتراضية (مغلق) */
+    border-radius: 3px;
+    transition: all 0.25s ease;
+}
+
+/* (3) حالات الشريط:
+      - hover: أغمق قليلاً + أطول
+      - مفتوح (غير collapsed) أو active: أزرق بارز + أطول
+      ملاحظة: العنصر المفتوح يأخذ class "active" أو يفقد class "collapsed". */
+.sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"]:hover::before {
+    background-color: #94a3b8; /* رمادي أغمق عند hover */
+    height: 70%;
+}
+
+.sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"].active::before,
+.sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"]:not(.collapsed)::before {
+    background-color: var(--ms-primary); /* أزرق أساسي بارز */
+    height: 70%;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+/* في الحالة المتقلصة (sidebar-collapsed) لا نعرض الشريط لأن الأيقونة تكون
+   مركزية ومربعة، والشريط يبدو غير متناسق معها. */
+body.sidebar-collapsed .sidebar-nav > .nav-item > .nav-link[data-bs-toggle="collapse"]::before {
+    display: none !important;
+}
+
+/* ===================================================================
+   Sidebar — Nested Submenu Accent Bar (للقوائم الفرعية المتداخلة)
+   نمط مماثل للشريط الرئيسي لكن أنحف وأخف بصرياً للحفاظ على التسلسل الهرمي:
+   القائمة الرئيسية لها شريط بارز (3px)، والفرعية المتداخلة شريط خفيف (2px).
+   يستهدف .sub-menu-toggle فقط (القوائم المتداخلة في .sub-menu).
+   =================================================================== */
+.sub-menu .nav-link.sub-menu-toggle {
+    position: relative !important;
+}
+
+.sub-menu .nav-link.sub-menu-toggle::before {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;                /* أنحف من الشريط الرئيسي (3px) */
+    height: 50%;               /* أقصر من الشريط الرئيسي (55%) */
+    background-color: #cbd5e1; /* رمادي وضح — الحالة الافتراضية (مغلق) */
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+/* hover: رمادي أغمق + أطول */
+.sub-menu .nav-link.sub-menu-toggle:hover::before {
+    background-color: #94a3b8;
+    height: 65%;
+}
+
+/* مفتوح أو active: أزرق بارز + أطول */
+.sub-menu .nav-link.sub-menu-toggle.active::before,
+.sub-menu .nav-link.sub-menu-toggle:not(.collapsed)::before {
+    background-color: var(--ms-primary);
+    height: 65%;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.35);
+}
+
+/* إخفاء شريط القائمة الفرعية في الحالة المتقلصة أيضاً */
+body.sidebar-collapsed .sub-menu .nav-link.sub-menu-toggle::before {
+    display: none !important;
+}

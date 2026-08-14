@@ -1,0 +1,77 @@
+{
+    "name": "educore/system",
+    "description": "نظام EduCore التعليمي",
+    "license": "proprietary",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "phpoffice/phpspreadsheet": "^2.1",
+        "firebase/php-jwt": "^7.0",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-fileinfo": "*",
+        "dompdf/dompdf": "^3.1",
+        "minishlink/web-push": "^10.0",
+        "phpoffice/phppresentation": "^1.2",
+        "khaled.alshamaa/ar-php": "^7.0"
+    },
+    "autoload": {
+        "classmap": [
+            "classes/"
+        ],
+        "psr-4": {
+            "EduCore\\": "src/"
+        }
+    },
+    "scripts": {
+        "lint": "@php tools/php_lint.php",
+        "architecture-audit": "@php tools/audit_architecture.php --strict",
+        "documentation-audit": "@php tests/architecture_documentation_test.php",
+        "datatable-state-audit": [
+            "@php tests/datatable_state_persistence_contract_test.php",
+            "node tests/datatable_state_behavior_test.js"
+        ],
+        "audit-write-coverage": "@php tools/audit_write_coverage.php",
+        "admin-ui-audit": "@php tools/audit_admin_ui.php",
+        "upload-policy-audit": [
+            "@php tools/audit_upload_policy.php --strict",
+            "@php tests/upload_policy_audit_test.php",
+            "@php tests/file_upload_guard_test.php",
+            "@php tests/upload_storage_contract_test.php",
+            "@php tests/app_url_config_test.php",
+            "@php tests/profile_attachment_boundary_test.php",
+            "@php tests/upload_runtime_check_contract_test.php"
+        ],
+        "upload-runtime-check": "@php tools/check_upload_runtime.php",
+        "lesson-sharing-export-test": [
+            "@php tests/lesson_sharing_export_contract_test.php",
+            "node tests/lesson_export_behavior_test.js",
+            "node tests/lesson_sharing_behavior_test.js"
+        ],
+        "quality": [
+            "@lint",
+            "@documentation-audit",
+            "@datatable-state-audit",
+            "@upload-policy-audit",
+            "@lesson-sharing-export-test",
+            "@architecture-audit",
+            "@audit-write-coverage",
+            "@admin-ui-audit"
+        ],
+        "security-audit": "@composer audit --no-interaction",
+        "test-db-migrate": "@php tools/run_test_migrations.php"
+    },
+    "authors": [
+        {
+            "name": "ClassDojo-like System",
+            "email": "admin@example.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "audit": {
+            "abandoned": "ignore"
+        }
+    }
+}

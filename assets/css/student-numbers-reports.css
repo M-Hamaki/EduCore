@@ -1,0 +1,519 @@
+
+/* تنسيقات التبويبات التفاعلية الفاخرة */
+.nav-tabs-premium {
+    border-bottom: 2px solid #e2e8f0;
+}
+.nav-tabs-premium .nav-link {
+    color: #64748b;
+    font-weight: 600;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+}
+.nav-tabs-premium .nav-link:hover {
+    color: var(--ms-primary);
+    background-color: rgba(59, 130, 246, 0.04);
+    border-bottom-color: #cbd5e1;
+}
+.nav-tabs-premium .nav-link.active {
+    color: var(--ms-primary);
+    border: none;
+    border-bottom: 3px solid var(--ms-primary);
+    background-color: transparent;
+}
+
+/* شريط تنسيق الورقة النشطة، مطابق لفكرة محرر الإفادات */
+.budget-editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    row-gap: .35rem;
+    padding: .65rem .75rem;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: .5rem;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, .06);
+    width: min(100%, 794px);
+    margin-inline: auto;
+}
+.budget-editor-toolbar[data-budget-orientation="landscape"] {
+    width: min(100%, 1123px);
+}
+.budget-editor-toolbar-label {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: .45rem;
+    margin-bottom: .1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+.budget-editor-control,
+.budget-editor-color-control {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+.budget-editor-tools-title {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    flex: 0 0 auto;
+    border-inline-end: 1px solid #cbd5e1;
+    padding-inline-end: .65rem;
+    font-size: .82rem;
+    white-space: nowrap;
+}
+.budget-editor-select {
+    height: 31px;
+    font-size: 12px;
+}
+.budget-editor-font-select { width: 150px; }
+.budget-editor-size-select { width: 112px; }
+.budget-editor-line-height { width: 112px; }
+.budget-editor-toolbar [data-budget-command][aria-pressed="true"] {
+    color: #fff;
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+.budget-editor-toolbar [data-budget-command][aria-pressed="true"]:hover,
+.budget-editor-toolbar [data-budget-command][aria-pressed="true"]:focus {
+    color: #fff;
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+.budget-editor-color-control {
+    height: 31px;
+    padding: .2rem .45rem;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: .375rem;
+}
+.budget-editor-color-control .form-control-color {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+.budget-editable-paper[contenteditable="true"] {
+    caret-color: #2563eb;
+}
+.budget-editable-paper[contenteditable="true"]:focus {
+    outline: 2px solid rgba(37, 99, 235, .35);
+    outline-offset: 3px;
+}
+
+/* حاوية الورقة الرسمية للتقرير على الشاشة */
+.report-paper-sheet {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    padding: 3.5rem 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    font-family: var(--budget-font-family, 'Tajawal', 'Segoe UI', Tahoma, sans-serif);
+    --budget-print-margin: 12mm;
+    --budget-table-font-size: 14px;
+    box-sizing: border-box;
+    width: min(100%, 794px);
+    min-height: 1123px;
+    margin-inline: auto;
+}
+
+.report-paper-sheet[data-print-orientation="landscape"] {
+    min-width: 0;
+    width: min(100%, 1123px);
+    min-height: 794px;
+}
+
+.report-paper-sheet[data-print-margin="narrow"] { --budget-print-margin: 8mm; }
+.report-paper-sheet[data-print-margin="wide"] { --budget-print-margin: 18mm; }
+.report-paper-sheet[data-print-margin="narrow"] { padding: 2.25rem 2rem; }
+.report-paper-sheet[data-print-margin="normal"] { padding: 3rem 2.75rem; }
+.report-paper-sheet[data-print-margin="wide"] { padding: 4rem 3.5rem; }
+.report-paper-sheet[data-table-density="compact"] {
+    --budget-table-font-size: 14px;
+}
+.report-paper-sheet[data-table-density="compact"] table th,
+.report-paper-sheet[data-table-density="compact"] table td {
+    padding: 0 3px !important;
+    line-height: 1 !important;
+}
+.report-paper-sheet[data-table-density="comfortable"] {
+    --budget-table-font-size: 16px;
+}
+.report-paper-sheet[data-show-header="false"] .report-sheet-header {
+    display: none !important;
+}
+.report-paper-sheet[data-show-meta="false"] .budget-header-meta {
+    display: none !important;
+}
+.report-paper-sheet[data-show-date="false"] [data-budget-meta="printDate"],
+.report-paper-sheet[data-show-academic-year="false"] [data-budget-meta="academicYear"] {
+    display: none !important;
+}
+.report-paper-sheet[data-show-logo="false"] .budget-header-logo {
+    visibility: hidden !important;
+}
+.report-paper-sheet[data-show-table="false"] .budget-report-table-container {
+    display: none !important;
+}
+.report-paper-sheet[data-show-signatures="false"] .budget-official-footer {
+    display: none !important;
+}
+.report-paper-sheet[data-show-border="true"] {
+    /* نفس سلوك صفحة الإفادات: توسعة الحشو قبل رسم الإطار حتى لا يمر فوق الهيدر. */
+    --budget-border-padding-block: 18mm;
+    --budget-border-padding-inline: 16mm;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    padding: var(--budget-border-padding-block) var(--budget-border-padding-inline) !important;
+    isolation: isolate;
+}
+/* إطار داخلي ثابت على بعد 7mm من حافة الورقة، مثل official-doc-paper في الإفادات. */
+.report-paper-sheet[data-show-border="true"]::before {
+    content: "";
+    position: absolute;
+    inset: 7mm;
+    border: 3.5px double #000;
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 2;
+}
+.report-paper-sheet[data-show-border="true"] > * {
+    position: relative;
+    z-index: 1;
+}
+.report-paper-sheet[data-show-border="false"] {
+    border: 1px solid #cbd5e1;
+}
+.report-paper-sheet[data-show-note="false"] .budget-print-note,
+.report-paper-sheet .budget-print-note:empty {
+    display: none !important;
+}
+.report-paper-sheet .report-sheet-header h4,
+.report-paper-sheet .report-sheet-header h5,
+.report-paper-sheet .budget-print-note {
+    font-family: inherit !important;
+}
+.report-paper-sheet table.admin-data-table td {
+    font-size: var(--budget-table-font-size) !important;
+}
+.report-paper-sheet[data-print-orientation="landscape"] table.admin-data-table th,
+.report-paper-sheet[data-print-orientation="landscape"] table.admin-data-table td {
+    padding: 7px 6px !important;
+}
+.budget-print-note {
+    margin-top: 1rem;
+    color: #64748b;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+/* نفس بنية الهيدر/الفوتر الرسميين المستخدمة في الإفادات */
+.budget-official-header {
+    direction: rtl;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 1rem;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.report-paper-sheet[data-budget-language="en"] .budget-official-header,
+.report-paper-sheet[data-budget-language="en"] .budget-official-footer {
+    direction: ltr;
+}
+.budget-header-school {
+    grid-column: 1;
+    justify-self: start;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.budget-header-logo {
+    grid-column: 2;
+    justify-self: center;
+    min-width: 85px;
+    text-align: center;
+    /* إنزال الشعار قليلاً ليصطف بصرياً مع محتوى الهيدر الرسمي. */
+    transform: translateY(8px);
+}
+.budget-header-logo img {
+    max-width: 105px;
+    max-height: 105px;
+    object-fit: contain;
+}
+.budget-header-title {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: stretch;
+    align-self: center;
+    text-align: center;
+    min-width: 0;
+    width: 100%;
+    margin-top: 0.25rem;
+}
+.budget-header-meta {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: stretch;
+    align-self: start;
+    text-align: center;
+    /* إبعاد كتلة العام والتاريخ قليلاً عن مركز الورقة باتجاه اليسار. */
+    transform: translateX(-44px);
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+    white-space: nowrap;
+    padding-top: 0;
+    margin-top: 0;
+}
+/* الورقة التاريخية أفقية؛ نحتاج إزاحة إضافية بسيطة للكتلة اليسرى. */
+.report-paper-sheet[data-budget-paper="historical"] .budget-header-meta {
+    transform: translateX(-132px);
+}
+
+/* تسطير العنوان يجب أن يكون تنسيقاً داخل المحتوى، لا خطاً ثابتاً تفرضه الورقة. */
+.report-paper-sheet .budget-report-title,
+.report-paper-sheet .report-title,
+.report-paper-sheet [data-editable-field="title"],
+.report-paper-sheet [data-field="title"],
+.report-paper-sheet [data-role="report-title"],
+.report-paper-sheet h1[contenteditable="true"],
+.report-paper-sheet h2[contenteditable="true"],
+.report-paper-sheet h3[contenteditable="true"] {
+    text-decoration: none;
+}
+
+.report-paper-sheet .budget-report-title u,
+.report-paper-sheet .report-title u,
+.report-paper-sheet [data-editable-field="title"] u,
+.report-paper-sheet [data-field="title"] u,
+.report-paper-sheet [data-role="report-title"] u,
+.report-paper-sheet h1[contenteditable="true"] u,
+.report-paper-sheet h2[contenteditable="true"] u,
+.report-paper-sheet h3[contenteditable="true"] u {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+/* صف الإجمالي أوضح وأعلى قليلاً من صفوف البيانات في كل تبويب. */
+.report-paper-sheet table tfoot > tr > th,
+.report-paper-sheet table tfoot > tr > td,
+.report-paper-sheet table tr[data-total-row="true"] > th,
+.report-paper-sheet table tr[data-total-row="true"] > td,
+.report-paper-sheet table tr.budget-total-row > th,
+.report-paper-sheet table tr.budget-total-row > td,
+.report-paper-sheet table tr.total-row > th,
+.report-paper-sheet table tr.total-row > td {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    line-height: 1.2;
+}
+
+.budget-header-title .budget-report-subtitle:empty {
+    display: none;
+}
+.budget-header-title .budget-report-subtitle {
+    color: #64748b;
+    font-size: 0.76rem;
+    margin-bottom: 0.25rem;
+}
+.budget-header-title .budget-report-title {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.5;
+    text-decoration: none;
+}
+.budget-header-title .budget-report-title[data-budget-title-underline="true"] {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+}
+.budget-official-footer {
+    direction: rtl;
+    border-top: 0;
+    margin-top: 1.5rem;
+    padding-top: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 1rem;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-weight: 700;
+}
+.budget-official-footer .budget-footer-label {
+    color: #475569;
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1.08rem;
+}
+.budget-official-footer .budget-footer-name {
+    color: #0f172a;
+    min-height: 1.2em;
+    font-size: 1.15rem;
+}
+/* ترتيب التوقيعات: شؤون الطلاب، مديرات المراحل، ثم مدير المدرسة. */
+.budget-official-footer > [data-budget-signature-col="student_affairs"] { order: 1; }
+.budget-official-footer > [data-budget-signature-col="stage_kg"] { order: 2; }
+.budget-official-footer > [data-budget-signature-col="stage_primary"] { order: 3; }
+.budget-official-footer > [data-budget-signature-col="stage_prep_sec"] { order: 4; }
+.budget-official-footer > [data-budget-signature-col="school_director"] { order: 5; }
+.budget-official-footer > [data-budget-signature-col="admin_director"] { order: 6; }
+.report-paper-sheet[data-signature-mode="titles"] .budget-official-footer .budget-footer-name {
+    display: none;
+}
+.report-paper-sheet [data-budget-signature-col][data-budget-signature-visible="false"] {
+    display: none !important;
+}
+/* عند اختيار توقيع واحد فقط يوضع في الجهة اليسرى من الفوتر العربي. */
+.report-paper-sheet:not([data-budget-language="en"]) .budget-official-footer[data-visible-signatures="1"] > [data-budget-signature-col] {
+    width: 50%;
+    justify-self: end;
+}
+.report-paper-sheet[data-budget-language="en"] .budget-official-footer[data-visible-signatures="1"] > [data-budget-signature-col] {
+    width: 50%;
+    justify-self: start;
+}
+.budget-filter-select {
+    min-width: 150px;
+    height: 31px;
+}
+.budget-filter-select:disabled {
+    cursor: not-allowed;
+    opacity: .7;
+}
+.budget-multi-select {
+    position: relative;
+    min-width: 140px;
+    height: 31px;
+    z-index: 20;
+    display: inline-block;
+}
+.budget-multiselect-toggle {
+    width: 100%;
+    min-width: 140px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .35rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+    background-color: #fff;
+}
+.budget-multiselect-toggle:focus-visible {
+    outline: 2px solid rgba(37, 99, 235, .35);
+    outline-offset: 2px;
+}
+.budget-multiselect-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.budget-multiselect-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    inset-inline-end: 0;
+    min-width: 230px;
+    max-width: min(300px, 82vw);
+    max-height: 290px;
+    overflow: auto;
+    padding: .45rem;
+    border: 1px solid #cbd5e1;
+    border-radius: .45rem;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, .16);
+    z-index: 1080;
+}
+.budget-multi-select.is-open {
+    z-index: 1090;
+}
+.budget-multi-select.is-open .budget-multiselect-menu {
+    display: block;
+}
+.budget-multiselect-menu.show {
+    display: block;
+}
+.budget-multiselect-clear {
+    width: 100%;
+    margin-bottom: .35rem;
+    text-align: start;
+    color: #1d4ed8;
+    border: 0;
+    background: transparent;
+}
+.budget-multiselect-options {
+    display: grid;
+    gap: .1rem;
+}
+.budget-multiselect-option {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    width: 100%;
+    padding: .38rem .45rem;
+    border-radius: .3rem;
+    color: #1e293b;
+    cursor: pointer;
+    font-size: .85rem;
+    line-height: 1.35;
+}
+.budget-multiselect-option .form-check-label {
+    flex: 1 1 auto;
+    cursor: pointer;
+    margin: 0;
+}
+.budget-multiselect-option:hover {
+    background: #eff6ff;
+}
+.budget-multiselect-option input {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    accent-color: #2563eb;
+}
+.budget-multiselect-option[hidden] {
+    display: none !important;
+}
+.budget-multiselect-empty {
+    display: block;
+    padding: .35rem .45rem;
+    color: #64748b;
+    font-size: .8rem;
+}
+@media print {
+    .budget-multi-select {
+        display: none !important;
+    }
+}
+.report-paper-sheet[data-budget-paper="detailed"] table.admin-data-table tbody tr,
+.report-paper-sheet[data-budget-paper="detailed"] table.admin-data-table tbody tr:nth-child(odd),
+.report-paper-sheet[data-budget-paper="detailed"] table.admin-data-table tbody tr:nth-child(even),
+.report-paper-sheet[data-budget-paper="detailed"] table.admin-data-table tbody tr > * {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    --bs-table-bg-type: #ffffff !important;
+    --bs-table-accent-bg: #ffffff !important;
+}
+.report-paper-sheet[data-budget-paper="detailed"] table.admin-data-table tbody tr:hover > * {
+    background-color: #ffffff !important;
+    background-image: none !important;
+}

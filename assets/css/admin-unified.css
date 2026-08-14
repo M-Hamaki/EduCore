@@ -1,0 +1,6174 @@
+/* =====================================================
+   EduCore Admin Unified UI Layer
+   Purpose: opt-in classes for gradual admin UI unification.
+   Load order: Bootstrap -> style.css -> premium-dashboard.css -> buttons.css -> admin-unified.css
+   ===================================================== */
+
+/* Admin header search results. */
+.admin-global-search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #dfe5ee;
+    border-radius: 8px;
+    padding: 6px;
+    z-index: 1060;
+    max-height: 360px;
+    overflow: auto;
+    text-align: right;
+}
+
+.admin-search-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    color: #273142;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.admin-search-result i {
+    color: #7b8794;
+    font-size: 0.75rem;
+}
+
+.admin-search-result:hover,
+.admin-search-result.active {
+    background: #eef4ff;
+    color: #0d6efd;
+}
+
+.admin-search-empty {
+    padding: 14px;
+    text-align: center;
+    color: #7b8794;
+}
+
+.nav-tabs .nav-link,
+.nav-pills .nav-link,
+.nav-tabs button,
+.nav-pills button {
+    font-weight: 700 !important;
+}
+
+:root {
+    --admin-ui-border: #d9e2ef;
+    --admin-ui-border-soft: #e6edf7;
+    --admin-ui-text: #102033;
+    --admin-ui-muted: #64748b;
+    --admin-ui-primary: #2563eb;
+    --admin-ui-header-bg: #cbd5e1;
+    --admin-ui-row-alt: #f7f7f8;
+}
+
+/* Role welcome dashboards -------------------------------------------------- */
+.role-dashboard-heading {
+    margin-bottom: 1rem;
+}
+
+.role-dashboard-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.35rem;
+    color: #2563eb;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.role-welcome-hero {
+    --role-welcome-accent: #fbbf24;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%) !important;
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.45) !important;
+}
+
+.role-welcome--student-affairs {
+    --role-welcome-accent: #3b82f6;
+}
+
+.role-welcome--transport {
+    --role-welcome-accent: #10b981;
+}
+
+.role-welcome--library {
+    --role-welcome-accent: #f59e0b;
+}
+
+.role-welcome--clinic {
+    --role-welcome-accent: #f43f5e;
+}
+
+.role-welcome--permissions {
+    --role-welcome-accent: #a855f7;
+}
+
+.role-welcome-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: center;
+}
+
+.role-welcome-message {
+    min-width: 0;
+}
+
+.role-welcome-eyebrow,
+.role-welcome-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.role-welcome-eyebrow {
+    padding: 0.55rem 0.85rem;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.role-welcome-eyebrow i,
+.role-welcome-role i {
+    color: var(--role-welcome-accent);
+}
+
+.role-welcome-message h2 {
+    margin: 1rem 0 0.65rem;
+    color: #fff;
+    font-size: clamp(1.65rem, 3.4vw, 2.65rem);
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.role-welcome-message h2 span {
+    color: var(--role-welcome-accent);
+}
+
+.role-welcome-message > p {
+    max-width: 720px;
+    margin: 0 0 1.1rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.role-welcome-role {
+    padding: 0.48rem 0.8rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.82rem;
+}
+
+.role-welcome-metrics {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.role-welcome-metric {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 78px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.role-welcome-metric:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.role-welcome-metric > i {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    color: var(--role-welcome-accent);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.role-welcome-metric div {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.role-welcome-metric span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.role-welcome-metric strong {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.role-welcome-quote {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    color: #ffffff;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.role-welcome-quote i {
+    color: var(--role-welcome-accent);
+}
+
+.role-welcome-orb,
+.role-welcome-watermark {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.role-welcome-orb {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+    filter: blur(8px);
+}
+
+.role-welcome-orb--one {
+    top: -130px;
+    right: -80px;
+}
+
+.role-welcome-orb--two {
+    bottom: -160px;
+    left: 18%;
+}
+
+.role-welcome-watermark {
+    bottom: -42px;
+    left: 4%;
+    color: rgba(255, 255, 255, 0.045);
+    font-size: clamp(8rem, 16vw, 14rem);
+    transform: rotate(-12deg);
+}
+
+.role-services-section {
+    margin-bottom: 2rem;
+}
+
+.role-services-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.role-services-count {
+    flex: 0 0 auto;
+    padding: 0.45rem 0.8rem;
+    color: #1d4ed8;
+    font-size: 0.78rem;
+    font-weight: 800;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    background: #eff6ff;
+}
+
+.role-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 0.9rem;
+}
+
+.role-service-card {
+    --role-service-color: #2563eb;
+    --role-service-soft: #eff6ff;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 112px;
+    padding: 1rem;
+    color: #102033;
+    text-decoration: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 8px 24px -20px rgba(15, 23, 42, 0.7);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.role-service-card:hover {
+    color: #102033;
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--role-service-color) 35%, #e2e8f0);
+    box-shadow: 0 18px 30px -22px color-mix(in srgb, var(--role-service-color) 55%, transparent);
+}
+
+.role-service-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    color: var(--role-service-color);
+    border-radius: 14px;
+    background: var(--role-service-soft);
+}
+
+.role-service-copy {
+    display: grid;
+    min-width: 0;
+    gap: 0.28rem;
+}
+
+.role-service-copy strong {
+    font-size: 0.92rem;
+}
+
+.role-service-copy small {
+    color: #64748b;
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+.role-service-arrow {
+    margin-inline-start: auto;
+    color: var(--role-service-color);
+    transition: transform 0.25s ease;
+}
+
+.role-service-card:hover .role-service-arrow {
+    transform: translateX(-4px);
+}
+
+.role-service--green { --role-service-color: #059669; --role-service-soft: #ecfdf5; }
+.role-service--amber { --role-service-color: #d97706; --role-service-soft: #fffbeb; }
+.role-service--orange { --role-service-color: #ea580c; --role-service-soft: #fff7ed; }
+.role-service--purple { --role-service-color: #7c3aed; --role-service-soft: #f5f3ff; }
+.role-service--violet { --role-service-color: #6d28d9; --role-service-soft: #f5f3ff; }
+.role-service--cyan { --role-service-color: #0891b2; --role-service-soft: #ecfeff; }
+.role-service--rose { --role-service-color: #e11d48; --role-service-soft: #fff1f2; }
+.role-service--slate { --role-service-color: #475569; --role-service-soft: #f1f5f9; }
+
+@media (max-width: 991.98px) {
+    .role-welcome-content {
+        grid-template-columns: 1fr;
+    }
+
+    .role-welcome-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .role-welcome-hero {
+        border-radius: 18px;
+    }
+
+    .role-welcome-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .role-services-heading {
+        align-items: flex-start;
+    }
+
+    .role-services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-list-loading { min-height: 140px; display:flex; align-items:center; justify-content:center; color:var(--admin-ui-muted); font-weight:700; background:#fff; }
+
+/* Page title and top actions */
+.admin-page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-ui-border);
+}
+
+.admin-page-heading .h2,
+.admin-page-heading h1 {
+    margin-bottom: 0;
+    color: var(--admin-ui-text);
+}
+
+.admin-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.admin-top-actions .btn-header-premium,
+.export-actions-bar .btn-header-premium {
+    padding: 5px 12px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+html body .btn-toolbar .btn-header-premium.btn-import-soft,
+.admin-top-actions .btn-import-soft,
+.btn-header-premium.btn-import-soft {
+    background-color: #d6e9f6 !important;
+    color: #0b4f6c !important;
+    border: 1px solid rgba(11, 79, 108, 0.16) !important;
+    box-shadow: 0 2px 6px rgba(11, 79, 108, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-import-soft:hover,
+.admin-top-actions .btn-import-soft:hover,
+.btn-header-premium.btn-import-soft:hover {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.25) !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-export-soft,
+.admin-top-actions .btn-export-soft,
+.export-actions-bar .btn-export-soft,
+.btn-header-premium.btn-export-soft {
+    background-color: #e2f1e9 !important;
+    color: #134e4a !important;
+    border: 1.5px solid #86efac !important;
+    box-shadow: 0 2px 6px rgba(19, 78, 74, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+html body .btn-toolbar .btn-header-premium.btn-export-soft:hover,
+.admin-top-actions .btn-export-soft:hover,
+.export-actions-bar .btn-export-soft:hover,
+.btn-header-premium.btn-export-soft:hover {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+    border-color: #059669 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(5, 150, 105, 0.25) !important;
+}
+
+.admin-top-actions .btn-print-soft,
+.export-actions-bar .btn-print-soft {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1.5px solid #94a3b8 !important;
+    box-shadow: 0 2px 6px rgba(71, 85, 105, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.admin-top-actions .btn-print-soft:hover,
+.export-actions-bar .btn-print-soft:hover {
+    background-color: #475569 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(71, 85, 105, 0.25) !important;
+}
+
+.admin-top-actions .btn-pdf-soft,
+.export-actions-bar .btn-pdf-soft {
+    background-color: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: 1.5px solid #fca5a5 !important;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.admin-top-actions .btn-pdf-soft:hover,
+.export-actions-bar .btn-pdf-soft:hover {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Tabs used as the visible section title */
+.admin-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-ui-border);
+}
+
+.admin-tabs .nav-link {
+    font-weight: 700;
+}
+
+/* Free list/table layout */
+.admin-list-surface {
+    width: 100%;
+}
+
+.admin-work-panel {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.admin-work-panel-header {
+    padding: 0 0 0.85rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-ui-border);
+    color: var(--admin-ui-text);
+    background: transparent;
+}
+
+.admin-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--admin-ui-border);
+}
+
+.admin-filter-controls,
+.admin-filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.admin-filter-controls .form-select,
+.admin-filter-controls .form-control {
+    width: auto;
+    min-width: 120px;
+    min-height: 31px;
+    border-color: #bfd0e4;
+    color: var(--admin-ui-text);
+    font-weight: 700;
+    background-color: #fff;
+}
+
+/* Active state for filter dropdown buttons (e.g. multi-select dropdowns with checked options) and standard selects/inputs */
+.filter-dropdown-btn.active-filter,
+.form-select.active-filter,
+.form-control.active-filter {
+    background-color: #e0f2fe !important;
+    border-color: #0284c7 !important;
+    color: #0369a1 !important;
+}
+
+.admin-filter-controls .admin-select-wide {
+    min-width: 280px;
+}
+
+.admin-filter-controls .form-select:focus,
+.admin-filter-controls .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.12);
+    background-color: #ffffff;
+}
+
+.admin-filter-controls .form-select:not(.active-filter),
+.admin-filter-controls .form-control:not(.active-filter) {
+    background-color: #ffffff !important;
+}
+
+.admin-filter-actions .btn-light {
+    border: 1px solid #cbd7e6;
+    color: var(--admin-ui-text);
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    font-weight: 700;
+}
+
+.admin-filter-actions .btn-light:hover,
+.admin-filter-actions .btn-light:focus {
+    border-color: #aebed0;
+    background-color: #f8fafc;
+    color: var(--admin-ui-text);
+}
+
+/* =====================================
+   § Premium Progress Bar & Stage Badges
+   ===================================== */
+.admin-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 135px;
+}
+
+.admin-progress-track {
+    flex-grow: 1;
+    height: 12px;
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+    position: relative;
+}
+
+.admin-progress-fill {
+    height: 100%;
+    border-radius: 30px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.admin-progress-fill.fill-completed {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
+}
+
+.admin-progress-fill.fill-high {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+}
+
+.admin-progress-fill.fill-mid {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.35);
+}
+
+.admin-progress-fill.fill-empty {
+    background: transparent;
+    width: 0% !important;
+}
+
+.admin-progress-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    min-width: 38px;
+    text-align: right;
+}
+.admin-progress-label.text-completed { color: #059669; }
+.admin-progress-label.text-high { color: #2563eb; }
+.admin-progress-label.text-mid { color: #d97706; }
+.admin-progress-label.text-empty { color: #94a3b8; }
+
+/* Distinct Stage Badge Colors */
+.bg-soft-success { background-color: rgba(16, 185, 129, 0.12) !important; color: #047857 !important; border: 1px solid rgba(16, 185, 129, 0.25) !important; }
+.bg-soft-primary { background-color: rgba(37, 99, 235, 0.12) !important; color: #1d4ed8 !important; border: 1px solid rgba(37, 99, 235, 0.25) !important; }
+.bg-soft-purple { background-color: rgba(139, 92, 246, 0.12) !important; color: #6d28d9 !important; border: 1px solid rgba(139, 92, 246, 0.25) !important; }
+.bg-soft-warning { background-color: rgba(245, 158, 11, 0.12) !important; color: #b45309 !important; border: 1px solid rgba(245, 158, 11, 0.25) !important; }
+.bg-soft-info { background-color: rgba(14, 165, 233, 0.12) !important; color: #0369a1 !important; border: 1px solid rgba(14, 165, 233, 0.25) !important; }
+.bg-soft-secondary { background-color: #f1f5f9 !important; color: #475569 !important; border: 1px solid #cbd5e1 !important; }
+.bg-purple { background-color: #8b5cf6 !important; color: #ffffff !important; }
+.text-purple { color: #6d28d9 !important; }
+
+.admin-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+.admin-table-wrap .row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.admin-data-table,
+.admin-list-surface table.table,
+main table.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.admin-data-table thead th,
+.admin-data-table thead td,
+.dataTable.admin-data-table thead th,
+.dataTable.admin-data-table thead td,
+html body table.admin-data-table thead th,
+html body table.admin-data-table thead td,
+.admin-list-surface table.table thead th,
+.admin-list-surface table.table thead td,
+main table.table thead th,
+main table.table thead td {
+    background: var(--admin-ui-header-bg);
+    color: #0f172a;
+    font-weight: 800;
+    vertical-align: middle;
+    border-bottom: 2px solid #94a3b8 !important;
+    border-left: 1px solid #d6e0ec !important;
+}
+
+.admin-data-table tbody td,
+.admin-data-table tbody th,
+.dataTable.admin-data-table tbody td,
+.dataTable.admin-data-table tbody th,
+html body table.admin-data-table tbody td,
+html body table.admin-data-table tbody th,
+.admin-list-surface table.table tbody td,
+.admin-list-surface table.table tbody th,
+main table.table tbody td,
+main table.table tbody th {
+    vertical-align: middle;
+    border-left: 1px solid #e2e8f0 !important;
+}
+
+.admin-data-table thead th:last-child,
+.admin-data-table thead td:last-child,
+.admin-data-table tbody td:last-child,
+.admin-data-table tbody th:last-child,
+.dataTable.admin-data-table thead th:last-child,
+.dataTable.admin-data-table thead td:last-child,
+.dataTable.admin-data-table tbody td:last-child,
+.dataTable.admin-data-table tbody th:last-child,
+html body table.admin-data-table thead th:last-child,
+html body table.admin-data-table thead td:last-child,
+html body table.admin-data-table tbody td:last-child,
+html body table.admin-data-table tbody th:last-child,
+.admin-list-surface table.table thead th:last-child,
+.admin-list-surface table.table thead td:last-child,
+.admin-list-surface table.table tbody td:last-child,
+.admin-list-surface table.table tbody th:last-child,
+main table.table thead th:last-child,
+main table.table thead td:last-child,
+main table.table tbody td:last-child,
+main table.table tbody th:last-child {
+    border-left: 0 !important;
+}
+
+.admin-data-table.table-striped tbody tr:nth-of-type(odd) > *,
+.admin-list-surface table.table-striped tbody tr:nth-of-type(odd) > * {
+    background-color: var(--admin-ui-row-alt);
+}
+
+.admin-table-actions {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.admin-table-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-password-compact {
+    max-width: 180px;
+}
+
+.admin-icon-fixed {
+    width: 20px;
+    text-align: center;
+}
+
+.admin-avatar-xl {
+    width: 130px;
+    height: 130px;
+    border: 4px solid var(--bs-primary-bg-subtle);
+}
+
+.admin-square-icon-md {
+    width: 32px;
+    height: 32px;
+}
+
+.admin-file-name {
+    max-width: 250px;
+}
+
+.admin-preview-table-sm {
+    font-size: 0.85rem;
+}
+
+.assessment-entry-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.assessment-entry-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+}
+
+.teacher-assignments-page #assignStaffModal .modal-body {
+    background-color: #ffffff;
+}
+
+.teacher-assignments-page #assignClassesBox::-webkit-scrollbar,
+.teacher-assignments-page .modal-content-card::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.teacher-assignments-page #assignClassesBox::-webkit-scrollbar-track,
+.teacher-assignments-page .modal-content-card::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 8px 0;
+}
+
+.teacher-assignments-page #assignClassesBox::-webkit-scrollbar-thumb,
+.teacher-assignments-page .modal-content-card::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+
+.teacher-assignments-page #assignClassesBox::-webkit-scrollbar-thumb:hover,
+.teacher-assignments-page .modal-content-card::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.teacher-assignments-page .modal-content-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.teacher-assignments-page .btn-check + .btn-outline-primary,
+.teacher-assignments-page .btn-check + .btn-outline-success {
+    background-color: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    color: #475569;
+    text-align: right;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.8rem !important;
+    font-weight: 500;
+    padding: 0.35rem 0.6rem !important;
+    border-radius: 8px;
+    white-space: normal !important;
+}
+
+.teacher-assignments-page .btn-check + .btn-outline-primary:hover,
+.teacher-assignments-page .btn-check + .btn-outline-success:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #1e293b;
+    transform: translateY(-1px);
+}
+
+.teacher-assignments-page .btn-check:checked + .btn-outline-primary {
+    background: rgba(37, 99, 235, 0.08) !important;
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.teacher-assignments-page .btn-check:checked + .btn-outline-primary .check-icon,
+.teacher-assignments-page .btn-check:checked + .btn-outline-success .check-icon {
+    display: inline-block !important;
+}
+
+.teacher-assignments-page .btn-check:checked + .btn-outline-primary i.text-muted {
+    color: #2563eb !important;
+}
+
+.teacher-assignments-page .btn-check:checked + .btn-outline-success {
+    background: rgba(5, 150, 105, 0.08) !important;
+    border-color: #059669 !important;
+    color: #059669 !important;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);
+}
+
+.teacher-assignments-page .btn-check:checked + .btn-outline-success i.text-muted {
+    color: #059669 !important;
+}
+
+.teacher-assignments-page .stage-group {
+    margin-bottom: 1.25rem;
+}
+
+.teacher-assignments-page .stage-group:last-child {
+    margin-bottom: 0;
+}
+
+.teacher-assignments-page .stage-header {
+    border-right: 4px solid #3b82f6;
+    padding-right: 0.75rem;
+    margin-bottom: 0.9rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.teacher-assignments-page .grade-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 13px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+.teacher-assignments-page .grade-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.teacher-assignments-page .grade-card-header {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+
+.teacher-assignment-list-title {
+    width: auto;
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.teacher-assignments-page .teacher-assignment-class-details {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    min-width: 0;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    min-height: 2rem;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary::-webkit-details-marker {
+    display: none;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary::marker {
+    content: "";
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary:focus-visible {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-grades {
+    color: #1d4ed8;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-stages {
+    color: #1d4ed8;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-classes {
+    color: #1d4ed8;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-separator {
+    color: #1d4ed8;
+}
+
+.teacher-assignments-page .teacher-assignment-class-summary-whole-grades {
+    color: #1d4ed8;
+}
+
+.teacher-assignments-page .teacher-assignment-class-popover {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    right: 50%;
+    z-index: 1000;
+    width: min(620px, calc(100vw - 2rem));
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 0.65rem;
+    transform: translateX(50%);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 0.75rem;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.16), 0 4px 10px rgba(15, 23, 42, 0.06);
+}
+
+.teacher-assignments-page .teacher-assignment-class-popover::before {
+    position: absolute;
+    top: -0.4rem;
+    right: 50%;
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: translateX(50%) rotate(45deg);
+    border-top: 1px solid rgba(148, 163, 184, 0.35);
+    border-left: 1px solid rgba(148, 163, 184, 0.35);
+    background: #fff;
+    content: "";
+}
+
+.teacher-assignments-page .teacher-assignment-class-details:hover .teacher-assignment-class-popover,
+.teacher-assignments-page .teacher-assignment-class-details:focus-within .teacher-assignment-class-popover,
+.teacher-assignments-page .teacher-assignment-class-details[open] .teacher-assignment-class-popover {
+    display: block;
+}
+
+.teacher-assignments-page .teacher-assignment-class-details:hover > .teacher-assignment-class-summary {
+    border-color: #93c5fd;
+    background: #dbeafe;
+}
+
+.teacher-assignments-page .teacher-assignment-class-popover-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e3a8a;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+@media (min-width: 768px) {
+    .teacher-assignments-page .admin-table-wrap:has(.teacher-assignment-class-details:hover),
+    .teacher-assignments-page .admin-data-table:has(.teacher-assignment-class-details:hover) {
+        overflow: visible !important;
+    }
+
+    .teacher-assignments-page .admin-data-table tbody tr:has(.teacher-assignment-class-details:hover) {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+.teacher-assignments-page .teacher-assignment-class-groups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem 0.45rem;
+    min-width: 0;
+    line-height: 1.4;
+}
+
+.teacher-assignments-page .teacher-assignment-class-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    max-width: 100%;
+    padding: 0.22rem 0.35rem;
+    border: 1px solid #dbe5f1;
+    border-radius: 0.45rem;
+    background: #f8fafc;
+}
+
+.teacher-assignments-page .teacher-assignment-class-group-title {
+    color: #1d4ed8;
+    font-size: 0.76rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.teacher-assignments-page .teacher-assignment-class-group-items {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
+.teacher-assignments-page .teacher-assignment-class-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.45rem;
+    padding: 0.12rem 0.4rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.3rem;
+    background: #fff;
+    color: #334155;
+    font-size: 0.74rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.teacher-assignments-page .teacher-assignment-role-cell {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-width: 8rem;
+}
+
+.teacher-assignments-page .teacher-assignment-role-list,
+.teacher-assignments-page .teacher-assignment-permission-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.teacher-assignments-page .teacher-assignment-permission-list {
+    color: #64748b;
+    font-size: 0.7rem;
+}
+
+.teacher-assignments-page .teacher-assignment-no-permission {
+    color: #94a3b8;
+    font-size: 0.68rem;
+    white-space: nowrap;
+}
+
+.teacher-assignments-page .teacher-assignment-role-cell .badge {
+    white-space: nowrap;
+}
+
+.teacher-assignments-page #teacherAssignmentsTable thead th:nth-child(4),
+.teacher-assignments-page #teacherAssignmentsTable tbody td:nth-child(4),
+    .teacher-assignments-page #teacherAssignmentsTable thead th:nth-child(5),
+    .teacher-assignments-page #teacherAssignmentsTable tbody td:nth-child(5),
+    .teacher-assignments-page #teacherAssignmentsTable thead th:nth-child(6),
+    .teacher-assignments-page #teacherAssignmentsTable tbody td:nth-child(6),
+    .teacher-assignments-page #teacherAssignmentsTable thead th:nth-child(8),
+.teacher-assignments-page #teacherAssignmentsTable tbody td:nth-child(8) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.teacher-assignments-page .teacher-assignment-permission-cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-width: 8rem;
+}
+
+.teacher-assignments-page .teacher-assignment-permission-cell .badge {
+    white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+    .teacher-assignments-page .teacher-assignment-class-group {
+        width: 100%;
+    }
+
+    .teacher-assignments-page .teacher-assignment-class-details,
+    .teacher-assignments-page .teacher-assignment-class-summary {
+        width: 100%;
+    }
+}
+
+.teacher-assignment-fixed-list {
+    max-height: 420px;
+    height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.teacher-assignment-class-tools {
+    height: 42px;
+}
+
+.teacher-assignment-label-text {
+    flex-grow: 1;
+    padding-left: 8px;
+    line-height: 1.3;
+}
+
+.admin-btn-sm-readable {
+    font-size: 0.88rem;
+}
+
+.admin-col-5 {
+    width: 5%;
+}
+
+.admin-col-10 {
+    width: 10%;
+}
+
+.admin-col-15 {
+    width: 15%;
+}
+
+.admin-col-25 {
+    width: 25%;
+}
+
+.admin-col-30 {
+    width: 30%;
+}
+
+.admin-col-70 {
+    width: 70%;
+}
+
+.admin-col-50px {
+    width: 50px;
+}
+
+.admin-col-110px {
+    width: 110px;
+}
+
+.admin-col-120px {
+    width: 120px;
+}
+
+.admin-col-130px {
+    width: 130px;
+}
+
+.admin-col-150px {
+    width: 150px;
+}
+
+.admin-col-160px {
+    width: 160px;
+}
+
+.admin-col-170px {
+    width: 170px;
+}
+
+.admin-col-180px {
+    width: 180px;
+}
+
+.admin-col-220px {
+    width: 220px;
+}
+
+.admin-col-min-360px {
+    min-width: 360px;
+}
+
+.admin-text-right {
+    text-align: right;
+}
+
+.admin-cursor-pointer {
+    cursor: pointer;
+}
+
+.admin-modal-icon-md {
+    font-size: 2.5rem;
+}
+
+.admin-modal-icon-lg {
+    font-size: 3rem;
+}
+
+/* Bootstrap/DataTables pagination cleanup for unified pages */
+.admin-list-surface .dataTables_wrapper {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.admin-list-surface .dataTables_info,
+.admin-list-surface .dataTables_paginate {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.admin-list-surface .dataTables_length,
+.admin-list-surface .dataTables_filter {
+    margin-bottom: 0.85rem;
+    color: var(--admin-ui-text);
+    font-weight: 700;
+}
+
+.admin-list-surface .dataTables_length label,
+.admin-list-surface .dataTables_filter label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+}
+
+.admin-list-surface .dataTables_filter input,
+.admin-list-surface .dataTables_length select {
+    border: 1px solid #bfd0e4;
+    border-radius: 6px;
+    color: var(--admin-ui-text);
+    background-color: #fff;
+    min-height: 31px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.admin-list-surface .dataTables_filter input:focus,
+.admin-list-surface .dataTables_length select:focus {
+    border-color: #93b4dc;
+    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.12);
+}
+
+.admin-list-surface .dataTables_paginate .paginate_button,
+.admin-list-surface .pagination .page-link {
+    border-color: #d7e2ef;
+    color: #475569;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-inline: 2px;
+    font-weight: 700;
+}
+
+.admin-list-surface .dataTables_paginate .paginate_button.current,
+.admin-list-surface .pagination .page-item.active .page-link {
+    background-color: #1f8fd1;
+    border-color: #1f8fd1;
+    color: #fff;
+    box-shadow: 0 2px 7px rgba(31, 143, 209, 0.22);
+}
+
+.admin-list-surface .pagination .page-item.disabled .page-link {
+    color: #b6c2d0;
+    background-color: #f8fafc;
+    border-color: #dbe5f1;
+}
+
+/* Unified modal skin, opt-in only */
+.admin-modal {
+    border: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-modal .modal-header {
+    align-items: center;
+}
+
+.admin-modal .modal-title {
+    font-weight: 800;
+}
+
+.admin-modal .modal-body {
+    padding: 1rem 1.25rem;
+}
+
+.admin-modal .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border-top: 1px solid var(--admin-ui-border-soft);
+}
+
+/* In RTL modals, actions remain on the right and cancel controls on the left. */
+.admin-modal .modal-footer > .btn:not([data-bs-dismiss]):not([data-modal-cancel]) {
+    order: 1;
+}
+
+.admin-modal .modal-footer > .btn[data-bs-dismiss],
+.admin-modal .modal-footer > .btn[data-modal-cancel] {
+    order: 2;
+}
+
+.admin-modal .modal-footer > .btn:only-child[data-bs-dismiss] {
+    order: 2;
+    margin-inline-start: auto;
+}
+
+.admin-modal .modal-footer .btn + .btn {
+    margin-right: 0;
+}
+
+.admin-modal .modal-footer > .admin-modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.admin-modal .admin-modal-actions [data-bs-dismiss] {
+    order: 2;
+}
+
+.admin-modal .admin-modal-actions [type="submit"] {
+    order: 1;
+}
+
+.admin-modal .form-label {
+    font-weight: 700;
+    color: var(--admin-ui-text);
+}
+
+.admin-modal .form-control,
+.admin-modal .form-select {
+    border-radius: 8px;
+}
+
+.admin-modal-create .modal-header {
+    background: #16a34a;
+    color: #fff;
+}
+
+.admin-modal-edit .modal-header,
+.admin-modal-view .modal-header {
+    background: var(--admin-ui-primary);
+    color: #fff;
+}
+
+.admin-modal-delete .modal-header {
+    background: #dc2626;
+    color: #fff;
+}
+
+.admin-modal-warning .modal-header {
+    background: #f59e0b;
+    color: #111827;
+}
+
+/* Approved premium modal skin. Apply explicitly with admin-modal-premium. */
+.admin-modal.admin-modal-premium {
+    border: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.03);
+}
+
+.admin-modal-premium .modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 0;
+    color: #0f172a;
+}
+
+.admin-modal-premium.admin-modal-create .modal-header {
+    background: linear-gradient(270deg, rgba(16, 185, 129, 0.16), rgba(16, 185, 129, 0.02));
+}
+
+.admin-modal-premium.admin-modal-edit .modal-header,
+.admin-modal-premium.admin-modal-view .modal-header {
+    background: linear-gradient(270deg, rgba(59, 130, 246, 0.16), rgba(59, 130, 246, 0.02));
+}
+
+.admin-modal-premium.admin-modal-delete .modal-header {
+    background: linear-gradient(270deg, rgba(239, 68, 68, 0.16), rgba(239, 68, 68, 0.02));
+}
+
+.admin-modal-premium.admin-modal-warning .modal-header {
+    background: linear-gradient(270deg, rgba(245, 158, 11, 0.16), rgba(245, 158, 11, 0.02));
+}
+
+.admin-modal-premium .modal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.admin-modal-premium .modal-title > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.admin-modal-premium.admin-modal-create .modal-title > i {
+    color: #16a34a;
+    background: #f0fdf4;
+}
+
+.admin-modal-premium.admin-modal-edit .modal-title > i,
+.admin-modal-premium.admin-modal-view .modal-title > i {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.admin-modal-premium.admin-modal-delete .modal-title > i {
+    color: #dc2626;
+    background: #fef2f2;
+}
+
+.admin-modal-premium.admin-modal-warning .modal-title > i {
+    color: #d97706;
+    background: #fffbeb;
+}
+
+.admin-modal-premium .modal-header .btn-close {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    background-size: 10px;
+    opacity: 0.75;
+    filter: none;
+}
+
+.admin-modal-premium .modal-header .btn-close:hover {
+    background-color: #e2e8f0;
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.admin-modal-premium .modal-body {
+    padding: 1.25rem 1.5rem;
+    color: #334155;
+}
+
+.modal-dialog-scrollable {
+    max-height: calc(100vh - 3.5rem);
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 3.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-dialog-scrollable .modal-body {
+    max-height: calc(85vh - 140px);
+    overflow-y: auto !important;
+}
+
+.admin-modal-premium .modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #f1f5f9;
+    background: linear-gradient(to bottom, #fff, #f8fafc);
+}
+
+.admin-modal-premium .form-label {
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.admin-modal-premium .form-control,
+.admin-modal-premium .form-select,
+.admin-modal-premium textarea {
+    padding: 0.65rem 1rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.admin-modal-premium .form-control:focus,
+.admin-modal-premium .form-select:focus,
+.admin-modal-premium textarea:focus {
+    border-color: #3b82f6;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.admin-modal-premium .form-control::placeholder,
+.admin-modal-premium textarea::placeholder {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.admin-modal-premium .alert {
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.admin-modal-premium.admin-modal-warning .alert-warning {
+    border-color: rgba(245, 158, 11, 0.12);
+    background: rgba(245, 158, 11, 0.04);
+    color: #d97706;
+}
+
+.admin-modal-premium.admin-modal-delete .alert-warning {
+    border-color: rgba(239, 68, 68, 0.12);
+    background: rgba(239, 68, 68, 0.04);
+    color: #dc2626;
+}
+
+/* Subject assignment editor: one fixed modal frame with scrolling only inside the academic scope. */
+.assessment-subject-assignment-modal-dialog {
+    height: calc(100vh - 1.5rem);
+    margin: 0.75rem auto;
+}
+
+.assessment-subject-assignment-modal-dialog.modal-dialog-scrollable .modal-content {
+    max-height: 100%;
+}
+
+.assessment-subject-assignment-modal .assessment-subject-assignment-modal-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    gap: 0.625rem;
+    padding: 0.75rem 1rem;
+}
+
+.assessment-subject-assignment-modal .assignment-context-panel {
+    flex: 0 0 auto;
+    padding: 0.75rem 1rem;
+}
+
+.assessment-subject-assignment-modal .assignment-context-panel .form-label,
+.assessment-subject-assignment-modal .assignment-options-panel .form-label {
+    margin-bottom: 0.25rem;
+}
+
+.assessment-subject-assignment-modal .assignment-scope-panel {
+    display: flex;
+    flex: 1 1 32rem;
+    flex-direction: column;
+    min-height: 22rem;
+    overflow: hidden;
+}
+
+.assessment-subject-assignment-modal .assignment-scope-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.assessment-subject-assignment-modal .assignment-options-panel {
+    flex: 0 0 auto;
+}
+
+.assessment-subject-assignment-modal .assignment-options-grid > [class*="col-"] {
+    min-width: 0;
+}
+
+.assessment-subject-assignment-modal .assignment-option-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.assessment-subject-assignment-modal .assignment-option-field > .form-control,
+.assessment-subject-assignment-modal .assignment-option-field > .form-select {
+    margin-top: auto;
+}
+
+.assessment-subject-assignment-modal .assignment-selection-summary {
+    display: flex;
+    width: 100%;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(var(--bs-primary-rgb), 0.25);
+    background: rgba(var(--bs-primary-rgb), 0.035);
+    line-height: 1.45;
+}
+
+.assessment-subject-assignment-modal .assignment-context-selection-summary {
+    width: auto;
+    min-width: min(100%, 18rem);
+    min-height: 2.25rem;
+    padding: 0.35rem 0.75rem;
+    white-space: nowrap;
+}
+
+/* Teacher assignment uses the same hierarchy, while keeping permissions visible below it. */
+.assessment-subject-assignment-modal-dialog.modal-dialog-scrollable .teacher-assignment-modal {
+    height: 100%;
+}
+
+.teacher-assignment-modal .teacher-assignment-scope-columns {
+    flex: 1 1 auto;
+    min-height: 0;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.teacher-assignment-modal .assessment-subject-assignment-modal-body {
+    flex: 1 1 auto;
+    max-height: none;
+    overflow-y: hidden !important;
+}
+
+.teacher-assignment-modal .teacher-assignment-scope-columns > [class*="col-"] {
+    display: flex;
+    min-height: 0;
+}
+
+.teacher-assignment-modal .teacher-assignment-scope-columns > [class*="col-"] > .border,
+.teacher-assignment-modal .teacher-assignment-scope-columns > [class*="col-"] > .assignment-scope-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.teacher-assignment-modal .teacher-assignment-scope-columns .assignment-scope-list,
+.teacher-assignment-modal .teacher-assignment-fixed-list {
+    flex: 1 1 0;
+    height: auto !important;
+    min-height: 0;
+    max-height: none !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.teacher-assignment-modal .teacher-assignment-permissions {
+    flex: 0 0 auto;
+}
+
+/* Keep the compact hierarchy readable when the academic panel is widened. */
+.teacher-assignment-modal .teacher-assignment-scope-columns .border-start {
+    font-size: 0.94rem;
+}
+
+.teacher-assignment-modal .assignment-stage-group > .d-flex {
+    font-size: 0.92rem;
+}
+
+.teacher-assignment-modal .assignment-grade-card .assignment-grade-checkbox + label {
+    font-size: 0.90rem;
+    line-height: 1.3;
+}
+
+.teacher-assignment-modal .assignment-grade-scope-badge,
+.teacher-assignment-modal .assignment-stage-group > .d-flex .badge {
+    font-size: 0.72rem;
+}
+
+.teacher-assignment-modal .assignment-class-options {
+    font-size: 0.82rem;
+}
+
+.teacher-assignment-modal .assignment-class-options .form-check-label,
+.teacher-assignment-modal .assignment-class-options .text-muted {
+    font-size: 0.88rem !important;
+    line-height: 1.35;
+}
+
+.teacher-assignment-modal .teacher-assignment-fixed-list .form-check-label {
+    font-size: 0.90rem;
+}
+
+.teacher-assignment-modal .teacher-assignment-permissions .form-check-label {
+    font-size: 0.92rem;
+}
+
+/* On short desktop viewports, scroll the modal body instead of crushing the selectors. */
+@media (min-width: 768px) and (max-height: 650px) {
+    .teacher-assignment-modal .assessment-subject-assignment-modal-body {
+        display: block;
+        overflow-y: auto !important;
+    }
+
+    .teacher-assignment-modal .teacher-assignment-scope-columns {
+        height: 320px;
+        min-height: 320px;
+    }
+}
+
+/* Staff role access uses the same stage → grade → class selector as assessment assignments. */
+.staff-role-access-modal-dialog {
+    width: calc(100% - 2rem);
+    max-width: 960px;
+}
+
+@media (max-width: 767.98px) {
+    .staff-role-access-modal-dialog {
+        width: calc(100% - 1rem);
+        max-width: none;
+    }
+}
+
+.staff-role-access-modal {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Role choices are compact chips rather than full-width button rows. */
+.staff-role-access-modal #roleAccessOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-inline: 0;
+}
+
+.staff-role-access-modal #roleAccessOptions > .col {
+    display: flex;
+    flex: 0 1 auto;
+    width: auto;
+    max-width: none;
+    padding: 0;
+}
+
+.staff-role-access-modal #roleAccessOptions > .col > label {
+    display: inline-flex !important;
+    width: auto;
+    min-width: 10.5rem;
+    min-height: 2.55rem;
+    align-items: center;
+    padding: 0.45rem 0.75rem !important;
+    white-space: nowrap;
+    font-size: 0.84rem;
+}
+
+.staff-role-access-modal #roleAccessOptions > .col > label .form-check-input {
+    flex: 0 0 auto;
+}
+
+.staff-role-access-modal .staff-role-access-modal-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+    gap: 0.75rem;
+}
+
+.staff-role-access-modal .staff-role-access-top-notices {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, auto);
+    gap: 0.5rem;
+}
+
+.staff-role-access-modal .staff-role-access-top-notices .alert {
+    display: flex;
+    align-items: center;
+    min-height: 2.65rem;
+    margin: 0;
+}
+
+.staff-role-access-modal .staff-role-access-guidance {
+    line-height: 1.5;
+}
+
+.staff-role-access-modal .staff-role-access-year {
+    justify-content: center;
+    gap: 0.35rem;
+    padding-inline: 0.9rem !important;
+    color: #0f4c5c;
+    white-space: nowrap;
+}
+
+.staff-role-access-modal .staff-role-access-year strong {
+    direction: ltr;
+    font-variant-numeric: tabular-nums;
+}
+
+.staff-role-access-modal .staff-role-access-roles-field {
+    padding-top: 0.2rem;
+}
+
+.staff-role-access-modal .staff-role-access-roles-label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--admin-ui-border-soft);
+    font-size: 0.95rem;
+}
+
+.staff-role-access-modal .staff-role-access-roles-label::before {
+    color: var(--bs-primary);
+    content: "\f505";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.staff-role-access-modal .staff-role-access-supervisor {
+    padding: 0.7rem 0.85rem !important;
+    border-radius: 0.75rem;
+}
+
+.staff-role-access-modal .staff-role-access-supervisor .form-check {
+    margin-bottom: 0.25rem !important;
+}
+
+.staff-role-access-modal .staff-role-scope-section {
+    flex: 0 1 auto;
+    min-height: 0;
+    margin-top: 0.5rem !important;
+}
+
+.staff-role-access-modal .staff-scope-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 0;
+    min-width: 0;
+    padding: 0.5rem;
+    border: 1px solid var(--admin-ui-border-soft);
+    border-radius: 0.75rem;
+    background: #fff;
+}
+
+.staff-role-access-modal .staff-scope-role {
+    flex: 0 1 auto;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+}
+
+.staff-role-access-modal .staff-scope-role > .d-flex {
+    min-height: 2.65rem;
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.96rem;
+}
+
+.staff-role-access-modal .staff-scope-role-list {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-stage-group > .d-flex {
+    min-height: 2.55rem;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.98rem;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-grade-card {
+    padding: 0.6rem !important;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-grade-card .assignment-grade-checkbox + label {
+    font-size: 0.96rem;
+    line-height: 1.4;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-grade-scope-badge,
+.staff-role-access-modal .staff-scope-role .assignment-stage-group > .d-flex .badge {
+    font-size: 0.72rem;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-class-options {
+    padding: 0.45rem 0.5rem !important;
+    font-size: 0.88rem;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-class-options .form-check-label,
+.staff-role-access-modal .staff-scope-role .assignment-class-options .text-muted {
+    font-size: 0.84rem !important;
+    line-height: 1.5;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-class-options .form-check {
+    margin-bottom: 0.25rem !important;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-class-options .form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.28em;
+}
+
+.staff-role-access-modal .staff-scope-role .assignment-grade-card.border-primary {
+    border-width: 2px !important;
+}
+
+@media (max-width: 767.98px) {
+    .staff-role-access-modal .staff-role-access-top-notices {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-role-access-modal .staff-role-access-year {
+        justify-content: flex-start;
+        white-space: normal;
+    }
+
+    .staff-role-access-modal .staff-role-access-modal-body {
+        display: block;
+        overflow-y: auto;
+    }
+
+    .staff-role-access-modal .staff-role-scope-section {
+        margin-top: 0.75rem !important;
+    }
+
+    .staff-role-access-modal .staff-scope-role {
+        margin-bottom: 0.75rem;
+    }
+
+    .staff-role-access-modal .staff-scope-role-list {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .assessment-subject-assignment-modal .assignment-context-selection-summary {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .assessment-subject-assignment-modal-dialog {
+        height: calc(100vh - 1rem);
+        margin: 0.5rem auto;
+    }
+
+    .assessment-subject-assignment-modal .assessment-subject-assignment-modal-body {
+        display: block;
+        overflow-y: auto;
+    }
+
+    .teacher-assignment-modal .assessment-subject-assignment-modal-body {
+        overflow-y: auto !important;
+    }
+
+    .assessment-subject-assignment-modal .assignment-context-panel,
+    .assessment-subject-assignment-modal .assignment-scope-panel {
+        margin-bottom: 0.75rem;
+    }
+
+    .assessment-subject-assignment-modal .assignment-scope-panel {
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .assessment-subject-assignment-modal .assignment-scope-list {
+        height: 360px;
+        min-height: 360px;
+        max-height: 360px;
+    }
+
+    .teacher-assignment-modal .teacher-assignment-scope-columns {
+        display: block;
+    }
+
+    .teacher-assignment-modal .teacher-assignment-scope-columns > [class*="col-"] {
+        display: block;
+        min-height: 0;
+    }
+
+    .teacher-assignment-modal .teacher-assignment-scope-columns .assignment-scope-list,
+    .teacher-assignment-modal .teacher-assignment-fixed-list {
+        flex: 0 0 auto;
+        height: 360px !important;
+        min-height: 360px;
+        max-height: 360px !important;
+    }
+}
+
+/* Staff table settings mirrors the staff profile groups in one scrollable page. */
+.staff-table-settings .staff-table-settings-section {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.staff-table-settings .staff-table-settings-section-header {
+    background: rgba(var(--bs-primary-rgb), 0.05);
+}
+
+.staff-table-settings .staff-table-settings-section-title {
+    font-size: 0.95rem;
+}
+
+.staff-table-settings .staff-table-settings-section-icon {
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 2rem;
+}
+
+.staff-table-settings .staff-table-settings-subheading .badge {
+    font-size: 0.75rem;
+}
+
+.staff-table-settings .staff-table-settings-subheading hr {
+    border-color: var(--bs-border-color);
+}
+
+.staff-table-settings .staff-table-settings-switch .form-check-input,
+.staff-table-settings .staff-table-settings-switch .form-check-label {
+    cursor: pointer;
+}
+
+.staff-table-settings .staff-table-settings-switch .form-check-label {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 575.98px) {
+    .staff-table-settings .staff-table-settings-section-header {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+}
+
+/* Stage list column geometry belongs to the unified list layer. */
+#stagesTable {
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+#stagesTable th:nth-child(1) { width: 6%; }
+#stagesTable th:nth-child(2) { width: 16%; }
+#stagesTable th:nth-child(3) { width: 14%; }
+#stagesTable th:nth-child(4) { width: 11%; }
+#stagesTable th:nth-child(5) { width: 11%; }
+#stagesTable th:nth-child(6) { width: 8%; }
+#stagesTable th:nth-child(7) { width: 8%; }
+#stagesTable th:nth-child(8) { width: 8%; }
+#stagesTable th:nth-child(9) { width: 8%; }
+#stagesTable th:nth-child(10) { width: 10%; }
+
+#stagesTable td:nth-child(10) {
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Compact statistics variation used by the evaluation-types list. */
+.evaluation-types-stat-cards .stat-card {
+    min-height: 98px;
+    padding: 1.1rem 1.25rem;
+    border-radius: 14px;
+}
+
+.evaluation-types-stat-cards .stat-card-number {
+    margin-bottom: 2px;
+    font-size: 2.1rem;
+}
+
+.evaluation-types-stat-cards .stat-card-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.evaluation-types-stat-cards .stat-card-sub {
+    margin-top: 4px;
+    font-size: 0.72rem;
+}
+
+@media (max-width: 575.98px) {
+    .evaluation-types-stat-cards .stat-card {
+        min-height: 85px;
+        padding: 0.8rem 1rem;
+    }
+
+    .evaluation-types-stat-cards .stat-card-number {
+        font-size: 1.8rem;
+    }
+}
+
+/* Keep preview toolbar menus above sortable statistics cards. */
+#uiPreview .admin-page-heading {
+    position: relative;
+    z-index: 1040;
+}
+
+#uiPreview .admin-top-actions .dropdown-menu {
+    z-index: 1050;
+}
+
+/* Export/configuration forms */
+.field-group,
+.admin-field-group {
+    border: 1px solid var(--admin-ui-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f8fafc;
+}
+
+.field-group h6,
+.admin-field-group h6 {
+    color: #334155;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--admin-ui-primary);
+    padding-bottom: 6px;
+}
+
+.field-checkbox,
+.admin-field-checkbox {
+    display: inline-flex;
+    align-items: center;
+    min-width: 200px;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.field-checkbox:hover,
+.admin-field-checkbox:hover {
+    background: #e7edf5;
+}
+
+.field-checkbox input,
+.admin-field-checkbox input {
+    margin-left: 6px;
+}
+
+.group-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.group-toggle:hover {
+    color: var(--admin-ui-primary);
+}
+
+.filter-card {
+    border-radius: 8px;
+    border: 1px solid var(--admin-ui-border);
+    box-shadow: none;
+}
+
+.filter-card .card-header {
+    background: #f8fafc;
+    color: var(--admin-ui-text);
+    border-bottom: 1px solid var(--admin-ui-border-soft);
+}
+
+.export-actions-bar {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    border: 1px solid var(--admin-ui-border-soft);
+    box-shadow: none;
+}
+
+.preview-table {
+    font-size: 0.85rem;
+}
+
+.preview-table th,
+.preview-table td {
+    white-space: nowrap;
+}
+
+.student-export-photo {
+    display: inline-block;
+    object-fit: cover;
+}
+
+.admin-preview-scroll {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+@media print {
+    .no-print,
+    .sidebar,
+    .navbar,
+    .btn-toolbar,
+    .filter-section,
+    .export-actions-bar {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .preview-table {
+        font-size: 11px !important;
+    }
+
+    .preview-table th {
+        background: #333 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    @page {
+        size: landscape;
+        margin: 10mm;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+    }
+
+    body {
+        direction: rtl;
+    }
+}
+
+/* Published student report */
+.admin-published-report {
+    background: #fff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.admin-report-header {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.admin-report-header h2 {
+    color: #fff;
+    font-weight: 800;
+    margin: 0;
+}
+
+.student-info-table th {
+    background: #2563eb !important;
+    color: #fff !important;
+    white-space: nowrap;
+}
+
+.subject-band {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    font-weight: 800;
+}
+
+.mark-zero {
+    background: #fee2e2 !important;
+}
+
+.mark-low {
+    background: #fef3c7 !important;
+}
+
+.mark-absent {
+    background: #e0f2fe !important;
+}
+
+.summary-box {
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 0.9rem;
+    background: #f8fafc;
+}
+
+/* Attendance page responsive helpers */
+.attendance-page .stat-card {
+    padding: 1.1rem 1rem;
+}
+
+.attendance-page .stat-card-number {
+    font-size: 1.85rem;
+    margin-bottom: 2px;
+}
+
+.attendance-page .stat-card-label {
+    font-size: 0.8rem;
+}
+
+.attendance-page .stat-card-sub {
+    font-size: 0.68rem;
+    margin-top: 2px;
+}
+
+.attendance-page .stat-card-icon {
+    font-size: 2.8rem;
+    bottom: -8px;
+    left: -8px;
+}
+
+@media print {
+    header,
+    nav,
+    footer,
+    .sidebar {
+        display: none !important;
+    }
+
+    main,
+    .container-fluid {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .admin-published-report {
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+    }
+}
+
+.admin-student-name-chip {
+    display: inline-block;
+    background-color: #eff6ff;
+    border: 1.5px solid #3b82f6;
+    border-radius: 8px;
+    padding: 6px 14px;
+    color: #1d4ed8;
+    font-size: 1.05rem;
+    font-weight: 700 !important;
+    cursor: text;
+    vertical-align: middle;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.06);
+}
+
+.admin-student-name-chip + button {
+    vertical-align: middle;
+    height: 34px;
+    width: 34px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px !important;
+    background-color: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #475569 !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+}
+
+.admin-student-name-chip + button:hover {
+    background-color: #e2e8f0 !important;
+    color: #0f172a !important;
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+.admin-student-photo-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.admin-hidden {
+    display: none;
+}
+
+.admin-inline-select-sm {
+    width: auto;
+    min-width: 125px;
+}
+
+.admin-min-120 {
+    min-width: 120px;
+}
+
+.admin-min-130 {
+    min-width: 130px;
+}
+
+.admin-min-140 {
+    min-width: 140px;
+}
+
+.admin-min-160 {
+    min-width: 160px;
+}
+
+.admin-inline-date-sm {
+    width: auto;
+}
+
+.admin-inline-search-sm {
+    width: auto;
+    min-width: 150px;
+}
+
+.admin-stat-text-number {
+    font-size: 1.2rem;
+}
+
+.admin-stat-date-number {
+    font-size: 1.25rem;
+}
+
+.admin-service-icon {
+    width: 20px;
+    text-align: center;
+}
+
+.drag-handle {
+    cursor: grab;
+}
+
+.admin-progress-thin {
+    height: 8px;
+}
+
+#studentProfileForm .form-label,
+.tab-section-title,
+#studentTabs .nav-link,
+#studentProfileForm table th,
+#studentProfileForm h6 {
+    font-weight: 700 !important;
+}
+
+#studentProfileForm .form-label {
+    display: block;
+    margin-bottom: 0.2rem !important;
+    line-height: 1.35;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+}
+
+#studentProfileForm:not(.modal-content) {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    overflow: visible;
+}
+
+#studentProfileForm .tab-content {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0.25rem 0.25rem 1.5rem 0.25rem !important;
+    box-shadow: none !important;
+}
+
+#studentTabs {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    box-shadow: none !important;
+    margin-bottom: 1.25rem !important;
+}
+
+#studentProfileForm.modal-content #studentTabs {
+    position: static !important;
+    z-index: 6 !important;
+    flex: 0 0 auto;
+    background: transparent !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+#studentProfileForm.modal-content .student-profile-tab-scroll,
+#staffForm.modal-content .staff-profile-tab-scroll {
+    min-height: 0;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    padding-inline-end: 0.5rem;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+#studentProfileForm.modal-content .student-profile-tab-scroll::-webkit-scrollbar,
+#staffForm.modal-content .staff-profile-tab-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+#studentProfileForm.modal-content .student-profile-tab-scroll::-webkit-scrollbar-track,
+#staffForm.modal-content .staff-profile-tab-scroll::-webkit-scrollbar-track {
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+#studentProfileForm.modal-content .student-profile-tab-scroll::-webkit-scrollbar-thumb,
+#staffForm.modal-content .staff-profile-tab-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+    border: 1px solid #f8fafc;
+}
+
+#studentProfileForm.modal-content .student-profile-tab-scroll::-webkit-scrollbar-thumb:hover,
+#staffForm.modal-content .staff-profile-tab-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+#studentProfileForm .modal-header,
+#staffForm .modal-header {
+    padding-bottom: 0.75rem !important;
+}
+
+#studentProfileForm .modal-body,
+#staffForm .modal-body {
+    padding-top: 0.75rem !important;
+}
+
+#staffForm .form-label,
+#staffTabs .nav-link,
+#staffForm table th,
+#staffForm h6 {
+    font-weight: 700 !important;
+}
+
+#staffForm .form-label {
+    display: block;
+    margin-bottom: 0.2rem !important;
+    line-height: 1.35;
+    font-size: 0.92rem !important;
+}
+
+#staffForm .tab-content {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0.25rem 0.25rem 1.5rem 0.25rem !important;
+    box-shadow: none !important;
+}
+
+#staffForm.modal-content #staffTabs {
+    position: static !important;
+    z-index: 6 !important;
+    flex: 0 0 auto;
+    background: transparent !important;
+    margin: 0 0 0.75rem !important;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+
+
+#staffForm .staff-header-admin-note {
+    flex: 0 1 360px;
+    min-width: 190px;
+    margin-inline-start: auto;
+}
+
+#staffForm .staff-header-admin-note label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: inherit;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+#staffForm .staff-header-admin-note .form-control {
+    border-color: rgba(255, 255, 255, 0.62);
+    background: rgba(255, 255, 255, 0.94);
+}
+
+@media (max-width: 767.98px) {
+    #staffForm .modal-header {
+        align-items: flex-start;
+    }
+
+    #staffForm .staff-header-admin-note {
+        order: 3;
+        flex-basis: calc(100% - 3rem);
+        margin-inline-start: 0;
+    }
+}
+
+#studentProfileForm button[name="save_student_profile"],
+#studentProfileForm .btn-success,
+#studentProfileForm #addGuardianBtn,
+#studentProfileForm button:has(.fa-plus),
+#studentProfileForm a:has(.fa-plus),
+#studentProfileForm button:has(.fa-plus-circle),
+#studentProfileForm a:has(.fa-plus-circle) {
+    background: #3bb27a !important;
+    background-color: #3bb27a !important;
+    border-color: #3bb27a !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 4px rgba(59, 178, 122, 0.15) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+#studentProfileForm button[name="save_student_profile"]:hover,
+#studentProfileForm .btn-success:hover,
+#studentProfileForm #addGuardianBtn:hover,
+#studentProfileForm button:has(.fa-plus):hover,
+#studentProfileForm a:has(.fa-plus):hover,
+#studentProfileForm button:has(.fa-plus-circle):hover,
+#studentProfileForm a:has(.fa-plus-circle):hover {
+    background: #319767 !important;
+    background-color: #319767 !important;
+    border-color: #319767 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(59, 178, 122, 0.25) !important;
+}
+
+/* أزرار الرفع باللون الأزرق الموحد المتوافق مع الأخضر */
+#uploadStudentAvatarBtn,
+#studentProfileForm .btn-primary,
+#studentProfileForm button:has(.fa-cloud-upload-alt),
+#studentProfileForm a:has(.fa-cloud-upload-alt) {
+    background: #2563eb !important;
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+#uploadStudentAvatarBtn:hover,
+#studentProfileForm .btn-primary:hover,
+#studentProfileForm button:has(.fa-cloud-upload-alt):hover,
+#studentProfileForm a:has(.fa-cloud-upload-alt):hover {
+    background: #1d4ed8 !important;
+    background-color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* زر الحذف الفاخر المتوافق بتبويبات المرفقات */
+.btn-delete-soft {
+    background: rgba(239, 68, 68, 0.07) !important;
+    background-color: rgba(239, 68, 68, 0.07) !important;
+    color: #dc2626 !important;
+    border: 1px solid rgba(239, 68, 68, 0.16) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 31px !important;
+    height: 31px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease-in-out !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-delete-soft:hover {
+    background: #dc2626 !important;
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* أزرار البحث والفلترة بنفس شكل زر استيراد اكسل الفاخر */
+.btn-search-soft,
+.admin-filter-bar button[type="submit"],
+.admin-filter-actions button[type="submit"],
+button:has(.fa-search),
+a:has(.fa-search) {
+    background-color: rgba(14, 165, 233, 0.07) !important;
+    color: #0284c7 !important;
+    border: 1px solid rgba(14, 165, 233, 0.2) !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease-in-out !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.btn-search-soft:hover,
+.admin-filter-bar button[type="submit"]:hover,
+.admin-filter-actions button[type="submit"]:hover,
+button:has(.fa-search):hover,
+a:has(.fa-search):hover {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25) !important;
+}
+
+.tab-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 8px 12px !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 0.75rem !important;
+    font-size: 1rem !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab-pane > .tab-section-title:first-child,
+.tab-pane > .tab-section-title:first-of-type {
+    margin-top: 0 !important;
+}
+
+.tab-section-title:hover {
+    transform: translateX(-2px);
+}
+
+.tab-section-title.blue {
+    color: #1e40af;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-right: 4px solid #2563eb;
+}
+
+.tab-section-title.green {
+    color: #065f46;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-right: 4px solid #10b981;
+}
+
+.tab-section-title.amber {
+    color: #92400e;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-right: 4px solid #f59e0b;
+}
+
+.tab-section-title.purple {
+    color: #5b21b6;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-right: 4px solid #8b5cf6;
+}
+
+.tab-section-title.red {
+    color: #991b1b;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-right: 4px solid #ef4444;
+}
+
+.tab-section-title.cyan {
+    color: #155e75;
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+    border-right: 4px solid #06b6d4;
+}
+
+.tab-section-title.indigo {
+    color: #3730a3;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border-right: 4px solid #6366f1;
+}
+
+.tab-section-title i {
+    color: currentColor;
+}
+
+.btn-outline-purple {
+    color: #7c3aed;
+    border-color: #7c3aed;
+    background: transparent;
+}
+
+.btn-outline-purple:hover {
+    color: #fff;
+    background: #7c3aed;
+    border-color: #7c3aed;
+}
+
+#studentProfileForm .form-control,
+#studentProfileForm .form-select,
+#staffForm .form-control,
+#staffForm .form-select {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    padding: 0.42rem 0.75rem;
+    color: #0f172a !important;
+    font-weight: 500 !important;
+    font-size: 0.92rem;
+    transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#studentProfileForm .form-control::placeholder,
+#staffForm .form-control::placeholder {
+    color: #94a3b8 !important;
+    opacity: 0.7 !important;
+}
+
+#studentProfileForm .form-control:hover,
+#studentProfileForm .form-select:hover,
+#staffForm .form-control:hover,
+#staffForm .form-select:hover {
+    border-color: #94a3b8;
+    background-color: #ffffff;
+}
+
+#studentProfileForm .form-control:focus,
+#studentProfileForm .form-select:focus,
+#staffForm .form-control:focus,
+#staffForm .form-select:focus {
+    background-color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    outline: none;
+}
+
+#studentProfileForm .row,
+#staffForm .row {
+    --bs-gutter-y: 0.75rem !important;
+    margin-bottom: 0.85rem !important;
+}
+
+#studentProfileForm .tab-pane,
+#staffForm .tab-pane {
+    padding-top: 0.2rem !important;
+}
+
+/* تحسين عناوين الأقسام داخل النموذج للتخلص من الألوان المربكة */
+#studentProfileForm .tab-section-title,
+#staffForm .tab-section-title {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 4px 10px 4px 0 !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 1.05rem !important;
+    border-left: none !important;
+}
+
+/* خط فاصل علوي ناعم لكل قسم للفصل البصري المتكامل */
+#studentProfileForm .tab-section-title,
+#staffForm .tab-section-title {
+    margin-top: 2.75rem !important;
+    padding-top: 1.75rem !important;
+    border-top: 1px solid #e2e8f0 !important;
+}
+
+/* استثناء وإزالة الخط الفاصل والمسافات الزائدة للقسم الأول في كل تبويب */
+#studentProfileForm .tab-pane > .tab-section-title:first-of-type,
+#staffForm .tab-pane > .tab-section-title:first-of-type,
+#staffForm .tab-pane > .row > .col-12:first-child > .tab-section-title,
+#staffForm .tab-pane > .row > .col-12:first-child .tab-section-title {
+    margin-top: 0.25rem !important;
+    padding-top: 4px !important;
+    border-top: none !important;
+}
+
+#studentProfileForm .tab-section-title.amber,
+#staffForm .tab-section-title.amber {
+    border-right: 3.5px solid #f59e0b !important;
+    color: #b45309 !important;
+}
+
+#studentProfileForm .tab-section-title.blue,
+#staffForm .tab-section-title.blue {
+    border-right: 3.5px solid #2563eb !important;
+    color: #1d4ed8 !important;
+}
+
+#studentProfileForm .tab-section-title.purple,
+#staffForm .tab-section-title.purple {
+    border-right: 3.5px solid #8b5cf6 !important;
+    color: #6d28d9 !important;
+}
+
+#studentProfileForm .tab-section-title.green,
+#staffForm .tab-section-title.green {
+    border-right: 3.5px solid #10b981 !important;
+    color: #047857 !important;
+}
+
+#studentProfileForm .tab-section-title.red,
+#staffForm .tab-section-title.red {
+    border-right: 3.5px solid #ef4444 !important;
+    color: #b91c1c !important;
+}
+
+#studentProfileForm .tab-section-title.cyan,
+#staffForm .tab-section-title.cyan {
+    border-right: 3.5px solid #06b6d4 !important;
+    color: #0891b2 !important;
+}
+
+#studentProfileForm .tab-section-title.indigo,
+#staffForm .tab-section-title.indigo {
+    border-right: 3.5px solid #6366f1 !important;
+    color: #4f46e5 !important;
+}
+
+#studentProfileForm .card-body {
+    padding: 0 !important;
+}
+
+.guardian-entry {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 14px !important;
+    border: 1.5px solid #cbd5e1 !important;
+    transition: all 0.25s ease;
+}
+
+.guardian-entry:hover {
+    border-color: #3b82f6 !important;
+    background: transparent !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+}
+
+.card.border-dashed {
+    background: #f8fafc;
+    border-radius: 14px !important;
+    border: 1.5px dashed #cbd5e1 !important;
+    transition: all 0.25s ease;
+}
+
+.card.border-dashed:hover {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+#studentProfileForm .input-group {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#studentProfileForm .input-group .form-control {
+    border-radius: 0 10px 10px 0 !important;
+    border-left: none !important;
+}
+
+#studentProfileForm .input-group .btn {
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-right: none !important;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.85rem;
+    transition: all 0.25s ease-in-out;
+}
+
+#studentProfileForm .input-group .btn:hover {
+    background-color: #ffffff;
+    color: #1e293b;
+    border-color: #94a3b8;
+}
+
+#studentProfileForm .input-group .btn:focus {
+    background-color: #ffffff;
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: none;
+}
+
+#studentProfileForm .input-group .btn:last-child {
+    border-radius: 10px 0 0 10px !important;
+}
+
+#studentProfileForm .input-group .btn:not(:last-child) {
+    border-radius: 0 !important;
+    border-left: none !important;
+}
+
+@media print {
+    .students-page .navbar,
+    .students-page .btn-toolbar,
+    .students-page .modal,
+    .students-page .card-header .btn-group,
+    .students-page .btn,
+    .students-page .alert,
+    .students-page footer,
+    .students-page .pagination {
+        display: none !important;
+    }
+
+    .students-page .table {
+        font-size: 12px;
+        border-collapse: collapse;
+    }
+
+    .students-page .table th,
+    .students-page .table td {
+        border: 1px solid #000 !important;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .students-page .table thead th {
+        background-color: #f8f9fa !important;
+        font-weight: bold;
+    }
+
+    .students-page .table th:last-child,
+    .students-page .table td:last-child {
+        display: none !important;
+    }
+
+    .students-page .d-flex h1 {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .students-page .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .students-page .card-header {
+        background-color: transparent !important;
+        border-bottom: 2px solid #000 !important;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .students-page .badge {
+        background-color: transparent !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        border-radius: 0 !important;
+    }
+
+    .students-page .table tbody tr {
+        page-break-inside: avoid;
+    }
+
+    .students-page::after {
+        content: "تاريخ الطباعة: " attr(data-print-date);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        font-size: 10px;
+        color: #666;
+    }
+}
+
+@media (max-width: 768px) {
+    .attendance-page #recordTable thead {
+        display: none;
+    }
+
+    .attendance-page #recordTable,
+    .attendance-page #recordTable tbody,
+    .attendance-page #recordTable tr,
+    .attendance-page #recordTable td {
+        display: block;
+        width: 100%;
+    }
+
+    .attendance-page #recordTable tr {
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    .attendance-page #recordTable td {
+        padding: 3px 0;
+        border: 0 !important;
+    }
+
+    .attendance-page #recordTable td:first-child,
+    .attendance-page #recordTable td:nth-child(2) {
+        display: inline;
+        font-weight: 700;
+    }
+
+    .attendance-page .admin-status-btns {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        margin-top: 6px;
+    }
+
+    .attendance-page .admin-status-btns .btn {
+        font-size: 0.8rem;
+        padding: 6px 4px;
+    }
+
+    .attendance-page #recordTable .att-notes {
+        margin-top: 6px;
+    }
+
+    .attendance-page #recordSaveBtn {
+        width: 100%;
+    }
+
+    .attendance-page .col-md-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .attendance-page .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .attendance-page .nav-tabs .nav-link {
+        white-space: nowrap;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .admin-page-heading,
+    .admin-filter-bar {
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .admin-top-actions,
+    .admin-filter-controls,
+    .admin-filter-actions {
+        width: 100%;
+    }
+
+    .admin-filter-controls .form-select,
+    .admin-filter-controls .form-control {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: 130px;
+    }
+
+    .admin-filter-actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-filter-controls .form-select,
+    .admin-filter-controls .form-control {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   § Success / Add Button Global Override (Emerald Green #35a471)
+   ========================================================================== */
+.btn-success {
+    background-color: #35a471 !important;
+    background-image: none !important;
+    border-color: #35a471 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(53, 164, 113, 0.15) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: #2c8a5e !important;
+    border-color: #2c8a5e !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(53, 164, 113, 0.3) !important;
+}
+
+/* ==========================================================================
+   § School Profile Custom Themed Buttons (Blue, Green, Purple, Indigo)
+   ========================================================================== */
+.btn-profile-basic {
+    background-color: #e0f2fe !important;
+    color: #0284c7 !important;
+    border: 1px solid rgba(2, 132, 199, 0.16) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-basic:hover {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.2) !important;
+}
+
+.btn-profile-services {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+    border: 1px solid rgba(21, 128, 61, 0.16) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-services:hover {
+    background-color: #15803d !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(21, 128, 61, 0.2) !important;
+}
+
+.btn-profile-directors {
+    background-color: #f3e8ff !important;
+    color: #7e22ce !important;
+    border: 1px solid rgba(126, 34, 206, 0.16) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-directors:hover {
+    background-color: #7e22ce !important;
+    color: #ffffff !important;
+    border-color: #7e22ce !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(126, 34, 206, 0.2) !important;
+}
+
+.btn-profile-other {
+    background-color: #e0e7ff !important;
+    color: #4f46e5 !important;
+    border: 1px solid rgba(79, 70, 229, 0.16) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-other:hover {
+    background-color: #4f46e5 !important;
+    color: #ffffff !important;
+    border-color: #4f46e5 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.2) !important;
+}
+
+/* Modal Submit Buttons matching each section's theme */
+.btn-profile-save-basic {
+    background-color: #0284c7 !important;
+    color: #ffffff !important;
+    border: 1px solid #0284c7 !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-save-basic:hover {
+    background-color: #025a87 !important;
+    border-color: #025a87 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3) !important;
+}
+
+.btn-profile-save-services {
+    background-color: #15803d !important;
+    color: #ffffff !important;
+    border: 1px solid #15803d !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-save-services:hover {
+    background-color: #0e5a2b !important;
+    border-color: #0e5a2b !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(21, 128, 61, 0.3) !important;
+}
+
+.btn-profile-save-directors {
+    background-color: #7e22ce !important;
+    color: #ffffff !important;
+    border: 1px solid #7e22ce !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-save-directors:hover {
+    background-color: #5b139a !important;
+    border-color: #5b139a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(126, 34, 206, 0.3) !important;
+}
+
+.btn-profile-save-other {
+    background-color: #4f46e5 !important;
+    color: #ffffff !important;
+    border: 1px solid #4f46e5 !important;
+    transition: all 0.22s ease-in-out !important;
+}
+.btn-profile-save-other:hover {
+    background-color: #3730a3 !important;
+    border-color: #3730a3 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3) !important;
+}
+
+/* عرض القوائم المنسدلة للخدمات كفقاعة معلومات بمجرد مرور مؤشر الماوس */
+@media (min-width: 768px) {
+    /* تهيئة الحاوية لتتموضع الفقاعة نسبة إليها */
+    html body .table .col-student-services .dropdown,
+    html body .table .col-teacher-services .dropdown,
+    html body .table .teacher-assignment-subject-dropdown,
+    html body .table .teacher-assignment-class-dropdown,
+    html body .table .subject-assignment-stage-dropdown,
+    html body .table .subject-assignment-grade-dropdown,
+    html body .table .subject-assignment-class-dropdown {
+        position: relative !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        vertical-align: middle !important;
+    }
+
+    html body .table .col-student-services .dropdown:hover .dropdown-menu,
+    html body .table .col-teacher-services .dropdown:hover .dropdown-menu,
+    html body .table .teacher-assignment-subject-dropdown:hover .dropdown-menu,
+    html body .table .teacher-assignment-class-dropdown:hover .dropdown-menu,
+    html body .table .subject-assignment-stage-dropdown:hover .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown:hover .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown:hover .dropdown-menu {
+        display: block !important;
+        position: absolute !important;
+        top: calc(100% + 10px) !important; /* مسافة للأسفل لترك مساحة للمثلث */
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important; /* توسيط الفقاعة أفقياً تحت الزر */
+        margin-top: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 9999 !important;
+        min-width: 200px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.06) !important;
+        padding: 10px 0 !important;
+        background-color: #ffffff !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown:hover > .dropdown-toggle,
+    html body .table .teacher-assignment-class-dropdown:focus-within > .dropdown-toggle,
+    html body .table .subject-assignment-grade-dropdown:hover > .dropdown-toggle,
+    html body .table .subject-assignment-grade-dropdown:focus-within > .dropdown-toggle {
+        color: #ffffff;
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }
+
+    html body .table .teacher-assignment-class-dropdown:hover > .dropdown-toggle *,
+    html body .table .teacher-assignment-class-dropdown:focus-within > .dropdown-toggle *,
+    html body .table .subject-assignment-grade-dropdown:hover > .dropdown-toggle *,
+    html body .table .subject-assignment-grade-dropdown:focus-within > .dropdown-toggle * {
+        color: #ffffff;
+    }
+
+    html body .table .subject-assignment-stage-dropdown:hover > .dropdown-toggle,
+    html body .table .subject-assignment-stage-dropdown:focus-within > .dropdown-toggle {
+        color: #ffffff;
+        background-color: #dc2626;
+        border-color: #dc2626;
+    }
+
+    html body .table .subject-assignment-stage-dropdown:hover > .dropdown-toggle *,
+    html body .table .subject-assignment-stage-dropdown:focus-within > .dropdown-toggle * {
+        color: #ffffff;
+    }
+
+    html body .table .subject-assignment-class-dropdown:hover > .dropdown-toggle,
+    html body .table .subject-assignment-class-dropdown:focus-within > .dropdown-toggle {
+        color: #ffffff;
+        background-color: #0284c7;
+        border-color: #0284c7;
+    }
+
+    html body .table .subject-assignment-class-dropdown:hover > .dropdown-toggle *,
+    html body .table .subject-assignment-class-dropdown:focus-within > .dropdown-toggle * {
+        color: #ffffff;
+    }
+
+    /* رسم مثلث الفقاعة (الهمزة) في الأعلى ومنتصف الزر */
+    html body .table .col-student-services .dropdown:hover .dropdown-menu::before,
+    html body .table .col-teacher-services .dropdown:hover .dropdown-menu::before,
+    html body .table .teacher-assignment-subject-dropdown:hover .dropdown-menu::before,
+    html body .table .teacher-assignment-class-dropdown:hover .dropdown-menu::before,
+    html body .table .subject-assignment-stage-dropdown:hover .dropdown-menu::before,
+    html body .table .subject-assignment-grade-dropdown:hover .dropdown-menu::before,
+    html body .table .subject-assignment-class-dropdown:hover .dropdown-menu::before {
+        content: "" !important;
+        position: absolute !important;
+        top: -6px !important;
+        left: 50% !important;
+        transform: translateX(-50%) rotate(45deg) !important;
+        width: 12px !important;
+        height: 12px !important;
+        background-color: #ffffff !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+        z-index: 1 !important;
+    }
+
+    /* إلغاء تأثيرات الهوفر الافتراضية لعناصر القائمة لتبدو كبطاقة معلومات مريحة */
+    html body .table .col-student-services .dropdown-menu .dropdown-item,
+    html body .table .col-teacher-services .dropdown-menu .dropdown-item,
+    html body .table .teacher-assignment-subject-dropdown .dropdown-menu .dropdown-item,
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu .dropdown-item,
+    html body .table .subject-assignment-stage-dropdown .dropdown-menu .dropdown-item,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu .dropdown-item,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu .dropdown-item {
+        background: transparent !important;
+        color: var(--admin-ui-text) !important;
+        font-weight: 500 !important;
+        padding: 6px 16px !important;
+        white-space: nowrap !important;
+        cursor: default !important;
+        font-size: 0.825rem !important;
+        display: flex !important;
+        align-items: center !important;
+        position: relative !important;
+        z-index: 2 !important; /* للتغطية فوق المثلث المائل */
+    }
+
+    html body .table .col-student-services .dropdown-menu .dropdown-item:hover,
+    html body .table .col-teacher-services .dropdown-menu .dropdown-item:hover,
+    html body .table .teacher-assignment-subject-dropdown .dropdown-menu .dropdown-item:hover,
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu .dropdown-item:hover,
+    html body .table .subject-assignment-stage-dropdown .dropdown-menu .dropdown-item:hover,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu .dropdown-item:hover,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu .dropdown-item:hover {
+        background-color: transparent !important;
+        color: var(--admin-ui-text) !important;
+    }
+
+    /* منع اقتصاص الفقاعة داخل جدول البيانات عند التمرير */
+    .admin-table-wrap:has(.dropdown:hover) {
+        overflow: visible !important;
+    }
+    .admin-data-table:has(.dropdown:hover) {
+        overflow: visible !important;
+    }
+    .table-responsive:has(.dropdown:hover) {
+        overflow: visible !important;
+    }
+
+    /* رفع ترتيب السطر النشط لضمان طفو الفقاعة فوق الأسطر الأخرى والترويسة */
+    html body .table tbody tr:has(.dropdown:hover) {
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu {
+        width: min(720px, calc(100vw - 2rem)) !important;
+        min-width: min(520px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+        max-height: none !important;
+        overflow: visible !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.15rem 0.45rem;
+        padding: 0.55rem 0.35rem !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu > li,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu > li,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu > li {
+        min-width: 0;
+    }
+
+    html body .table .teacher-assignment-class-dropdown:hover .dropdown-menu,
+    html body .table .teacher-assignment-class-dropdown:focus-within .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown:hover .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown:focus-within .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown:hover .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown:focus-within .dropdown-menu {
+        display: grid !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .teacher-assignment-class-group-item,
+    html body .table .subject-assignment-grade-dropdown .teacher-assignment-class-group-item,
+    html body .table .subject-assignment-class-dropdown .teacher-assignment-class-group-item {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+        line-height: 1.35 !important;
+        white-space: normal !important;
+        padding: 6px 14px !important;
+        width: 100% !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .teacher-assignment-class-group-copy,
+    html body .table .subject-assignment-grade-dropdown .teacher-assignment-class-group-copy,
+    html body .table .subject-assignment-class-dropdown .teacher-assignment-class-group-copy {
+        display: grid !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        gap: 0.15rem !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .teacher-assignment-class-group-title,
+    html body .table .subject-assignment-grade-dropdown .teacher-assignment-class-group-title,
+    html body .table .subject-assignment-class-dropdown .teacher-assignment-class-group-title {
+        color: var(--admin-ui-text) !important;
+        font-weight: 800 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.35rem !important;
+        width: 100% !important;
+    }
+
+    html body .table .teacher-assignment-class-dropdown .teacher-assignment-class-group-items,
+    html body .table .subject-assignment-grade-dropdown .teacher-assignment-class-group-items,
+    html body .table .subject-assignment-class-dropdown .teacher-assignment-class-group-items {
+        display: block !important;
+        color: #64748b !important;
+        font-size: 0.76rem !important;
+        white-space: normal !important;
+        line-height: 1.4 !important;
+        padding-inline-start: 1.25rem !important;
+    }
+}
+
+/* ضبط عرض فقاعة التعيينات عندما تضيق مساحة المحتوى بسبب الشريط الجانبي */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu {
+        width: min(620px, calc(100vw - 2rem)) !important;
+        min-width: min(480px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    html body .table .teacher-assignment-class-dropdown .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown .dropdown-menu {
+        width: min(540px, calc(100vw - 1rem)) !important;
+        min-width: min(420px, calc(100vw - 1rem)) !important;
+        max-width: calc(100vw - 1rem) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* حجم الفقاعة يتبع عدد مجموعات الصفوف بدل فرض عرض واحد على كل الحالات */
+@media (min-width: 768px) {
+    html body .table .teacher-assignment-class-dropdown--single .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--single .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--single .dropdown-menu {
+        width: min(250px, calc(100vw - 2rem)) !important;
+        min-width: min(220px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    html body .table .teacher-assignment-class-dropdown--compact .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--compact .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--compact .dropdown-menu {
+        width: min(400px, calc(100vw - 2rem)) !important;
+        min-width: min(320px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html body .table .teacher-assignment-class-dropdown--medium .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--medium .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--medium .dropdown-menu {
+        width: min(520px, calc(100vw - 2rem)) !important;
+        min-width: min(420px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html body .table .teacher-assignment-class-dropdown--wide .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--wide .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--wide .dropdown-menu {
+        width: min(620px, calc(100vw - 2rem)) !important;
+        min-width: min(480px, calc(100vw - 2rem)) !important;
+        max-width: calc(100vw - 2rem) !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    html body .table .teacher-assignment-class-dropdown--medium .dropdown-menu,
+    html body .table .teacher-assignment-class-dropdown--wide .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--medium .dropdown-menu,
+    html body .table .subject-assignment-grade-dropdown--wide .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--medium .dropdown-menu,
+    html body .table .subject-assignment-class-dropdown--wide .dropdown-menu {
+        width: min(540px, calc(100vw - 1rem)) !important;
+        min-width: min(420px, calc(100vw - 1rem)) !important;
+        max-width: calc(100vw - 1rem) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================================================
+   § Global Premium Modals Style: Glassmorphism Backdrop & Pop Animation
+   ========================================================================== */
+.modal-backdrop.show {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    background-color: rgba(15, 23, 42, 0.3) !important;
+}
+
+.modal.fade .modal-dialog {
+    transform: scale(0.97) translateY(8px) !important;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0) !important;
+}
+
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 10px;
+    }
+}
+
+/* Modern Soft Pastel Badges Overrides for Secondary and Info badges in Tables */
+html body .table .badge.bg-secondary {
+    background-color: rgba(148, 163, 184, 0.12) !important;
+    color: #475569 !important;
+    border-color: rgba(148, 163, 184, 0.22) !important;
+}
+
+html body .table .badge.bg-info {
+    background-color: rgba(14, 165, 233, 0.08) !important;
+    color: #0284c7 !important;
+    border-color: rgba(14, 165, 233, 0.15) !important;
+}
+
+/* Remove dot/bullet point from sub-sub-menu links */
+html body .sub-sub-menu .nav-link::before {
+    display: none !important;
+}
+
+/* Hide category headers text in collapsed sidebar and center the colored indicator dot */
+body.sidebar-collapsed .admin-sidebar .sidebar-category-header {
+    justify-content: center !important;
+    padding: 15px 0 8px !important;
+}
+
+body.sidebar-collapsed .admin-sidebar .sidebar-category-header span:nth-child(2) {
+    display: none !important;
+}
+
+body.sidebar-collapsed .admin-sidebar .sidebar-category-header span:first-child {
+    margin: 0 !important;
+    width: 6px !important;
+    height: 6px !important;
+}
+
+/* ==========================================================================
+   § Full-Height Extended Light Sidebar Layout
+   ========================================================================== */
+
+/* 1. Sidebar Container: Extend to top (top:0) and keep it premium soft grey */
+html body .admin-sidebar {
+    background-color: #eef0f3 !important; /* Premium Soft Light Grey */
+    border-left: 1px solid #cbd5e1 !important;
+    top: 0 !important;
+    height: 100vh !important;
+    z-index: 1050 !important;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Sidebar Brand separator */
+html body .sidebar-brand {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 2. Top Header layout adjustments on desktop to shift it next to the sidebar */
+.admin-top-header {
+    transition: right 0.3s cubic-bezier(0.2, 0, 0, 1), width 0.3s cubic-bezier(0.2, 0, 0, 1) !important;
+}
+
+@media (min-width: 992px) {
+    body:not(.sidebar-collapsed) .admin-top-header {
+        right: var(--sidebar-width) !important;
+        width: calc(100% - var(--sidebar-width)) !important;
+        left: 0 !important;
+    }
+    body.sidebar-collapsed .admin-top-header {
+        right: var(--sidebar-collapsed-width) !important;
+        width: calc(100% - var(--sidebar-collapsed-width)) !important;
+        left: 0 !important;
+    }
+}
+
+/* 3. Sidebar overlay to cover whole screen on mobile */
+html body .sidebar-overlay {
+    top: 0 !important;
+    z-index: 1025 !important;
+}
+
+/* 4. Collapsed Sidebar Sub-menu Text display fix */
+body.sidebar-collapsed .sidebar-nav .sub-menu .nav-link span,
+body.sidebar-collapsed .sidebar-nav .sub-sub-menu .nav-link span {
+    display: inline-block !important;
+}
+
+/* 5. Collapsed Sidebar Hover Popups Visual Alignment & Compact Spacing Fix */
+body.sidebar-collapsed .sidebar-nav .collapse .nav-link {
+    display: block !important;
+    text-align: right !important;
+    height: auto !important; /* Reset the 46px fixed height from collapsed sidebar style */
+    margin: 2.5px 8px !important; /* Compact spacing between menu items */
+    padding: 0.45rem 1rem !important; /* Compact padding inside items */
+    border-radius: 6px !important;
+}
+
+body.sidebar-collapsed .sidebar-nav .collapse .nav-link i {
+    display: inline-block !important;
+    margin-left: 0.6rem !important; /* Space between icon and text in RTL */
+    margin-right: 0 !important;
+}
+
+body.sidebar-collapsed .sidebar-nav .collapse .nav-link .arrow-icon {
+    float: left !important;
+    margin-top: 3px !important; /* Center vertically in block layout */
+    margin-right: 0.5rem !important; /* Space between text and arrow if they meet */
+    margin-left: 0 !important;
+}
+
+/* 6. Collapsed Sidebar Hover Popups Background & Border Color Match - Seamless Integration */
+body.sidebar-collapsed .sidebar-nav > .nav-item:not(.toggle-nav-item):hover > .nav-link span {
+    background-color: #eef0f3 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-right: none !important; /* Remove right border to merge with sidebar */
+    border-bottom: 2px solid var(--ms-primary) !important; /* Keep blue underline */
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.02) !important;
+    right: calc(var(--sidebar-collapsed-width) - 10px) !important; /* Align perfectly with collapse container by accounting for 8px margin */
+    border-radius: 4px 0 0 4px !important;
+    z-index: 1060 !important; /* Render on top of sidebar border */
+}
+
+body.sidebar-collapsed .sidebar-nav > .nav-item:hover > .collapse {
+    background-color: #eef0f3 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-right: none !important; /* Remove right border to merge with sidebar */
+    border-top: none !important;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.03) !important;
+    right: calc(var(--sidebar-collapsed-width) - 2px) !important; /* Overlap border by 2px */
+    border-radius: 0 0 0 4px !important;
+    z-index: 1059 !important; /* Render on top of sidebar border (z-index 1050) */
+}
+
+body.sidebar-collapsed .sidebar-nav > .nav-item:hover > .collapse .sub-menu {
+    background-color: #eef0f3 !important;
+    padding: 0.5rem 0 !important; /* Add spacing at top and bottom of list */
+}
+
+/* Style the nested sub-sub-menu collapse flyout container */
+body.sidebar-collapsed .sidebar-nav .sub-menu .nav-item:hover > .collapse {
+    background-color: #e5e7eb !important; /* Recessed darker grey */
+    border: 1px solid #cbd5e1 !important;
+    border-right: none !important; /* Remove right border to merge with sub-menu */
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.03) !important;
+    z-index: 1070 !important;
+}
+
+body.sidebar-collapsed .sidebar-nav .sub-sub-menu {
+    background-color: #e5e7eb !important;
+    border: none !important; /* Remove inner border to prevent double lines */
+    right: auto !important; /* Let parent .collapse handle lateral flyout position (RTL: right: 100%) */
+    padding: 0.5rem 0 !important; /* Add spacing at top and bottom of nested list */
+}
+
+/* 7. Collapsed Sidebar Border-Left Clipping Override via Pseudo-border */
+html body.sidebar-collapsed .admin-sidebar {
+    border-left: none !important; /* Remove the hard parent border with high specificity */
+}
+
+body.sidebar-collapsed .admin-sidebar::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 1px !important;
+    background-color: #cbd5e1 !important; /* Seamless light border color */
+    z-index: 1 !important; /* Low z-index so hover popups can stack on top of it */
+    pointer-events: none !important;
+}
+
+/* 8. Fix white background flash during submenu collapse transition */
+body:not(.sidebar-collapsed) .sidebar-nav .sub-menu,
+body:not(.sidebar-collapsed) .sidebar-nav .collapse,
+body:not(.sidebar-collapsed) .sidebar-nav .collapsing {
+    background-color: transparent !important;
+}
+
+/* 9. Modern soft active highlight for collapsed sidebar hover popups */
+body.sidebar-collapsed .sidebar-nav .nav-item:hover > .collapse .nav-link.active {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+    color: var(--ms-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Ensure the icon keeps its original colored state rather than being forced to white */
+body.sidebar-collapsed .sidebar-nav .nav-item:hover > .collapse .nav-link.active i {
+    color: inherit !important; /* Allow the inline colored icon styles to show */
+}
+
+/* ==========================================================================
+   تنسيق جداول المرفقات والمسار الدراسي الداخلي لتكون متناسقة مع النظام وبمظهر فاخر
+   ========================================================================== */
+#studentAttachmentsTable,
+#studentAcademicHistoryTable,
+#staffAttachmentsTable {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+#studentAttachmentsTable thead th,
+#studentAcademicHistoryTable thead th,
+#staffAttachmentsTable thead th {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    padding: 12px 14px !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    border-left: 1px solid #f1f5f9 !important;
+    border-top: none !important;
+    border-right: none !important;
+}
+
+#studentAttachmentsTable thead th:last-child,
+#studentAcademicHistoryTable thead th:last-child,
+#staffAttachmentsTable thead th:last-child {
+    border-left: none !important;
+}
+
+#studentAttachmentsTable tbody td,
+#studentAcademicHistoryTable tbody td,
+#staffAttachmentsTable tbody td {
+    padding: 12px 14px !important;
+    font-size: 0.88rem !important;
+    color: #334155 !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    border-left: 1px solid #f1f5f9 !important;
+    border-top: none !important;
+    border-right: none !important;
+}
+
+#studentAttachmentsTable tbody tr:last-child td,
+#studentAcademicHistoryTable tbody tr:last-child td,
+#staffAttachmentsTable tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+#studentAttachmentsTable tbody td:last-child,
+#studentAcademicHistoryTable tbody td:last-child,
+#staffAttachmentsTable tbody td:last-child {
+    border-left: none !important;
+}
+
+#studentAttachmentsTable tbody tr:hover td,
+#studentAcademicHistoryTable tbody tr:hover td,
+#staffAttachmentsTable tbody tr:hover td {
+    background-color: #f8fafc !important;
+}
+
+/* تنسيق الروابط وأيقونات الملفات داخل الجداول */
+#studentAttachmentsTable td a,
+#studentAcademicHistoryTable td a,
+#staffAttachmentsTable td a {
+    font-weight: 600 !important;
+    color: #2563eb !important;
+    transition: color 0.15s ease;
+}
+
+#studentAttachmentsTable td a:hover,
+#studentAcademicHistoryTable td a:hover,
+#staffAttachmentsTable td a:hover {
+    color: #1d4ed8 !important;
+}
+
+/* تنسيق عمود الإجراءات لجداول المرفقات لمنع التفاف الأزرار على سطرين */
+#studentAttachmentsTable td.actions-column,
+#staffAttachmentsTable td.actions-column,
+#studentAttachmentsTable th:last-child,
+#staffAttachmentsTable th:last-child {
+    white-space: nowrap !important;
+    text-align: center !important;
+    width: 1% !important;
+    min-width: 95px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+#studentAttachmentsTable td.actions-column .btn,
+#staffAttachmentsTable td.actions-column .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#studentAttachmentsTable td,
+#staffAttachmentsTable td {
+    word-break: break-word;
+}
+
+
+
+/* حركة تنقل التبويبات والتجاوب للهواتف */
+.tab-content .tab-pane {
+    animation: fadeInTab 0.35s ease;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.border-dashed {
+    border-style: dashed !important;
+    border-color: #93c5fd !important;
+}
+
+@media (max-width: 767.98px) {
+    #staffTabs {
+        flex-direction: column;
+    }
+    #staffTabs .nav-item {
+        min-width: 100%;
+    }
+    #staffTabs .nav-link {
+        font-size: 0.82rem;
+        padding: 8px 10px;
+    }
+}
+
+
+/* ==========================================================================
+   شريط بيانات الموظف التعاقدية والحالة المثبت في الهيدر (Metadata Bar)
+   ========================================================================== */
+.staff-header-status-bar {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+    padding: 8px 16px !important;
+    margin-top: 0.5rem !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.01) !important;
+}
+
+.staff-header-status-bar .status-item {
+    font-size: 0.84rem !important;
+}
+
+@media (min-width: 768px) {
+    .staff-header-status-bar .status-item:not(:last-child) {
+        border-inline-end: 1px solid #e2e8f0;
+        padding-inline-end: 16px;
+    }
+}
+
+.staff-header-status-bar .status-item-label {
+    color: #475569 !important;
+    font-weight: 700 !important;
+}
+
+.staff-header-status-bar .status-item-value {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+/* الشارات المخصصة للحالة الوظيفية داخل الشريط */
+.staff-status-badge {
+    padding: 3px 10px !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    border-radius: 30px !important;
+    display: inline-flex !important;
+    align-items: center;
+}
+
+.staff-status-badge.active {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    color: #047857 !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.staff-status-badge.inactive {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: #b91c1c !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Administrator appearance preferences (classes are emitted by admin_header.php). */
+body.admin-page.font-size-110 { font-size: 110%; }
+body.admin-page.font-size-120 { font-size: 120%; }
+
+body.admin-page.compact-density main { padding-top: 0.75rem; }
+body.admin-page.compact-density .card-body,
+body.admin-page.compact-density .modal-body { padding: 0.85rem; }
+body.admin-page.compact-density table.table > :not(caption) > * > * { padding-block: 0.42rem; }
+
+body.admin-page.micro-interactions-none .stat-card,
+body.admin-page.micro-interactions-none .card,
+body.admin-page.micro-interactions-none .btn,
+body.admin-page.micro-interactions-none .nav-link,
+body.admin-page.micro-interactions-none .animate-up {
+    animation: none;
+    transition-duration: 0s;
+    transform: none;
+}
+
+body.admin-page.table-header-accent table thead th {
+    background: var(--ms-primary, #0078d4);
+    color: #fff;
+}
+body.admin-page.table-header-dark table thead th {
+    background: #1e293b;
+    color: #fff;
+}
+
+body.admin-page.status-badge-solid .badge.bg-success { background-color: #059669; color: #fff; }
+body.admin-page.status-badge-solid .badge.bg-danger { background-color: #dc2626; color: #fff; }
+body.admin-page.status-badge-solid .badge.bg-warning { background-color: #d97706; color: #fff; }
+body.admin-page.status-badge-outline .badge.bg-success,
+body.admin-page.status-badge-outline .badge.bg-danger,
+body.admin-page.status-badge-outline .badge.bg-warning {
+    background: transparent;
+    border: 1px solid currentColor;
+}
+
+body.admin-page.page-title-gradient .admin-page-heading,
+body.admin-page.page-title-gradient main > .d-flex:first-child {
+    border-inline-start: 4px solid var(--ms-primary, #0078d4);
+    padding-inline-start: 1rem;
+}
+
+body.admin-page.sidebar-theme-dark .admin-sidebar {
+    background: #172033;
+    color: #e2e8f0;
+}
+body.admin-page.sidebar-theme-dark .admin-sidebar .nav-link { color: #cbd5e1; }
+body.admin-page.sidebar-theme-dark .admin-sidebar .nav-link:hover,
+body.admin-page.sidebar-theme-dark .admin-sidebar .nav-link.active {
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+}
+
+body.admin-page.app-dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+body.admin-page.app-dark-mode main,
+body.admin-page.app-dark-mode .admin-list-surface,
+body.admin-page.app-dark-mode .card,
+body.admin-page.app-dark-mode .modal-content,
+body.admin-page.app-dark-mode .admin-filter-bar {
+    background-color: #111c2f;
+    color: #e2e8f0;
+}
+body.admin-page.app-dark-mode .table { --bs-table-color: #e2e8f0; --bs-table-bg: transparent; }
+body.admin-page.app-dark-mode .text-dark { color: #f8fafc !important; }
+body.admin-page.app-dark-mode .text-muted { color: #94a3b8 !important; }
+
+/* Guided academic-year rollover workflow. */
+.year-setup-guide {
+    border: 1px solid #dbe5f1;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+
+.year-setup-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-bottom: 1px solid #dbe5f1;
+    background: #f8fafc;
+}
+
+.year-setup-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 66px;
+    padding: 0.75rem;
+    border-inline-end: 1px solid #e2e8f0;
+    color: #64748b;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+}
+
+.year-setup-step:last-child {
+    border-inline-end: 0;
+}
+
+.year-setup-step:hover,
+.year-setup-step:focus-visible {
+    background: #eef4ff;
+    color: #1d4ed8;
+}
+
+.year-setup-step.is-current {
+    color: #1d4ed8;
+    background: #eff6ff;
+    box-shadow: inset 0 -3px 0 #2563eb;
+}
+
+.year-setup-step.is-complete {
+    color: #047857;
+    background: #f0fdf4;
+}
+
+.year-setup-step-number,
+.year-setup-card-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-weight: 800;
+}
+
+.year-setup-step.is-current .year-setup-step-number {
+    background: #2563eb;
+    color: #fff;
+}
+
+.year-setup-step.is-complete .year-setup-step-number {
+    background: #059669;
+    color: #fff;
+}
+
+.year-setup-card-step {
+    width: 26px;
+    height: 26px;
+    margin-inline-end: 0.55rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: #1d4ed8;
+    font-size: 0.85rem;
+}
+
+.year-setup-next-action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border-inline-start: 5px solid #2563eb;
+    background: #ffffff;
+    color: #1e293b;
+}
+
+.year-setup-next-action.has-blocker {
+    border-inline-start-color: #dc2626;
+    background: #fff7f7;
+}
+
+.year-setup-next-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 1.1rem;
+}
+
+.year-setup-next-action.has-blocker .year-setup-next-icon {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.year-setup-next-eyebrow {
+    margin-bottom: 0.2rem;
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.year-setup-pair-arrow {
+    color: #2563eb;
+    font-size: 1.4rem;
+}
+
+.year-setup-student-search {
+    max-width: 620px;
+}
+
+.year-setup-student-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.year-setup-student-link:hover,
+.year-setup-student-link:focus-visible {
+    border-color: #60a5fa;
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.year-setup-blockers-table th:nth-child(1) { min-width: 210px; }
+.year-setup-blockers-table th:nth-child(2) { min-width: 210px; }
+.year-setup-blockers-table th:nth-child(4) { min-width: 300px; }
+
+body.admin-page.app-dark-mode .year-setup-guide,
+body.admin-page.app-dark-mode .year-setup-next-action {
+    background: #111c2f;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.admin-page.app-dark-mode .year-setup-steps {
+    background: #172033;
+    border-color: #334155;
+}
+
+@media (max-width: 991.98px) {
+    .year-setup-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .year-setup-step {
+        min-height: 58px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .year-setup-next-action {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .year-setup-next-action .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .year-setup-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .year-setup-step {
+        justify-content: flex-start;
+        border-inline-end: 0;
+    }
+
+    .year-setup-pair-arrow {
+        transform: rotate(-90deg);
+    }
+}
+
+/* Specialist Static Sidebar styling (permanently expanded sidebar menu) */
+body.specialist-static-sidebar .admin-sidebar .collapse {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+}
+body.specialist-static-sidebar .admin-sidebar .arrow-icon {
+    display: none !important;
+}
+body.specialist-static-sidebar .admin-sidebar .nav-link[data-bs-toggle="collapse"] {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+body.specialist-static-sidebar .admin-sidebar .sub-menu {
+    border-inline-start: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-right: 15px !important;
+}
+body.specialist-static-sidebar .admin-sidebar .sub-sub-menu {
+    border-inline-start: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-right: 25px !important;
+}
+
+/* Bulk Action Bar -------------------------------------------------- */
+.admin-bulk-action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: all 0.25s ease;
+}
+
+.admin-bulk-action-bar.d-none {
+    display: none !important;
+}
+
+.admin-bulk-info {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.admin-bulk-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 0.55rem;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.admin-bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Bulk Action Bar Buttons — 1:1 Match with Top Header Soft Buttons */
+.admin-bulk-actions .btn,
+.admin-bulk-info .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: all 0.22s ease-in-out;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+/* 1. Import / Blue Soft (طابق زري استيراد Excel وبيانات العاملين) */
+.admin-bulk-action-bar .btn-primary,
+.admin-bulk-action-bar .btn-outline-primary {
+    background: #d6e9f6 !important;
+    background-image: none !important;
+    color: #0b4f6c !important;
+    border: 1px solid rgba(11, 79, 108, 0.16) !important;
+    box-shadow: 0 2px 6px rgba(11, 79, 108, 0.04) !important;
+}
+.admin-bulk-action-bar .btn-primary:hover,
+.admin-bulk-action-bar .btn-outline-primary:hover {
+    background: #0284c7 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.25) !important;
+}
+
+/* 2. Export / Green Soft (طابق زر تصدير Excel) */
+.admin-bulk-action-bar .btn-success,
+.admin-bulk-action-bar .btn-outline-success {
+    background: #e2f1e9 !important;
+    background-image: none !important;
+    color: #134e4a !important;
+    border: 1.5px solid #86efac !important;
+    box-shadow: 0 2px 6px rgba(19, 78, 74, 0.04) !important;
+}
+.admin-bulk-action-bar .btn-success:hover,
+.admin-bulk-action-bar .btn-outline-success:hover {
+    background: #059669 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #059669 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(5, 150, 105, 0.25) !important;
+}
+
+/* 3. Red / PDF Soft (أحمر ناعم مطابق لـ btn-pdf-soft) */
+.admin-bulk-action-bar .btn-danger,
+.admin-bulk-action-bar .btn-outline-danger {
+    background: #fee2e2 !important;
+    background-image: none !important;
+    color: #dc2626 !important;
+    border: 1.5px solid #fca5a5 !important;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.04) !important;
+}
+.admin-bulk-action-bar .btn-danger:hover,
+.admin-bulk-action-bar .btn-outline-danger:hover {
+    background: #dc2626 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* 4. Yellow / Amber Soft (أصفر/برتقالي ناعم مطابق لـ btn-warning) */
+.admin-bulk-action-bar .btn-warning,
+.admin-bulk-action-bar .btn-outline-warning {
+    background: #fef3c7 !important;
+    background-image: none !important;
+    color: #92400e !important;
+    border: 1.5px solid #fcd34d !important;
+    box-shadow: 0 2px 6px rgba(146, 64, 14, 0.04) !important;
+}
+.admin-bulk-action-bar .btn-warning:hover,
+.admin-bulk-action-bar .btn-outline-warning:hover {
+    background: #d97706 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #d97706 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(217, 119, 6, 0.25) !important;
+}
+
+/* 5. Slate / Print Soft (رمادي ناعم مطابق لـ btn-print-soft) */
+.admin-bulk-action-bar .btn-secondary,
+.admin-bulk-action-bar .btn-outline-secondary {
+    background: #f1f5f9 !important;
+    background-image: none !important;
+    color: #475569 !important;
+    border: 1.5px solid #cbd5e1 !important;
+    box-shadow: 0 2px 6px rgba(71, 85, 105, 0.04) !important;
+}
+.admin-bulk-action-bar .btn-secondary:hover,
+.admin-bulk-action-bar .btn-outline-secondary:hover {
+    background: #475569 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(71, 85, 105, 0.25) !important;
+}
+    box-shadow: 0 4px 12px rgba(100, 116, 139, 0.22) !important;
+}
+
+@media (max-width: 767.98px) {
+    .admin-bulk-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .admin-bulk-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .admin-bulk-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Bulk Action & Premium Modal Option Cards */
+.role-select-box,
+.btn-outline-custom-card {
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.role-select-box:hover,
+.btn-outline-custom-card:hover {
+    border-color: #93c5fd !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
+}
+
+.role-select-box:has(:checked),
+.btn-outline-custom-card:has(:checked) {
+    border-color: #2563eb !important;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.role-select-box .form-check-input,
+.btn-outline-custom-card .form-check-input {
+    cursor: pointer;
+    width: 1.15em;
+    height: 1.15em;
+    margin-top: 0;
+}
+
+.role-select-box .form-check-input:checked,
+.btn-outline-custom-card .form-check-input:checked {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* ==========================================================================
+   Ultra-Premium Bulk Modal & Role Selection Components
+   ========================================================================== */
+
+.modal-header-premium {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 1.25rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header-premium::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.modal-header-icon-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+.section-label-heading {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.75rem;
+}
+
+.section-label-number {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+/* Premium Mode Card */
+.role-mode-card-premium {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.role-mode-card-premium:hover {
+    border-color: #93c5fd;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.12);
+}
+
+.role-mode-card-premium:has(:checked) {
+    border-color: #2563eb !important;
+    background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%);
+    box-shadow: 0 0 0 3.5px rgba(37, 99, 235, 0.14), 0 8px 20px -6px rgba(37, 99, 235, 0.12);
+}
+
+.role-mode-card-premium .badge-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    margin-inline-start: auto;
+}
+
+/* Premium Role Checkbox Box */
+.role-select-card-premium {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 0.75rem 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    user-select: none;
+}
+
+.role-select-card-premium:hover {
+    border-color: #3b82f6;
+    background-color: #fafafa;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.role-select-card-premium:has(:checked) {
+    border-color: #2563eb !important;
+    background: #eff6ff !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.role-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #f1f5f9;
+    color: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.role-select-card-premium:has(:checked) .role-icon-box {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.role-check-indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: auto;
+    font-size: 0.65rem;
+    color: transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.role-select-card-premium:has(:checked) .role-check-indicator {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* Premium Academic Scope Panel */
+.scope-panel-premium {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+    border: 1px solid #bae6fd !important;
+    border-inline-start: 4px solid #0284c7 !important;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 18px -4px rgba(2, 132, 199, 0.08);
+}
+
+/* Assessment marks spreadsheet view. */
+.assessment-sheet-filter-bar .admin-filter-controls {
+    flex: 1 1 780px;
+}
+
+.assessment-sheet-search {
+    min-width: 260px;
+    max-width: 360px;
+}
+
+.assessment-sheet-missing-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 31px;
+    white-space: nowrap;
+}
+
+.assessment-subject-strip {
+    margin-bottom: 0.75rem;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #dbe4f0;
+    border-radius: 10px;
+    scrollbar-width: thin;
+}
+
+.assessment-subject-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 0.35rem;
+    min-width: max-content;
+    padding: 0.5rem;
+}
+
+.assessment-sheet-legend {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+.assessment-sheet-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.assessment-sheet-swatch {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+}
+
+.assessment-sheet-swatch.is-present { background: #dcfce7; border-color: #86efac; }
+.assessment-sheet-swatch.is-absent { background: #fee2e2; border-color: #fca5a5; }
+.assessment-sheet-swatch.is-excused { background: #fef3c7; border-color: #fcd34d; }
+.assessment-sheet-swatch.is-missing { background: #f8fafc; border-color: #e2e8f0; }
+
+.assessment-sheet-surface {
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+}
+
+.assessment-sheet-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    padding: 2rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.assessment-sheet-empty-state {
+    display: grid;
+    width: min(100%, 520px);
+    max-width: 520px;
+    gap: 0.75rem;
+    justify-items: center;
+}
+
+.assessment-sheet-empty-state > i {
+    font-size: 1.75rem;
+}
+
+.assessment-sheet-viewport {
+    max-height: calc(100vh - 250px);
+    min-height: 420px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: #94a3b8 #e2e8f0;
+}
+
+.assessment-marks-sheet-table {
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    color: #1e293b;
+    font-size: 0.82rem;
+}
+
+.assessment-marks-sheet-table th,
+.assessment-marks-sheet-table td {
+    height: 44px;
+    padding: 0.35rem 0.45rem;
+    border-inline-end: 1px solid #dbe4f0;
+    border-bottom: 1px solid #dbe4f0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.assessment-marks-sheet-table thead th {
+    position: sticky;
+    z-index: 12;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.assessment-marks-sheet-table thead tr:first-child th {
+    top: 0;
+    height: 58px;
+}
+
+.assessment-marks-sheet-table thead tr:nth-child(2) th {
+    top: 58px;
+    height: 62px;
+}
+
+.assessment-sheet-week-header {
+    min-width: 112px;
+    background: #dbeafe;
+    border-bottom-color: #93c5fd !important;
+}
+
+.assessment-sheet-week-header strong,
+.assessment-sheet-week-header small,
+.assessment-sheet-component-header span,
+.assessment-sheet-component-header small {
+    display: block;
+}
+
+.assessment-sheet-week-header small,
+.assessment-sheet-component-header small {
+    margin-top: 0.2rem;
+    color: #64748b;
+    font-size: 0.68rem;
+    font-weight: 500;
+}
+
+.assessment-sheet-component-header {
+    width: 92px;
+    min-width: 92px;
+    max-width: 112px;
+    background: #eff6ff;
+    white-space: normal !important;
+    line-height: 1.25;
+}
+
+.assessment-sheet-fixed {
+    position: sticky;
+    z-index: 7;
+    background: #ffffff;
+    box-shadow: -1px 0 0 #cbd5e1;
+}
+
+.assessment-marks-sheet-table thead .assessment-sheet-fixed {
+    z-index: 20;
+    background: #e2e8f0;
+}
+
+.assessment-marks-sheet-table tbody tr:nth-child(even) .assessment-sheet-fixed {
+    background: #f8fafc;
+}
+
+.assessment-marks-sheet-table tbody tr:hover td,
+.assessment-marks-sheet-table tbody tr:hover .assessment-sheet-fixed {
+    background-color: #eff6ff;
+}
+
+.sheet-fixed-code {
+    right: 0;
+    width: 104px;
+    min-width: 104px;
+    max-width: 104px;
+    font-variant-numeric: tabular-nums;
+}
+
+.sheet-fixed-username {
+    right: 104px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    direction: ltr;
+    unicode-bidi: plaintext;
+    font-size: 0.76rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sheet-fixed-student {
+    right: 254px;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    overflow: hidden;
+    text-align: start !important;
+    text-overflow: ellipsis;
+}
+
+.sheet-fixed-class {
+    right: 474px;
+    width: 96px;
+    min-width: 96px;
+    max-width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.assessment-sheet-student-link {
+    display: block;
+    overflow: hidden;
+    color: #1d4ed8;
+    font-weight: 700;
+    text-decoration: none;
+    text-overflow: ellipsis;
+}
+
+.assessment-sheet-student-link:hover {
+    text-decoration: underline;
+}
+
+.assessment-sheet-mark-cell {
+    position: relative;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    padding: 0 !important;
+    font-variant-numeric: tabular-nums;
+}
+
+.assessment-sheet-mark-cell.is-present { background: #ecfdf5; }
+.assessment-sheet-mark-cell.is-absent { background: #fef2f2; color: #b91c1c; }
+.assessment-sheet-mark-cell.is-excused { background: #fffbeb; color: #a16207; }
+.assessment-sheet-mark-cell.is-exempt { background: #f1f5f9; color: #475569; }
+.assessment-sheet-mark-cell.is-missing { background: #ffffff; color: #94a3b8; }
+.assessment-sheet-mark-cell.needs-review { box-shadow: inset 0 -3px 0 #f59e0b; }
+.assessment-sheet-mark-cell.is-locked { box-shadow: inset 0 0 0 2px #fecaca; }
+
+.assessment-sheet-mark-cell.has-published::after,
+.assessment-sheet-mark-cell.has-note::before {
+    position: absolute;
+    z-index: 2;
+    width: 7px;
+    height: 7px;
+    content: '';
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.assessment-sheet-mark-cell.has-published::after {
+    top: 4px;
+    left: 4px;
+    background: #0ea5e9;
+}
+
+.assessment-sheet-mark-cell.has-note::before {
+    right: 4px;
+    bottom: 4px;
+    background: #8b5cf6;
+}
+
+.assessment-sheet-empty-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 43px;
+    padding: 0.25rem;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    .assessment-sheet-search {
+        min-width: 100%;
+        max-width: none;
+    }
+
+    .assessment-sheet-viewport {
+        max-height: 72vh;
+    }
+
+    .sheet-fixed-code {
+        width: 86px;
+        min-width: 86px;
+        max-width: 86px;
+    }
+
+    .sheet-fixed-username {
+        right: 86px;
+        width: 124px;
+        min-width: 124px;
+        max-width: 124px;
+    }
+
+    .sheet-fixed-student {
+        right: 210px;
+        width: 170px;
+        min-width: 170px;
+        max-width: 170px;
+    }
+
+    .sheet-fixed-class {
+        right: 380px;
+        width: 82px;
+        min-width: 82px;
+        max-width: 82px;
+    }
+}
+
+/* Assessment marks sheet: selection, inline editing and column focus. */
+.assessment-sheet-reason {
+    min-width: 300px;
+    max-width: 430px;
+}
+
+.assessment-sheet-selection-toolbar,
+.assessment-sheet-bulk-editor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #bfdbfe;
+    background: #eff6ff;
+}
+
+.assessment-sheet-bulk-editor {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.assessment-sheet-selection-summary,
+.assessment-sheet-selection-actions,
+.assessment-sheet-bulk-fields {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.assessment-sheet-selection-summary {
+    color: #1e40af;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.assessment-sheet-bulk-fields {
+    flex: 1 1 680px;
+}
+
+.assessment-sheet-bulk-fields .form-select,
+.assessment-sheet-bulk-fields .form-control {
+    width: auto;
+    min-width: 130px;
+    max-width: 230px;
+}
+
+.assessment-sheet-bulk-fields #sheetBulkNote {
+    flex: 1 1 220px;
+    max-width: 420px;
+}
+
+.assessment-sheet-note-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 31px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.assessment-sheet-surface {
+    border: 0;
+}
+
+.assessment-marks-sheet-table th,
+.assessment-marks-sheet-table td,
+.assessment-marks-sheet-table .sheet-fixed-student {
+    text-align: center !important;
+}
+
+.assessment-marks-sheet-table thead tr:first-child th {
+    top: 0;
+    height: 48px;
+}
+
+.assessment-marks-sheet-table thead tr:nth-child(2) th {
+    top: 48px;
+    height: 38px;
+}
+
+.assessment-marks-sheet-table thead tr:nth-child(3) th {
+    top: 86px;
+    height: 64px;
+}
+
+.assessment-sheet-group-heading {
+    color: #1e3a8a !important;
+    background: #dbeafe;
+    border-bottom-color: #93c5fd !important;
+}
+
+.assessment-sheet-date-heading {
+    color: #475569 !important;
+    background: #f1f5f9;
+    font-size: 0.7rem;
+    font-weight: 600 !important;
+}
+
+.assessment-sheet-component-heading {
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    background: #eff6ff;
+    white-space: normal !important;
+}
+
+.assessment-sheet-column-selector {
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.assessment-sheet-column-selector:hover,
+.assessment-sheet-column-selector:focus-visible,
+.assessment-sheet-column-selector.is-selected {
+    background: #dbeafe;
+    box-shadow: inset 0 -3px 0 #2563eb;
+    outline: 0;
+}
+
+.assessment-sheet-component-name,
+.assessment-sheet-component-heading small {
+    display: block;
+    line-height: 1.2;
+}
+
+.assessment-sheet-component-heading small {
+    margin-top: 0.15rem;
+    color: #64748b;
+    font-size: 0.66rem;
+}
+
+.sheet-fixed-select,
+.sheet-fixed-code,
+.sheet-fixed-username,
+.sheet-fixed-student,
+.sheet-fixed-class {
+    position: sticky;
+    z-index: 8;
+    background: #fff;
+    box-shadow: -1px 0 0 #cbd5e1;
+}
+
+.assessment-marks-sheet-table thead .sheet-fixed-select,
+.assessment-marks-sheet-table thead .sheet-fixed-code,
+.assessment-marks-sheet-table thead .sheet-fixed-username,
+.assessment-marks-sheet-table thead .sheet-fixed-student,
+.assessment-marks-sheet-table thead .sheet-fixed-class {
+    z-index: 24;
+    height: 150px;
+    background: #e2e8f0;
+}
+
+.assessment-marks-sheet-table tbody tr:nth-child(even) .sheet-fixed-select,
+.assessment-marks-sheet-table tbody tr:nth-child(even) .sheet-fixed-code,
+.assessment-marks-sheet-table tbody tr:nth-child(even) .sheet-fixed-username,
+.assessment-marks-sheet-table tbody tr:nth-child(even) .sheet-fixed-student,
+.assessment-marks-sheet-table tbody tr:nth-child(even) .sheet-fixed-class {
+    background: #f8fafc;
+}
+
+.sheet-fixed-select {
+    right: 0;
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
+}
+
+.sheet-fixed-code { right: 48px; }
+.sheet-fixed-username { right: 152px; }
+.sheet-fixed-student { right: 302px; }
+.sheet-fixed-class { right: 522px; }
+
+.assessment-sheet-header-selector {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    color: #475569;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    cursor: pointer;
+    place-items: center;
+}
+
+.assessment-sheet-header-selector:hover,
+.assessment-sheet-header-selector:focus-visible,
+.assessment-sheet-header-selector.is-selected,
+.assessment-sheet-header-selector.is-partial {
+    color: #1d4ed8;
+    background: #dbeafe;
+    outline: 0;
+}
+
+.assessment-sheet-header-selector.is-selected {
+    box-shadow: inset 0 0 0 2px #2563eb;
+}
+
+.assessment-sheet-header-selector.is-partial {
+    box-shadow: inset 0 -3px 0 #60a5fa;
+}
+
+.assessment-sheet-mark-cell.is-excused-absent {
+    color: #a16207;
+    background: #fffbeb;
+}
+
+.assessment-sheet-mark-cell.is-empty,
+.assessment-sheet-mark-cell.is-missing {
+    color: #94a3b8;
+    background: #fff;
+}
+
+.assessment-sheet-missing-mark {
+    display: grid;
+    min-height: 43px;
+    place-items: center;
+}
+
+.assessment-sheet-mark-cell {
+    cursor: cell;
+    user-select: none;
+}
+
+.assessment-sheet-mark-cell.is-selected {
+    background: #dbeafe !important;
+    box-shadow: inset 0 0 0 1px #60a5fa;
+}
+
+.assessment-sheet-mark-cell.is-active-cell {
+    z-index: 5;
+    background: #bfdbfe !important;
+    box-shadow: inset 0 0 0 3px #2563eb;
+    outline: 0;
+}
+
+.assessment-sheet-viewport.is-selecting,
+.assessment-sheet-viewport.is-selecting * {
+    cursor: cell !important;
+    user-select: none !important;
+}
+
+.assessment-sheet-cell-flags {
+    position: absolute;
+    z-index: 3;
+    bottom: 2px;
+    left: 3px;
+    display: inline-flex;
+    gap: 0.2rem;
+    font-size: 0.58rem;
+    pointer-events: none;
+}
+
+.assessment-marks-sheet-table tbody tr:hover td,
+.assessment-marks-sheet-table tbody tr:hover .sheet-fixed-select,
+.assessment-marks-sheet-table tbody tr:hover .sheet-fixed-code,
+.assessment-marks-sheet-table tbody tr:hover .sheet-fixed-username,
+.assessment-marks-sheet-table tbody tr:hover .sheet-fixed-student,
+.assessment-marks-sheet-table tbody tr:hover .sheet-fixed-class {
+    background-color: #eff6ff;
+}
+
+.assessment-marks-sheet-table .is-column-hover {
+    background-color: #dbeafe !important;
+    box-shadow: inset 2px 0 0 #60a5fa, inset -2px 0 0 #60a5fa;
+}
+
+.assessment-marks-sheet-table .is-column-hover.is-selected {
+    background-color: #bfdbfe !important;
+}
+
+.assessment-sheet-inline-editor {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 92px;
+    padding: 1.15rem 0.2rem 0.25rem;
+    background: #eff6ff;
+    box-shadow: inset 0 0 0 2px #2563eb;
+}
+
+.assessment-sheet-inline-editor .form-select,
+.assessment-sheet-inline-editor .form-control {
+    width: 100%;
+    min-width: 0;
+    padding: 0.15rem 0.25rem;
+    text-align: center;
+    font-size: 0.68rem;
+}
+
+.assessment-sheet-inline-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.assessment-marks-sheet-table tr:has(.assessment-sheet-inline-editor) td {
+    height: 126px;
+}
+
+@media (max-width: 767.98px) {
+    .assessment-sheet-reason {
+        min-width: 100%;
+        max-width: none;
+    }
+
+    .assessment-sheet-selection-toolbar,
+    .assessment-sheet-bulk-editor {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .assessment-sheet-selection-actions,
+    .assessment-sheet-bulk-fields {
+        width: 100%;
+    }
+
+    .assessment-sheet-bulk-fields .form-select,
+    .assessment-sheet-bulk-fields .form-control {
+        flex: 1 1 150px;
+        max-width: none;
+    }
+
+    .sheet-fixed-code { right: 48px; }
+    .sheet-fixed-username { right: 134px; }
+    .sheet-fixed-student { right: 258px; }
+    .sheet-fixed-class { right: 428px; }
+}
+
+@media (max-width: 575.98px) {
+    .assessment-marks-sheet-table .sheet-fixed-code,
+    .assessment-marks-sheet-table .sheet-fixed-username,
+    .assessment-marks-sheet-table .sheet-fixed-class {
+        position: static;
+    }
+
+    .assessment-marks-sheet-table .sheet-fixed-student {
+        right: 48px;
+        width: 160px;
+        min-width: 160px;
+        max-width: 160px;
+    }
+}
+
+/* Assessment workbook powered by the local Tabulator grid engine. */
+.assessment-sheet-help {
+    margin-bottom: 0.75rem;
+    padding-block: 0.65rem;
+    font-size: 0.85rem;
+}
+
+.assessment-workbook {
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    box-shadow: 0 10px 26px -22px rgba(15, 23, 42, 0.7);
+}
+
+.assessment-sheet-formula-bar {
+    display: grid;
+    grid-template-columns: 88px 42px minmax(220px, 1fr) auto;
+    min-height: 42px;
+    border-bottom: 1px solid #cbd5e1;
+    background: #f8fafc;
+}
+
+.assessment-sheet-name-box,
+.assessment-sheet-fx,
+.assessment-sheet-formula-text,
+.assessment-sheet-save-state {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 0.45rem 0.7rem;
+}
+
+.assessment-sheet-name-box {
+    justify-content: center;
+    border-inline-end: 1px solid #cbd5e1;
+    color: #0f172a;
+    background: #ffffff;
+    direction: ltr;
+    font-family: Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.assessment-sheet-fx {
+    justify-content: center;
+    color: #64748b;
+    border-inline-end: 1px solid #cbd5e1;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.assessment-sheet-formula-text {
+    overflow: hidden;
+    color: #334155;
+    background: #ffffff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.assessment-sheet-save-state {
+    gap: 0.4rem;
+    justify-content: center;
+    min-width: 110px;
+    color: #475569;
+    border-inline-start: 1px solid #cbd5e1;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.assessment-sheet-save-state[data-state="saving"] { color: #1d4ed8; }
+.assessment-sheet-save-state[data-state="saved"] { color: #047857; }
+.assessment-sheet-save-state[data-state="error"] { color: #b91c1c; }
+.assessment-sheet-save-state[data-state="offline"] { color: #b45309; }
+
+.assessment-workbook .assessment-sheet-selection-toolbar,
+.assessment-workbook .assessment-sheet-bulk-editor {
+    margin: 0;
+    border-width: 0 0 1px;
+}
+
+.assessment-workbook .assessment-sheet-bulk-fields #sheetBulkReason {
+    flex: 1 1 250px;
+    max-width: 380px;
+}
+
+.assessment-workbook .assessment-sheet-legend {
+    min-height: 34px;
+    margin: 0;
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid #dbe4f0;
+    background: #ffffff;
+}
+
+.assessment-sheet-surface {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    background: #ffffff;
+}
+
+.assessment-sheet-status {
+    min-height: 520px;
+}
+
+.assessment-sheet-viewport {
+    width: 100%;
+    height: clamp(520px, 62vh, 760px);
+    min-height: 520px;
+    max-height: none;
+    overflow: hidden;
+    direction: rtl;
+}
+
+.assessment-sheet-viewport .tabulator {
+    height: 100%;
+    border: 0;
+    background: #ffffff;
+    color: #0f172a;
+    direction: rtl;
+    font-family: "Tajawal", sans-serif;
+    font-size: 0.82rem;
+}
+
+.assessment-sheet-viewport .tabulator-header {
+    border-bottom: 1px solid #94a3b8;
+    background: #dbe4f0;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.assessment-sheet-viewport .tabulator-col,
+.assessment-sheet-viewport .tabulator-col-group {
+    border-inline-end: 1px solid #b9c7d8;
+    background: #e8eef6;
+}
+
+.assessment-sheet-viewport .tabulator-col-group > .tabulator-col-content {
+    min-height: 42px;
+    background: #dbeafe;
+}
+
+.assessment-sheet-viewport .tabulator-col-group-cols {
+    border-top: 1px solid #b9c7d8;
+}
+
+.assessment-sheet-viewport .tabulator-col-content {
+    padding: 0.35rem 0.4rem;
+}
+
+.assessment-sheet-viewport .tabulator-col-title,
+.assessment-sheet-viewport .tabulator-cell {
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.assessment-sheet-viewport .tabulator-row {
+    min-height: 44px;
+    border-bottom: 1px solid #dbe4f0;
+    background: #ffffff;
+}
+
+.assessment-sheet-viewport .tabulator-row:nth-child(even) {
+    background: #f8fafc;
+}
+
+.assessment-sheet-viewport .tabulator-row:hover,
+.assessment-sheet-viewport .tabulator-row:hover .tabulator-cell.tabulator-frozen {
+    background: #f8fbff;
+}
+
+.assessment-sheet-viewport .tabulator-cell {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 44px;
+    padding: 0.35rem 0.45rem;
+    border-inline-end: 1px solid #dbe4f0;
+    font-variant-numeric: tabular-nums;
+    line-height: 32px;
+    white-space: nowrap;
+}
+
+.assessment-sheet-viewport .tabulator-cell.tabulator-frozen {
+    z-index: 20;
+    background: #ffffff;
+}
+
+.assessment-sheet-viewport .tabulator-row:nth-child(even) .tabulator-cell.tabulator-frozen {
+    background: #f8fafc;
+}
+
+.assessment-sheet-viewport .tabulator-col.tabulator-frozen {
+    z-index: 30;
+    background: #dce7f6;
+    box-shadow: -2px 0 0 #94a3b8;
+}
+
+.assessment-sheet-viewport .tabulator-col.assessment-sheet-mark-column {
+    min-width: 96px;
+}
+
+.assessment-sheet-column-title {
+    display: grid;
+    min-height: 54px;
+    gap: 0.16rem;
+    place-items: center;
+    white-space: normal;
+}
+
+.assessment-sheet-column-letter {
+    color: #475569;
+    direction: ltr;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.assessment-sheet-column-name {
+    display: -webkit-box;
+    overflow: hidden;
+    min-height: 2.25em;
+    line-height: 1.15;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.assessment-sheet-column-max {
+    color: #64748b;
+    direction: ltr;
+    font-size: 0.66rem;
+    font-weight: 500;
+}
+
+.assessment-sheet-group-title {
+    display: grid;
+    min-height: 34px;
+    gap: 0.12rem;
+    place-items: center;
+    white-space: normal;
+}
+
+.assessment-sheet-group-title small {
+    color: #64748b;
+    direction: ltr;
+    font-size: 0.65rem;
+    font-weight: 500;
+}
+
+.assessment-sheet-identity-value {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.assessment-sheet-student-link {
+    width: 100%;
+    text-align: center;
+}
+
+.assessment-sheet-viewport .assessment-sheet-mark-cell {
+    position: relative;
+    min-width: 0;
+    max-width: none;
+    cursor: cell;
+    font-weight: 700;
+    user-select: none;
+}
+
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-present { background: #ecfdf5; color: #065f46; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-absent { background: #fef2f2; color: #b91c1c; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-excused-absent { background: #fffbeb; color: #a16207; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-exempt { background: #f1f5f9; color: #475569; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-empty,
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-missing { background: #ffffff; color: #94a3b8; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-locked { box-shadow: inset 0 0 0 1px #fca5a5; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-readonly { background-color: #fbfcfe; color: #a1a9b6; }
+.assessment-sheet-viewport .assessment-sheet-mark-cell.needs-review { box-shadow: inset 0 -3px 0 #f59e0b; }
+
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-column-hover {
+    background-color: #f4f8ff !important;
+    box-shadow: inset 1px 0 0 #bfdbfe, inset -1px 0 0 #bfdbfe;
+}
+
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-sheet-selected {
+    background-color: #eef5ff !important;
+    box-shadow: inset 0 0 0 1px #93c5fd;
+}
+
+.assessment-sheet-viewport .assessment-sheet-mark-cell.is-sheet-active {
+    z-index: 5;
+    background-color: #e3efff !important;
+    box-shadow: inset 0 0 0 2px #3b82f6 !important;
+}
+
+.assessment-sheet-viewport .tabulator-row:hover .tabulator-cell:not(.is-sheet-selected):not(.is-sheet-active),
+.assessment-sheet-viewport .tabulator-row.is-sheet-row-hover .tabulator-cell:not(.is-sheet-selected):not(.is-sheet-active) {
+    background-color: #f8fbff;
+}
+
+.assessment-sheet-viewport .tabulator-editing {
+    padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: inset 0 0 0 3px #2563eb !important;
+}
+
+.assessment-sheet-viewport .tabulator-editing input {
+    width: 100%;
+    height: 43px;
+    padding: 0.35rem;
+    color: #0f172a;
+    background: #ffffff;
+    border: 0;
+    direction: ltr;
+    font-family: "Tajawal", sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    text-align: center;
+    outline: 0;
+}
+
+.assessment-sheet-cell-flags {
+    position: absolute;
+    bottom: 2px;
+    left: 3px;
+    display: inline-flex;
+    gap: 0.18rem;
+    font-size: 0.57rem;
+    pointer-events: none;
+}
+
+.assessment-sheet-cell-pending::after,
+.assessment-sheet-cell-saved::after,
+.assessment-sheet-cell-error::after {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    font-family: "Font Awesome 6 Free";
+    font-size: 0.58rem;
+    font-weight: 900;
+}
+
+.assessment-sheet-cell-pending::after { color: #2563eb; content: "\f110"; }
+.assessment-sheet-cell-saved::after { color: #059669; content: "\f00c"; }
+.assessment-sheet-cell-error::after { color: #dc2626; content: "\f06a"; }
+
+.assessment-sheet-workbook-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 46px;
+    border-top: 1px solid #94a3b8;
+    background: #f8fafc;
+}
+
+.assessment-sheet-workbook-footer .assessment-subject-strip {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.assessment-sheet-workbook-footer .assessment-subject-tabs {
+    min-height: 45px;
+    padding: 0.35rem 0.5rem 0;
+}
+
+.assessment-sheet-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.45rem 0.75rem;
+    color: #475569;
+    border-inline-start: 1px solid #cbd5e1;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.assessment-sheet-status-bar strong {
+    color: #0f172a;
+    direction: ltr;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 991.98px) {
+    .assessment-sheet-formula-bar {
+        grid-template-columns: 74px 36px minmax(160px, 1fr);
+    }
+
+    .assessment-sheet-save-state {
+        grid-column: 1 / -1;
+        min-height: 32px;
+        border-top: 1px solid #cbd5e1;
+        border-inline-start: 0;
+    }
+
+    .assessment-sheet-workbook-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .assessment-sheet-status-bar {
+        overflow-x: auto;
+        border-top: 1px solid #cbd5e1;
+        border-inline-start: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .assessment-sheet-viewport {
+        height: 66vh;
+        min-height: 460px;
+    }
+
+    .assessment-workbook .assessment-sheet-selection-toolbar,
+    .assessment-workbook .assessment-sheet-bulk-editor {
+        padding: 0.65rem;
+    }
+
+    .assessment-sheet-formula-text {
+        font-size: 0.76rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .assessment-sheet-save-state,
+    .assessment-sheet-viewport .tabulator-cell {
+        transition: none;
+    }
+}
+
+/* Unified system activity log: keep undo state and action visible while wide audit rows scroll. */
+.system-activity-log-undo-guide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.7rem 0.85rem;
+    color: #334155;
+    background: #f8fafc;
+    border: 1px solid #dbe4ee;
+    border-radius: 0.5rem;
+    font-size: 0.82rem;
+}
+
+.system-activity-log-undo-guide-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-inline-end: 0.15rem;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.system-activity-log-table {
+    min-width: 1120px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.system-activity-log-table .system-activity-log-undo-state-col,
+.system-activity-log-table .system-activity-log-undo-action-col {
+    position: sticky;
+    background: #ffffff;
+}
+
+.system-activity-log-table .system-activity-log-undo-action-col {
+    inset-inline-end: 0;
+    z-index: 3;
+    min-width: 110px;
+    box-shadow: 8px 0 12px -12px rgba(15, 23, 42, 0.75);
+}
+
+.system-activity-log-table .system-activity-log-undo-state-col {
+    inset-inline-end: 110px;
+    z-index: 2;
+    min-width: 150px;
+}
+
+.system-activity-log-table thead .system-activity-log-undo-state-col,
+.system-activity-log-table thead .system-activity-log-undo-action-col {
+    z-index: 5;
+    background: var(--admin-ui-header-bg);
+}
+
+.system-activity-log-table.table-striped tbody tr:nth-of-type(odd) .system-activity-log-undo-state-col,
+.system-activity-log-table.table-striped tbody tr:nth-of-type(odd) .system-activity-log-undo-action-col {
+    background: var(--admin-ui-row-alt);
+}
+
+.system-activity-log-table.table-hover tbody tr:hover .system-activity-log-undo-state-col,
+.system-activity-log-table.table-hover tbody tr:hover .system-activity-log-undo-action-col {
+    background: #edf4ff;
+}
+
+@media (max-width: 767.98px) {
+    .system-activity-log-undo-guide {
+        align-items: flex-start;
+        font-size: 0.76rem;
+    }
+}
+
+/* Glassmorphic Credential Chips for sensitive inputs & credentials in tables */
+.glass-credential-chip {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(248, 250, 252, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #e2e8f0;
+    border-radius: 50rem;
+    padding: 0.3rem 0.85rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.glass-credential-chip:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.glass-chip-btn {
+    background: transparent;
+    border: none;
+    padding: 0 0.25rem;
+    color: #64748b;
+    font-size: 0.82rem;
+    transition: color 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.glass-chip-btn:hover {
+    color: #2563eb;
+    transform: scale(1.12);
+}
+
+.glass-chip-code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.86rem;
+    color: #1e293b;
+}
+
+/* Next-Gen Premium Occasion Cards (v2) */
+.occasion-card-v2 {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.occasion-card-v2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.12) !important;
+    border-color: #cbd5e1 !important;
+}
+
+.occasion-header-v2 {
+    padding: 0.75rem 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.occasion-header-v2::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.occasion-icon-v2 {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.occasion-header-v2 .form-check-input.occasion-toggle {
+    width: 2.3em !important;
+    height: 1.2em !important;
+    background-color: rgba(255, 255, 255, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.occasion-header-v2 .form-check-input.occasion-toggle:checked {
+    background-color: #10b981 !important;
+    border-color: #059669 !important;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6) !important;
+}
+
+.occasion-theme-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 50rem;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    display: inline-block;
+    letter-spacing: 0.02em;
+}
+
+.occasion-msg-v2 {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.occasion-pill-target {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.occasion-pill-date {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.occasion-pill-manual {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: 8px;
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.occasion-footer-v2 {
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+    padding: 0.45rem 0.85rem;
+}
+
+/* Disabled Card Styling */
+.occasion-card-v2-disabled {
+    opacity: 0.65 !important;
+    filter: grayscale(80%) !important;
+    background: #f8fafc !important;
+    border: 1px dashed #cbd5e1 !important;
+    box-shadow: none !important;
+}
+
+.occasion-card-v2-disabled .occasion-header-v2 {
+    background: #64748b !important;
+    color: #ffffff !important;
+}
+
+.occasion-card-v2-disabled:hover {
+    filter: grayscale(20%) !important;
+    opacity: 0.92 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+}

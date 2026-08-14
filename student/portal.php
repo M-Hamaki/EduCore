@@ -1,0 +1,1146 @@
+<?php
+// تحميل إعدادات الجلسة
+require_once '../includes/session_config.php';
+require_once '../classes/utilities.php';
+require_once '../config/database.php';
+require_once '../includes/notifications_helper.php';
+
+Utilities::validateSession('student');
+
+// الحصول على اسم الطالب
+$student_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'الطالب';
+
+// التحقق من صف الطالب والخدمات المتاحة له من خلال المرحلة الدراسية
+$database = new Database();
+$db = $database->getConnection();
+
+// طبقة الأعوام الدراسية: اقرأ فصل الطالب من التسجيلات السنوية للعام الحالي
+require_once __DIR__ . '/../classes/AcademicYear.php';
+require_once __DIR__ . '/../classes/StudentEnrollment.php';
+$currentAcademicYearId = AcademicYear::currentId($db);
+if ($currentAcademicYearId > 0) {
+    $enrolledClassId = StudentEnrollment::getStudentClass($db, (int)$_SESSION['user_id'], $currentAcademicYearId);
+    if ($enrolledClassId) {
+        $_SESSION['class_id'] = (int)$enrolledClassId;
+    }
+}
+
+// قائمة افتراضية فارغة (لا يجب عرض خدمات إذا لم تكن هناك مرحلة محددة)
+$available_services = [];
+$student_new_badges = [];
+$stage_not_assigned = false;
+$student_stage_name = '';
+
+// التحقق من وجود تخصيص فردي للخدمات لهذا الطالب
+$user_service_override = null;
+try {
+    $usq = $db->prepare("SELECT services, override_stage FROM user_services WHERE user_id = ? AND role = 'student'");
+    $usq->execute([$_SESSION['user_id']]);
+    $user_service_override = $usq->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Error checking student service override: " . $e->getMessage());
+}
+
+if (isset($_SESSION['class_id']) && !empty($_SESSION['class_id'])) {
+    $query = "SELECT s.services, s.new_badges, s.stage_name, s.stage_code
+              FROM classes c 
+              LEFT JOIN grades g ON c.grade_id = g.id 
+              LEFT JOIN stages s ON g.stage_id = s.id
+              WHERE c.id = ? AND s.status = 'active'";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$_SESSION['class_id']]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($result && !empty($result['services'])) {
+        // فك تشفير JSON للحصول على الخدمات المتاحة
+        $services_json = json_decode($result['services'], true);
+        if (is_array($services_json) && count($services_json) > 0) {
+            $available_services = $services_json;
+            $student_stage_name = $result['stage_name'];
+        }
+        // شارات "جديد"
+        if (!empty($result['new_badges'])) {
+            $badges_json = json_decode($result['new_badges'], true);
+            if (is_array($badges_json)) {
+                $student_new_badges = $badges_json;
+            }
+        }
+    } else {
+        // الصف غير مرتبط بمرحلة - نعرض تحذير
+        $stage_not_assigned = true;
+    }
+} else {
+    // الطالب غير مرتبط بفصل
+    $stage_not_assigned = true;
+}
+
+// إذا وُجد تخصيص فردي للخدمات، استخدمه بدلاً من إعدادات المرحلة
+if ($user_service_override && $user_service_override['override_stage']) {
+    $override_services = json_decode($user_service_override['services'], true);
+    if (is_array($override_services)) {
+        $available_services = $override_services;
+        $stage_not_assigned = false; // لديه خدمات مخصصة حتى لو لم يكن مرتبطاً بمرحلة
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البوابة الرئيسية - DMLS</title>
+
+    <!-- Prevent caching issues -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student-header-fixes.css">
+    <link rel="stylesheet" href="styles.css?v=1.2">
+    
+    <style>
+        /* تعديل الـ body للتوافق مع المكون الموحد */
+        body {
+            padding-top: 0 !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Dark Mode Support */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%);
+        }
+        
+        /* School Logo and Title Section */
+        .portal-logo-section {
+            text-align: center;
+            padding: 1.25rem 1rem 0.25rem;
+        }
+        
+        .portal-school-logo {
+            max-width: 140px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+            animation: fadeInDown 0.8s ease-out;
+            margin-bottom: 0.75rem;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Portal Title - Below Logo, Outside Card */
+        .portal-title-text {
+            text-align: center;
+            padding: 0 1rem 1rem;
+        }
+        
+        .portal-main-title-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e293b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 0 0.25rem 0;
+            letter-spacing: 1px;
+            filter: none; /* إبقاء الإيموجي بلونه الطبيعي */
+        }
+        
+        .portal-subtitle-text {
+            font-size: 1.15rem;
+            color: #334155;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Dark Mode for Title Text */
+        body.dark-mode .portal-main-title-text {
+            color: #f1f5f9;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .portal-subtitle-text {
+            color: #cbd5e1;
+        }
+        
+        /* Logout Button - Top Left */
+        .logout-button-top {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logout-button-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+            color: white;
+        }
+        
+        /* Dark Mode for Logout Button */
+        body.dark-mode .logout-button-top {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+        }
+        
+        body.dark-mode .logout-button-top:hover {
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
+        }
+        
+        /* Footer Styling */
+        .portal-footer {
+            background: #1e293b;
+            color: white;
+            padding: 1.5rem 0 1.5rem 0;
+            margin-top: 3rem;
+            border-top: 3px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .portal-footer .container {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        body.dark-mode .portal-footer {
+            background: #0f172a;
+            border-top: 3px solid rgba(100, 116, 139, 0.3);
+        }
+        
+        .portal-footer p {
+            margin: 0 0 1rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+        
+        body.dark-mode .portal-footer p {
+            color: #cbd5e1;
+        }
+        
+        /* Social Media Icons in Footer */
+        .social-media-footer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-footer-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-footer-icon.facebook {
+            background: linear-gradient(135deg, #1877f2 0%, #0c63d4 100%);
+        }
+        
+        .social-footer-icon.whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        }
+        
+        .social-footer-icon.instagram {
+            background: linear-gradient(135deg, #e1306c 0%, #c13584 50%, #833ab4 100%);
+        }
+        
+        .social-footer-icon:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-footer-icon.facebook:hover {
+            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.6);
+        }
+        
+        .social-footer-icon.whatsapp:hover {
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .social-footer-icon.instagram:hover {
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.6);
+        }
+        
+        /* Dark Mode for Social Icons */
+        body.dark-mode .social-footer-icon {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        
+        body.dark-mode .social-footer-icon:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Main Container with padding for logout button */
+        body {
+            padding-top: 0 !important;
+        }
+        
+        /* Welcome Card - Sleek, low-profile and compact */
+        .portal-welcome-card {
+            background: white;
+            color: #1e293b;
+            padding: 1.25rem 1.5rem;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.08),
+                0 2px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 0 auto 1.25rem;
+            max-width: 860px;
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid rgba(102, 126, 234, 0.25);
+        }
+        
+        .portal-welcome-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+        
+        .portal-welcome-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Dark Mode for Welcome Card */
+        body.dark-mode .portal-welcome-card {
+            background: #1e293b;
+            color: #f1f5f9;
+            border: 1px solid #334155;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portal-welcome-title {
+            font-size: 1.35rem;
+            color: #1e293b;
+            margin: 0 0 0.25rem 0;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .portal-welcome-icon {
+            margin-left: 0.4rem;
+            font-size: 1.35rem;
+            color: #FFC107;
+            animation: wave 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3));
+        }
+        
+        .portal-welcome-card:hover .portal-welcome-icon {
+            transform: scale(1.1);
+            color: #FFB300;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+        
+        @keyframes newPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        .portal-student-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0 0 0.85rem 0;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.15);
+        }
+        
+        /* Dark Mode for Welcome Card Text */
+        body.dark-mode .portal-welcome-title {
+            color: #f1f5f9;
+        }
+        
+        body.dark-mode .portal-welcome-icon {
+            color: #FFC107;
+            filter: drop-shadow(0 2px 6px rgba(255, 193, 7, 0.4));
+        }
+        
+        body.dark-mode .portal-welcome-card:hover .portal-welcome-icon {
+            color: #FFD54F;
+        }
+        
+        body.dark-mode .portal-student-name {
+            color: #f1f5f9;
+            border-bottom-color: rgba(96, 165, 250, 0.25);
+        }
+        
+        .student-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.85rem;
+            margin-top: 0;
+        }
+        
+        .student-info-item {
+            text-align: center;
+            padding: 0.75rem 0.65rem;
+            background: rgba(102, 126, 234, 0.04);
+            border-radius: 10px;
+            border: 1px solid rgba(102, 126, 234, 0.08);
+            transition: none;
+        }
+        
+        .student-info-item > i {
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+            color: #667eea;
+            transition: none;
+        }
+        
+        .student-info-label {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        
+        .student-info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1e293b;
+            word-break: break-all;
+        }
+        
+        .value-with-copy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            flex-direction: column;
+        }
+        
+        .value-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            direction: ltr;
+        }
+        
+        .portal-password-input {
+            font-size: 1.15rem !important;
+            font-weight: 600 !important;
+            color: #1e293b !important;
+            background: transparent !important;
+            border: none !important;
+            text-align: center !important;
+            outline: none !important;
+            width: 100% !important;
+            max-width: 180px !important;
+            padding: 0 !important;
+            margin-bottom: 0.1rem !important;
+            box-shadow: none !important;
+            letter-spacing: 1px;
+            direction: ltr;
+        }
+        
+        body.dark-mode .portal-password-input {
+            color: #f1f5f9 !important;
+        }
+        
+        .portal-password-actions {
+            display: flex;
+            gap: 0.4rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .copy-btn {
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+            padding: 0.28rem 0.65rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            font-weight: 600;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        
+        .copy-btn:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .copy-btn.copied {
+            background: #ecfdf5;
+            color: #059669;
+            border-color: #a7f3d0;
+            box-shadow: 0 1px 3px rgba(5, 150, 105, 0.1);
+        }
+        
+        .copy-btn.copied:hover {
+            background: #059669;
+            color: #ffffff;
+            border-color: #059669;
+        }
+        
+        .copy-btn i {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 0.78rem !important;
+            line-height: 1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            vertical-align: middle !important;
+            color: inherit !important;
+        }
+        
+        .copy-btn-text {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.78rem;
+            line-height: 1;
+            color: inherit;
+        }
+        
+        /* Dark Mode for Student Info */
+        body.dark-mode .student-info-item {
+            background: rgba(96, 165, 250, 0.1);
+        }
+        
+        body.dark-mode .value-text {
+            color: #f1f5f9;
+        }
+        
+        body.dark-mode .copy-btn {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border-color: rgba(96, 165, 250, 0.3);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode .copy-btn:hover {
+            background: #3b82f6;
+            color: #ffffff;
+            border-color: #3b82f6;
+            box-shadow: 0 3px 8px rgba(59, 130, 246, 0.35);
+        }
+        
+        body.dark-mode .copy-btn.copied {
+            background: #10b981;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        }
+        
+        body.dark-mode .copy-btn.copied:hover {
+            background: #059669;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4);
+        }
+        
+        body.dark-mode .student-info-item > i {
+            color: #60a5fa;
+        }
+        
+        body.dark-mode .student-info-label {
+            color: #94a3b8;
+        }
+        
+        body.dark-mode .student-info-value {
+            color: #f1f5f9;
+        }
+        
+        /* Adjust container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 1.25rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .nav-grid {
+            margin-top: 0 !important;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .portal-school-logo {
+                max-width: 80px;
+                margin-bottom: 0.25rem;
+            }
+            
+            .portal-logo-section {
+                padding: 0.5rem 1rem 0.15rem;
+            }
+            
+            .portal-title-text {
+                padding: 0 1rem 0.4rem;
+            }
+            
+            .portal-main-title-text {
+                font-size: 1.35rem;
+                margin-bottom: 0.1rem;
+            }
+            
+            .portal-subtitle-text {
+                font-size: 0.9rem;
+            }
+            
+            .logout-button-top {
+                padding: 6px 12px;
+                font-size: 0.78rem;
+                border-radius: 8px;
+                top: 10px;
+                left: 10px;
+            }
+            
+            .portal-welcome-card {
+                margin: 0 auto 0.75rem;
+                padding: 0.75rem 0.65rem;
+                border-radius: 12px;
+            }
+            
+            .portal-welcome-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.15rem;
+            }
+            
+            .portal-welcome-icon {
+                font-size: 1.1rem;
+            }
+            
+            .portal-student-name {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.4rem;
+            }
+            
+            .student-info-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.45rem;
+            }
+            
+            .student-info-item {
+                padding: 0.45rem 0.35rem;
+                border-radius: 8px;
+                min-width: 0;
+            }
+            
+            .student-info-item:nth-child(3):last-child {
+                grid-column: 1 / -1;
+            }
+            
+            .student-info-item > i {
+                font-size: 1.15rem;
+                margin-bottom: 0.15rem;
+            }
+            
+            .student-info-label {
+                font-size: 0.72rem;
+                margin-bottom: 0.15rem;
+                color: #64748b;
+                font-weight: 600;
+            }
+            
+            .value-with-copy {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.25rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .value-text {
+                font-size: 0.9rem;
+            }
+            
+            .portal-password-input {
+                text-align: center !important;
+                margin-bottom: 0 !important;
+                font-size: 0.9rem !important;
+                width: 100% !important;
+                max-width: 110px !important;
+            }
+            
+            .portal-password-actions {
+                margin-top: 0.1rem !important;
+                display: flex;
+                gap: 0.25rem;
+                justify-content: center;
+            }
+            
+            .copy-btn {
+                padding: 0.2rem 0.45rem;
+                font-size: 0.7rem;
+                gap: 0.25rem;
+                border-radius: 6px;
+                white-space: nowrap;
+            }
+            
+            .copy-btn i {
+                font-size: 0.7rem !important;
+            }
+            
+            .copy-btn-text {
+                font-size: 0.7rem;
+            }
+            
+            .student-info-value {
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                margin: 0 auto 0.75rem;
+                padding: 0 0.5rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+                gap: 0.65rem;
+            }
+            
+            .nav-button {
+                padding: 1.1rem 0.85rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portal-school-logo {
+                max-width: 75px;
+            }
+            
+            .portal-main-title-text {
+                font-size: 1.2rem;
+            }
+            
+            .portal-subtitle-text {
+                font-size: 0.82rem;
+            }
+            
+            .portal-welcome-card {
+                padding: 0.6rem 0.5rem;
+            }
+            
+            .student-info-grid {
+                gap: 0.35rem;
+            }
+            
+            .student-info-item {
+                padding: 0.4rem 0.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Logout Button - Top Left -->
+    <a href="../logout.php" class="logout-button-top">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>تسجيل الخروج</span>
+    </a>
+
+    <!-- School Logo -->
+    <div class="portal-logo-section">
+        <?php if (!function_exists('get_school_logo')) { require_once __DIR__ . '/../includes/template_helper.php'; } ?>
+        <img src="<?php echo get_school_logo('../'); ?>" alt="شعار المدرسة" class="portal-school-logo">
+    </div>
+
+    <!-- Portal Title - Below Logo -->
+    <div class="portal-title-text">
+        <h1 class="portal-main-title-text">🎓 بوابة التعلم الرقمي</h1>
+    </div>
+
+    <?php
+    // Get full student details
+    require_once '../config/database.php';
+    require_once '../classes/user.php';
+    
+    $database = new Database();
+    $db = $database->getConnection();
+    
+    $user = new User($db);
+    $user->id = $_SESSION['user_id'];
+    $user->readOne();
+    
+    // Get class name
+    $class_name = 'غير مسند لفصل';
+    if ($user->class_id) {
+        $query = "SELECT name FROM classes WHERE id = ?";
+        $stmt_class = $db->prepare($query);
+        $stmt_class->bindParam(1, $user->class_id);
+        $stmt_class->execute();
+        $class_row = $stmt_class->fetch(PDO::FETCH_ASSOC);
+        if ($class_row) {
+            $class_name = $class_row['name'];
+        }
+    }
+    ?>
+
+    <div class="container">
+        <!-- Welcome Card with Student Info -->
+        <div class="portal-welcome-card">
+            <h2 class="portal-welcome-title">
+                <i class="fas fa-hand-sparkles portal-welcome-icon"></i>
+                مرحباً بك
+            </h2>
+            <h3 class="portal-student-name"><?php echo htmlspecialchars($_SESSION['name']); ?></h3>
+            
+            <div class="student-info-grid">
+                <div class="student-info-item">
+                    <i class="fas fa-user-graduate" style="color: #3b82f6;"></i>
+                    <div class="student-info-label">اسم المستخدم</div>
+                    <div class="value-with-copy">
+                        <span class="value-text" id="username-text"><?php echo htmlspecialchars($user->username); ?></span>
+                        <button class="copy-btn" onclick="copyToClipboard('username-text', this)" title="انقر لنسخ اسم المستخدم">
+                            <i class="fas fa-clipboard"></i>
+                            <span class="copy-btn-text">نسخ</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="student-info-item">
+                    <i class="fas fa-key" style="color: #f59e0b;"></i>
+                    <div class="student-info-label">كلمة المرور</div>
+                    <div class="value-with-copy">
+                        <?php 
+                        $plain_password = $user->password ?? ''; 
+                        $masked_password = str_repeat('*', max(6, mb_strlen($plain_password)));
+                        ?>
+                        <input type="text" id="portal-password" class="portal-password-input" value="<?php echo htmlspecialchars($masked_password); ?>" data-password="<?php echo htmlspecialchars($plain_password); ?>" readonly>
+                        <div class="portal-password-actions">
+                            <button class="copy-btn" onclick="togglePassword('portal-password', this)" title="عرض/إخفاء كلمة المرور">
+                                <i class="fas fa-eye"></i>
+                                <span class="copy-btn-text">عرض</span>
+                            </button>
+                            <button class="copy-btn" onclick="copyPasswordToClipboard('portal-password', this)" title="نسخ كلمة المرور">
+                                <i class="fas fa-clipboard"></i>
+                                <span class="copy-btn-text">نسخ</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-info-item">
+                    <i class="fas fa-school" style="color: #10b981;"></i>
+                    <div class="student-info-label">الفصل</div>
+                    <div class="student-info-value"><?php echo htmlspecialchars($class_name); ?></div>
+                </div>
+            </div>
+            
+            <!-- ملحوظة -->
+            <div class="portal-note">
+                <i class="fas fa-angle-double-down"></i>
+                <p>انتقل للأسفل لتصفح الخدمات المتاحة</p>
+                <i class="fas fa-angle-double-down"></i>
+            </div>
+        </div>
+
+        <!-- Occasion Banners & Notifications -->
+        <?php
+        // Get active occasions for students
+        $activeOccasions = getActiveOccasions($db, 'student');
+        echo renderOccasionBanners($activeOccasions);
+        
+        // Get student notifications from admin
+        $studentNotifications = getStudentNotifications($db, $_SESSION['user_id'], $_SESSION['class_id'] ?? null);
+        echo renderPortalNotifications($studentNotifications);
+        ?>
+
+        <?php if ($stage_not_assigned): ?>
+        <!-- رسالة تحذير: لم يتم تعيين مرحلة دراسية -->
+        <div class="alert alert-warning" style="text-align: center; margin: 1.5rem auto; max-width: 800px; padding: 1.5rem; border-radius: 14px; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #78350f; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);">
+            <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; margin-bottom: 0.75rem;"></i>
+            <h4 style="margin-bottom: 0.75rem; font-weight: 700;">تنبيه: لم يتم تعيين مرحلة دراسية لحسابك</h4>
+            <p style="font-size: 1.05rem; margin-bottom: 0;">
+                لم يتم ربط صفك الدراسي بمرحلة تعليمية. يرجى التواصل مع الإدارة لتحديث بياناتك.<br>
+                <strong>الخدمات المتاحة ستظهر بعد تعيين المرحلة الدراسية.</strong>
+            </p>
+        </div>
+        <?php endif; ?>
+        
+        <?php if (!$stage_not_assigned && count($available_services) === 0): ?>
+        <!-- رسالة: لا توجد خدمات متاحة للمرحلة -->
+        <div class="alert alert-info" style="text-align: center; margin: 1.5rem auto; max-width: 800px; padding: 1.5rem; border-radius: 14px; background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); color: #1e3a8a; box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);">
+            <i class="fas fa-info-circle" style="font-size: 2.5rem; margin-bottom: 0.75rem;"></i>
+            <h4 style="margin-bottom: 0.75rem; font-weight: 700;">لا توجد خدمات متاحة حالياً</h4>
+            <p style="font-size: 1.05rem; margin-bottom: 0;">
+                لم يتم تفعيل أي خدمات لمرحلتك الدراسية حالياً.
+                <?php if (!empty($student_stage_name)): ?>
+                <br><strong>مرحلتك: <?php echo htmlspecialchars($student_stage_name); ?></strong>
+                <?php endif; ?>
+            </p>
+        </div>
+        <?php endif; ?>
+        
+        <div class="nav-grid">
+            
+            <?php if (in_array('rewards', $available_services)): ?>
+            <!-- رابط نظام المكافآت - يوجه لصفحة المكافآت الخاصة بالطالب -->
+            <a href="index.php" class="nav-button"<?php if (in_array('rewards', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('rewards', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-award"></i>
+                <h3>Reward Points System</h3>
+                <p>نظام المكافآت والتقييمات</p>
+            </a>
+            <?php endif; ?>
+
+            <?php if (in_array('reports', $available_services)): ?>
+            <a href="reports/published_reports.php" class="nav-button"<?php if (in_array('reports', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('reports', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-chart-line"></i>
+                <h3>Grade Reports</h3>
+                <p>تقارير الدرجات المنشورة</p>
+            </a>
+            <?php endif; ?>
+
+            <?php if (in_array('materials', $available_services)): ?>
+            <a href="materials/" class="nav-button"<?php if (in_array('materials', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('materials', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-folder-open"></i>
+                <h3>Materials</h3>
+                <p>المواد والموارد التعليمية</p>
+            </a>
+            <?php endif; ?>
+
+            <?php if (in_array('ebooks', $available_services)): ?>
+            <a href="ebook/" class="nav-button"<?php if (in_array('ebooks', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('ebooks', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-book"></i>
+                <h3>E-Books</h3>
+                <p>الكتب الإلكترونية</p>
+            </a>
+            <?php endif; ?>
+
+            <?php if (in_array('results', $available_services)): ?>
+            <a href="https://dmls.edu.eg/results" class="nav-button" target="_blank"<?php if (in_array('results', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('results', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-poll"></i>
+                <h3>Results</h3>
+                <p>نتيجة امتحانات العام الدراسي</p>
+            </a>
+            <?php endif; ?>
+
+            <?php if (in_array('timetable', $available_services)): ?>
+            <a href="timetable.php" class="nav-button"<?php if (in_array('timetable', $student_new_badges)): ?> style="position: relative;"<?php endif; ?>>
+                <?php if (in_array('timetable', $student_new_badges)): ?>
+                <span style="position: absolute; top: 8px; right: 8px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4); animation: newPulse 2s infinite; z-index: 2;">جديد 🎓</span>
+                <?php endif; ?>
+                <i class="fas fa-calendar-alt"></i>
+                <h3>الجدول المدرسي</h3>
+                <p>جدول الحصص الأسبوعي</p>
+            </a>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+        <div class="container text-center">
+            <p style="margin: 0.5rem 0; line-height: 1.6;">
+                <strong>جميع الحقوق محفوظة © <?php echo date('Y'); ?></strong>
+            </p>
+            <p style="margin: 0.5rem 0; line-height: 1.6;">
+                Delta Modern Language Schools<br>
+                Computer Department
+            </p>
+            
+            <!-- Social Media Icons in Footer -->
+            <div class="social-media-footer">
+                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook" title="صفحتنا على الفيسبوك">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp" title="الدعم الفني - واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram" title="حسابنا على انستجرام">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js?v=1.1"></script>
+    
+    <script>
+        // Toggle Password Visibility
+        function togglePassword(inputId, button) {
+            const passwordInput = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            const textSpan = button.querySelector('.copy-btn-text');
+            const realPassword = passwordInput.getAttribute('data-password');
+
+            if (!realPassword) {
+                alert('كلمة المرور مشفرة بنظام أمان متقدم وغير قابلة للقراءة.');
+                return;
+            }
+
+            if (passwordInput.value !== realPassword) {
+                passwordInput.value = realPassword;
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+                if (textSpan) textSpan.textContent = 'إخفاء';
+            } else {
+                const maskedVal = '*'.repeat(Math.max(6, realPassword.length));
+                passwordInput.value = maskedVal;
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+                if (textSpan) textSpan.textContent = 'عرض';
+            }
+        }
+
+        // Copy Password to Clipboard Function
+        function copyPasswordToClipboard(inputId, button) {
+            const passwordInput = document.getElementById(inputId);
+            const realPassword = passwordInput.getAttribute('data-password');
+            
+            if (!realPassword) {
+                alert('لا يمكن نسخ كلمة المرور لأنها مشفرة بنظام أمان متقدم.');
+                return;
+            }
+            
+            const tempInput = document.createElement('textarea');
+            tempInput.value = realPassword;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                document.execCommand('copy');
+                
+                // Visual feedback
+                const originalHTML = button.innerHTML;
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-check-circle"></i><span class="copy-btn-text">تم النسخ ✓</span>';
+                
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = originalHTML;
+                }, 2500);
+                
+            } catch (err) {
+                console.error('فشل النسخ:', err);
+                alert('حدث خطأ أثناء النسخ. يرجى المحاولة مرة أخرى.');
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        // Copy to Clipboard Function
+        function copyToClipboard(elementId, button) {
+            const textElement = document.getElementById(elementId);
+            const textToCopy = textElement.textContent;
+            
+            // Create a temporary textarea element
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            
+            // Select and copy the text
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                document.execCommand('copy');
+                
+                // Visual feedback - Change button appearance
+                const originalHTML = button.innerHTML;
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-check-circle"></i><span class="copy-btn-text">تم النسخ ✓</span>';
+                
+                // Reset button after 2.5 seconds
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = originalHTML;
+                }, 2500);
+                
+            } catch (err) {
+                console.error('فشل النسخ:', err);
+                alert('حدث خطأ أثناء النسخ. يرجى المحاولة مرة أخرى.');
+            }
+            
+            // Remove the temporary element
+            document.body.removeChild(tempInput);
+        }
+    </script>
+    <?php echo getPortalNotificationsAssets('../api/dismiss_notification.php'); ?>
+</body>
+
+</html>

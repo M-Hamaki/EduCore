@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفصل الدراسي الأول - DMLS</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Portal Design CSS -->
+    <link rel="stylesheet" href="../materials-portal-style.css">
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9M7QMDNQK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N9M7QMDNQK');
+    </script>
+</head>
+
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header with Logo -->
+        <header class="materials-header">
+            <a href="../../../index.php?skip_intro=1">
+                <img src="../../../assets/img/logo.png" alt="DMLS Logo" class="materials-logo" loading="lazy">
+            </a>
+            <h1 class="materials-title">الفصل الدراسي الأول</h1>
+            <p class="materials-subtitle">مركز التحميلات</p>
+        </header>
+
+        <!-- Materials Card -->
+        <div class="materials-card">
+            <div class="card-header-custom">
+                <h2><i class="fas fa-school"></i> اختر المرحلة الدراسية</h2>
+            </div>
+
+            <!-- Stage Selector -->
+            <div style="margin-bottom: 2rem;">
+                <select id="stageSelect" onchange="showClassTable()"
+                    style="width: 100%; padding: 1rem; font-size: 1.1rem; border-radius: 10px; border: 2px solid #667eea; background: white; color: #1e293b; cursor: pointer; font-family: 'Tajawal', sans-serif;">
+                    <option value="">اختر المرحلة</option>
+                    <option value="kg">🎨 مرحلة رياض الأطفال</option>
+                    <option value="prim">📚 المرحلة الإبتدائية</option>
+                    <option value="prep">🎓 المرحلة الإعدادية</option>
+                    <option value="sec">🏆 المرحلة الثانوية</option>
+                </select>
+            </div>
+
+            <!-- Classes Table -->
+            <div id="classTable" style="display: none;">
+                <div class="table-container">
+                    <table>
+                        <tbody id="classButtons">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                <a href="../index.html" class="back-button">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للصفحة السابقة
+                </a>
+                <a href="../../../index.php?skip_intro=1" class="back-button">
+                    <i class="fas fa-home"></i>
+                    العودة للبوابة الرئيسية
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="materials-footer">
+            <p>جميع الحقوق محفوظة ©
+                <script>document.write(new Date().getFullYear())</script><br> Delta Modern Language Schools<br>
+                Computer Department
+            </p>
+
+            <!-- Social Media Icons in Footer -->
+            <div class="social-media-footer">
+                <a href="https://www.facebook.com/DELTA.MLS" target="_blank" class="social-footer-icon facebook"
+                    title="صفحتنا على الفيسبوك">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/201289999818" target="_blank" class="social-footer-icon whatsapp"
+                    title="الدعم الفني - واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/delta.mls" target="_blank" class="social-footer-icon instagram"
+                    title="حسابنا على انستجرام">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+
+    <!-- JavaScript -->
+    <script src="../materials-portal-theme.js"></script>
+
+    <script>
+        function showClassTable() {
+            var stage = document.getElementById('stageSelect').value;
+            var table = document.getElementById('classTable');
+            var classButtons = document.getElementById('classButtons');
+
+            table.style.display = 'none';
+            classButtons.innerHTML = '';
+
+            if (stage === 'kg') {
+                table.style.display = 'block';
+                classButtons.innerHTML = `
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=kg1&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الأول رياض الأطفال
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=kg2&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثاني رياض الأطفال
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            } else if (stage === 'prim') {
+                table.style.display = 'block';
+                classButtons.innerHTML = `
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim1&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الأول الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim2&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثاني الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim3&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثالث الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim4&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الرابع الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim5&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الخامس الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prim6&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف السادس الإبتدائي
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            } else if (stage === 'prep') {
+                table.style.display = 'block';
+                classButtons.innerHTML = `
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prep1&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الأول الإعدادي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prep2&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثاني الإعدادي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=prep3&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثالث الإعدادي
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            } else if (stage === 'sec') {
+                table.style.display = 'block';
+                classButtons.innerHTML = `
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=sec1&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الأول الثانوي
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding: 1.2rem;">
+                            <a href="../view.php?grade=sec2&term=term1" class="download-btn" style="display: inline-block; width: 80%; text-decoration: none;">
+                                <i class="fas fa-book"></i> الصف الثاني الثانوي
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+    </script>
+</body>
+
+</html>

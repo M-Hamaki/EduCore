@@ -1,0 +1,716 @@
+/* ====================================
+   MATERIALS SYSTEM - Portal Design
+   نفس تصميم البوابة مع Dark Mode
+   Delta Modern Language Schools
+   ====================================
+*/
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+    direction: rtl;
+    text-align: right;
+    background: #ffffff !important;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    transition: background 0.3s ease;
+}
+
+html {
+    background: #ffffff !important;
+    transition: background 0.3s ease;
+}
+
+/* ====================================
+   DARK MODE
+   ====================================
+*/
+body.dark-mode {
+    background: #1a1a2e !important;
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode {
+    background: #1a1a2e !important;
+}
+
+/* ====================================
+   PARTICLES BACKGROUND
+   ====================================
+*/
+#particles-js {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    background: #ffffff !important;
+    pointer-events: none !important;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode #particles-js {
+    background: #1a1a2e !important;
+}
+
+/* ====================================
+   MAIN CONTAINER
+   ====================================
+*/
+.main-container,
+.materials-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ====================================
+   HEADER WITH LOGO
+   ====================================
+*/
+.materials-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: transparent !important;
+}
+
+.materials-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    animation: fadeInDown 0.8s ease-out;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.materials-logo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.materials-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+.materials-subtitle {
+    font-size: 1.4rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Dark Mode for Title */
+body.dark-mode .materials-title {
+    background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .materials-subtitle {
+    color: #60a5fa;
+}
+
+/* ====================================
+   MATERIALS CARD
+   ====================================
+*/
+.materials-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow:
+        0 15px 50px rgba(102, 126, 234, 0.15),
+        0 8px 20px rgba(118, 75, 162, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.materials-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 60px rgba(102, 126, 234, 0.25),
+        0 12px 30px rgba(118, 75, 162, 0.2);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+/* Dark Mode Card */
+body.dark-mode .materials-card {
+    background: rgba(30, 41, 59, 0.95) !important;
+    backdrop-filter: blur(10px);
+    color: #f1f5f9 !important;
+    border: 2px solid rgba(96, 165, 250, 0.3) !important;
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.6),
+        0 8px 20px rgba(96, 165, 250, 0.1) !important;
+}
+
+body.dark-mode .materials-card:hover {
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 12px 30px rgba(96, 165, 250, 0.2) !important;
+    border-color: rgba(96, 165, 250, 0.5) !important;
+}
+
+/* ====================================
+   CARD HEADER
+   ====================================
+*/
+.card-header-custom {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.card-header-custom h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Dark Mode Card Header */
+body.dark-mode .card-header-custom {
+    background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+}
+
+/* ====================================
+   TABLE STYLING
+   ====================================
+*/
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+thead th {
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+    transform: translateX(-5px);
+}
+
+tbody td {
+    padding: 1.2rem;
+    text-align: center;
+    color: #1e293b;
+    font-size: 1.05rem;
+}
+
+/* Material Name Styling */
+tbody td.material-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #667eea;
+    letter-spacing: 0.5px;
+}
+
+/* Dark Mode Table */
+body.dark-mode table {
+    background: #0f172a !important;
+}
+
+body.dark-mode thead {
+    background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 100%);
+}
+
+body.dark-mode tbody tr {
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode tbody tr:hover {
+    background: #1e293b;
+}
+
+body.dark-mode tbody td {
+    color: #cbd5e1;
+}
+
+body.dark-mode tbody td.material-name {
+    color: #60a5fa;
+    font-weight: 700;
+}
+
+/* ====================================
+   DOWNLOAD BUTTON
+   ====================================
+*/
+.download-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+    font-weight: 600;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
+
+.download-btn i {
+    margin-left: 0.5rem;
+}
+
+/* Dark Mode Download Button */
+body.dark-mode .download-btn {
+    background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 10px rgba(96, 165, 250, 0.3);
+}
+
+body.dark-mode .download-btn:hover {
+    box-shadow: 0 6px 15px rgba(96, 165, 250, 0.4);
+}
+
+/* ====================================
+   DISABLED BUTTON
+   ====================================
+*/
+.download-btn:disabled,
+button.download-btn:disabled {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    color: #e2e8f0 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: 0 2px 5px rgba(148, 163, 184, 0.3);
+    position: relative;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border: none;
+}
+
+.download-btn:disabled:hover,
+button.download-btn:disabled:hover {
+    transform: none;
+    box-shadow: 0 2px 5px rgba(148, 163, 184, 0.3);
+}
+
+.download-btn:disabled::after,
+button.download-btn:disabled::after {
+    content: '🔒';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+}
+
+body.dark-mode .download-btn:disabled,
+body.dark-mode button.download-btn:disabled {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+    color: #94a3b8 !important;
+    box-shadow: 0 2px 5px rgba(71, 85, 105, 0.4);
+}
+
+body.dark-mode .download-btn:disabled:hover,
+body.dark-mode button.download-btn:disabled:hover {
+    box-shadow: 0 2px 5px rgba(71, 85, 105, 0.4);
+}
+
+/* ====================================
+   COMING SOON BADGE
+   ====================================
+*/
+.coming-soon-badge {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #78350f !important;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3);
+    transition: all 0.3s ease;
+}
+
+.coming-soon-badge i {
+    margin-left: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+body.dark-mode .coming-soon-badge {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #78350f !important;
+    box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
+}
+
+/* ====================================
+   BACK BUTTON - نفس تصميم نظام المكافآت
+   ====================================
+*/
+.back-button {
+    background: white;
+    color: #667eea;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: 2px solid #667eea;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background: #667eea;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.back-button i {
+    margin-left: 0;
+}
+
+/* Dark Mode Back Button */
+body.dark-mode .back-button {
+    background: #334155;
+    color: #818cf8;
+    border-color: #818cf8;
+}
+
+body.dark-mode .back-button:hover {
+    background: #818cf8;
+    color: #1e293b !important;
+}
+
+/* ====================================
+   THEME TOGGLE BUTTON
+   ====================================
+*/
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 1.3rem;
+    color: #667eea;
+}
+
+body.dark-mode .theme-toggle {
+    background: #334155;
+    color: #fbbf24;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+    box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+}
+
+/* ====================================
+   FOOTER
+   ====================================
+*/
+.materials-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+body.dark-mode .materials-footer {
+    color: #94a3b8;
+}
+
+.materials-footer p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* Social Media Icons in Footer */
+.social-media-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-footer-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-footer-icon.facebook {
+    background: linear-gradient(135deg, #1877f2 0%, #0d5dbf 100%);
+}
+
+.social-footer-icon.whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.social-footer-icon.instagram {
+    background: linear-gradient(135deg, #e1306c 0%, #c13584 50%, #833ab4 100%);
+}
+
+.social-footer-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-footer-icon.facebook:hover {
+    box-shadow: 0 6px 15px rgba(24, 119, 242, 0.5);
+}
+
+.social-footer-icon.whatsapp:hover {
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+.social-footer-icon.instagram:hover {
+    box-shadow: 0 6px 15px rgba(225, 48, 108, 0.5);
+}
+
+body.dark-mode .social-footer-icon {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .social-footer-icon:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ====================================
+*/
+@media (max-width: 768px) {
+    .materials-title {
+        font-size: 2rem;
+    }
+
+    .materials-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .materials-card {
+        padding: 1.5rem;
+    }
+
+    .card-header-custom h2 {
+        font-size: 1.4rem;
+    }
+
+    thead th,
+    tbody td {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .materials-logo {
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .materials-title {
+        font-size: 1.5rem;
+    }
+
+    .materials-subtitle {
+        font-size: 1rem;
+    }
+
+    .materials-card {
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .card-header-custom {
+        padding: 1rem;
+    }
+
+    .card-header-custom h2 {
+        font-size: 1.2rem;
+    }
+
+    thead th,
+    tbody td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .download-btn,
+    .back-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Force same size for all buttons in mobile */
+    .download-btn[style*="padding: 1rem 3rem"] {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    button.download-btn[style*="padding: 1rem 3rem"] {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ====================================
+   ANIMATIONS
+   ====================================
+*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.materials-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ====================================
+   SELECT DROPDOWN STYLING
+   ====================================
+*/
+select {
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+body.dark-mode select {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #60a5fa !important;
+}
+
+body.dark-mode select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+body.dark-mode select option {
+    background: #1e293b;
+    color: #f1f5f9;
+}

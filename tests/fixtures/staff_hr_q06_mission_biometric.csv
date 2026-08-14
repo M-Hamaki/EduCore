@@ -1,0 +1,5 @@
+biometric_identity,log_datetime,log_type,device_id
+DEMO-BIO-0008,2026-08-30 07:30:00,in,2099
+DEMO-BIO-0008,2026-08-30 10:00:00,out,2099
+DEMO-BIO-0008,2026-08-30 12:00:00,in,2099
+DEMO-BIO-0008,2026-08-30 14:30:00,out,2099

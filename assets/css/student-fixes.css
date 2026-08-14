@@ -1,0 +1,327 @@
+/* CSS fixes specifically for student page logo positioning - Updated */
+
+/* Override any conflicting styles - لا يوجد شريط علوي بعد الآن */
+body.student-page {
+    padding-top: 0 !important;
+}
+
+/* Logo section spacing from navbar - removed (no navbar anymore) */
+
+/* Student logo container - compact */
+.container .row .col-md-6.text-center {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-top: 0 !important;
+}
+
+/* Logo image size */
+.container .row .col-md-6.text-center img {
+    max-height: 80px !important;
+}
+
+/* Main content area - less spacing */
+.container[style*="margin-top"] {
+    margin-top: 1rem !important;
+    padding-top: 0.5rem !important;
+}
+
+/* Additional spacing for student profile */
+.student-profile {
+    margin-top: 0.5rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .container .row .col-md-6.text-center img {
+        max-height: 60px !important;
+    }
+
+    .navbar.fixed-top+.container {
+        margin-top: 5px !important;
+        padding-top: 5px !important;
+    }
+}
+
+/* تصميم أنيق ونظيف للبطاقات - إصدار مبسط */
+.student-page .points-card {
+    background: #ffffff !important;
+    border: 1px solid #e8ecef !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* تأثير hover بسيط وأنيق */
+.student-page .points-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+    border-color: #d0d7de !important;
+}
+
+/* خط جانبي ملون للبطاقات */
+.student-page .points-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6c757d, #adb5bd);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.student-page .points-card:hover::before {
+    width: 6px;
+    opacity: 1;
+}
+
+/* تصميم خاص للبطاقة الرئيسية */
+.student-page .points-card.bg-light {
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%) !important;
+    border: 2px solid #e9ecef !important;
+}
+
+.student-page .points-card.bg-light::before {
+    background: linear-gradient(to bottom, #0d6efd, #6610f2) !important;
+}
+
+/* بطاقة النقاط الإيجابية */
+.student-page .points-card.bg-success.bg-opacity-10 {
+    background: rgba(25, 135, 84, 0.03) !important;
+    border-color: rgba(25, 135, 84, 0.2) !important;
+}
+
+.student-page .points-card.bg-success.bg-opacity-10::before {
+    background: linear-gradient(to bottom, #198754, #20c997) !important;
+}
+
+.student-page .points-card.bg-success.bg-opacity-10:hover {
+    background: rgba(25, 135, 84, 0.08) !important;
+}
+
+/* بطاقة النقاط السلبية */
+.student-page .points-card.bg-danger.bg-opacity-10 {
+    background: rgba(220, 53, 69, 0.03) !important;
+    border-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+.student-page .points-card.bg-danger.bg-opacity-10::before {
+    background: linear-gradient(to bottom, #dc3545, #fd7e14) !important;
+}
+
+.student-page .points-card.bg-danger.bg-opacity-10:hover {
+    background: rgba(220, 53, 69, 0.08) !important;
+}
+
+/* تحسين الأيقونات */
+.student-page .points-card i {
+    transition: all 0.3s ease !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.student-page .points-card:hover i {
+    transform: scale(1.05) !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+}
+
+/* تحسين النصوص */
+.student-page .points-card h3,
+.student-page .points-card h5 {
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* تحسين الشارات */
+.student-page .points-card .badge {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.8rem !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* تحسين شريط التقدم */
+.student-page .progress {
+    height: 10px !important;
+    border-radius: 6px !important;
+    background-color: #f1f3f4 !important;
+    overflow: hidden !important;
+}
+
+.student-page .progress-bar {
+    border-radius: 6px !important;
+    transition: width 0.6s ease !important;
+}
+
+/* تأثيرات للنصوص الصغيرة */
+.student-page .points-card .small,
+.student-page .points-card small {
+    color: #6c757d !important;
+    font-weight: 400 !important;
+}
+
+/* تحسين التباعد */
+.student-page .points-card {
+    padding: 1.25rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.student-page .points-card.p-2 {
+    padding: 1rem !important;
+}
+
+.student-page .points-card.p-3 {
+    padding: 1.5rem !important;
+}
+
+/* تحسين بطاقة بيانات الطالب الرئيسية */
+.student-page .profile-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border: 1px solid #e8ecef !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    padding: 2rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.student-page .profile-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0d6efd, #6610f2, #6f42c1);
+    border-radius: 0 8px 8px 0;
+}
+
+/* تحسين أيقونة الطالب الرئيسية */
+.student-page .profile-header .fa-user-graduate {
+    color: #0d6efd !important;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb) !important;
+    border-radius: 50% !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2) !important;
+    transition: all 0.3s ease !important;
+    border: 3px solid #ffffff !important;
+    position: relative !important;
+}
+
+.student-page .profile-header .fa-user-graduate::before {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.student-page .profile-header .fa-user-graduate:hover {
+    transform: scale(1.05) rotate(5deg) !important;
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3) !important;
+}
+
+/* تحسين اسم الطالب */
+.student-page .profile-header h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #2c3e50 !important;
+    margin-bottom: 1.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+}
+
+/* تحسين تفاصيل الطالب */
+.student-page .student-details {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(13, 110, 253, 0.1) !important;
+}
+
+.student-page .student-details p {
+    margin-bottom: 1rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    color: #495057 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    border-left: 4px solid transparent !important;
+}
+
+.student-page .student-details p:hover {
+    transform: translateX(5px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border-left-color: #0d6efd !important;
+}
+
+/* تحسين أيقونات تفاصيل الطالب */
+.student-page .student-details i.fa-school,
+.student-page .student-details i.fa-user {
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 6px !important;
+    margin-left: 12px !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.student-page .student-details i.fa-school {
+    background: linear-gradient(135deg, #e8f5e8, #d4edda) !important;
+    color: #198754 !important;
+}
+
+.student-page .student-details i.fa-user {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7) !important;
+    color: #fd7e14 !important;
+}
+
+.student-page .student-details p:hover i {
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+/* تحسين النصوص داخل التفاصيل */
+.student-page .student-details p span:not(.text-muted) {
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+.student-page .student-details p .text-muted {
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+/* تأثيرات تفاعلية إضافية */
+.student-page .profile-header:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .student-page .profile-header {
+        padding: 1.5rem !important;
+    }
+
+    .student-page .profile-header h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .student-page .profile-header .fa-user-graduate {
+        padding: 1rem !important;
+        font-size: 3rem !important;
+    }
+
+    .student-page .student-details {
+        padding: 1rem !important;
+    }
+}

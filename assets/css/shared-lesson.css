@@ -1,0 +1,203 @@
+.shared-lesson-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #eff6ff, #eef2ff);
+    color: #1e3a8a;
+}
+
+.shared-lesson-banner__text {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1.7;
+}
+
+.shared-lesson-banner__icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+}
+
+.shared-lesson-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.shared-lesson-export-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin: 1rem 0 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.shared-lesson-export-panel h2 {
+    margin: 0 0 0.35rem;
+    color: #0f172a;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.shared-lesson-export-panel p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.shared-lesson-export-panel__actions,
+.shared-tab-export__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.shared-lesson-export-status {
+    grid-column: 1 / -1;
+    min-height: 1.6rem;
+}
+
+.shared-tab-export {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.shared-tab-export__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+.shared-lesson-empty {
+    max-width: 680px;
+    margin: 8vh auto;
+    padding: 2.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.shared-lesson-empty i {
+    margin-bottom: 1rem;
+    color: #64748b;
+    font-size: 3.5rem;
+}
+
+.shared-lesson-exam-frame {
+    width: 100%;
+    min-height: 680px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.shared-lesson-download-card {
+    padding: 2rem;
+    border: 1px solid #fed7aa;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff7ed, #fffbeb);
+    text-align: center;
+}
+
+body.dark-mode .shared-lesson-banner {
+    border-color: #1e40af;
+    background: linear-gradient(135deg, #172554, #1e1b4b);
+    color: #dbeafe;
+}
+
+body.dark-mode .shared-lesson-download-card,
+body.dark-mode .shared-lesson-empty {
+    border-color: #334155;
+    background: #111827;
+    color: #e2e8f0;
+}
+
+body.dark-mode .shared-lesson-export-panel {
+    border-color: #334155;
+    background: #111827;
+    box-shadow: none;
+}
+
+body.dark-mode .shared-lesson-export-panel h2,
+body.dark-mode .shared-tab-export__label {
+    color: #e2e8f0;
+}
+
+body.dark-mode .shared-lesson-export-panel p {
+    color: #94a3b8;
+}
+
+body.dark-mode .shared-tab-export {
+    border-bottom-color: #334155;
+}
+
+@media (max-width: 767.98px) {
+    .shared-lesson-banner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .shared-lesson-export-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .shared-lesson-export-panel__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .shared-tab-export {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .shared-tab-export__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .shared-lesson-actions {
+        width: 100%;
+    }
+
+    .shared-lesson-actions .btn {
+        flex: 1 1 160px;
+    }
+
+    .shared-lesson-exam-frame {
+        min-height: 520px;
+    }
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}

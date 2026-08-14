@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMLS Portal</title>
+    <script src="https://res.cdn.office.net/teams-js/2.19.0/js/MicrosoftTeams.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            color: #1f2937;
+            background: #f8fafc;
+            font-family: Arial, Tahoma, sans-serif;
+        }
+        .status-card {
+            width: min(92vw, 420px);
+            padding: 32px;
+            border: 1px solid #dbe3ef;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 20px 55px rgba(30, 64, 175, 0.12);
+            text-align: center;
+        }
+        .spinner {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 18px;
+            border: 4px solid #dbeafe;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 800ms linear infinite;
+        }
+        h1 { margin: 0 0 8px; font-size: 20px; }
+        p { margin: 0; color: #64748b; font-size: 14px; line-height: 1.8; }
+        a { display: inline-block; margin-top: 18px; color: #1d4ed8; font-weight: 700; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.8s; } }
+    </style>
+</head>
+<body>
+    <main class="status-card" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <h1>جاري فتح بوابة المدرسة</h1>
+        <p id="statusText">يتم التحقق من حساب Microsoft المسجل في Teams…</p>
+        <a id="fallbackLink" href="../index.php?skip_intro=1&amp;from_teams=1" hidden>فتح بوابة تسجيل الدخول</a>
+    </main>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var statusText = document.getElementById('statusText');
+            var fallbackLink = document.getElementById('fallbackLink');
+            var fallbackUrl = '../index.php?skip_intro=1&from_teams=1';
+            var completed = false;
+            var automaticLoginTimeoutMs = 10000;
+
+            function withTimeout(promise, timeoutMs, onTimeout) {
+                var timeoutId;
+                var timeoutPromise = new Promise(function (_, reject) {
+                    timeoutId = window.setTimeout(function () {
+                        if (typeof onTimeout === 'function') onTimeout();
+                        reject(new Error('teams_sso_timeout'));
+                    }, timeoutMs);
+                });
+
+                return Promise.race([promise, timeoutPromise]).finally(function () {
+                    window.clearTimeout(timeoutId);
+                });
+            }
+
+            function goToFallback(message) {
+                if (completed) return;
+                completed = true;
+                statusText.textContent = message || 'سيتم فتح بوابة تسجيل الدخول لاستخدام الخيارات الأخرى.';
+                fallbackLink.hidden = false;
+                window.setTimeout(function () { window.location.replace(fallbackUrl); }, 500);
+            }
+
+            async function startAutomaticLogin() {
+                try {
+                    await withTimeout(microsoftTeams.app.initialize(), automaticLoginTimeoutMs);
+                    var token = await withTimeout(
+                        microsoftTeams.authentication.getAuthToken(),
+                        automaticLoginTimeoutMs
+                    );
+                    if (!token) {
+                        goToFallback('لم يتم استلام جلسة Teams. سيتم فتح خيارات الدخول الأخرى.');
+                        return;
+                    }
+
+                    var requestController = new AbortController();
+                    var response = await withTimeout(
+                        fetch('../auth/teams_token_handler.php', {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify({ token: token }),
+                            signal: requestController.signal
+                        }),
+                        automaticLoginTimeoutMs,
+                        function () { requestController.abort(); }
+                    );
+                    var data = await response.json();
+                    if (!response.ok || !data.success || !data.redirectUrl) {
+                        goToFallback(data.message || 'تعذر الدخول التلقائي. سيتم فتح خيارات الدخول الأخرى.');
+                        return;
+                    }
+
+                    completed = true;
+                    statusText.textContent = 'تم التحقق من الحساب. جاري فتح النظام…';
+                    window.location.replace(data.redirectUrl);
+                } catch (error) {
+                    goToFallback('تعذر إكمال الدخول التلقائي من Teams. سيتم فتح خيارات الدخول الأخرى.');
+                }
+            }
+
+            window.setTimeout(function () {
+                if (!completed) {
+                    fallbackLink.hidden = false;
+                }
+            }, 5000);
+
+            startAutomaticLogin();
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+.lesson-share-card {
+    margin: 1.25rem 0;
+    padding: 1.35rem;
+    border: 1px solid #a7f3d0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0fdf4, #ecfeff);
+    text-align: right;
+}
+
+.lesson-share-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-share-card__title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 0.35rem;
+    color: #065f46;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.lesson-share-card__title i {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: #10b981;
+    color: #fff;
+}
+
+.lesson-share-card__description,
+.lesson-share-card__status {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.lesson-share-card__actions,
+.lesson-share-card__link-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.lesson-share-card__link {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #a7f3d0;
+}
+
+.lesson-share-card__input {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    direction: ltr;
+    text-align: left;
+}
+
+.lesson-share-card__notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    color: #166534;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.lesson-share-card.is-loading {
+    opacity: 0.72;
+    pointer-events: none;
+}
+
+body.dark-mode .lesson-share-card {
+    border-color: #047857;
+    background: linear-gradient(135deg, #052e2b, #082f49);
+}
+
+body.dark-mode .lesson-share-card__title,
+body.dark-mode .lesson-share-card__notice {
+    color: #a7f3d0;
+}
+
+body.dark-mode .lesson-share-card__description,
+body.dark-mode .lesson-share-card__status {
+    color: #cbd5e1;
+}
+
+@media (max-width: 575.98px) {
+    .lesson-share-card__header {
+        flex-direction: column;
+    }
+
+    .lesson-share-card__actions,
+    .lesson-share-card__link-actions {
+        width: 100%;
+    }
+
+    .lesson-share-card__actions .btn,
+    .lesson-share-card__link-actions .btn,
+    .lesson-share-card__link-actions a {
+        flex: 1 1 140px;
+    }
+}

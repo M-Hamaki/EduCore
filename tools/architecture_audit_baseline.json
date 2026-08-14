@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "generated_from": "reviewed architecture remediation on 2026-07-13; true mutations are protected and narrowly reviewed non-CSRF flows are governed by architecture_csrf_exemptions.json",
+  "scan_strategy": "root_recursive_with_explicit_exclusions",
+  "large_file_threshold": 2000,
+  "policy": "Existing debt is reported; strict mode fails when a new file enters one of these sets, an internal directory loses protection, a scanned PHP file is unreadable, or the baseline is unavailable or invalid.",
+  "large_php_files": [],
+  "runtime_ddl_files": [],
+  "post_without_explicit_csrf_candidates": []
+}

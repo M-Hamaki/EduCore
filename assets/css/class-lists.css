@@ -1,0 +1,131 @@
+/* Custom lists chevron rotation */
+.custom-list-card .toggle-icon {
+    transition: transform 0.2s ease;
+}
+.custom-list-card [aria-expanded="false"] .toggle-icon {
+    transform: rotate(-90deg);
+}
+/* Stat Cards */
+/* Clickable class row */
+.class-row { cursor: pointer; transition: background 0.15s; }
+.class-row:hover { background-color: rgba(13, 110, 253, 0.06) !important; }
+
+html body table.admin-data-table > tbody > tr.highlight-transferred-row > td,
+html body table.admin-data-table > tbody > tr.highlight-transferred-row > th,
+html body .table-striped > tbody > tr.highlight-transferred-row > td,
+html body .table-striped > tbody > tr.highlight-transferred-row > th {
+    background-color: #fef9c3 !important; /* Soft premium pastel yellow */
+    box-shadow: inset 0 0 0 9999px #fef9c3 !important;
+}
+.highlight-transferred-row {
+    border-right: 4px solid #eab308 !important; /* Premium gold border */
+}
+
+/* Premium Card Padding overrides to prevent global table-responsive padding resets */
+html body .admin-card-surface {
+    border-radius: 16px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+}
+html body .admin-card-surface .card-header,
+html body .card.admin-card-surface:has(.d-flex) .card-header,
+html body .card.admin-card-surface:has(form) .card-header {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 1.25rem 1.5rem !important;
+}
+html body .admin-card-surface .card-body,
+html body .card.admin-card-surface:has(.table-responsive) .card-body {
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+}
+
+/* Selection floating bar */
+.selection-bar {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(13, 110, 253, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1050;
+    transition: bottom 0.3s ease;
+    font-size: 0.9rem;
+}
+.selection-bar.visible { bottom: 24px; }
+.selection-bar .sel-count { font-weight: 600; }
+
+.custom-list-card > .card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    background: #fff;
+}
+
+.custom-list-toggle {
+    cursor: pointer;
+}
+
+@media print {
+    .no-print { display: none !important; }
+    .selection-bar { display: none !important; }
+    #classListsContainer { display: none !important; }
+    @page { size: A4 portrait; margin: 10mm; }
+    body { direction: rtl; font-size: 14px; }
+
+    /* Hide Bootstrap tooltips that float on body */
+    .tooltip, .bs-tooltip-auto, .bs-tooltip-top, .bs-tooltip-bottom,
+    .bs-tooltip-start, .bs-tooltip-end { display: none !important; }
+
+    /* ===== Summary print mode ===== */
+    body.print-summary .admin-top-header,
+    body.print-summary .admin-sidebar,
+    body.print-summary .sidebar-overlay,
+    body.print-summary .stat-card,
+    body.print-summary .row-cols-2,
+    body.print-summary .border-bottom,
+    body.print-summary .btn-toolbar { display: none !important; }
+
+    body.print-summary { margin: 0 !important; padding: 0 !important; }
+    body.print-summary .main-content { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    body.print-summary .main-content .container-fluid { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+
+    body.print-summary .print-summary-header {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    body.print-summary .print-summary-footer {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        page-break-inside: avoid;
+    }
+
+    body.print-summary .card.shadow { border: none !important; box-shadow: none !important; }
+    body.print-summary .card-header.bg-primary {
+        background: #f0f0f0 !important; color: #000 !important;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+        padding: 8px 12px !important;
+    }
+    body.print-summary .card-header .no-print { display: none !important; }
+    body.print-summary #classSummaryTable { border: 1px solid #aaa; width: 100% !important; border-collapse: collapse; }
+    body.print-summary #classSummaryTable th { background: #f0f0f0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; border: 1px solid #aaa; padding: 6px 10px; font-size: 13px; font-weight: bold; text-align: center; }
+    body.print-summary #classSummaryTable td { border: 1px solid #aaa; padding: 6px 10px; font-size: 13px; }
+    body.print-summary #classSummaryTable tfoot { background: #e8e8e8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body.print-summary #classSummaryTable tfoot td { font-weight: bold; }
+    body.print-summary .no-print { display: none !important; }
+    body.print-summary .badge { border: 1px solid #999; padding: 2px 6px; font-size: 11px; }
+    body.print-summary #classSummaryTable thead th::before,
+    body.print-summary #classSummaryTable thead th::after { display: none !important; content: none !important; }
+}

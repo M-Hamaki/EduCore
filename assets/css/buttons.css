@@ -1,0 +1,1127 @@
+/* =====================================================
+   EduCore — Unified Button Design System (buttons.css)
+   Version: 1.0  |  Author: EduCore Team
+   =====================================================
+
+   ⚠️  قاعدة ذهبية: لا تضع أي تنسيق زر مباشرةً داخل ملفات CSS أخرى
+       أو داخل <style> في صفحات PHP.
+       جميع تعديلات الأزرار تتم هنا فقط.
+
+   📐 هرم الأزرار المعتمد:
+      1. .btn-primary      → الإجراء الرئيسي (حفظ / إضافة)
+      2. .btn-success      → تأكيد / تفعيل
+      3. .btn-danger       → حذف
+      4. .btn-warning      → تعطيل / تحذير
+      5. .btn-secondary    → إلغاء / رجوع
+      6. .btn-info         → معلومات / عرض
+      7. .btn-outline-*    → الإجراءات الثانوية غير التدميرية
+      8. .btn-light        → خلفية فاتحة داخل الكاردات الداكنة
+===================================================== */
+
+/* =====================================
+   § 0 — متغيرات الأزرار (CSS Custom Props)
+   ===================================== */
+:root {
+    /* أحجام */
+    --btn-border-radius: 0.5rem;
+    /* زوايا موحدة */
+    --btn-border-radius-sm: 0.375rem;
+    --btn-border-radius-lg: 0.625rem;
+
+    /* خط */
+    --btn-font-weight: 600;
+    --btn-font-size: 0.9rem;
+    --btn-font-size-sm: 0.8rem;
+    --btn-font-size-lg: 1rem;
+
+    /* padding */
+    --btn-padding-y: 0.5rem;
+    --btn-padding-x: 1.1rem;
+    --btn-padding-y-sm: 0.3rem;
+    --btn-padding-x-sm: 0.7rem;
+    --btn-padding-y-lg: 0.65rem;
+    --btn-padding-x-lg: 1.5rem;
+
+    /* انتقال */
+    --btn-transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ظل افتراضي */
+    --btn-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --btn-hover-lift: translateY(-2px);
+}
+
+/* Optional administrator preference: retain semantic colors with a restrained glass surface. */
+body.admin-page.button-style-glass .btn:not([class*="btn-outline-"]):not(.btn-link) {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04));
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+/* =====================================
+   § 1 — قاعدة جميع الأزرار (.btn)
+   ===================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-family: inherit;
+    font-weight: var(--btn-font-weight);
+    font-size: var(--btn-font-size);
+    line-height: 1.5;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    border-radius: var(--btn-border-radius);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--btn-transition);
+    box-shadow: var(--btn-box-shadow);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+/* Ripple effect (micro-animation) */
+.btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    transition: opacity 0.2s;
+    border-radius: inherit;
+}
+
+.btn:active::after {
+    opacity: 1;
+}
+
+/* =====================================
+   § 2 — أحجام الأزرار
+   ===================================== */
+.btn-sm {
+    font-size: var(--btn-font-size-sm);
+    padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+    border-radius: var(--btn-border-radius-sm);
+    gap: 0.3rem;
+}
+
+.btn-lg {
+    font-size: var(--btn-font-size-lg);
+    padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+    border-radius: var(--btn-border-radius-lg);
+    gap: 0.5rem;
+}
+
+/* زر أيقونة فقط (مربع) */
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.btn-icon.btn-sm {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+}
+
+.btn-icon.btn-lg {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+}
+
+/* =====================================
+   § 3 — ألوان الأزرار المملوءة (Solid)
+   ===================================== */
+
+/* Primary - الإجراء الرئيسي */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-color: #1d4ed8;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-color: #1e40af;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(29, 78, 216, 0.30);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(29, 78, 216, 0.20);
+}
+
+/* Success - تأكيد / تفعيل */
+.btn-success {
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    border-color: #15803d;
+    color: #fff;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background: linear-gradient(135deg, #16a34a, #166534);
+    border-color: #166534;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(21, 128, 61, 0.30);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+}
+
+/* Danger - حذف */
+.btn-danger {
+    background: linear-gradient(135deg, #f87171, #dc2626);
+    border-color: #dc2626;
+    color: #fff;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    border-color: #b91c1c;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.30);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+}
+
+/* Warning - تعطيل / تحذير */
+.btn-warning {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    border-color: #d97706;
+    color: #fff;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+    background: linear-gradient(135deg, #f59e0b, #b45309);
+    border-color: #b45309;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.30);
+}
+
+.btn-warning:active {
+    transform: translateY(0);
+}
+
+/* Secondary - إلغاء / رجوع */
+.btn-secondary {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    border-color: #64748b;
+    color: #fff;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: linear-gradient(135deg, #64748b, #475569);
+    border-color: #475569;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(100, 116, 139, 0.25);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Info - معلومات / عرض */
+.btn-info {
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    border-color: #0284c7;
+    color: #fff;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background: linear-gradient(135deg, #0ea5e9, #0369a1);
+    border-color: #0369a1;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.30);
+}
+
+.btn-info:active {
+    transform: translateY(0);
+}
+
+/* Light - داخل الكاردات الداكنة */
+.btn-light {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #1e293b;
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background: #fff;
+    color: #1e293b;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.btn-light:active {
+    transform: translateY(0);
+}
+
+/* Dark */
+.btn-dark {
+    background: linear-gradient(135deg, #334155, #0f172a);
+    border-color: #0f172a;
+    color: #fff;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    background: linear-gradient(135deg, #1e293b, #020617);
+    border-color: #020617;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* =====================================
+   § 4 — أزرار الحدود (Outline)
+   ===================================== */
+.btn-outline-primary {
+    background: transparent;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.30);
+}
+
+.btn-outline-primary:active {
+    transform: translateY(0);
+}
+
+.btn-outline-success {
+    background: transparent;
+    border-color: #22c55e;
+    color: #16a34a;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.30);
+}
+
+.btn-outline-success:active {
+    transform: translateY(0);
+}
+
+.btn-outline-danger {
+    background: transparent;
+    border-color: #f87171;
+    color: #dc2626;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.30);
+}
+
+.btn-outline-danger:active {
+    transform: translateY(0);
+}
+
+.btn-outline-warning {
+    background: transparent;
+    border-color: #fbbf24;
+    color: #d97706;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:focus {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.30);
+}
+
+.btn-outline-warning:active {
+    transform: translateY(0);
+}
+
+.btn-outline-secondary {
+    background: transparent;
+    border-color: #94a3b8;
+    color: #64748b;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+    background: #64748b;
+    border-color: #64748b;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(100, 116, 139, 0.25);
+}
+
+.btn-outline-secondary:active {
+    transform: translateY(0);
+}
+
+.btn-outline-info {
+    background: transparent;
+    border-color: #38bdf8;
+    color: #0284c7;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.30);
+}
+
+.btn-outline-info:active {
+    transform: translateY(0);
+}
+
+.btn-outline-light {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: var(--btn-hover-lift);
+}
+
+.btn-outline-light:active {
+    transform: translateY(0);
+}
+
+.btn-outline-dark {
+    background: transparent;
+    border-color: #334155;
+    color: #1e293b;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus {
+    background: #334155;
+    border-color: #334155;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+}
+
+.btn-outline-dark:active {
+    transform: translateY(0);
+}
+
+/* =====================================
+   § 5 — حالة التعطيل
+   ===================================== */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.52;
+    pointer-events: none;
+    box-shadow: none;
+    transform: none !important;
+}
+
+/* =====================================
+   § 6 — مجموعات الأزرار (Button Groups)
+   ===================================== */
+.btn-group>.btn {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.btn-group>.btn:first-child {
+    border-radius: var(--btn-border-radius) 0 0 var(--btn-border-radius);
+}
+
+.btn-group>.btn:last-child {
+    border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+}
+
+.btn-group>.btn:only-child {
+    border-radius: var(--btn-border-radius);
+}
+
+/* RTL support */
+[dir="rtl"] .btn-group>.btn:first-child {
+    border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+}
+
+[dir="rtl"] .btn-group>.btn:last-child {
+    border-radius: var(--btn-border-radius) 0 0 var(--btn-border-radius);
+}
+
+/* =====================================
+   § 7 — زر الإجراء العائم (FAB)
+   ===================================== */
+.btn-fab {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.42);
+    z-index: 1060;
+    transition: var(--btn-transition);
+    cursor: pointer;
+}
+
+.btn-fab:hover {
+    transform: scale(1.1) rotate(45deg);
+    box-shadow: 0 14px 32px rgba(99, 102, 241, 0.55);
+    color: #fff;
+}
+
+.btn-fab:active {
+    transform: scale(0.95);
+}
+
+/* Layout view toggle buttons & Admin filter action buttons (Matching Filter Bar Controls Size) */
+.btn-layout-toggle,
+.admin-filter-actions .btn,
+.admin-filter-actions .btn-light,
+.admin-filter-actions .btn-sm {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.25rem 0.65rem !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    min-height: 31px !important;
+    height: 31px !important;
+    line-height: 1 !important;
+    border: 1px solid #bfd0e4 !important;
+    border-radius: 6px !important;
+    background-color: #ffffff;
+    color: #475569;
+    transition: all 0.2s ease;
+    gap: 5px;
+    box-shadow: none;
+}
+.btn-layout-toggle:hover,
+.admin-filter-actions .btn-light:hover,
+.admin-filter-actions .btn:hover {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+    border-color: #94a3b8 !important;
+}
+.btn-layout-toggle.active {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* =====================================
+   § 8 — أزرار الجداول (table actions)
+   ===================================== */
+.table .btn-sm,
+td .btn-sm {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.78rem;
+    border-radius: 0.4rem;
+    box-shadow: none;
+}
+
+.table .btn-sm:hover,
+td .btn-sm:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-action-pills,
+.table .actions-column .btn-action-pills {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-action-pills.btn-edit,
+.table .actions-column .btn-action-pills.btn-edit {
+    background-color: rgba(2, 132, 199, 0.08);
+    color: #0284c7;
+}
+
+.btn-action-pills.btn-deactivate,
+.table .actions-column .btn-action-pills.btn-deactivate {
+    background-color: rgba(217, 119, 6, 0.08);
+    color: #d97706;
+}
+
+/* استثناء مخصص لجدول حسابات الطلاب والعاملين: زر التعطيل أحمر */
+#studentsAccountsTable .btn-action-pills.btn-deactivate,
+#staffAccountsTable .btn-action-pills.btn-deactivate {
+    background-color: rgba(239, 68, 68, 0.08);
+    color: #ef4444;
+}
+
+.btn-action-pills.btn-activate,
+.table .actions-column .btn-action-pills.btn-activate {
+    background-color: rgba(16, 185, 129, 0.08);
+    color: #10b981;
+}
+
+.btn-action-pills.btn-delete,
+.table .actions-column .btn-action-pills.btn-delete {
+    background-color: rgba(239, 68, 68, 0.08);
+    color: #ef4444;
+}
+
+.btn-action-pills.btn-services,
+.table .actions-column .btn-action-pills.btn-services {
+    background-color: rgba(13, 148, 136, 0.08);
+    color: #0d9488;
+}
+
+.btn-action-pills.btn-grades,
+.table .actions-column .btn-action-pills.btn-grades {
+    background-color: rgba(139, 92, 246, 0.08);
+    color: #8b5cf6;
+}
+
+.btn-action-pills.btn-view,
+.table .actions-column .btn-action-pills.btn-view {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: #475569;
+}
+
+.btn-action-pills.btn-edit:hover,
+.table .actions-column .btn-action-pills.btn-edit:hover {
+    background-color: #0284c7;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.btn-action-pills.btn-deactivate:hover,
+.table .actions-column .btn-action-pills.btn-deactivate:hover {
+    background-color: #d97706;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+}
+
+#studentsAccountsTable .btn-action-pills.btn-deactivate:hover,
+#staffAccountsTable .btn-action-pills.btn-deactivate:hover {
+    background-color: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.btn-action-pills.btn-activate:hover,
+.table .actions-column .btn-action-pills.btn-activate:hover {
+    background-color: #10b981;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.btn-action-pills.btn-delete:hover,
+.table .actions-column .btn-action-pills.btn-delete:hover {
+    background-color: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.btn-action-pills.btn-services:hover,
+.table .actions-column .btn-action-pills.btn-services:hover {
+    background-color: #0d9488;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+}
+
+.btn-action-pills.btn-grades:hover,
+.table .actions-column .btn-action-pills.btn-grades:hover {
+    background-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+.btn-action-pills.btn-view:hover,
+.table .actions-column .btn-action-pills.btn-view:hover {
+    background-color: #475569;
+    box-shadow: 0 4px 12px rgba(71, 85, 105, 0.25);
+}
+
+.btn-action-pills:hover,
+.table .actions-column .btn-action-pills:hover {
+    color: #fff;
+    transform: scale(1.12);
+}
+
+.btn-action-pills.btn-services.is-customized,
+.table .actions-column .btn-action-pills.btn-services.is-customized {
+    background-color: rgba(14, 165, 233, 0.14);
+    color: #0284c7;
+}
+
+/* =====================================
+   § 9 — أزرار الـ Modal الفوتر
+   ===================================== */
+.modal-footer .btn {
+    min-width: 100px;
+}
+
+/* Profile-level destructive action outside data tables. */
+.btn-profile-danger {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.16);
+}
+
+.btn-profile-danger:hover,
+.btn-profile-danger:focus {
+    background-color: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.2);
+}
+
+/* Class list controls. Page-specific button ownership remains centralized here. */
+.filter-dropdown-btn {
+    min-width: 140px;
+    height: 31px;
+    justify-content: space-between;
+    background: #fff;
+    border-color: #dee2e6;
+    color: #495057;
+}
+
+.bulk-transfer-btn {
+    height: 30px;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0 14px;
+    border: 1px solid rgba(13, 110, 253, 0.25);
+    border-radius: 20px;
+    background-color: rgba(13, 110, 253, 0.08);
+    color: #0d6efd;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.bulk-transfer-btn:hover,
+.bulk-transfer-btn:focus-visible {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.selection-bar-action {
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.class-lists-ack-btn {
+    height: 38px;
+    gap: 0.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.custom-list-action-btn {
+    height: 30px;
+    gap: 0.25rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Global Print Soft Button styling */
+.btn-print-soft {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1.5px solid #94a3b8 !important;
+    box-shadow: 0 2px 6px rgba(71, 85, 105, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.btn-print-soft:hover {
+    background-color: #475569 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(71, 85, 105, 0.25) !important;
+}
+
+/* Global PDF Soft Button styling */
+.btn-pdf-soft {
+    background-color: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: 1.5px solid #fca5a5 !important;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.btn-pdf-soft:hover {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Global Export Soft Button styling */
+.btn-export-soft {
+    background-color: #e2f1e9 !important;
+    color: #134e4a !important;
+    border: 1.5px solid #86efac !important;
+    box-shadow: 0 2px 6px rgba(19, 78, 74, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.btn-export-soft:hover {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+    border-color: #059669 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(5, 150, 105, 0.25) !important;
+}
+
+/* Global Warning / Amber Soft Button styling */
+.btn-warning-soft {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    border: 1.5px solid #fcd34d !important;
+    box-shadow: 0 2px 6px rgba(146, 64, 14, 0.04) !important;
+    transition: all 0.22s ease-in-out !important;
+}
+
+.btn-warning-soft:hover {
+    background-color: #d97706 !important;
+    color: #ffffff !important;
+    border-color: #d97706 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(217, 119, 6, 0.25) !important;
+}
+
+.modal-footer .btn+.btn {
+    margin-right: 0.5rem;
+}
+
+/* Cancel/close controls follow the approved UI preview, regardless of legacy classes. */
+.modal-footer .btn[data-bs-dismiss] {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    border-color: #64748b;
+    color: #fff;
+}
+
+.modal-footer .btn[data-bs-dismiss]:hover,
+.modal-footer .btn[data-bs-dismiss]:focus {
+    background: linear-gradient(135deg, #64748b, #475569);
+    border-color: #475569;
+    color: #fff;
+    transform: var(--btn-hover-lift);
+    box-shadow: 0 6px 18px rgba(100, 116, 139, 0.25);
+}
+
+.modal-footer .btn[data-bs-dismiss]:active {
+    transform: translateY(0);
+}
+
+/* =====================================
+   § 10 — أزرار خاصة بالنظام (HR tabs)
+   ===================================== */
+.hr-tab-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    color: #0f172a;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.35);
+    transition: var(--btn-transition);
+    cursor: pointer;
+}
+
+.hr-tab-button:hover {
+    background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+    transform: var(--btn-hover-lift);
+}
+
+.hr-tab-button.active {
+    background: linear-gradient(135deg, #1d4ed8, #0f766e);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(29, 78, 216, 0.22);
+}
+
+/* =====================================
+   § 11 — تجاوب الموبايل
+   ===================================== */
+@media (max-width: 576px) {
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.42rem 0.9rem;
+    }
+
+    .btn-sm {
+        font-size: var(--btn-font-size-sm);
+        padding: 0.25rem 0.55rem;
+    }
+
+    .btn-lg {
+        font-size: 0.95rem;
+        padding: 0.55rem 1.2rem;
+    }
+
+    /* أزرار كاملة العرض على الموبايل داخل بطاقات */
+    .card-footer .btn,
+    .modal-footer .btn {
+        flex: 1;
+        min-width: auto;
+    }
+}
+
+/* =====================================
+   § 12 — Dark Mode (body.dark-mode)
+   ===================================== */
+body.dark-mode .btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-color: #1d4ed8;
+}
+
+body.dark-mode .btn-success {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    border-color: #15803d;
+}
+
+body.dark-mode .btn-danger {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    border-color: #b91c1c;
+}
+
+body.dark-mode .btn-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-color: #d97706;
+    color: #fff;
+}
+
+body.dark-mode .btn-secondary {
+    background: linear-gradient(135deg, #475569, #334155);
+    border-color: #334155;
+}
+
+body.dark-mode .btn-outline-primary {
+    color: #93c5fd;
+    border-color: #93c5fd;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background: rgba(96, 165, 250, 0.18);
+    color: #bfdbfe;
+}
+
+body.dark-mode .btn-outline-success {
+    color: #86efac;
+    border-color: #86efac;
+}
+
+body.dark-mode .btn-outline-success:hover {
+    background: rgba(134, 239, 172, 0.15);
+    color: #bbf7d0;
+}
+
+body.dark-mode .btn-outline-danger {
+    color: #fca5a5;
+    border-color: #fca5a5;
+}
+
+body.dark-mode .btn-outline-danger:hover {
+    background: rgba(252, 165, 165, 0.15);
+    color: #fecaca;
+}
+
+body.dark-mode .btn-outline-warning {
+    color: #fbbf24;
+    border-color: #fbbf24;
+}
+
+body.dark-mode .btn-outline-warning:hover {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fde68a;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #94a3b8;
+    border-color: #475569;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background: rgba(148, 163, 184, 0.15);
+    color: #cbd5e1;
+}
+
+body.dark-mode .btn-light {
+    background: rgba(30, 41, 59, 0.8);
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* =====================================
+   § 13 — زر تبديل الوضع الداكن/الفاتح (.theme-toggle)
+   ===================================== */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none !important;
+    background: #ffffff !important;
+    color: #667eea !important;
+    font-size: 1.3rem !important;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    color: #4f46e5 !important;
+}
+
+body.dark-mode .theme-toggle,
+body.app-dark-mode .theme-toggle {
+    background: #334155 !important;
+    color: #fbbf24 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .theme-toggle:hover,
+body.app-dark-mode .theme-toggle:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    color: #f59e0b !important;
+}
+
+/* Assessment marks spreadsheet controls. */
+.assessment-subject-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 42px;
+    padding: 0.45rem 0.9rem;
+    color: #475569;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+.assessment-subject-tab:hover {
+    background: #f1f5f9;
+    color: #1d4ed8;
+}
+
+.assessment-subject-tab:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.assessment-subject-tab.active {
+    background: #eaf2ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+    box-shadow: inset 0 -3px 0 #2563eb;
+}
+
+.assessment-subject-tab small {
+    color: #64748b;
+    font-size: 0.72rem;
+}
+
+.assessment-sheet-cell-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 43px;
+    padding: 0.25rem;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.assessment-sheet-cell-control:not(:disabled) {
+    cursor: cell;
+}
+
+.assessment-sheet-cell-control:not(:disabled):hover,
+.assessment-sheet-cell-control:not(:disabled):focus-visible {
+    background: rgba(37, 99, 235, 0.11);
+    box-shadow: inset 0 0 0 2px #2563eb;
+    outline: 0;
+}
+
+.assessment-sheet-cell-control:disabled {
+    cursor: not-allowed;
+    opacity: 0.68;
+}

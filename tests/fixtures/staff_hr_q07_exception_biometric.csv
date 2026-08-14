@@ -1,0 +1,4 @@
+biometric_identity,log_datetime,log_type,device_id
+DEMO-BIO-0008,2026-08-20 07:31:00,in,2099
+DEMO-BIO-0008,2026-08-20 07:31:00,in,2099
+Q07-UNMATCHED-IDENTITY,2026-08-20 08:05:00,unknown,2099

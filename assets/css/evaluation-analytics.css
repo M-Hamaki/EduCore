@@ -1,0 +1,203 @@
+/* Enhanced card effects for gradient cards - مصغرة */
+.card[style*="linear-gradient"] {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    position: relative !important;
+    border-radius: 12px !important;
+    min-height: 120px !important;
+}
+
+.card[style*="linear-gradient"]:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.card[style*="linear-gradient"]:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.16),
+        0 6px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175) !important;
+}
+
+/* النصوص محسنة للبطاقات المصغرة */
+.card[style*="linear-gradient"] {
+    color: white !important;
+}
+
+.card[style*="linear-gradient"] .card-title,
+.card[style*="linear-gradient"] h4,
+.card[style*="linear-gradient"] h6,
+.card[style*="linear-gradient"] small,
+.card[style*="linear-gradient"] i {
+    color: white !important;
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.4),
+        0 1px 1px rgba(0,0,0,0.6) !important;
+    filter: contrast(1.1) brightness(1.05) !important;
+}
+
+/* تحسين الأيقونات للبطاقات المصغرة */
+.card[style*="linear-gradient"] i.fa-2x {
+    font-size: 1.8rem !important;
+}
+
+.card[style*="linear-gradient"]:hover i {
+    transform: scale(1.1) rotate(3deg) !important;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3)) !important;
+}
+
+/* تحسين البطاقات البيضاء */
+.bg-white.card, .card:not([style*="linear-gradient"]) {
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        0 2px 6px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(3px) !important;
+    position: relative !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.9)) !important;
+}
+
+.bg-white.card:hover, .card:not([style*="linear-gradient"]):hover {
+    transform: translateY(-3px) scale(1.005) !important;
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 0 0 1px rgba(74, 144, 226, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175) !important;
+    border: 1px solid rgba(74, 144, 226, 0.2) !important;
+}
+
+/* تحسين padding للبطاقات المصغرة */
+.card .card-body.py-3 {
+    padding: 0.75rem 1rem !important;
+}
+
+/* تحسين responsive للشاشات الصغيرة */
+@media (max-width: 576px) {
+    .card[style*="linear-gradient"] {
+        min-height: 100px !important;
+    }
+
+    .card[style*="linear-gradient"] i.fa-2x {
+        font-size: 1.5rem !important;
+    }
+
+    .card[style*="linear-gradient"] h4 {
+        font-size: 1.3rem !important;
+    }
+
+    .card[style*="linear-gradient"] h6 {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* تحسينات الـ Accordion */
+.accordion-item {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05) !important;
+}
+
+.accordion-button {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border: none !important;
+    padding: 1.25rem 1.5rem !important;
+    font-weight: 600 !important;
+    color: #495057 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.3) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0,123,255,0.25) !important;
+    border-color: transparent !important;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23495057'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    transition: transform 0.3s ease !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    transform: rotate(-180deg) !important;
+}
+
+.accordion-body {
+    padding: 1.5rem !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+}
+
+.accordion-collapse {
+    border-top: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+/* تحسين الجداول */
+.table th {
+    background-color: rgba(0,0,0,0.03) !important;
+    border-bottom: 2px solid rgba(0,0,0,0.1) !important;
+    font-weight: 600 !important;
+}
+
+
+/* تحسين البادجات */
+.badge {
+    font-size: 0.75rem !important;
+    padding: 0.35em 0.6em !important;
+}
+
+/* تحسين البرگرس بار */
+.progress {
+    background-color: rgba(0,0,0,0.1) !important;
+    border-radius: 6px !important;
+}
+
+.progress-bar {
+    border-radius: 6px !important;
+}
+
+/* تأثيرات hover للعناصر التفاعلية */
+.list-group-item:hover {
+    background-color: rgba(0,123,255,0.03) !important;
+    transform: translateX(3px) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* تحسين أزرار الـ accordion */
+.accordion-button:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%) !important;
+    transform: translateY(-1px) !important;
+}
+
+.accordion-button:not(.collapsed):hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%) !important;
+}

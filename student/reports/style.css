@@ -1,0 +1,1178 @@
+:root {
+    /* Light Mode Colors */
+    --background-light: #fafafa;
+    --text-light: #171717;
+    --primary-light: #007ee5;
+    --secondary-light: #40c4ff;
+    --container-bg-light: #ffffff;
+    --error-bg-light: #fff1f0;
+    --error-text-light: #d81b60;
+    --input-bg-light: #f5f5f5;
+    --input-border-light: #e0e0e0;
+    --table-bg-light: #ffffff;
+    --table-row-odd-light: #fafafa;
+    --table-row-even-light: #f5f5f5;
+    --table-hover-light: #fce4e4;
+    --table-hover-strong-light: #f8bcbc;
+
+    /* Dark Mode Colors */
+    --background-dark: #0d1117;
+    --text-dark: #e6edf3;
+    --primary-dark: #1e88e5;
+    --secondary-dark: #42a5f5;
+    --container-bg-dark: #161b22;
+    --error-bg-dark: #cf222e;
+    --error-text-dark: #ffffff;
+    --input-bg-dark: #21262d;
+    --input-border-dark: #30363d;
+    --table-bg-dark: #161b22;
+    --table-row-odd-dark: #21262d;
+    --table-row-even-dark: #161b22;
+    --table-hover-dark: #30363d;
+    --table-hover-strong-dark: #39414a;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    direction: rtl;
+    position: relative;
+    overflow-x: hidden;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body:lang(en) {
+    direction: ltr;
+    text-align: left;
+}
+
+body:not(.dark-mode) {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: var(--primary-light);
+    font-weight: bold;
+}
+
+.month {
+    position: relative;
+    padding-right: 30px;
+}
+
+.month::before {
+    content: "\f073";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-light);
+    font-size: 18px;
+}
+
+body.dark-mode .month::before {
+    color: var(--primary-dark);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.logo-container img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform, box-shadow;
+}
+
+.logo-container img:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.error-message {
+    background-color: var(--error-bg-light);
+    color: var(--error-text-light);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+    max-width: 350px;
+    margin: 40px auto;
+    background: var(--container-bg-light);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.grades-container {
+    margin: 40px auto;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+select {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: var(--input-bg-light);
+    color: var(--text-light);
+    border: 1px solid var(--input-border-light);
+    border-radius: 8px;
+    width: 100%;
+    text-align-last: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+select:hover {
+    background-color: #bee3f8;
+    border-color: var(--primary-light);
+}
+
+select option {
+    background-color: var(--container-bg-light);
+    color: var(--text-light);
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+select:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+    border-color: var(--primary-light);
+    background-color: var(--input-bg-light);
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stage-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Tajawal', sans-serif;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary-light);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: auto !important;
+    /* إزالة العرض الثابت بأولوية عالية */
+    text-decoration: none;
+    /* إزالة التسطير من النص */
+}
+
+.stage-btn::before {
+    content: none;
+}
+
+.stage-btn:hover {
+    background-color: var(--secondary-light);
+    transform: scale(1.05);
+}
+
+.stage-btn:active {
+    transform: scale(0.95);
+}
+
+
+form {
+    font-family: 'Tajawal', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+body:lang(en) label {
+    text-align: left;
+}
+
+/* تنسيق الحقول بشكل عام */
+.form-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 8px;
+    background: var(--input-bg-light);
+    color: var(--text-light);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    height: 40px;
+    /* ارتفاع ثابت لضمان التناسق */
+    line-height: 20px;
+    /* تحسين محاذاة النص عموديًا */
+}
+
+.form-input:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+    border-color: var(--primary-light);
+}
+
+button[type="submit"] {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: bold;
+    background: var(--primary-light);
+    background: linear-gradient(to right, var(--primary-light), var(--secondary-light));
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 60%;
+    margin-top: 10px;
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button[type="submit"]::before {
+    content: none;
+}
+
+button[type="submit"]:hover {
+    background: var(--secondary-light);
+    background: linear-gradient(to right, var(--secondary-light), #2b6cb0);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: bold;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #fafafa;
+    pointer-events: none;
+}
+
+body.dark-mode #particles-js {
+    background: #0d1117;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 10px;
+}
+
+table {
+    width: 60%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-radius: 12px;
+    background-color: var(--table-bg-light);
+    overflow: hidden;
+}
+
+th,
+td {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+th {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--primary-light);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.highlight-red {
+    background-color: #ffcccc;
+    color: #d32f2f;
+}
+
+.student-info-table {
+    width: 40%;
+    max-width: 400px;
+    font-size: 24px;
+}
+
+table tr:not(:first-child):nth-child(odd) td {
+    background-color: var(--table-row-odd-light);
+}
+
+table tr:not(:first-child):nth-child(even) td {
+    background-color: var(--table-row-even-light);
+}
+
+.grades-table tr:hover td:not(:first-child) {
+    background-color: var(--table-hover-light);
+}
+
+.grades-table td:not(:first-child):hover {
+    background-color: var(--table-hover-strong-light) !important;
+}
+
+.grades-table tr:hover td {
+    background-color: var(--table-hover-light) !important;
+}
+
+.grades-table td:hover {
+    background-color: var(--table-hover-strong-light) !important;
+}
+
+th:first-child,
+td:first-child {
+    width: max-content;
+    white-space: nowrap;
+    padding: 10px 20px;
+}
+
+.grades-table tr:nth-child(even) td:first-child {
+    background-color: var(--secondary-light);
+    color: white;
+}
+
+.grades-table tr:nth-child(odd) td:first-child {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+/* تنسيق زر تسجيل الخروج في الوضع الفاتح */
+.stage-btn[name="logout"] {
+    background: linear-gradient(to right, #FF0000, #D32F2F);
+    /* لون أحمر فاتح إلى أحمر غامق أنيق */
+}
+
+/* تأثير الـ hover في الوضع الفاتح */
+.stage-btn[name="logout"]:hover {
+    background: linear-gradient(to right, #D32F2F, #B71C1C);
+    /* تدرج من أحمر متوسط إلى أحمر أغمق عند التمرير */
+}
+
+/* تنسيق زر تسجيل الخروج في الوضع الداكن */
+body.dark-mode .stage-btn[name="logout"] {
+    background: linear-gradient(to right, #D32F2F, #B71C1C);
+    /* تدرج أحمر يناسب الخلفية الداكنة */
+}
+
+/* تأثير الـ hover في الوضع الداكن */
+body.dark-mode .stage-btn[name="logout"]:hover {
+    background: linear-gradient(to right, #FF0000, #C62828);
+    /* تدرج أحمر أكثر إشراقًا عند التمرير */
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 1.3rem;
+    color: #667eea;
+}
+
+body.dark-mode .theme-toggle {
+    background: #334155;
+    color: #fbbf24;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode h2 {
+    color: var(--text-dark);
+}
+
+body.dark-mode .error-message {
+    background-color: var(--error-bg-dark);
+    color: var(--error-text-dark);
+}
+
+body.dark-mode .container {
+    background: var(--container-bg-dark);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode select {
+    background-color: #546e7a;
+    color: var(--text-dark);
+    border: 1px solid var(--input-border-dark);
+}
+
+body.dark-mode select:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--secondary-dark);
+}
+
+body.dark-mode select option {
+    background-color: var(--container-bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode select:focus {
+    outline: 2px solid var(--primary-dark);
+    border-color: var(--primary-dark);
+    background-color: #455a64;
+}
+
+body.dark-mode .stage-btn {
+    background-color: var(--primary-dark);
+}
+
+body.dark-mode .stage-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+body.dark-mode .form-input {
+    border: 1px solid var(--input-border-dark);
+    background: var(--input-bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .form-input:focus {
+    outline: 2px solid var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+body.dark-mode button[type="submit"] {
+    background: var(--primary-dark);
+    background: linear-gradient(to right, var(--primary-dark), var(--secondary-dark));
+}
+
+body.dark-mode button[type="submit"]:hover {
+    background: var(--secondary-dark);
+    background: linear-gradient(to right, var(--secondary-dark), #00838f);
+}
+
+body.dark-mode button[type="submit"]:focus {
+    outline: 2px solid var(--primary-dark);
+}
+
+body.dark-mode button:disabled {
+    background-color: #b0bec5;
+}
+
+body.dark-mode table {
+    background-color: var(--table-bg-dark);
+}
+
+body.dark-mode th {
+    background-color: var(--primary-dark);
+}
+
+body.dark-mode table tr:not(:first-child):nth-child(odd) td {
+    background-color: var(--table-row-odd-dark);
+}
+
+body.dark-mode table tr:not(:first-child):nth-child(even) td {
+    background-color: var(--table-row-even-dark);
+}
+
+body.dark-mode .grades-table tr:hover td:not(:first-child) {
+    background-color: var(--table-hover-dark);
+}
+
+body.dark-mode .grades-table td:not(:first-child):hover {
+    background-color: var(--table-hover-strong-dark) !important;
+}
+
+body.dark-mode .grades-table tr:hover td {
+    background-color: var(--table-hover-dark) !important;
+}
+
+body.dark-mode .grades-table td:hover {
+    background-color: var(--table-hover-strong-dark) !important;
+}
+
+body.dark-mode .grades-table tr:nth-child(even) td:first-child {
+    background-color: #00838f;
+}
+
+body.dark-mode .grades-table tr:nth-child(odd) td:first-child {
+    background-color: #00acc1;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body:not(.light-mode) {
+        background-color: var(--background-dark);
+        color: var(--text-dark);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container,
+    form {
+        max-width: 85vw;
+        width: 80%;
+    }
+
+    .grades-container {
+        max-width: 85vw;
+        width: 80%;
+        padding: 20px;
+        background: var(--container-bg-light);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+    }
+
+    body.dark-mode .grades-container {
+        background: var(--container-bg-dark);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    select {
+        font-size: 16px;
+        padding: 12px 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    th,
+    td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .stage-btn {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .print-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .form-input {
+        width: 85% !important;
+        /* تنطبق على حقل اسم المستخدم */
+        font-size: 14px;
+        /* تكبير حجم الخط قليلاً */
+    }
+
+    .password-wrapper {
+        width: 85% !important;
+        /* نفس العرض لحاوية كلمة المرور */
+        margin: 0 auto;
+    }
+
+    .password-input.form-input {
+        /* زيادة الأولوية باستخدام تحديد مزدوج */
+        width: 100% !important;
+        /* يضمن أن يأخذ العرض الكامل لـ .password-wrapper */
+        font-size: 14px;
+        /* تكبير حجم الخط قليلاً */
+    }
+
+    button[type="submit"] {
+        width: 80%;
+        /* أصغر قليلاً من الحقلين */
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .grades-container table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .student-info-table {
+        width: 80%;
+        max-width: none;
+        font-size: 18px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+
+    .scroll-note {
+        display: block;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .container {
+        max-width: 450px;
+    }
+
+    .grades-container {
+        width: 90%;
+        max-width: 1200px;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .grades-container .table-container {
+        width: 100%;
+    }
+
+    .grades-container table {
+        width: 100%;
+        max-width: none;
+        min-width: 800px;
+    }
+
+    .student-info-table {
+        width: 50%;
+        max-width: 600px;
+        font-size: 24px;
+    }
+
+    .stage-btn {
+        width: 300px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .logo-container img,
+    .stage-btn,
+    button[type="submit"],
+    .container,
+    .theme-toggle {
+        transition: none;
+        animation: none;
+    }
+
+    .logo-container img:hover,
+    .stage-btn:hover,
+    button[type="submit"]:hover,
+    .theme-toggle:hover {
+        transform: none;
+    }
+}
+
+@media print {
+    body {
+        background-color: white;
+        color: black;
+        font-size: 12pt;
+    }
+
+    .container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .stage-btn,
+    button[type="submit"],
+    .theme-toggle {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #000;
+    }
+}
+
+.scroll-note {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9em;
+    color: var(--text-light);
+    text-align: center;
+    margin: 10px 0;
+    font-weight: normal;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-note {
+        display: block;
+    }
+}
+
+body.dark-mode .scroll-note {
+    color: var(--text-dark);
+}
+
+/* تنسيق حقل كلمة المرور مع الأيقونة */
+.password-container {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 60%;
+    /* العرض الأساسي للشاشات الكبيرة */
+    margin: 0 auto;
+    /* توسيط الحقل */
+}
+
+.password-input {
+    width: 100%;
+    /* يأخذ عرض .password-wrapper بالكامل */
+    padding: 10px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 8px;
+    background: var(--input-bg-light);
+    color: var(--text-light);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 20px;
+}
+
+.password-input:focus {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 2px;
+    border-color: var(--primary-light);
+}
+
+.toggle-password {
+    position: absolute;
+    left: 10px;
+    /* تغيير من 95px إلى 10px لتثبيت الأيقونة على اليسار */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 18px;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .toggle-password {
+    color: var(--primary-dark);
+    /* تغيير اللون إلى أزرق مميز في الوضع الداكن */
+}
+
+body.dark-mode .password-input {
+    border: 1px solid var(--input-border-dark);
+    background: var(--input-bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .password-input:focus {
+    outline: 2px solid var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.toggle-password:hover {
+    color: var(--primary-light);
+}
+
+body.dark-mode .toggle-password:hover {
+    color: var(--secondary-dark);
+    /* لون أفتح عند التمرير في الوضع الداكن */
+}
+
+/* ===========================
+   Print Styles - أنماط الطباعة
+   =========================== */
+
+/* هيدر الطباعة - مخفي على الشاشة */
+.print-header {
+    display: none;
+}
+
+/* قواعد الطباعة */
+@media print {
+
+    /* إخفاء العناصر غير الضرورية */
+    .no-print,
+    .logo-container,
+    .title,
+    footer,
+    #particles-js,
+    .scroll-note,
+    .stage-btn,
+    form,
+    button:not(.print-btn),
+    .print-button-container {
+        display: none !important;
+    }
+
+    /* إظهار هيدر الطباعة - مضغوط جداً */
+    .print-header {
+        display: block;
+        text-align: center;
+        margin-bottom: 2px;
+        page-break-inside: avoid;
+    }
+
+    .print-logo img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 1px;
+    }
+
+    .print-school-name {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        margin: 1px 0;
+    }
+
+    .print-report-title {
+        font-size: 11px;
+        color: #666;
+        margin: 1px 0 2px 0;
+    }
+
+    /* تنسيق الصفحة - عرض كامل */
+    body {
+        background: white;
+        color: black;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    html {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .grades-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white;
+        box-shadow: none;
+    }
+
+    /* جدول معلومات الطالب - مضغوط جداً */
+    .student-info-table {
+        width: 50%;
+        max-width: 350px;
+        margin: 3px auto;
+        border-collapse: collapse;
+        page-break-inside: avoid;
+        background: white !important;
+    }
+
+    .student-info-table th,
+    .student-info-table td {
+        border: 1px solid #333 !important;
+        padding: 4px !important;
+        font-size: 11px !important;
+        color: black !important;
+        background: white !important;
+        text-align: center;
+    }
+
+    .student-info-table th {
+        background-color: #667eea !important;
+        color: white !important;
+        font-weight: bold;
+        font-size: 12px !important;
+    }
+
+    .student-info-table td {
+        font-weight: bold;
+        font-size: 11px !important;
+    }
+
+    /* عنوان الشهر - مضغوط جداً */
+    h2 {
+        color: black !important;
+        font-size: 12px !important;
+        margin: 2px 0 !important;
+        page-break-after: avoid;
+    }
+
+    .month {
+        color: black !important;
+    }
+
+    /* جدول الدرجات - عرض كامل 100% */
+    .table-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .grades-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        border-collapse: collapse;
+        page-break-inside: auto;
+        background: white !important;
+        /* table-layout: fixed لفرض استخدام العرض الكامل */
+        table-layout: fixed !important;
+    }
+
+    .grades-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .grades-table thead {
+        display: table-header-group;
+    }
+
+    /* جدول 100% عرض - الأعمدة موزعة بالتساوي */
+    .grades-table th,
+    .grades-table td {
+        border: 1px solid #333 !important;
+        padding: 3px 2px !important;
+        /* حجم خط أكبر مع العرض الكامل */
+        font-size: 10px !important;
+        color: black !important;
+        text-align: center;
+        line-height: 1.2 !important;
+        /* السماح بالتفاف النص */
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        vertical-align: middle;
+        /* العرض محسوب تلقائياً بالتساوي */
+        width: auto !important;
+    }
+
+    /* فرض طباعة الألوان في جميع المتصفحات */
+    .grades-table * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .grades-table th {
+        background-color: #cbd5e1 !important;
+        font-weight: bold;
+        color: black !important;
+        font-size: 9px !important;
+        padding: 3px 2px !important;
+        line-height: 1.15 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* عمود المادة - نسبة ثابتة من العرض */
+    .grades-table td:first-child,
+    .grades-table th:first-child {
+        width: 6% !important;
+        min-width: 50px !important;
+        font-size: 11px !important;
+        padding: 3px 3px !important;
+        font-weight: bold;
+        line-height: 1.2;
+        background-color: #e0e7ff !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* عمود الامتحان الأخير - تظليل خاص */
+    .grades-table td:last-child {
+        background-color: #fef3c7 !important;
+        color: black !important;
+        font-weight: bold;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .grades-table th:last-child {
+        background-color: #fcd34d !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* تلوين الصفوف بالتبادل - جميع الصفوف من 3 فما فوق */
+    /* الصفوف الفردية (3, 5, 7, 9, 11, ...) */
+    .grades-table tr:nth-child(odd):nth-child(n+3) td {
+        background-color: #e2e8f0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* الصفوف الزوجية (4, 6, 8, 10, 12, ...) */
+    .grades-table tr:nth-child(even):nth-child(n+3) td {
+        background-color: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* إعادة تطبيق ألوان العمود الأول والأخير بعد تلوين الصفوف */
+    .grades-table tr:nth-child(n+3) td:first-child {
+        background-color: #e0e7ff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .grades-table tr:nth-child(n+3) td:last-child {
+        background-color: #fef3c7 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* الأعمدة الأخرى - توزيع متساوي تلقائياً */
+    .grades-table th:not(:first-child),
+    .grades-table td:not(:first-child) {
+        /* العرض يُحسب تلقائياً بناءً على المحتوى */
+        width: auto !important;
+    }
+
+    /* فواصل الأسطر <br> تعمل بشكل طبيعي */
+    .grades-table th br,
+    .grades-table td br {
+        display: block !important;
+        line-height: 0.2 !important;
+    }
+
+    /* النصوص الصغيرة داخل العناوين */
+    .grades-table th small {
+        display: block;
+        font-size: 90% !important;
+        line-height: 1.1 !important;
+    }
+
+    /* تلوين الدرجات المنخفضة */
+    .highlight-red {
+        background-color: #ffebee !important;
+        color: #c62828 !important;
+        font-weight: bold;
+    }
+
+    /* إزالة التأثيرات */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* تحسين جودة الطباعة - هوامش صغيرة جداً لاستغلال المساحة */
+    @page {
+        margin: 0.3cm 0.3cm;
+        size: A4 landscape;
+    }
+}
