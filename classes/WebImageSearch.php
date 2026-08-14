@@ -906,67 +906,95 @@ class WebImageSearch {
     private function httpRequest($url, $headers = []) {
         $defaultHeaders = ['Accept: application/json'];
         $allHeaders = array_merge($defaultHeaders, $headers);
-        
+
         $context = stream_context_create([
             'http' => [
                 'method' => 'GET',
                 'timeout' => 15,
-                'header' => implode("\r\n", $allHeaders) . "\r\n"
+                'header' => implode("\r\n", $allHeaders) . "\r\n",
+                'follow_location' => 1,
+                'max_redirects' => 3
             ],
             'ssl' => [
-                'verify_peer' => false,
-                'verify_peer_name' => false
+                'verify_peer' => true,
+                'verify_peer_name' => true,
+                'allow_self_signed' => false
             ]
         ]);
-        
+
         $response = @file_get_contents($url, false, $context);
-        
+
         if ($response !== false) {
             return $response;
         }
-        
-        // محاولة بديلة باستخدام cURL
+
+        // محاولة بديلة باستخدام cURL مع إبقاء التحقق من TLS مفعلاً
         return $this->curlRequest($url, $headers);
     }
-    
+
     /**
-     * محاولة بديلة باستخدام cURL
+     * محاولة بديلة آمنة باستخدام cURL
      */
     private function curlRequest($url, $headers = []) {
         if (!function_exists('curl_init')) {
             $this->lastError = 'cURL غير متاح';
             return null;
         }
-        
+
         $defaultHeaders = ['Accept: application/json'];
         $allHeaders = array_merge($defaultHeaders, $headers);
-        
+
         $ch = curl_init();
         curl_setopt_array($ch, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 5,
             CURLOPT_TIMEOUT => 15,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_HTTPHEADER => $allHeaders,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_MAXREDIRS => 3
         ]);
-        
+
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $error = curl_error($ch);
+        $curlError = curl_error($ch);
+        $curlErrno = curl_errno($ch);
+
         curl_close($ch);
-        
-        if ($httpCode !== 200) {
-            $this->lastError = "HTTP Error: $httpCode" . ($error ? " - $error" : '');
-            error_log("WebImageSearch cURL error: HTTP $httpCode - $error - URL: " . substr($url, 0, 100));
+
+        if ($response === false || $curlErrno !== 0) {
+            $this->lastError = 'cURL Error: ' . $curlError;
+
+            $host = parse_url($url, PHP_URL_HOST) ?: 'unknown-host';
+            error_log(
+                'WebImageSearch cURL connection error for host '
+                . $host
+                . ': '
+                . $curlError
+            );
+
             return null;
         }
-        
+
+        if ($httpCode !== 200) {
+            $this->lastError = 'HTTP Error: ' . $httpCode;
+
+            $host = parse_url($url, PHP_URL_HOST) ?: 'unknown-host';
+            error_log(
+                'WebImageSearch API error: HTTP '
+                . $httpCode
+                . ' from '
+                . $host
+            );
+
+            return null;
+        }
+
         return $response;
     }
-    
+
     /**
      * الحصول على آخر خطأ
      */
