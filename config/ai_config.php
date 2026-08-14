@@ -19,7 +19,30 @@ $fallbackKeys = env('GEMINI_API_KEYS_FALLBACK', '');
 define('GEMINI_API_KEYS_FALLBACK', json_encode(
     $fallbackKeys ? array_map('trim', explode(',', $fallbackKeys)) : []
 ));
+// =====================================================
+// Gemini Safety Settings
+// =====================================================
+// سياسة أمان قابلة للضبط لكل بيئة.
+// القيمة الافتراضية مناسبة للاستخدام التعليمي:
+// تحجب المحتوى ذو احتمال الضرر المتوسط أو العالي.
 
+$geminiSafetyThreshold = strtoupper(trim((string) env(
+    'GEMINI_SAFETY_THRESHOLD',
+    'BLOCK_MEDIUM_AND_ABOVE'
+)));
+
+$allowedGeminiSafetyThresholds = [
+    'BLOCK_LOW_AND_ABOVE',
+    'BLOCK_MEDIUM_AND_ABOVE',
+    'BLOCK_ONLY_HIGH',
+    'BLOCK_NONE',
+];
+
+if (!in_array($geminiSafetyThreshold, $allowedGeminiSafetyThresholds, true)) {
+    $geminiSafetyThreshold = 'BLOCK_MEDIUM_AND_ABOVE';
+}
+
+define('GEMINI_SAFETY_THRESHOLD', $geminiSafetyThreshold);
 // النموذج الافتراضي (يُستخدم كـ fallback فقط؛ الطبقات الفعلية في GEMINI_TIER_MODELS أدناه).
 // gemini-3.1-flash-lite: GA stable، الجيل 3.x، متاح للمستخدمين الجدد (بديل 2.5-flash-lite الذي يُوقف أكتوبر 2026).
 // gemini-2.5-flash/2.5-flash-lite: ممنوعان للمستخدمين الجدد / مُتوقَّف إيقافهما قريباً — تجنّبهما.
