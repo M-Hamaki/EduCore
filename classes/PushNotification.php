@@ -47,9 +47,9 @@ class PushNotification {
             ],
         ];
         
-        $this->webPush = new WebPush($auth, [], 30, [
-            'verify' => false // للتطوير المحلي
-        ]);
+$this->webPush = new WebPush($auth, [], 30, [
+    'verify' => true
+]);
         $this->webPush->setAutomaticPadding(false);
     }
     
