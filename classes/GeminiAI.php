@@ -65,7 +65,38 @@ class GeminiAI {
     public function getLastResponseTime() {
         return $this->lastResponseTime;
     }
-    
+    /**
+ * الحصول على إعدادات أمان Gemini الموحدة.
+ *
+ * يتم تحديد مستوى الحظر من متغير البيئة
+ * GEMINI_SAFETY_THRESHOLD مع fallback آمن.
+ *
+ * @return array
+ */
+private function getSafetySettings(): array {
+    $threshold = defined('GEMINI_SAFETY_THRESHOLD')
+        ? GEMINI_SAFETY_THRESHOLD
+        : 'BLOCK_MEDIUM_AND_ABOVE';
+
+    return [
+        [
+            'category' => 'HARM_CATEGORY_HARASSMENT',
+            'threshold' => $threshold
+        ],
+        [
+            'category' => 'HARM_CATEGORY_HATE_SPEECH',
+            'threshold' => $threshold
+        ],
+        [
+            'category' => 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+            'threshold' => $threshold
+        ],
+        [
+            'category' => 'HARM_CATEGORY_DANGEROUS_CONTENT',
+            'threshold' => $threshold
+        ],
+    ];
+}
     /**
      * الحصول على عدد الرموز المستخدمة
      */
@@ -111,12 +142,7 @@ class GeminiAI {
                 'topK' => $options['topK'] ?? GEMINI_TOP_K,
                 'maxOutputTokens' => $options['maxTokens'] ?? GEMINI_MAX_TOKENS,
             ],
-            'safetySettings' => [
-                ['category' => 'HARM_CATEGORY_HARASSMENT', 'threshold' => 'BLOCK_NONE'],
-                ['category' => 'HARM_CATEGORY_HATE_SPEECH', 'threshold' => 'BLOCK_NONE'],
-                ['category' => 'HARM_CATEGORY_SEXUALLY_EXPLICIT', 'threshold' => 'BLOCK_NONE'],
-                ['category' => 'HARM_CATEGORY_DANGEROUS_CONTENT', 'threshold' => 'BLOCK_NONE'],
-            ]
+          'safetySettings' => $this->getSafetySettings()
         ];
         
         return $this->sendRequest($url, $data);
@@ -170,12 +196,13 @@ class GeminiAI {
                     ]
                 ]
             ],
-            'generationConfig' => [
-                'temperature' => GEMINI_TEMPERATURE,
-                'topP' => GEMINI_TOP_P,
-                'topK' => GEMINI_TOP_K,
-                'maxOutputTokens' => GEMINI_MAX_TOKENS,
-            ]
+'generationConfig' => [
+    'temperature' => GEMINI_TEMPERATURE,
+    'topP' => GEMINI_TOP_P,
+    'topK' => GEMINI_TOP_K,
+    'maxOutputTokens' => GEMINI_MAX_TOKENS,
+],
+'safetySettings' => $this->getSafetySettings()
         ];
         
         return $this->sendRequest($url, $data);
@@ -219,12 +246,13 @@ class GeminiAI {
                     ]
                 ]
             ],
-            'generationConfig' => [
-                'temperature' => GEMINI_TEMPERATURE,
-                'topP' => GEMINI_TOP_P,
-                'topK' => GEMINI_TOP_K,
-                'maxOutputTokens' => GEMINI_MAX_TOKENS,
-            ]
+'generationConfig' => [
+    'temperature' => GEMINI_TEMPERATURE,
+    'topP' => GEMINI_TOP_P,
+    'topK' => GEMINI_TOP_K,
+    'maxOutputTokens' => GEMINI_MAX_TOKENS,
+],
+'safetySettings' => $this->getSafetySettings()
         ];
         
         return $this->sendRequest($url, $data);
@@ -431,12 +459,13 @@ class GeminiAI {
             'contents' => [
                 ['parts' => $contentParts]
             ],
-            'generationConfig' => [
-                'temperature' => GEMINI_TEMPERATURE,
-                'topP' => GEMINI_TOP_P,
-                'topK' => GEMINI_TOP_K,
-                'maxOutputTokens' => GEMINI_MAX_TOKENS,
-            ]
+'generationConfig' => [
+    'temperature' => GEMINI_TEMPERATURE,
+    'topP' => GEMINI_TOP_P,
+    'topK' => GEMINI_TOP_K,
+    'maxOutputTokens' => GEMINI_MAX_TOKENS,
+],
+'safetySettings' => $this->getSafetySettings()
         ];
         
         return $this->sendRequest($url, $data);
